@@ -1,0 +1,459 @@
+================================================================================
+MUTUAL LEGAL ASSISTANCE & SUBPOENA PACKAGE
+Pig Butchering / Romance Scam — Blockchain Evidence
+Prepared: 2026-03-24
+================================================================================
+
+This package contains:
+  A. ICP Lookup Instructions (do yourself — CAPTCHA required)
+  B. MLAT Request — China (WeChat + ICP identity)
+  C. Canadian Production Order Request (RCMP — no MLAT needed)
+  D. Binance Law Enforcement Request (US subpoena)
+  E. GoDaddy Subpoena Template (US)
+  F. GlobeNewswire / Notified Subpoena Template (wire fraud angle)
+  G. FBI IC3 Submission Checklist
+
+================================================================================
+A. ICP LOOKUP — DO THIS YOURSELF (CAPTCHA REQUIRED)
+================================================================================
+
+The Chinese MIIT ICP database is publicly accessible but requires a visual
+CAPTCHA. This will reveal the company name (主办单位) and possibly the legal
+representative behind 沪ICP备13026899号-3.
+
+STEP 1: Go to: https://beian.miit.gov.cn/
+STEP 2: Click "备案信息查询" (Record Information Query) in the navigation
+STEP 3: In the search box, select "备案号" (Registration Number) as search type
+STEP 4: Enter: 13026899
+STEP 5: Complete the slider/image CAPTCHA
+STEP 6: Record the following fields from the result:
+  - 主办单位名称 (Organizer/Company name)
+  - 主办单位性质 (Entity type: enterprise/individual)
+  - 网站名称 (Website name)
+  - 域名 (Domain name)
+  - 备案/许可证号 (Full registration number with province prefix)
+
+ALTERNATIVE (easier CAPTCHA):
+  Go to: https://icp.chinaz.com/
+  Enter: 沪ICP备13026899号-3
+  Click search — may have simpler verification
+
+WHAT THIS WILL LIKELY SHOW:
+  The entity that registered this ICP number. Under Chinese law (互联网信息服务管理办法),
+  the registrant must provide their real company name and legal representative.
+  If registered as an individual (个人), the registrant's real name and ID are on file
+  with MIIT and the hosting provider.
+
+  NOTE: The public page shows company name + domain only. The full application
+  (including legal representative name, ID number, phone) is held by MIIT and
+  the hosting provider (Alibaba Cloud, Tencent Cloud, etc.) and requires
+  official law enforcement request to obtain.
+
+================================================================================
+B. MLAT REQUEST — CHINA
+   (WeChat account data + MIIT ICP full registration)
+================================================================================
+
+Route: US Department of Justice → Office of International Affairs (OIA)
+       → China Ministry of Justice → Tencent / MIIT
+Treaty: US-China Mutual Legal Assistance Agreement in Criminal Matters (1999)
+
+Contact OIA at: +1 (202) 514-0000
+                Criminal Division, Office of International Affairs
+                Department of Justice
+                950 Pennsylvania Avenue NW
+                Washington, DC 20530
+
+---------- DRAFT REQUEST LANGUAGE ----------
+
+TO: Office of International Affairs, US Department of Justice Criminal Division
+FROM: [Investigating Officer Name], [Agency], [Badge/ID]
+RE: Mutual Legal Assistance Request — People's Republic of China
+SUBJECT: Pig Butchering Cryptocurrency Fraud — International Criminal Network
+CASE NUMBER: [Your case number]
+DATE: [Date]
+
+REQUEST SUMMARY:
+We request mutual legal assistance from the Government of the People's Republic
+of China to obtain the following records relating to an ongoing criminal
+investigation into a pig butchering / romance scam operation that has defrauded
+victims of approximately $375 million USD in Bitcoin.
+
+TARGET ENTITIES AND REQUESTED RECORDS:
+
+1. TENCENT HOLDINGS LTD. / WECHAT (深圳市腾讯计算机系统有限公司)
+   Address: Tencent Building, Kejizhongyi Avenue, Hi-tech Park,
+            Nanshan District, Shenzhen, Guangdong 518057, PRC
+
+   WeChat accounts to be queried:
+     a. bmate601   — platform customer service account (confirmed banned)
+     b. bizzzan01  — second platform customer service account
+     c. 883le      — affiliated agent/operator account
+
+   Records requested for each account:
+     - Real-name verification data (实名认证): name, national ID number (身份证号)
+     - Phone number registered to account
+     - Registration IP address and date
+     - Login IP history (全部登录IP及时间)
+     - WeChat Pay transaction records
+     - Friend list and group membership records
+     - Any account recovery information
+
+2. MINISTRY OF INDUSTRY AND INFORMATION TECHNOLOGY (工业和信息化部 / MIIT)
+   ICP Registration: 沪ICP备13026899号-3
+
+   Records requested:
+     - Full application records for 沪ICP备13026899号-3
+     - Legal representative name (法定代表人) and national ID number
+     - Company registration number (工商注册号)
+     - Registered address
+     - Contact phone number and email
+     - Domain names registered under this ICP number
+     - Hosting provider and account records
+     - Any amendments or transfers of this registration
+
+LEGAL BASIS:
+This request is made pursuant to the Treaty Between the Government of the
+United States of America and the Government of the People's Republic of China
+on Mutual Legal Assistance in Criminal Matters, signed June 19, 2000.
+
+The offenses under investigation include:
+  - Wire fraud (18 U.S.C. § 1343)
+  - Money laundering (18 U.S.C. § 1956)
+  - Computer fraud (18 U.S.C. § 1030)
+
+Under PRC law, corresponding offenses include:
+  - 诈骗罪 (Criminal fraud, PRC Criminal Code Art. 266)
+  - 洗钱罪 (Money laundering, PRC Criminal Code Art. 191)
+  - 网络诈骗 (Internet fraud)
+
+URGENCY: The criminal operation is ongoing. Records should be preserved
+immediately pending formal production.
+
+EVIDENCE SUPPORTING THIS REQUEST:
+  [Attach: report.html, blockchain transaction records, deptoy.co source
+   code extracts showing bmate601/bizzzan01/ICP number, screenshots]
+
+---------- END DRAFT ----------
+
+ALTERNATIVE CHANNEL — INTERPOL NCB:
+  If DOJ/OIA process is slow, file simultaneously through Interpol:
+  - Submit to your national NCB (FBI in the US)
+  - Request Purple Notice for the criminal methodology
+  - China NCB: Ministry of Public Security, Bureau of Criminal Investigation
+  - This can run in parallel with the OIA MLAT
+
+================================================================================
+C. CANADIAN PRODUCTION ORDER REQUEST
+   (Corporations Canada + FINTRAC — NO MLAT NEEDED)
+================================================================================
+
+Canada is a Five Eyes partner. US/Canadian law enforcement cooperation is
+handled through standard bilateral channels — no formal MLAT treaty process
+required for most requests.
+
+ROUTE: FBI Legal Attaché (Legat) Ottawa → RCMP National Division
+       OR: Direct referral to RCMP via FBI IC3 complaint
+
+RCMP Contact:
+  RCMP Cybercrime Investigations
+  National Division, Ottawa
+  OR: RCMP Financial Crime Section, Toronto (given Toronto address)
+
+---------- DRAFT REFERRAL LETTER ----------
+
+TO: Royal Canadian Mounted Police, Financial Crime Section
+    Ontario Regional Office, Toronto
+FROM: [Agency], [Officer Name]
+RE: Production Order Request — Cryptocurrency Fraud Investigation
+    Federal Corporation 1231288-3 / FINTRAC M20852872
+DATE: [Date]
+
+We are investigating a pig butchering / cryptocurrency fraud scheme that has
+victimized our complainant of approximately CAD $100,000+ in two separate
+incidents (2022 and 2024). Our blockchain analysis has identified a Canadian
+federal corporation as a key entity in the criminal infrastructure.
+
+CORPORATE ENTITY:
+  Current name    : BISSNEX CRYPTO GROUP LIMITED
+  Prior names     : BIPPAX CRYPTO GROUP LIMITED (2022-12-22 to 2023-05-18)
+                    ALPHA TECHNOLOGY HOLDING LIMITED (2020-09-02 to 2022-12-22)
+  Corp number     : 1231288-3 (Federal)
+  Business number : 705303337RC0001
+  Status          : Dissolved 2025-07-25 (s.212 non-compliance)
+  Director filed  : JACK WILLIAMS, 20 Leslie St, Toronto, ON M4M 3L4
+
+FINTRAC REGISTRATION:
+  MSB number      : M20852872
+  Registered      : 2020-11-02
+  Expired         : 2025-08-26
+  Activities      : Virtual currency dealing, money transfer, forex
+  Phone on file   : 2478001924 (invalid North American number — suspect fabricated)
+  Branch address  : 719 Euclid Avenue, Toronto, ON M6G 2V1
+
+RECORDS REQUESTED:
+  From Corporations Canada:
+    1. All director filings including identity documents submitted for
+       "JACK WILLIAMS" — government-issued ID required at incorporation
+    2. Full filing history including any prior directors
+    3. Registered agent identity if applicable
+
+  From FINTRAC (under PCMLTFA s.62 law enforcement disclosure):
+    1. Beneficial owner identification submitted at MSB registration
+    2. AML compliance officer identity
+    3. Any suspicious transaction reports (STRs) filed
+    4. Transaction records held under PCMLTFA s.24 retention requirements
+    5. Any examination results or compliance correspondence
+
+ON-CHAIN EVIDENCE OF FRAUD (summary):
+  The entity operated the deptoy.co fake cryptocurrency exchange (BIPPAX platform)
+  which collected victim deposits into aggregation wallet
+  3JMjHDTJjKPnrvS7DycPAgYcA6HrHRk8UG (64,255 BTC · 25,117 txs), then
+  transferred 140 BTC in 7 direct transactions to the primary scammer wallet
+  3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy — the same wallet that received our
+  victim's 2022 theft funds.
+
+Please treat this as urgent — the corporate dissolution in July 2025 suggests
+the operators may be preparing to move or destroy records.
+
+---------- END DRAFT ----------
+
+================================================================================
+D. BINANCE LAW ENFORCEMENT REQUEST
+================================================================================
+
+Binance operates a dedicated law enforcement portal and responds to properly
+formatted requests within days for urgent matters.
+
+Portal: https://www.binance.com/en/support/law-enforcement
+        (select "Law Enforcement Request")
+        OR email: law_enforcement@binance.com
+
+For Binance.US specifically (if US nexus is asserted):
+  BAM Trading Services Inc.
+  Legal Department
+  law_enforcement@binance.us
+  201 Mission Street, Suite 2300
+  San Francisco, CA 94105
+
+---------- DRAFT REQUEST ----------
+
+TO: Binance Compliance / Law Enforcement Team
+FROM: [Agency and Officer]
+RE: Preservation and Production Request — Cryptocurrency Fraud Investigation
+DATE: [Date]
+
+We request immediate preservation and production of records relating to the
+following Bitcoin addresses associated with an ongoing pig butchering fraud
+investigation:
+
+PRIMARY TARGET ADDRESSES:
+  1. 34HVDP9RFA9MpopGQ4TutLLVMFhhJFM9AX
+     Role: Victim fund aggregator — sent 97.25 BTC to confirmed Binance hot wallet
+     in 34 transactions. The account holder of this aggregator is the primary
+     suspect in the 2022 theft of 0.84758448 BTC from our complainant.
+     Destination Binance wallet: bc1quhruqrghgcca950rvhtrg7cpd7u8k6svpzgzmrjy8xyukacl5lkq0r8l2d
+
+  2. 3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy
+     Role: Primary scammer wallet — 395,190 BTC total lifetime received (5,170 txs).
+     Last transaction: 2026-01-21 (operation confirmed ongoing).
+     Current balance: 3.22 BTC.
+     Transactions from/to Binance hot wallets:
+       → bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h (472.52 BTC, 2,173,077 txs)
+       → bc1quhruqrghgcca950rvhtrg7cpd7u8k6svpzgzmrjy8xyukacl5lkq0r8l2d (436.66 BTC)
+
+  3. 3JMjHDTJjKPnrvS7DycPAgYcA6HrHRk8UG
+     Role: deptoy.co / BIPPAX platform aggregator. 64,255 BTC lifetime received
+     (25,117 txs). Appears as co-input in 1,050+ sampled scammer wallet txs —
+     confirms same operator controls both addresses.
+
+  4. 12LejAUpWg1v4zemPy1kH6mnSm2kNR6mki
+     Role: Current holding address — received 2.60 BTC from scammer wallet on
+     2025-03-14. Current balance: 6.69 BTC (not yet moved as of 2026-03-24).
+
+  5. 3Hcu3AeQZX3KxjKYSjhJKF9FRhH9EBqZEm
+     Role: Most recent holding address — received 1.0012 BTC from scammer wallet
+     on 2026-01-21. Current balance: 1.0 BTC. PRIORITY: most recent activity.
+
+RECORDS REQUESTED:
+  For any Binance account(s) associated with the above addresses:
+    - Account holder name, date of birth, nationality
+    - KYC documents submitted (passport, ID)
+    - Email address and phone number
+    - Registration IP address
+    - Login history (IP addresses and timestamps)
+    - All deposit/withdrawal transactions
+    - Any linked bank accounts or payment methods
+    - Any linked external wallet addresses
+
+LEGAL BASIS: [Attach formal legal process — subpoena, court order, or MLAT
+request as applicable to your jurisdiction]
+
+BLOCKCHAIN EVIDENCE: [Attach relevant transaction records from report]
+
+---------- END DRAFT ----------
+
+================================================================================
+E-1. ROBINHOOD CRYPTO LLC SUBPOENA (US — NO MLAT NEEDED)
+================================================================================
+
+Robinhood Crypto LLC (US company — Delaware incorporated, California HQ)
+Law Enforcement / Legal:
+  Email: legal@robinhood.com
+  Mail:  Robinhood Crypto LLC, Attn: Legal Department
+         85 Willow Road
+         Menlo Park, CA 94025
+  FinCEN MSB Registration: 31000192417028
+
+FACTS ESTABLISHING US JURISDICTION:
+  Victim's Robinhood account made two BTC withdrawals to fraudulent exchange
+  deptoy.co on dates confirmed by on-chain blockchain records.
+
+TRANSACTIONS TO SUBPOENA:
+  TX 1: e81ac50854e47dddfb955cf3ff9dfebe05d3016c759de8e1c23719620dfccc08
+        Date: 2024-07-25  Amount: 0.07622126 BTC
+        Destination: 129z2g1vNMvVes3yiwbnVS8KtMSZFGm7Mc (deptoy.co deposit address)
+
+  TX 2: ef504db1bb3800700198eae26a7ca97a455aed0f6f835dfa115efbca23dc581d
+        Date: 2024-07-26  Amount: 0.07348114 BTC
+        Destination: 129z2g1vNMvVes3yiwbnVS8KtMSZFGm7Mc (same deptoy.co deposit address)
+
+  Sending wallet: bc1qprdf80adfz7aekh5nejjfrp3jksc8r929svpxk (Robinhood hot wallet)
+  Total victim loss from Robinhood: 0.14970240 BTC (~$10,040 USD)
+
+RECORDS REQUESTED:
+  1. Account holder identity (name, date of birth, address, government ID)
+  2. Account email address and phone number
+  3. KYC/AML verification documents on file
+  4. IP addresses used at time of the two withdrawals listed above
+  5. Device fingerprint / login records for 2024-07-25 and 2024-07-26
+  6. Linked bank accounts / funding sources
+  7. Account creation date and full withdrawal history
+  8. Any fraud flags or suspicious activity reports on the account
+
+LEGAL BASIS: 18 U.S.C. § 2703 (Stored Communications Act)
+             Wire fraud: 18 U.S.C. § 1343
+
+NOTE: Robinhood's own records will corroborate the victim's account and
+      confirm the exact withdrawal amounts and timing, directly establishing
+      the fraudulent transfer chain beginning at their platform.
+
+---------- END ROBINHOOD SECTION ----------
+
+================================================================================
+E. GODADDY SUBPOENA TEMPLATE
+================================================================================
+
+GoDaddy LLC (US company — no MLAT needed for US law enforcement)
+Law Enforcement Compliance:
+  Email: lawenforcement@godaddy.com
+  Fax:   480-624-2507
+  Mail:  GoDaddy LLC, Attn: Legal Department
+         14455 N. Hayden Road, Suite 219
+         Scottsdale, AZ 85260
+
+Domains to subpoena (all registered through GoDaddy / Domains By Proxy LLC):
+  - bippaxcoins.com   (registered 2023-04-03, privacy protected)
+  - byxgcoins.com     (registered 2023-02-17, privacy protected)
+  - byxgexchange.com  (registered 2023-02-17, privacy protected)
+  - aztexchange.com   (registered 2023-08-09, privacy protected)
+  - aztexcoins.com    (registered 2023-08-25, privacy protected)
+
+Records to request:
+  - Real registrant identity behind Domains By Proxy privacy service
+  - Payment method used for registration (credit card, PayPal, crypto)
+  - Billing address
+  - Email address used for account
+  - IP address used at registration and subsequent logins
+  - Account creation date and full account history
+  - Any other domains registered by same account
+
+NOTE: GoDaddy's Domains By Proxy service specifically maintains the real
+registrant identity and is required to disclose it upon receipt of valid
+legal process. Registration records are retained for minimum 2 years per
+ICANN requirements.
+
+================================================================================
+F. GLOBENEWSWIRE / NOTIFIED SUBPOENA (WIRE FRAUD ANGLE)
+================================================================================
+
+GlobeNewswire is operated by Notified (a Nasdaq company, US jurisdiction).
+Three press releases were submitted by BISSNEX in December 2023 containing
+materially false statements (fraudulent VC funding claims).
+
+These false claims constitute wire fraud under 18 USC §1343 and provide an
+additional US-nexus ground for subpoena.
+
+Notified / GlobeNewswire Legal:
+  Notified (GlobeNewswire)
+  Legal Department / Subpoena Compliance
+  800 Third Avenue, 12th Floor
+  New York, NY 10022
+
+Records to request:
+  - Account holder identity for the account that submitted press releases:
+    * "BISSNEX at the Forefront of Global Crypto Industry Compliance" (2023-12-28)
+    * "BISSNEX Plans to Implement More Measures for Global Compliant Operations" (2023-12-28)
+    * "Defying the Odds: BISSNEX's Journey Through a Bear Market to a Bright Future" (2023-12-27)
+  - Payment records for these submissions
+  - Email address and phone number on account
+  - IP addresses used to log in and submit releases
+  - Billing address
+
+False claims to document:
+  Press releases falsely state BISSNEX received funding from:
+    - Paradigm (verify: paradigm.xyz legal@paradigm.xyz)
+    - NGC Ventures
+    - Multicoin Capital
+    - Pantera Capital
+  Contact each VC to obtain written confirmation they never funded BISSNEX.
+  These confirmations establish the fraud element.
+
+================================================================================
+G. FBI IC3 SUBMISSION CHECKLIST
+================================================================================
+
+Submit at: https://www.ic3.gov/complaint/default.aspx
+
+Your complaint should include all of the following. Check each before submitting:
+
+INCIDENT 1 (2022 theft):
+  [ ] Date: 2022-07-31
+  [ ] Amount: 0.84758448 BTC / ~$19,833 USD at time of theft
+  [ ] Your victim address: 3MT5t24cF88QzZ5qjgfDioC79pvyQDsojt
+  [ ] Theft TX: 02ab77e433e9aaf3f78f8ccb65090a4dae8698de6f987d10b5d4c3c453984c69
+  [ ] Scammer wallet: 3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy
+  [ ] Exchange link: aggregator 34HVDP9RFA9MpopGQ4TutLLVMFhhJFM9AX → Binance
+
+INCIDENT 2 (2024 deptoy.co):
+  [ ] Date: August 2024
+  [ ] Amount: ~$10,000 USD
+  [ ] Platform: deptoy.co (fake cryptocurrency exchange)
+  [ ] Corporate entity: BISSNEX CRYPTO GROUP LIMITED, Canada #1231288-3
+  [ ] WeChat contacts used: bmate601, bizzzan01
+  [ ] Pivot address: 3JMjHDTJjKPnrvS7DycPAgYcA6HrHRk8UG → 140 BTC → scammer wallet
+
+ATTACHMENTS TO INCLUDE:
+  [ ] report.html (this report — full blockchain trace)
+  [ ] Screenshots of deptoy.co / BIPPAX platform
+  [ ] Any communications with scammer (WeChat, email, WhatsApp screenshots)
+  [ ] Transaction receipts / blockchain confirmations
+  [ ] Screenshots of platform login / fake portfolio dashboard
+
+AFTER IC3 SUBMISSION:
+  [ ] Note your IC3 complaint number
+  [ ] Submit same complaint to your local FBI field office
+  [ ] Submit to FTC at reportfraud.ftc.gov
+  [ ] Submit to your state attorney general consumer protection division
+  [ ] File complaint with Chainabuse: https://www.chainabuse.com
+      (This builds public record and may trigger other victim connections)
+
+CANADA-SPECIFIC:
+  [ ] File report with RCMP: https://www.rcmp-grc.gc.ca/en/cybercrime
+  [ ] File with Canadian Anti-Fraud Centre: https://antifraudcentre-centreantifraude.ca
+      Phone: 1-888-495-8501
+  [ ] Ontario Provincial Police: https://www.opp.ca/index.php?id=165
+
+================================================================================
+END OF MLAT PACKAGE
+================================================================================
