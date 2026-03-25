@@ -977,6 +977,29 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
     </div>
   </div>
 
+  <!-- NEW EVIDENCE BOX: bissnex.com = DacmCrypto + shared codebase -->
+  <div class="warn-box" style="background:#0d1117;border:2px solid #3498db;color:#f1f8ff;margin-top:10px">
+    <div style="font-weight:bold;color:#3498db;font-size:13px;margin-bottom:8px">🔬 NEW TECHNICAL PROOF: bissnex.com, dacm-crypto.top, AND deptoy.co — SAME PLATFORM CODEBASE</div>
+    <p style="font-size:12px;margin:0 0 8px"><b>Finding 1 — bissnex.com IS "DacmCrypto":</b> The Wayback Machine (2024-10-08) archived bissnex.com's <code>index.html</code>, which contains <code>&lt;title&gt;DacmCrypto&lt;/title&gt;</code>. The bissnex.com JavaScript bundle also contains a hardcoded download link pointing to <code>https://www.dacm-crypto.top/download</code>. <b>Conclusion:</b> The Canadian-registered BISSNEX entity operates the "DacmCrypto" platform at <code>dacm-crypto.top</code> as a re-branded instance.</p>
+    <p style="font-size:12px;margin:0 0 8px"><b>Finding 2 — Shared codebase (deptoy.co ↔ bissnex.com):</b> Forensic comparison of the JavaScript bundles from bissnex.com (<code>app.761267fad06d54909610.js</code>, archived 2024-10-08) and deptoy.co (<code>app.66bc9f716f39a8a33c06.js</code>) reveals <b>13 identical multilingual UI strings</b> — including word-for-word identical German, English, and Indonesian form validation messages. Identical non-trivial multilingual strings in two separately-bundled JavaScript files proves <b>both sites were built from the same source code template</b>. Identical JS architecture (webpack, Vue.js SPA, Element-UI, same manifest chunk structure) further confirms this.</p>
+    <div style="background:#161b22;border-left:3px solid #3498db;padding:8px 12px;margin:8px 0;font-size:11px;font-family:monospace;color:#79c0ff">
+      Sample shared strings (identical in both JS files):<br>
+      "Bitte geben Sie Ihren richtigen Namen ein" [DE: Please enter your real name]<br>
+      "Bitte geben Sie den Betrag ein" [DE: Please enter the amount]<br>
+      "Silakan masukkan jumlah pembelian" [ID: Please enter purchase amount]<br>
+      "Please enter the verification code" [EN]<br>
+      + 9 more identical German/Indonesian/English strings
+    </div>
+    <p style="font-size:12px;margin:0;color:#8b949e"><i>Evidence chain: bissnex.com (Canadian corp website) → title "DacmCrypto" → download link dacm-crypto.top → same JS codebase as deptoy.co → same codebase as BIPPAX platform → one unified criminal operation.</i></p>
+  </div>
+
+  <div class="info-box" style="margin-top:8px;font-size:11px">
+    <b>byte.bissnex.com</b> — a subdomain of bissnex.com — was discovered active from December 2024 through March 2025
+    (Let's Encrypt TLS certs issued 2024-12-03 and renewed 2025-03-03, confirmed via crt.sh). The subdomain serves the
+    same Vue.js SPA framework as the main platform (<code>index.html#/home</code>). This proves the BISSNEX operation was
+    actively running platform infrastructure as recently as <b>March 2025</b>.
+  </div>
+
   <h3 style="color:#f0f6fc;font-size:13px;margin:16px 0 8px">Full Domain Network (Same Operation)</h3>
   <table>
     <thead><tr><th>Domain</th><th>Registered</th><th>Registrar / Host</th><th>Role</th></tr></thead>
@@ -984,7 +1007,9 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
       <tr><td style="font-family:monospace;font-size:11px">deptoy.co</td><td>May 2024</td><td>Let's Encrypt SSL (active May–Dec 2024)</td><td>Victim-facing fake exchange (direct victim)</td></tr>
       <tr><td style="font-family:monospace;font-size:11px">bippax.com</td><td>2024-06-21</td><td>Adriatic Domains / Trellian AU (IP: 103.224.212.213)</td><td>Main BIPPAX brand platform</td></tr>
       <tr><td style="font-family:monospace;font-size:11px">bippaxcoins.com</td><td>2023-04-03</td><td><b>GoDaddy</b> / Domains By Proxy / Acquia Hosting</td><td>Alternate BIPPAX domain — GoDaddy subpoena target</td></tr>
-      <tr><td style="font-family:monospace;font-size:11px">bissnex.com</td><td>2023+</td><td>—</td><td>Corporate website for BISSNEX entity</td></tr>
+      <tr><td style="font-family:monospace;font-size:11px">bissnex.com</td><td>2023+</td><td>Archived by Wayback 2023-12 through 2024-10</td><td>Corporate website for BISSNEX entity — title "DacmCrypto" — download link → dacm-crypto.top</td></tr>
+      <tr><td style="font-family:monospace;font-size:11px;color:#3498db">byte.bissnex.com</td><td>2024-12</td><td>Let's Encrypt (LE E5/E6) — TLS certs Dec 2024 + Mar 2025</td><td><b style="color:#3498db">ACTIVE Dec 2024–Mar 2025</b> — platform subdomain, same SPA framework as deptoy.co</td></tr>
+      <tr><td style="font-family:monospace;font-size:11px;color:#3498db">dacm-crypto.top</td><td>2024+</td><td>Atak Domain Bilgi (Turkey) — registrant redacted, listed as Côte d'Ivoire · Server: <b>94.26.255.20 Saint Petersburg, Russia</b> (JSC Selectel / fastfox.pro)</td><td><b style="color:#3498db">NEW LINK</b> — bissnex.com's app download target. "DacmCrypto" is the BISSNEX platform brand. Currently WordPress in French targeting Côte d'Ivoire. Co-hosted crypto-fraud cluster: infotradedigital.click, jointhetrades.online, cryptoafrica.online</td></tr>
       <tr><td style="font-family:monospace;font-size:11px">byxgcoins.com</td><td>2023-02-17</td><td><b>GoDaddy</b> / Domains By Proxy / <b>Alibaba</b> hosting</td><td>Prior platform deployment</td></tr>
       <tr><td style="font-family:monospace;font-size:11px">byxgexchange.com</td><td>2023-02-17</td><td>GoDaddy / Alibaba</td><td>Prior platform deployment · Subdomains: agent.byxgexchange.com · pay.byxgexchange.com · m.byxgexchange.com · active SSL certs through 2024-02-27</td></tr>
       <tr><td style="font-family:monospace;font-size:11px">aztexchange.com</td><td>2023-08-09</td><td><b>GoDaddy</b> / Domains By Proxy / <b>Alibaba</b> hosting</td><td>Parallel platform · Subdomains: *.aztexchange.com confirmed via SSL certs</td></tr>
@@ -1008,7 +1033,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
       <tr><td style="font-family:monospace">883le</td><td>WeChat</td><td>Unknown — possible affiliate/agent</td><td>In WeChat context block — shorter handle suggests senior or different role</td></tr>
       <tr><td style="font-family:monospace">coinex</td><td>WeChat / Telegram / Weibo / Twitter</td><td>Platform social impersonation</td><td>Fake CoinEx exchange account used across all platforms for social proof</td></tr>
       <tr><td style="font-family:monospace">Professor Bingham</td><td>WhatsApp</td><td>Group leader / signals provider</td><td>WhatsApp investment group recruiter — likely one of multiple personas</td></tr>
-      <tr><td style="font-family:monospace">Susan / Bexley</td><td>WhatsApp</td><td>Group operators</td><td>"Caryle &amp; BIPPAX-185" WhatsApp group — Susan and Bexley = operator personas</td></tr>
+      <tr><td style="font-family:monospace">Susan / Bexley / Matthew</td><td>WhatsApp</td><td>Group operators + "analyst"</td><td>"Carlyle &amp; BIPPAX-185" — confirmed Reddit victim lost $550,000 (May–Nov 2023). Script: impersonate The Carlyle Group; "Bexley" = analyst, "Susan" = moderator, "Matthew" = assigned trader. Fake coins BEV and ETIC pitched. 20% commission extracted from external accounts. Source: r/CryptoScams post u/Illustrious-Hawk8499 (2024-02-14). Victim filed IC3 and FTC reports Nov 2023.</td></tr>
       <tr><td style="font-family:monospace">Jack Williams</td><td>Canada Corp</td><td>Director of record</td><td>Fictitious Anglo name on federal filing — real person's ID required by Corporations Canada</td></tr>
       <tr><td style="font-family:monospace">Darryl Joel Dorfman</td><td>Corporate fiction</td><td>Claimed BYXG founder</td><td>Linked to BYXG Cryptocurrency Group Ltd — likely fabricated identity</td></tr>
     </tbody>
@@ -1058,6 +1083,40 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
     </div>
   </div>
 
+  <!-- NEW: Technical Metadata Fingerprints section -->
+  <h3 style="color:#f0f6fc;font-size:13px;margin:16px 0 8px">Technical Metadata Fingerprints (Platform Forensics)</h3>
+  <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;font-size:12px">
+
+    <p style="color:#f1c40f;font-weight:bold;margin-bottom:10px">HOW WE KNOW: deptoy.co, bissnex.com, AND dacm-crypto.top ARE ONE OPERATION</p>
+
+    <p style="margin:0 0 6px"><b>Step A — Start:</b> Your money went to deptoy.co. We downloaded its JavaScript source code.</p>
+    <p style="margin:0 0 6px"><b>Step B — Platform ID:</b> That JS source contains the text "BIPPAX.PRO is a leading digital asset trading platform in the world, registered in the Cayman Islands" in 13 languages. This identifies the platform as <b>BIPPAX</b>.</p>
+    <p style="margin:0 0 6px"><b>Step C — Canadian Corp:</b> Searching Canadian federal records for "BIPPAX" finds corporation #1231288-3 — originally "Alpha Technology Holding Limited", renamed "BIPPAX CRYPTO GROUP LIMITED" (Dec 2022), then "BISSNEX CRYPTO GROUP LIMITED" (May 2023). Registered with FINTRAC as a money services business (MSB #M20852872). Listed website: bissnex.com. Listed director: "Jack Williams" (20 Leslie St, Toronto).</p>
+    <p style="margin:0 0 6px"><b>Step D — bissnex.com Archives:</b> Wayback Machine archived bissnex.com in October 2024. Its <code>index.html</code> has <code>&lt;title&gt;DacmCrypto&lt;/title&gt;</code>. Its JavaScript bundle has a hardcoded link: <code>https://www.dacm-crypto.top/download</code>. This reveals a third platform brand, "DacmCrypto", running at <code>dacm-crypto.top</code>.</p>
+    <p style="margin:0 0 6px"><b>Step E — Shared Codebase (smoking gun):</b> Forensic diff of the bissnex.com JS bundle (<code>app.761267fad06d54909610.js</code>) vs deptoy.co JS bundle (<code>app.66bc9f716f39a8a33c06.js</code>) reveals <b>13 identical multilingual UI strings</b> — including identical German, English, and Indonesian form validation text. Identical non-generic multilingual strings across two separately compiled JavaScript files = <b>same source code repository</b>. Both bundles share the same technology stack: webpack + Vue.js 2.x + Element-UI + Moment.js 2.29.4 (released March 2022 — constrains build date to after Q1 2022).</p>
+    <p style="margin:0 0 10px"><b>Step F — Server fingerprint:</b> The deptoy.co API server (<code>api.deptoy.co</code>) accidentally returned the CentOS Apache default page, revealing it ran CentOS Linux + Apache. dacm-crypto.top currently runs nginx/1.28.2 + PHP/8.2.29 on IP <b>94.26.255.20</b> in <b>Saint Petersburg, Russia</b> (JSC Selectel, AS49505). Nameservers: <code>ns1/ns2.fastfox.pro</code> (Russian hosting provider). The same Russian server also hosts: <code>infotradedigital.click</code> ("Online trading training in USA and Canada"), <code>jointhetrades.online</code> ("Forex and crypto trading courses in Canada and USA"), and <code>cryptoafrica.online</code> — a cluster of crypto fraud sites targeting English and French-speaking victims in the US, Canada, and West Africa.</p>
+
+    <table style="font-size:11px;margin-top:10px">
+      <thead><tr><th>File / Artifact</th><th>Hash / Version</th><th>Significance</th></tr></thead>
+      <tbody>
+        <tr><td style="font-family:monospace">deptoy.co JS bundle</td><td style="font-family:monospace">app.66bc9f716f39a8a33c06.js (1.71 MB)</td><td>Contains BIPPAX branding in 13 languages, ICP# 沪ICP备13026899号-3</td></tr>
+        <tr><td style="font-family:monospace">bissnex.com JS bundle</td><td style="font-family:monospace">app.761267fad06d54909610.js (1.36 MB)</td><td>Same template codebase; title "DacmCrypto"; download → dacm-crypto.top</td></tr>
+        <tr><td style="font-family:monospace">Moment.js version</td><td style="font-family:monospace">2.29.4 (released 2022-03-20)</td><td>Platform built after March 2022; consistent with BIPPAX corp rename Dec 2022</td></tr>
+        <tr><td style="font-family:monospace">dacm-crypto.top server</td><td style="font-family:monospace">94.26.255.20 · nginx/1.28.2 · PHP/8.2.29</td><td>Saint Petersburg, Russia (JSC Selectel) — Russian hosting</td></tr>
+        <tr><td style="font-family:monospace">byte.bissnex.com TLS cert</td><td style="font-family:monospace">serial 03fffd6341828be8… (LE E5, issued 2025-03-03)</td><td>Platform still issuing new TLS certificates March 2025 — active operation</td></tr>
+        <tr><td style="font-family:monospace">deptoy.co TLS cert</td><td style="font-family:monospace">serial 0494dd447f40e63a… (LE E5, issued 2024-09-21)</td><td>Let's Encrypt — no paid cert → operator avoids commercial CA identity verification</td></tr>
+        <tr><td style="font-family:monospace">API endpoint</td><td style="font-family:monospace">POST /uc/dapp/get/whatsapp</td><td>Customer service WhatsApp number served via JSON API — GET returns 500 error (method mismatch)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn-box" style="margin-top:12px;background:#1a0010;border-color:#e74c3c;font-size:11px">
+      <b>⚠ "SPIRITUAL WEALTH" — GOOGLE PLAY DEVELOPER ACCOUNT (REMOVED):</b>
+      Prior investigation identified a Google Play Store developer account under the name <b>"Spiritual Wealth"</b> that published the BIPPAX mobile application. The account currently returns 404 "Not Found" — meaning Google removed it (consistent with fraud policy enforcement). The BIPPAX platform source code explicitly references iOS and Android app support, QR code app download, and the bissnex.com JS hardcodes <code>dacm-crypto.top/download</code> as the app download URL.
+      <br><br><b>Subpoena value:</b> Google's removed developer accounts still retain registration records, payment information, APK signing keys, and upload IP logs. A 18 USC §2703 subpoena to Google (Mountain View, CA) for the "Spiritual Wealth" developer account will yield the real identity or payment method behind the app developer. This is a HIGH-PRIORITY target — app developer accounts require Google identity verification.
+    </div>
+  </div>
+
+  <!-- NEW: Additional Russia-linked server subpoena -->
   <h3 style="color:#f0f6fc;font-size:13px;margin:16px 0 8px">MLAT &amp; Jurisdictional Subpoena Guide</h3>
   <table>
     <thead><tr><th>Jurisdiction</th><th>Target</th><th>Legal Mechanism</th><th>Expected Intelligence</th></tr></thead>
@@ -1120,6 +1179,24 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
         <td>Account linked to 34HVDP9RFA9MpopGQ4TutLLVMFhhJFM9AX (original theft)</td>
         <td>Binance LE portal / Binance.US subpoena</td>
         <td>KYC identity of aggregator wallet owner — highest value single target for original 2022 theft</td>
+      </tr>
+      <tr style="background:#1a0005">
+        <td><b>Russia</b> (via MLAT)</td>
+        <td>JSC Selectel (AS49505) — hosting dacm-crypto.top at IP 94.26.255.20, Saint Petersburg</td>
+        <td>MLAT via DOJ/FBI Legal Attaché Moscow → Russian Ministry of Justice · OR submit via Interpol NCB Moscow. Note: Russia cooperation is difficult post-2022 — simultaneous US cloud provider subpoenas may yield logs if any US-routed traffic exists</td>
+        <td>Server logs for dacm-crypto.top hosting account, payment records, identity of account holder, co-hosted domains (infotradedigital.click, jointhetrades.online, cryptoafrica.online)</td>
+      </tr>
+      <tr style="background:#1a0005">
+        <td><b>Turkey</b></td>
+        <td>Atak Domain Bilgi Teknolojileri Inc. — registrar for dacm-crypto.top</td>
+        <td>Turkish authorities / mutual legal assistance (Turkey is not in 5-Eyes but has bilateral MLA with US)</td>
+        <td>Registrant identity and payment records for dacm-crypto.top — registrar is Turkish company abuse@atakdomain.com</td>
+      </tr>
+      <tr>
+        <td><b>USA</b></td>
+        <td>Google (Play Store) — "Spiritual Wealth" developer account (REMOVED)</td>
+        <td>18 USC §2703 subpoena to Google LLC, Mountain View CA</td>
+        <td><b>HIGH PRIORITY:</b> Developer account identity, payment method, APK signing key, device fingerprints, upload IP logs — Google retains records even after account removal. Developer accounts require Google identity/payment verification.</td>
       </tr>
     </tbody>
   </table>
