@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Page 4: Criminal Infrastructure</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;font-size:13px}
+.header{background:#161b22;padding:18px 28px;border-bottom:2px solid #9b59b6}
+.header h1{color:#9b59b6;font-size:20px;margin-bottom:4px}
+.sub{color:#8b949e;font-size:12px}
+.nav-bar{background:#161b22;border-bottom:1px solid #30363d;padding:8px 28px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+.nav-bar a{color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:4px;border:1px solid transparent}
+.nav-bar a:hover{color:#f0f6fc;background:#21262d}
+.nav-bar a.active{color:#f0f6fc;background:#21262d;border-color:#9b59b6}
+.content{max-width:960px;margin:0 auto;padding:28px}
+.section{margin-bottom:32px}
+.section h2{color:#f0f6fc;font-size:16px;border-bottom:1px solid #30363d;padding-bottom:8px;margin-bottom:14px}
+.section h3{color:#f0f6fc;font-size:14px;margin:20px 0 10px}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+th{background:#161b22;color:#8b949e;text-align:left;padding:7px 10px;border-bottom:1px solid #30363d;font-size:10px;text-transform:uppercase}
+td{padding:7px 10px;border-bottom:1px solid #21262d;vertical-align:top}
+tr:hover td{background:#161b22}
+code{background:#1c2128;border:1px solid #30363d;border-radius:3px;padding:1px 5px;font-size:11px;font-family:monospace}
+.box{border-radius:8px;padding:16px;margin:14px 0}
+.box-red{background:#1a0800;border:2px solid #e74c3c}
+.box-green{background:#0a1a0a;border:2px solid #2ecc71}
+.box-blue{background:#0a1520;border:2px solid #3498db}
+.box-orange{background:#1a0d00;border:2px solid #f39c12}
+.box-purple{background:#150a1a;border:2px solid #9b59b6}
+.box-yellow{background:#1a1500;border:2px solid #f1c40f}
+.box-dark{background:#161b22;border:1px solid #30363d}
+.label{font-size:11px;font-weight:bold;margin-bottom:8px}
+.label-red{color:#e74c3c}
+.label-green{color:#2ecc71}
+.label-blue{color:#3498db}
+.label-orange{color:#f39c12}
+.label-purple{color:#9b59b6}
+.label-yellow{color:#f1c40f}
+ul,ol{padding-left:20px;line-height:1.9}
+li{margin-bottom:2px}
+.badge{padding:2px 8px;border-radius:12px;font-size:10px;font-weight:bold}
+.badge-red{background:#e74c3c;color:#fff}
+.badge-green{background:#2ecc71;color:#111}
+.badge-orange{background:#f39c12;color:#111}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px;text-align:center}
+.stat-val{font-size:28px;font-weight:bold;color:#f0f6fc;margin:4px 0}
+.stat-lbl{font-size:10px;color:#8b949e;text-transform:uppercase;letter-spacing:.5px}
+.stat-sub{font-size:11px;color:#8b949e;margin-top:4px}
+.footer{border-top:1px solid #30363d;padding:20px 0;margin-top:30px;font-size:11px;color:#8b949e}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:6px">Investigation Report &mdash; Page 4 of 6</div>
+  <h1>Criminal Infrastructure</h1>
+  <div class="sub">AZTEX operations servers, Hong Kong scam server farm, 2139exchange.com, and the SHARE-DNS empire &nbsp;|&nbsp; <a href="layer1.html" style="color:#9b59b6">Layer 1 Deep Dive &rarr;</a></div>
+</div>
+
+<div class="nav-bar">
+  <a href="index.html">&larr; Contents</a>
+  <a href="the-two-scams.html">1. The Two Scams</a>
+  <a href="blockchain-trail.html">2. Following the Money</a>
+  <a href="corporate-network.html">3. Corporate Network</a>
+  <a class="active" href="infrastructure.html">4. Infrastructure</a>
+  <a href="personas.html">5. Personas</a>
+  <a href="law-enforcement.html">6. Law Enforcement</a>
+</div>
+
+<div class="content">
+
+<!-- ── HOW WE GOT HERE ── -->
+<div class="section">
+  <h2>How We Got Here</h2>
+  <p style="line-height:1.8">
+    The corporate trail (<a href="corporate-network.html">Page 3</a>) revealed the shell companies used as Western fronts. Investigating the domains associated with those companies &mdash; and the scam platforms themselves &mdash; led to two distinct infrastructure clusters: the <b>AZTEX</b> operational infrastructure (European-based, running the BIPPAX platform backend) and the <b>Hong Kong scam server farm</b> (Chinese-based, hosting dozens of financial impersonation sites including Nanolite Foundation). Domain registration fingerprinting then revealed these connect through a shared DNS infrastructure (<b>SHARE-DNS</b>) operated by a single account at <b>Gname.com</b> in Singapore.
+  </p>
+</div>
+
+<!-- ── AZTEX ── -->
+<div class="section">
+  <h2>AZTEX &mdash; European Operations Infrastructure</h2>
+  <p style="line-height:1.8;margin-bottom:14px">
+    AZTEX is the internal name for the infrastructure group behind the BIPPAX/BISSNEX/deptoy.co network. The name appears in server configurations, domain registrations, and an RDP certificate on a UK residential broadband connection.
+  </p>
+
+  <h3>Primary Operations Server &mdash; 194.60.201.83 (France)</h3>
+  <div class="box box-red">
+    <div class="label label-red">CRITICAL &mdash; AZTEX/DEPTOY.CO SHARED SERVER</div>
+    <table style="font-size:12px">
+      <tr><td style="color:#8b949e;width:140px">IP</td><td><code>194.60.201.83</code></td></tr>
+      <tr><td style="color:#8b949e">Provider</td><td>Contabo GmbH (AS51167), Lauterbourg, France &bull; abuse@contabo.de</td></tr>
+      <tr><td style="color:#8b949e">Key finding</td><td>TLS certificates for <b>both aztec.eu AND deptoy.co</b> are co-hosted on this server</td></tr>
+      <tr><td style="color:#8b949e">SMTP banner</td><td><code>220-mail.aztex.eu ESMTP</code></td></tr>
+      <tr><td style="color:#8b949e">Reverse IP domains</td><td>aztex.eu, bitwarden.aztex.eu, mail.aztex.eu</td></tr>
+    </table>
+  </div>
+
+  <h3>AZTEX Subdomain Stack (from CT logs)</h3>
+  <div class="grid2">
+    <div class="box box-dark">
+      <div class="label" style="color:#e74c3c">Criminal Operations</div>
+      <ul style="font-size:12px">
+        <li><b>mail.aztex.eu</b> &mdash; self-hosted mail (SMTP/IMAP confirmed)</li>
+        <li><b>bitwarden.aztex.eu / vaultwarden.aztex.eu</b> &mdash; shared password manager</li>
+        <li><b>matrix.aztex.eu</b> &mdash; encrypted group messaging</li>
+        <li><b>nextcloud.aztex.eu</b> &mdash; shared file storage</li>
+        <li><b>rdp.aztex.eu</b> &mdash; web-based RDP gateway</li>
+        <li><b>route-finder.aztex.eu / route-lister.aztex.eu</b> &mdash; custom routing tools (money mule routes?)</li>
+      </ul>
+    </div>
+    <div class="box box-dark">
+      <div class="label" style="color:#8b949e">Development / Unknown</div>
+      <ul style="font-size:12px">
+        <li><b>jukem.aztex.eu</b> &mdash; actively maintained (10 certs, auto-renewed every 2 months through Dec 2025)</li>
+        <li><b>ninjazz.aztex.eu</b> &mdash; unknown app</li>
+        <li><b>somegoodnews.aztex.eu</b> &mdash; unknown</li>
+        <li><b>twenty48.aztex.eu</b> &mdash; 2048 game</li>
+        <li>aztex.digital subdomains: project-cheapeats, project-omikami (Solana memecoin), t-contest</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Dev/Staging Server &mdash; 37.27.206.233 (Finland)</h3>
+  <div class="box box-dark" style="font-size:12px;line-height:1.8">
+    Provider: Hetzner Online (AS24940), Helsinki &bull; TLS cert: t-contest.aztex.digital &bull; Services: Redis (6379), MinIO Console (9000) &bull; Purpose: development and testing
+  </div>
+
+  <h3>UK Operator "BARRY" &mdash; 79.78.160.133 (England)</h3>
+  <div class="box box-orange">
+    <div class="label label-orange">RESIDENTIAL UK CONNECTION &mdash; NAMED OPERATOR</div>
+    <table style="font-size:12px">
+      <tr><td style="color:#8b949e;width:140px">IP</td><td><code>79.78.160.133</code></td></tr>
+      <tr><td style="color:#8b949e">Provider</td><td>TalkTalk (AS13285), England, UK &bull; <b>Residential broadband</b></td></tr>
+      <tr><td style="color:#8b949e">Router</td><td>MikroTik RouterOS (home router)</td></tr>
+      <tr><td style="color:#8b949e">RDP port</td><td>21680</td></tr>
+      <tr><td style="color:#8b949e">RDP certificate CN</td><td><b>AZTEX-BARRY</b></td></tr>
+      <tr><td style="color:#8b949e">Significance</td><td>Person named "Barry" uses this home internet to access AZTEX infrastructure via RDP</td></tr>
+      <tr><td style="color:#8b949e">Action</td><td>TalkTalk subscriber identity available via <b>RIPA production order</b> &bull; UK NCA / Action Fraud referral</td></tr>
+    </table>
+  </div>
+
+  <h3>aztex.eu Domain</h3>
+  <div class="box box-dark" style="font-size:12px;line-height:1.8">
+    Registrar: <b>Porkbun LLC</b> (Portland, OR) &bull; Nameservers: curitiba/fortaleza/maceio/salvador.ns.porkbun.com &bull; Registrant: REDACTED (EURid GDPR) &bull; Last updated: ~March 2026 (recently active)
+  </div>
+</div>
+
+<!-- ── 2139EXCHANGE ── -->
+<div class="section">
+  <h2>2139exchange.com &mdash; Same Operator as AZTEX</h2>
+
+  <div class="box box-red">
+    <div class="label label-red">CRITICAL LINK &mdash; Same Porkbun Account as aztex.eu</div>
+    <div style="font-size:12px;line-height:1.9">
+      Both <b>aztex.eu</b> and <b>2139exchange.com</b> use <b>identical Porkbun nameservers</b>:
+      <code>curitiba.ns.porkbun.com</code>, <code>fortaleza.ns.porkbun.com</code>, <code>maceio.ns.porkbun.com</code>, <code>salvador.ns.porkbun.com</code>.
+      This 4-NS fingerprint means the same Porkbun customer registered both domains. <b>The AZTEX operator IS the 2139exchange.com operator.</b>
+    </div>
+  </div>
+
+  <table>
+    <tr><td style="color:#8b949e;width:140px">Created</td><td>2024-07-08</td></tr>
+    <tr><td style="color:#8b949e">Server IP</td><td><code>185.22.174.75</code> &mdash; SIA VEESP (AS42532), Riga, Latvia</td></tr>
+    <tr><td style="color:#8b949e">TLS cert (latest)</td><td>2026-03-19 (6 days ago &mdash; <b>actively maintained</b>)</td></tr>
+    <tr><td style="color:#8b949e">Subdomains</td><td>www, m (mobile), api (backend), portal (user), <b>intranet</b> (management), <b>hr</b> (HR system), <b>sharepoint</b> (documents), dev</td></tr>
+    <tr><td style="color:#8b949e">CO connection</td><td>"2139 Com Exchange" listed as Colorado company with Dorfman connections &bull; Independent fraud reports on BrokersView.com</td></tr>
+  </table>
+
+  <div class="box box-orange" style="margin-top:10px">
+    <div class="label label-orange">Internal Subdomains Reveal Organized Operation</div>
+    <div style="font-size:12px;line-height:1.8">
+      <b>intranet.2139exchange.com</b> (staff management), <b>hr.2139exchange.com</b> (human resources/employee records), and <b>sharepoint.2139exchange.com</b> (document sharing) are not customer-facing &mdash; they are internal operations infrastructure. A proper HR and intranet system implies a <b>structured organization with multiple employees</b>.
+    </div>
+  </div>
+</div>
+
+<!-- ── HK SERVER ── -->
+<div class="section">
+  <h2>Hong Kong Scam Server Farm &mdash; 202.79.174.5</h2>
+  <p style="line-height:1.8;margin-bottom:12px">
+    This server hosts approximately 35 fake finance websites, including the Nanolite Foundation site warned about by BaFin. It was discovered by tracing the nanolite-foundationnlf.com domain from the <a href="corporate-network.html">corporate network investigation</a>.
+  </p>
+
+  <div class="grid2">
+    <div class="box box-blue">
+      <div class="label label-blue">Server Details</div>
+      <table style="font-size:12px">
+        <tr><td style="color:#8b949e">IP</td><td><code>202.79.174.5</code></td></tr>
+        <tr><td style="color:#8b949e">Hostname</td><td>fsazegsrr.qpon (random/generated)</td></tr>
+        <tr><td style="color:#8b949e">Location</td><td>Tung Chung, Hong Kong</td></tr>
+        <tr><td style="color:#8b949e">ASN</td><td>AS152194 &mdash; CTG Server Limited</td></tr>
+        <tr><td style="color:#8b949e">Open ports</td><td>22 (SSH 7.4), 80, 83, 443, <b style="color:#e74c3c">3306 (MySQL)</b>, 8080</td></tr>
+      </table>
+    </div>
+    <div class="box box-red">
+      <div class="label label-red">EXPOSED DATABASE</div>
+      <div style="font-size:12px;line-height:1.8">
+        <b>MySQL 8.0.24 is publicly exposed on port 3306</b> &mdash; severe misconfiguration. Credentials are still required, but the port should never be internet-facing.<br><br>
+        OpenSSH 7.4 (2016) has multiple CVEs including CVE-2023-48795 (Terrapin) and CVE-2023-38408 (RCE). MySQL has ~100 known CVEs. The server is not well-maintained.
+      </div>
+    </div>
+  </div>
+
+  <h3>Confirmed Hosted Scam Domains (sample)</h3>
+  <table>
+    <thead><tr><th>Domain</th><th>Impersonating</th><th>Significance</th></tr></thead>
+    <tbody>
+      <tr style="background:#1a0800"><td><code>nanolite-foundationnlf.com</code></td><td>HV Capital (hvcapital.com)</td><td>BaFin-warned &bull; HTTrack clone made May 2025 &bull; Dorfman-registered Colorado nonprofit</td></tr>
+      <tr><td><code>www.alliancebernsteinn.com</code> (+2 variants)</td><td>AllianceBernstein ($700B AUM)</td><td>Major US fund manager typosquat</td></tr>
+      <tr><td><code>www.bankofamerilcasl.com</code></td><td>Bank of America ($3.3T)</td><td>Major US bank typosquat</td></tr>
+      <tr><td><code>www.eatonvancci.com</code></td><td>Eaton Vance ($500B+ AUM)</td><td>Institutional asset manager</td></tr>
+      <tr><td><code>www.pimco-tw.com</code></td><td>PIMCO Taiwan ($1.8T AUM)</td><td>Taiwan-targeted</td></tr>
+      <tr><td><code>www.sofiils.com</code></td><td>SoFi (fintech)</td><td>Retail fintech typosquat</td></tr>
+      <tr><td><code>admin.stratiformsloogan.com</code></td><td>&mdash;</td><td><b>Admin panel exposed</b> on public reverse IP</td></tr>
+    </tbody>
+  </table>
+  <div style="font-size:11px;color:#8b949e;margin-top:4px">Plus ~25 additional domains: alphaitx.com, alphasll.com, asahisec.com, bmtmax.com, hmcapitalv.com, rw-advisoiry.com, tactiib.com, tradiler.com, and others.</div>
+
+  <h3>fmtcapitaltc.com &mdash; Associated Platform (Nanolite Foundation)</h3>
+  <div class="box box-dark" style="font-size:12px;line-height:1.9">
+    <table>
+      <tr><td style="color:#8b949e;width:140px">Technology</td><td><b>ThinkPHP</b> (Chinese PHP MVC framework) &mdash; confirmed via X-Powered-By header</td></tr>
+      <tr><td style="color:#8b949e">Admin panel</td><td><code>broker.fmtcapitaltc.com</code> &rarr; "manager-login" page, HTML comment <b>登录界面</b> (Chinese: "Login interface"), PHP/7.4.33 (EOL)</td></tr>
+      <tr><td style="color:#8b949e">Victim CRM</td><td><code>trader.fmtcapitaltc.com</code> &rarr; 8+ languages including Arabic; uploaded content from 2024-11-14</td></tr>
+      <tr><td style="color:#8b949e">MX record</td><td>mx.mail-ussl.com &rarr; <code>67.216.195.233</code> (IT7 Networks Inc, Los Angeles)</td></tr>
+      <tr><td style="color:#8b949e">Copyright</td><td>"Copyright 2019" on domain registered 2025-08-26 = reused Chinese scam template</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ── SHARE-DNS ── -->
+<div class="section">
+  <h2>SHARE-DNS &mdash; Industrial-Scale Scam DNS</h2>
+  <p style="line-height:1.8;margin-bottom:14px">
+    All the Hong Kong server domains, the Japanese typosquats, and the Malaysian impersonation sites share one fingerprint: they all use nameservers under <b>SHARE-DNS.COM</b> and <b>SHARE-DNS.NET</b>. These two domains were registered on the same day by the same Gname.com account that also registered <b>mdutton.com</b> (the DUTT Exchange platform).
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0">
+    <div class="stat-card"><div class="stat-lbl">Est. Malicious Domains</div><div class="stat-val" style="color:#e74c3c">800K+</div><div class="stat-sub">~57K per NS pair &times; 15+ pairs</div></div>
+    <div class="stat-card"><div class="stat-lbl">Registered</div><div class="stat-val" style="color:#f39c12;font-size:20px">2022-06-30</div><div class="stat-sub">Both via Gname.com</div></div>
+    <div class="stat-card"><div class="stat-lbl">Operator Account</div><div class="stat-val" style="color:#3498db;font-size:16px">zys@gname.com</div><div class="stat-sub">Already on AlienVault OTX</div></div>
+    <div class="stat-card"><div class="stat-lbl">Backend</div><div class="stat-val" style="color:#2ecc71;font-size:16px">Cloudflare</div><div class="stat-sub">Real IPs hidden</div></div>
+  </div>
+
+  <div class="box box-red">
+    <div class="label label-red">ONE GNAME.COM ACCOUNT CONTROLS EVERYTHING</div>
+    <div style="font-size:12px;line-height:1.9">
+      A single <b>Gname.com Pte. Ltd. (Singapore)</b> account owns: SHARE-DNS.COM, SHARE-DNS.NET, mdutton.com (DUTT Exchange), bankofamerilcasl.com, alliancebernsteinn.com variants, wellingtonmanageementi.com, warburgpiincusii.com, the Malaysian .my domains, and 20+ additional scam domains. The account identifier <code>zys@gname.com</code> appears as abuse contact on Malaysian domains and is indexed in AlienVault OTX as a threat IOC. "ZYS" may be the initials of the Layer 1 Chinese operator.
+    </div>
+  </div>
+
+  <div class="box box-purple" style="margin-top:12px">
+    <div class="label label-purple">NOT JUST OUR SCAM</div>
+    <div style="font-size:12px;line-height:1.8">
+      SHARE-DNS serves the <b>entire Chinese scam ecosystem</b> &mdash; gambling sites (.wang, .vip), phishing portals, spam infrastructure (.top), and multiple pig-butchering operations. Our BIPPAX/DUTT network is one customer. Disrupting the Gname.com account would affect hundreds of thousands of criminal domains simultaneously.
+    </div>
+  </div>
+
+  <p style="margin-top:14px;font-size:12px;line-height:1.8">
+    For the full technical deep dive into SHARE-DNS nameserver pairs, CTG Server Limited company details, WebNIC Japan bypass (.co.jp fraud registrations), and complete domain/IOC listings, see the <a href="layer1.html">Layer 1 Deep Dive</a>.
+  </p>
+</div>
+
+<!-- ── GOEKE CLEARED ── -->
+<div class="section">
+  <h2>Cleared: Goeke Brothers (Germany)</h2>
+  <div class="box box-dark" style="font-size:12px;line-height:1.8">
+    <b>analytics.goeke.it</b> was previously pointed to IP 194.60.201.83 (~2020&ndash;2023, expired cert 2023-08-17). Goeke brothers (Elias and Maximilian) run goeke.it/goeke.chat from a separate server (194.60.201.152). <b>Assessment: Stale DNS record from when they previously used that IP, not active collaboration.</b> They are hobbyist developers with no visible criminal connections.
+  </div>
+</div>
+
+<div class="footer">
+  <a href="corporate-network.html">&larr; Page 3: Corporate Network</a> &nbsp;|&nbsp;
+  <b>Page 4: Infrastructure</b> &nbsp;|&nbsp;
+  <a href="personas.html">Page 5: Personas &rarr;</a>
+</div>
+
+</div>
+</body>
+</html>

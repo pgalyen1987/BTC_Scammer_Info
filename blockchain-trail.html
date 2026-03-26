@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Page 2: Following the Money</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;font-size:13px}
+.header{background:#161b22;padding:18px 28px;border-bottom:2px solid #f39c12}
+.header h1{color:#f39c12;font-size:20px;margin-bottom:4px}
+.sub{color:#8b949e;font-size:12px}
+.nav-bar{background:#161b22;border-bottom:1px solid #30363d;padding:8px 28px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+.nav-bar a{color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:4px;border:1px solid transparent}
+.nav-bar a:hover{color:#f0f6fc;background:#21262d}
+.nav-bar a.active{color:#f0f6fc;background:#21262d;border-color:#f39c12}
+.content{max-width:960px;margin:0 auto;padding:28px}
+.section{margin-bottom:32px}
+.section h2{color:#f0f6fc;font-size:16px;border-bottom:1px solid #30363d;padding-bottom:8px;margin-bottom:14px}
+.section h3{color:#f0f6fc;font-size:14px;margin:20px 0 10px}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+th{background:#161b22;color:#8b949e;text-align:left;padding:7px 10px;border-bottom:1px solid #30363d;font-size:10px;text-transform:uppercase}
+td{padding:7px 10px;border-bottom:1px solid #21262d;vertical-align:top}
+tr:hover td{background:#161b22}
+code{background:#1c2128;border:1px solid #30363d;border-radius:3px;padding:1px 5px;font-size:11px;font-family:monospace}
+.box{border-radius:8px;padding:16px;margin:14px 0}
+.box-red{background:#1a0800;border:2px solid #e74c3c}
+.box-green{background:#0a1a0a;border:2px solid #2ecc71}
+.box-blue{background:#0a1520;border:2px solid #3498db}
+.box-orange{background:#1a0d00;border:2px solid #f39c12}
+.box-dark{background:#161b22;border:1px solid #30363d}
+.label{font-size:11px;font-weight:bold;margin-bottom:8px}
+.label-red{color:#e74c3c}
+.label-green{color:#2ecc71}
+.label-blue{color:#3498db}
+.label-orange{color:#f39c12}
+ul,ol{padding-left:20px;line-height:1.9}
+li{margin-bottom:2px}
+.trail{display:flex;flex-direction:column;gap:0;margin:14px 0}
+.trail-step{border:1px solid #30363d;border-radius:6px;padding:12px 16px;max-width:780px}
+.trail-arrow{font-size:18px;color:#8b949e;margin:2px 20px}
+.ts-label{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#8b949e;margin-bottom:3px}
+.ts-addr{font-family:monospace;font-size:12px;word-break:break-all}
+.ts-val{font-size:11px;color:#8b949e;margin-top:3px}
+.s-victim{background:#1c1010;border-color:#e74c3c}
+.s-relay{background:#161b22;border-color:#30363d}
+.s-agg{background:#1a1a10;border-color:#f39c12}
+.s-scammer{background:#1a0a1a;border-color:#9b59b6}
+.s-exchange{background:#0d2010;border-color:#2ecc71}
+.s-platform{background:#0a1520;border-color:#3498db}
+.badge{padding:2px 8px;border-radius:12px;font-size:10px;font-weight:bold}
+.badge-red{background:#e74c3c;color:#fff}
+.badge-green{background:#2ecc71;color:#111}
+.badge-orange{background:#f39c12;color:#111}
+.footer{border-top:1px solid #30363d;padding:20px 0;margin-top:30px;font-size:11px;color:#8b949e}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:6px">Investigation Report &mdash; Page 2 of 6</div>
+  <h1>Following the Money</h1>
+  <div class="sub">Blockchain evidence connecting both incidents to the same criminal network &mdash; and onward to exchanges with KYC records</div>
+</div>
+
+<div class="nav-bar">
+  <a href="index.html">&larr; Contents</a>
+  <a href="the-two-scams.html">1. The Two Scams</a>
+  <a class="active" href="blockchain-trail.html">2. Following the Money</a>
+  <a href="corporate-network.html">3. Corporate Network</a>
+  <a href="infrastructure.html">4. Infrastructure</a>
+  <a href="personas.html">5. Personas</a>
+  <a href="law-enforcement.html">6. Law Enforcement</a>
+</div>
+
+<div class="content">
+
+<!-- ── INCIDENT 1 CHAIN ── -->
+<div class="section">
+  <h2>Incident 1: The 2022 Theft Chain</h2>
+  <p style="line-height:1.8;margin-bottom:14px">
+    On 2022-07-31, the victim's wallet was swept in a single transaction with 41 outputs &mdash; automated laundering software split the funds to complicate tracing. The chain below shows how the money moved from the victim to the scammer and ultimately to Binance.
+  </p>
+
+  <div class="trail">
+    <div class="trail-step s-victim">
+      <div class="ts-label" style="color:#e74c3c">Step 1 &mdash; Victim Wallet (Theft)</div>
+      <div class="ts-addr">3MT5t24cF88QzZ5qjgfDioC79pvyQDsojt</div>
+      <div class="ts-val">
+        0.84758448 BTC stolen &bull; TX: <code style="font-size:10px">02ab77e433e9aaf3f78f8ccb65090a4dae8698de6f987d10b5d4c3c453984c69</code><br>
+        41 fan-out outputs &bull; Funding source: <code>38ABnUgrfwLg3wdP5jbytmGWKqskh3QvwE</code> (appears in 8 of 12 inputs)
+      </div>
+    </div>
+    <div class="trail-arrow">&darr; 2-hop relay chain (automated mixing)</div>
+    <div class="trail-step s-agg">
+      <div class="ts-label" style="color:#f39c12">Step 2 &mdash; Aggregator Wallet</div>
+      <div class="ts-addr">34HVDP9RFA9MpopGQ4TutLLVMFhhJFM9AX</div>
+      <div class="ts-val">
+        Collected laundered fragments &bull; Forwarded <b>97.25 BTC</b> to Binance in 34 transactions<br>
+        <b>This wallet is the primary suspect in the 2022 theft</b> &mdash; the account holder aggregated stolen funds and cashed out
+      </div>
+    </div>
+    <div class="trail-arrow">&darr; 97.25 BTC in 34 transactions</div>
+    <div class="trail-step s-exchange">
+      <div class="ts-label" style="color:#2ecc71">Step 3 &mdash; Binance Hot Wallet <span class="badge badge-green">KYC AVAILABLE</span></div>
+      <div class="ts-addr">bc1quhruqrghgcca950rvhtrg7cpd7u8k6svpzgzmrjy8xyukacl5lkq0r8l2d</div>
+      <div class="ts-val">Binance holds full KYC for the depositing account &mdash; name, ID, address, login history &bull; Obtainable via US subpoena (18 USC &sect;2703)</div>
+    </div>
+  </div>
+
+  <div class="box box-orange">
+    <div class="label label-orange">Connection to Scammer Wallet</div>
+    <div style="font-size:12px;line-height:1.8">
+      The aggregator wallet also has transaction links to the master scammer wallet <code style="color:#e74c3c">3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy</code>, establishing that the aggregator operated as part of the same network. Co-input analysis (where two addresses appear as inputs in the same transaction, proving common ownership) further confirms these wallets are controlled by the same entity.
+    </div>
+  </div>
+</div>
+
+<!-- ── INCIDENT 2 CHAIN ── -->
+<div class="section">
+  <h2>Incident 2: The July 2024 deptoy.co Chain</h2>
+  <p style="line-height:1.8;margin-bottom:14px">
+    The victim deposited BTC from Robinhood into the deptoy.co fake exchange. From the deposit address, funds were swept into the BIPPAX platform aggregation wallet, which then forwarded large sums to the same scammer wallet from Incident 1.
+  </p>
+
+  <div class="trail">
+    <div class="trail-step s-exchange">
+      <div class="ts-label" style="color:#2ecc71">Step 1 &mdash; Robinhood Crypto (Victim's Account)</div>
+      <div class="ts-addr">bc1qprdf80adfz7aekh5nejjfrp3jksc8r929svpxk</div>
+      <div class="ts-val">
+        TX 1 (2024-07-25): 0.07622126 BTC &bull; TX 2 (2024-07-26): 0.07348114 BTC<br>
+        Total: 0.14970240 BTC (~$10,040 USD)
+      </div>
+    </div>
+    <div class="trail-arrow">&darr; Deposited to deptoy.co</div>
+    <div class="trail-step s-platform">
+      <div class="ts-label" style="color:#3498db">Step 2 &mdash; deptoy.co Deposit Address</div>
+      <div class="ts-addr">129z2g1vNMvVes3yiwbnVS8KtMSZFGm7Mc</div>
+      <div class="ts-val">Victim-assigned deposit address on the fake exchange platform</div>
+    </div>
+    <div class="trail-arrow">&darr; Platform sweeps deposits into aggregation wallet</div>
+    <div class="trail-step s-agg">
+      <div class="ts-label" style="color:#f39c12">Step 3 &mdash; BIPPAX Platform Aggregation Wallet</div>
+      <div class="ts-addr">3JMjHDTJjKPnrvS7DycPAgYcA6HrHRk8UG</div>
+      <div class="ts-val">
+        <b>64,255 BTC lifetime</b> &bull; 25,117 transactions<br>
+        Co-input analysis confirms this wallet appears alongside the scammer wallet in 1,050+ transactions &mdash; same operator
+      </div>
+    </div>
+    <div class="trail-arrow">&darr; 140 BTC in 7 direct transactions</div>
+    <div class="trail-step s-scammer">
+      <div class="ts-label" style="color:#9b59b6">Step 4 &mdash; Master Scammer Wallet (same as Incident 1)</div>
+      <div class="ts-addr" style="color:#e74c3c">3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy</div>
+      <div class="ts-val">395,190 BTC lifetime &bull; 5,170 txs &bull; Last active 2026-01-21</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── KEY ADDRESSES ── -->
+<div class="section">
+  <h2>Key Addresses Reference</h2>
+
+  <table>
+    <thead>
+      <tr><th>Role</th><th>Address</th><th>BTC (lifetime)</th><th>Significance</th></tr>
+    </thead>
+    <tbody>
+      <tr style="background:#1c1010">
+        <td><span class="badge badge-red">VICTIM</span></td>
+        <td><code>3MT5t24cF88QzZ5qjgfDioC79pvyQDsojt</code></td>
+        <td>0.848</td>
+        <td>Victim's address (Incident 1 &mdash; 2022 theft)</td>
+      </tr>
+      <tr style="background:#1a0a1a">
+        <td><span class="badge" style="background:#9b59b6;color:#fff">SCAMMER</span></td>
+        <td><code>3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy</code></td>
+        <td>395,190</td>
+        <td>Master scammer wallet &mdash; links both incidents. Last TX: 2026-01-21</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">AGGREGATOR</span></td>
+        <td><code>34HVDP9RFA9MpopGQ4TutLLVMFhhJFM9AX</code></td>
+        <td>97.25 &rarr; Binance</td>
+        <td>Incident 1 aggregator &mdash; sent stolen funds to Binance KYC account</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">AGGREGATOR</span></td>
+        <td><code>3JMjHDTJjKPnrvS7DycPAgYcA6HrHRk8UG</code></td>
+        <td>64,255</td>
+        <td>BIPPAX/deptoy.co platform wallet &mdash; 140 BTC to scammer wallet</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">EXCHANGE</span></td>
+        <td><code>bc1quhruqrghgcca...cl5lkq0r8l2d</code></td>
+        <td>436.66</td>
+        <td>Binance hot wallet &mdash; received deposits from aggregator</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">EXCHANGE</span></td>
+        <td><code>bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h</code></td>
+        <td>472.52</td>
+        <td>Binance hot wallet &mdash; second confirmed Binance address linked to scammer wallet</td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#3498db;color:#fff">HOLDING</span></td>
+        <td><code>12LejAUpWg1v4zemPy1kH6mnSm2kNR6mki</code></td>
+        <td>6.69</td>
+        <td>Current holding &mdash; received 2.60 BTC from scammer wallet 2025-03-14. Not yet moved.</td>
+      </tr>
+      <tr>
+        <td><span class="badge" style="background:#3498db;color:#fff">HOLDING</span></td>
+        <td><code>3Hcu3AeQZX3KxjKYSjhJKF9FRhH9EBqZEm</code></td>
+        <td>1.00</td>
+        <td>Most recent holding &mdash; received 1.0012 BTC from scammer wallet 2026-01-21. <b>Priority target.</b></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── BINANCE ── -->
+<div class="section">
+  <h2>Binance Attribution &mdash; The Path to Real Identity</h2>
+
+  <div class="box box-green">
+    <div class="label label-green">WHY BINANCE MATTERS</div>
+    <div style="font-size:12px;line-height:1.9">
+      Binance is a regulated exchange that requires <b>Know Your Customer (KYC)</b> verification. Every account holder must submit government-issued ID, full name, date of birth, and address. When the aggregator wallet deposited 97.25 BTC across 34 transactions into Binance, the receiving account's real identity was recorded. A US subpoena to Binance (18 USC &sect;2703) will reveal:
+      <ul style="margin-top:8px">
+        <li>Account holder name, date of birth, nationality</li>
+        <li>KYC documents (passport or government ID)</li>
+        <li>Email address and phone number</li>
+        <li>Registration and login IP addresses</li>
+        <li>All deposit/withdrawal history</li>
+        <li>Linked bank accounts and external wallet addresses</li>
+      </ul>
+    </div>
+  </div>
+
+  <p style="line-height:1.8;margin-top:12px">
+    The scammer wallet itself also transacted with two confirmed Binance hot wallets &mdash; <code>bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h</code> (472.52 BTC across 2,173,077 txs) and <code>bc1quhruqrghgcca950rvhtrg7cpd7u8k6svpzgzmrjy8xyukacl5lkq0r8l2d</code> (436.66 BTC) &mdash; providing additional Binance accounts tied to the criminal network.
+  </p>
+</div>
+
+<!-- ── LINK TO TECHNICAL REPORT ── -->
+<div class="section">
+  <div class="box box-blue">
+    <div class="label label-blue">FULL TECHNICAL DATA</div>
+    <div style="font-size:12px;line-height:1.8">
+      The <a href="report.html">Blockchain Trace Report</a> contains the complete technical analysis: interactive transaction flow graphs, activity charts, full address analysis tables, and the detailed money trail with all intermediate hops. This page summarizes the key connections; see the full report for forensic-grade detail.
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <a href="the-two-scams.html">&larr; Page 1: The Two Scams</a> &nbsp;|&nbsp;
+  <b>Page 2: Following the Money</b> &nbsp;|&nbsp;
+  <a href="corporate-network.html">Page 3: Corporate Network &rarr;</a>
+</div>
+
+</div>
+</body>
+</html>
