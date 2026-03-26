@@ -100,6 +100,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
   <a class="crit-btn" href="#sec-active-threats" style="background:#1a0a00;color:#f39c12;border:1px solid #f39c12">⚡ Active Platforms</a>
   <a class="crit-btn" href="#sec-aztex" style="background:#1a0a1a;color:#d9b3ff;border:1px solid #9b59b6">🖥 AZTEX Servers</a>
   <a class="crit-btn" href="#sec-subpoena" style="background:#0d1a10;color:#58d68d;border:1px solid #27ae60">📨 Subpoena Guide</a>
+  <a class="crit-btn" href="#sec-threat-actor" style="background:#1a1500;color:#f39c12;border:1px solid #f39c12">🌐 Threat Actor</a>
   <a class="crit-btn" href="#sec-le-package" style="background:#0d1f2d;color:#79c0ff;border:1px solid #1f6feb">⚖ LE Package</a>
 </div>
 
@@ -126,6 +127,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
   <a href="#sec-network">OSINT Profile</a>
   <a href="#sec-domains">Domain Network</a>
   <a href="#sec-suspects">Suspects &amp; Personas</a>
+  <a href="#sec-threat-actor" style="color:#f39c12">🌐 Threat Actor</a>
   <a href="#sec-aztex">AZTEX Infrastructure</a>
   <a href="#sec-hkserver">HK Scam Server</a>
   <a href="#sec-subpoena">Subpoena Guide</a>
@@ -1232,7 +1234,14 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
       <tr><td style="font-family:monospace;font-size:11px">aztex.digital</td><td>Active (certs Jan 2020–Dec 2025)</td><td>Hetzner 37.27.206.233 (Helsinki)</td><td>AZTEX staging/development environment. Subdomains: project-cheapeats, project-omikami, t-contest, obsidian, slepsk. Redis + MinIO backend.</td></tr>
       <tr id="sec-active-threats" style="background:#1a0a00"><td colspan="4" style="color:#f39c12;font-weight:bold;padding:6px 8px;font-size:11px">── DORFMAN DIRECT PLATFORMS — ACTIVE THREATS (Colorado / US fronts) ──</td></tr>
       <tr style="background:#1a0a00"><td style="font-family:monospace;font-size:11px;color:#e74c3c"><b>4tx9h.com</b></td><td><b style="color:#e74c3c">DELETED</b><br><small>Active Oct 2024 – Mar 2025</small></td><td>Domain now deleted from Verisign registry ("No match")</td><td><b style="color:#e74c3c">⭐ BETA GLOBAL FINANCE PLATFORM</b> — Active scam platform Oct 2024–Mar 2025. Victim invested <b>$862,497.83</b> (retirement funds) after being recruited through Facebook Messenger impersonating BofA strategist → WhatsApp group "A1 — SSW Investment Vanguard" → "Prof. Darryl Joel Dorfman." Dashboard falsely showed 13 million USDT by March 2025. Demanded 5% withdrawal fee (~$700,000). After refusal, victim locked out. Platform claimed false SEC + FinCEN registrations. Domain now fully deleted from registry. Associated company: <b>betaglobalmanagements.com</b> (registered Oct 2024, WholeSale Internet Kansas City 173.208.178.96 — fake real estate/lending front site).</td></tr>
-      <tr style="background:#1a0a00"><td style="font-family:monospace;font-size:11px;color:#f39c12"><b>mdutton.com</b></td><td><b style="color:#f39c12">LIVE — Jan 2026</b><br><small>Domain since 2015</small></td><td>AWS (13.248.213.45, 76.223.67.189) · GoDaddy registrar · cert issued 2026-02-23 (wildcard *.mdutton.com)</td><td><b style="color:#f39c12">⚠ ACTIVE SCAM PLATFORM</b> — <b>DUTT Cryptocurrency Exchange Ltd</b>. Colorado Corporation #20211471867, incorporated <b>April 14, 2021</b>, "Good Standing." FinCEN MSB registered at <b>1800 Larimer Street, Denver, CO 80202</b> (Blackstone/Beacon Capital 500K sq ft office tower — virtual address). Registered agent: Colorado Registered Agents Inc, 1500 N Grant St Denver (commercial agent — not Dorfman directly). Website mdutton.com was parked/redirecting 2015–2025, went live <b>January 24, 2026</b>. TLS cert issued <b>February 23, 2026</b>. "Invite-only" registration = pig-butchering handler model (each victim tethered to specific recruiter). Founders: Darryl Joel Dorfman (press releases). Media contact: <b>Simon John</b> (confirmed fictional persona in this network). Claims spot trading, futures, institutional custody, Web3 services, $50M registered capital. Analyst: <b>invite-only = DO NOT join without law enforcement direction.</b></td></tr>
+      <tr style="background:#1a0a00"><td style="font-family:monospace;font-size:11px;color:#f39c12"><b>mdutton.com</b></td><td><b style="color:#f39c12">LIVE — Jan 2026</b><br><small>Domain since 2015</small></td><td>AWS (13.248.213.45, 76.223.67.189) · <b>Gname.com Pte. Ltd. (Singapore)</b> registrar [SAME as HK scam domains] · Cloudflare WAF · cert issued 2026-02-23 (wildcard *.mdutton.com)</td><td><b style="color:#f39c12">⚠ ACTIVE SCAM PLATFORM</b> — <b>DUTT Cryptocurrency Exchange Ltd</b>. Colorado Corporation #20211471867, incorporated <b>April 14, 2021</b>, "Good Standing." FinCEN MSB registered at <b>1800 Larimer Street, Denver, CO 80202</b>. Website went live <b>January 24, 2026</b>. "Invite-only" registration = pig-butchering handler model. Founders: Darryl Joel Dorfman. Media contact: <b>Simon John</b> (confirmed fake persona).<br>
+          <b style="color:#f39c12">⭐ JS ANALYSIS FINDINGS:</b><br>
+          • <b>Social media:</b> <a href="https://www.facebook.com/DuttCryptocurrencyExchange/" target="_blank">facebook.com/DuttCryptocurrencyExchange</a> + YouTube <a href="https://www.youtube.com/channel/UClqqlbdW_zvBQ8KTu27C0pA" target="_blank">@qaexnklwyn07</a> (channel ID: UClqqlbdW_zvBQ8KTu27C0pA)<br>
+          • <b>YouTube ghost account:</b> 0 videos, no description — pure trust-signal prop for pig-butchering scripts. <b>Created October 29, 2025</b> — one day after mdutton.com domain update (Oct 28) — confirmed pre-launch preparation sequence: domain updated Oct 28 → YouTube created Oct 29 → platform live Jan 24, 2026 → cert issued Feb 23, 2026<br>
+          • <b>13+ language targets</b> in JS i18n: Indonesian, Japanese, Hindi, German, Spanish, French, Korean, Traditional Chinese, Simplified Chinese, Portuguese — global Chinese scam template<br>
+          • <b>Registrar match:</b> Gname.com Pte. Ltd. (Singapore) = SAME registrar as HK scam server domains (bankofamerilcasl.com, alliancebernsteinn.com) — shared operational account<br>
+          • <b>API map exposed:</b> <code>/coin/recharge/address</code> (deposit wallet), <code>/coin/recharge/address/generate</code>, <code>/user/loan/apply</code> (fake loans), <code>/bot/order/</code> (fake trading bots), <code>/index/bank/tmpl</code> (fake bank UI) — full pig-butchering feature set<br>
+          • <b>Invite-only registration confirmed</b> in JS UI strings — requires recruiter's code to register</td></tr>
       <tr style="background:#0d1a1a"><td colspan="4" style="color:#3498db;font-weight:bold;padding:6px 8px;font-size:11px">── HONG KONG SERVER FARM DOMAINS (IP 202.79.174.5 · CTG Server Limited · all share SHARE-DNS.COM/NET nameservers) ──</td></tr>
       <tr style="background:#0d1510"><td style="font-family:monospace;font-size:11px;color:#e74c3c"><b>nanolite-foundationnlf.com</b></td><td>2025-08-06</td><td><b>NameSilo LLC</b> (Scottsdale AZ — US subpoena target) · Reg. expires 2026-08-06</td><td><b style="color:#e74c3c">⚠ BaFin-warned WhatsApp investment scam (Germany)</b> — Registered by Darryl Joel Dorfman. Site is an HTTrack copy of legitimate German VC hvcapital.com (copied 2025-05-28). Hardcoded token in JS: <code>TOKEN:"PpAz5O26OlepQn8sRcL2qgtt"</code>. React/Next.js frontend. Phone: 573001782. NameSilo holds real registrant identity (18 USC §2703).</td></tr>
       <tr style="background:#0d1510"><td style="font-family:monospace;font-size:11px;color:#f1c40f"><b>fmtcapitaltc.com</b></td><td><b>2025-08-26</b></td><td>Registrar.eu (Netherlands) · <b>Cloudflare CDN</b> · Registrant country: MY (Malaysia) · MX: mx.mail-ussl.com</td><td><b style="color:#f1c40f">⚠ ACTIVE</b> — Fake MT5 forex broker, copyright "FMT Capital LLC." <b>Technology: ThinkPHP (Chinese PHP framework)</b> — Chinese-built scam platform. 8+ languages incl. Arabic (بالعربية) — broad international targeting. MX: mx.mail-ussl.com (Cloudflare, same NS as fmtcapitaltc — same account). Copyright 2019 on 2025 domain = reused scam template. Batch-registered 2025-08-26.<br>
@@ -1379,6 +1388,60 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
       <b>⚠ "SPIRITUAL WEALTH" — GOOGLE PLAY DEVELOPER ACCOUNT (REMOVED):</b>
       Prior investigation identified a Google Play Store developer account under the name <b>"Spiritual Wealth"</b> that published the BIPPAX mobile application. The account currently returns 404 "Not Found" — meaning Google removed it (consistent with fraud policy enforcement). The BIPPAX platform source code explicitly references iOS and Android app support, QR code app download, and the bissnex.com JS hardcodes <code>dacm-crypto.top/download</code> as the app download URL.
       <br><br><b>Subpoena value:</b> Google's removed developer accounts still retain registration records, payment information, APK signing keys, and upload IP logs. A 18 USC §2703 subpoena to Google (Mountain View, CA) for the "Spiritual Wealth" developer account will yield the real identity or payment method behind the app developer. This is a HIGH-PRIORITY target — app developer accounts require Google identity verification.
+    </div>
+  </div>
+
+  <!-- ── THREAT ACTOR ASSESSMENT ────────────────────────── -->
+  <div id="sec-threat-actor" style="background:#0d1117;border:2px solid #f39c12;border-radius:8px;padding:16px;margin-bottom:18px">
+    <div style="color:#f39c12;font-weight:bold;font-size:14px;margin-bottom:10px">🌐 Threat Actor Assessment — Who Is Behind This?</div>
+
+    <div style="font-size:12px;margin-bottom:14px;color:#c9d1d9;line-height:1.7">
+      This operation is <b>transnational organized crime</b> — not state-sponsored. The Chinese technical fingerprints reflect the criminal ecosystem from which the scam templates originate, not direction from Beijing.
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div style="background:#1a0a00;border:1px solid #f39c12;border-radius:6px;padding:12px">
+        <div style="color:#f39c12;font-weight:bold;font-size:11px;margin-bottom:6px">CHINESE FINGERPRINTS — CONFIRMED</div>
+        <ul style="font-size:11px;line-height:1.8;padding-left:16px">
+          <li><b>ThinkPHP</b> — Chinese PHP framework on fmtcapitaltc.com</li>
+          <li><b>aaPanel (BaoTa)</b> — Chinese hosting panel on 2139exchange.com</li>
+          <li><b>SHARE-DNS.COM</b> — Chinese DNS provider on HK co-hosted domains</li>
+          <li><b>CTG Server Limited</b> — Hong Kong VPS, ~30 fake finance sites</li>
+          <li><code>登录界面</code> — Chinese dev comment in fmtcapitaltc admin panel</li>
+          <li><b>mdutton.com JS</b> — 13+ languages (Indonesian, Japanese, Hindi, Korean, Chinese Traditional/Simplified, German, Spanish, French) — global targeting template</li>
+          <li>"Copyright 2019" on 2025-registered domains — reused Chinese scam templates</li>
+          <li>HTTrack website cloning — standard Chinese scam factory technique</li>
+        </ul>
+      </div>
+      <div style="background:#1a1a00;border:1px solid #3498db;border-radius:6px;padding:12px">
+        <div style="color:#3498db;font-weight:bold;font-size:11px;margin-bottom:6px">WHY NOT STATE-SPONSORED</div>
+        <ul style="font-size:11px;line-height:1.8;padding-left:16px">
+          <li>Targets: random retail investors, retirees — not governments or military</li>
+          <li>Motive is cash extraction, not intelligence</li>
+          <li>Poor OPSEC: MySQL 3306 public, aaPanel exposed, CVE-laden SSH</li>
+          <li>US Colorado LLC structure (Dorfman) — unnecessary for a state op</li>
+          <li>Domain churn every few months — criminal speed, not APT patience</li>
+          <li>Chinese state actors focus on IP theft and espionage (APT10, APT41)</li>
+          <li>Beijing is actively pressuring SE Asian scam compounds for political reasons (repatriation of trafficked Chinese nationals)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background:#0a1520;border:1px solid #3498db;border-radius:6px;padding:12px;margin-bottom:12px">
+      <div style="color:#3498db;font-weight:bold;font-size:11px;margin-bottom:6px">THREE-LAYER ARCHITECTURE — SHA ZHU PAN (杀猪盘)</div>
+      <div style="font-size:11px;line-height:1.9">
+        <b style="color:#e74c3c">Layer 1 — Chinese criminal factory</b> (technical): HK server (CTG), ThinkPHP/aaPanel backends, SHARE-DNS, scam templates in 13+ languages<br>
+        <b style="color:#f39c12">Layer 2 — Western legitimacy wrapper</b>: Dorfman Colorado LLCs (DUTT, BYXG, Nanolite), UK shells (35 Exchange, OHIYO, Hyper Software), "Barry" UK TalkTalk ops<br>
+        <b style="color:#2ecc71">Layer 3 — Victim-facing personas</b>: "Prof. Darryl Joel Dorfman," "Prof. Müller," "Greta," "Bexley," "Susan," "Matthew" on WhatsApp groups<br><br>
+        <b>The Western layer exists specifically to defeat victim recognition of Chinese scam patterns.</b> A Colorado FinCEN-registered exchange (DUTT) and a UK Companies House-filed entity look legitimate to American and European victims.
+      </div>
+    </div>
+
+    <div style="background:#0d1a10;border:1px solid #2ecc71;border-radius:6px;padding:12px">
+      <div style="color:#2ecc71;font-weight:bold;font-size:11px;margin-bottom:6px">KNOWN SCAM COMPOUND NEXUS (Probable)</div>
+      <div style="font-size:11px;line-height:1.7">
+        The SHA ZHU PAN model originated in China and is now primarily operated from <b>scam compounds in Myanmar (Kokang/KK Park), Cambodia (Sihanoukville), and Laos</b> — areas under warlord or corrupt-official protection. Workers are often trafficked Chinese, Taiwanese, and SE Asian nationals forced to run scams under threat of violence. The US/UK corporate layer (Dorfman, Barry) is the external recruitment and money-handling face of such an operation. <b>Law enforcement referrals should include both the FBI (for Dorfman/US layer) and Homeland Security Investigations (HSI) which has SE Asia scam compound task forces.</b>
+      </div>
     </div>
   </div>
 
@@ -1615,6 +1678,12 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
         <td>Google (Play Store) — "Spiritual Wealth" developer account (REMOVED)</td>
         <td>18 USC §2703 subpoena to Google LLC, Mountain View CA</td>
         <td><b>HIGH PRIORITY:</b> Developer account identity, payment method, APK signing key, device fingerprints, upload IP logs — Google retains records even after account removal. Developer accounts require Google identity/payment verification.</td>
+      </tr>
+      <tr style="background:#1a0a1a">
+        <td><b>USA</b></td>
+        <td>Google (YouTube) — channel <b>@qaexnklwyn07</b><br><small style="font-family:monospace">ID: UClqqlbdW_zvBQ8KTu27C0pA</small></td>
+        <td>18 USC §2703 subpoena to Google LLC, Mountain View CA<br><small>Reference: YouTube channel ID UClqqlbdW_zvBQ8KTu27C0pA, created 2025-10-29</small></td>
+        <td><b>HIGH VALUE — newest account, most likely to have real mobile attached:</b> Ghost channel created <b>October 29, 2025</b> — one day after mdutton.com domain update (Oct 28, 2025). Zero videos, no description — pure pig-butchering trust-signal prop hardcoded in mdutton.com app JS. YouTube requires phone verification at channel creation; Google retains: <b>(1) account creation IP address</b>, <b>(2) verified phone number</b> (carrier subpoena chain can identify SIM owner), <b>(3) linked Google account identity</b>, <b>(4) login history and device fingerprints</b>. Timeline match: domain updated Oct 28 → channel created Oct 29 → site live Jan 2026 → cert Feb 2026. This is the most recently created account in the entire network and most likely to have a prepaid SIM or real number attached for verification.</td>
       </tr>
       <tr style="background:#1a0a1a">
         <td><b>Germany</b></td>
