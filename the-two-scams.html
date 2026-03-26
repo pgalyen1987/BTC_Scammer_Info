@@ -29,12 +29,14 @@ code{background:#1c2128;border:1px solid #30363d;border-radius:3px;padding:1px 5
 .box-green{background:#0a1a0a;border:2px solid #2ecc71}
 .box-blue{background:#0a1520;border:2px solid #3498db}
 .box-orange{background:#1a0d00;border:2px solid #f39c12}
+.box-purple{background:#150a1a;border:2px solid #9b59b6}
 .box-dark{background:#161b22;border:1px solid #30363d}
 .label{font-size:11px;font-weight:bold;margin-bottom:8px}
 .label-red{color:#e74c3c}
 .label-green{color:#2ecc71}
 .label-blue{color:#3498db}
 .label-orange{color:#f39c12}
+.label-purple{color:#9b59b6}
 ul,ol{padding-left:20px;line-height:1.9}
 li{margin-bottom:2px}
 .trail{display:flex;flex-direction:column;gap:0;margin:14px 0}
@@ -53,6 +55,13 @@ li{margin-bottom:2px}
 .stat-val{font-size:28px;font-weight:bold;color:#f0f6fc;margin:4px 0}
 .stat-lbl{font-size:10px;color:#8b949e;text-transform:uppercase;letter-spacing:.5px}
 .stat-sub{font-size:11px;color:#8b949e;margin-top:4px}
+.divider{border:none;border-top:2px solid #30363d;margin:40px 0}
+.scam-header{padding:14px 20px;border-radius:8px 8px 0 0;font-size:18px;font-weight:bold;letter-spacing:.5px}
+.scam-body{border:1px solid #30363d;border-top:none;border-radius:0 0 8px 8px;padding:20px}
+.chain-step{display:flex;align-items:flex-start;gap:14px;margin-bottom:2px}
+.chain-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:14px;flex-shrink:0;margin-top:2px}
+.chain-text{flex:1;font-size:12px;line-height:1.7;padding:6px 0}
+.chain-arrow{text-align:center;color:#8b949e;font-size:16px;margin:0 0 2px 14px}
 .footer{border-top:1px solid #30363d;padding:20px 0;margin-top:30px;font-size:11px;color:#8b949e}
 </style>
 </head>
@@ -61,7 +70,7 @@ li{margin-bottom:2px}
 <div class="header">
   <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:6px">Investigation Report &mdash; Page 1 of 6</div>
   <h1>The Two Scams</h1>
-  <div class="sub">How one victim was defrauded twice by the same criminal network &mdash; and how blockchain analysis proved the connection</div>
+  <div class="sub">How one victim was defrauded twice by the same criminal network &mdash; and how the second scam unraveled an industrial-scale operation</div>
 </div>
 
 <div class="nav-bar">
@@ -76,20 +85,12 @@ li{margin-bottom:2px}
 
 <div class="content">
 
-<!-- ── OVERVIEW ── -->
-<div class="section">
-  <h2>Overview</h2>
-  <p style="line-height:1.8;font-size:13px">
-    A single victim was defrauded twice by the same criminal organization. First through a romance/pig-butchering scam in <b>July 2022</b>, then through a fake cryptocurrency exchange in <b>July 2024</b>. Blockchain analysis proved both thefts trace to the same scammer wallet, establishing that one criminal network operated both schemes.
-  </p>
-  <p style="line-height:1.8;font-size:13px;margin-top:10px">
-    This investigation began with those two thefts and expanded through blockchain tracing, corporate records, domain analysis, and open-source intelligence into a multinational fraud operation spanning the United States, Canada, United Kingdom, Hong Kong, Latvia, France, Finland, Germany, and Singapore.
-  </p>
-</div>
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<!--  SCAM 1                                                                  -->
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
 
-<!-- ── INCIDENT 1 ── -->
-<div class="section">
-  <h2>Incident 1 &mdash; Romance / Pig Butchering Scam (July 2022)</h2>
+<div class="scam-header" style="background:#e74c3c;color:#fff;margin-top:10px">Scam 1 &mdash; Romance / Pig Butchering (July 2022)</div>
+<div class="scam-body">
 
   <table>
     <tr><td style="color:#8b949e;white-space:nowrap;width:160px"><b>Date</b></td><td>2022-07-31, 03:09 UTC</td></tr>
@@ -100,11 +101,13 @@ li{margin-bottom:2px}
     <tr><td style="color:#8b949e"><b>Destination</b></td><td>Scammer wallet <code style="color:#e74c3c">3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy</code> (via 2-hop relay chain)</td></tr>
   </table>
 
-  <p style="line-height:1.8;margin-top:12px">
+  <h3>What Happened</h3>
+  <p style="line-height:1.8">
     The victim's entire BTC balance was drained in one transaction. The 41-output fan-out pattern is a known laundering technique: splitting stolen funds across many addresses simultaneously to complicate tracing. An intermediary aggregator wallet (<code>34HVDP9RFA9MpopGQ4TutLLVMFhhJFM9AX</code>) collected these fragments and forwarded <b>97.25 BTC to a confirmed Binance hot wallet</b> across 34 transactions &mdash; meaning Binance holds KYC identity records for the account that received the stolen funds.
   </p>
 
-  <div class="trail" style="margin-top:16px">
+  <h3>Money Flow</h3>
+  <div class="trail">
     <div class="trail-step s-victim">
       <div class="ts-label" style="color:#e74c3c">Victim Wallet</div>
       <div class="ts-addr">3MT5t24cF88QzZ5qjgfDioC79pvyQDsojt</div>
@@ -123,11 +126,24 @@ li{margin-bottom:2px}
       <div class="ts-val">395,190 BTC lifetime &middot; 5,170 transactions &middot; still active as of 2026-01-21</div>
     </div>
   </div>
-</div>
 
-<!-- ── INCIDENT 2 ── -->
-<div class="section">
-  <h2>Incident 2 &mdash; Fake Exchange Platform deptoy.co (July 2024)</h2>
+  <h3>What We Learned from Scam 1</h3>
+  <p style="line-height:1.8">
+    Blockchain tracing identified the master scammer wallet and the Binance cash-out path, but the scam itself left few investigable leads beyond the blockchain. The scammer wallet's enormous scale (395,190 BTC lifetime) told us this was a large operation, but we had no corporate names, domains, or infrastructure to investigate further. That changed with Scam 2.
+  </p>
+
+</div><!-- end scam 1 body -->
+
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<!--  SCAM 2                                                                  -->
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+
+<div class="scam-header" style="background:#f39c12;color:#111">Scam 2 &mdash; Fake Exchange deptoy.co (July 2024)</div>
+<div class="scam-body">
 
   <table>
     <tr><td style="color:#8b949e;white-space:nowrap;width:160px"><b>Date</b></td><td>July 2024</td></tr>
@@ -138,7 +154,8 @@ li{margin-bottom:2px}
     <tr><td style="color:#8b949e"><b>Corporate entity</b></td><td>BISSNEX CRYPTO GROUP LIMITED (Canada, Corp #1231288-3, FINTRAC MSB #M20852872)</td></tr>
   </table>
 
-  <p style="line-height:1.8;margin-top:12px">
+  <h3>What Happened</h3>
+  <p style="line-height:1.8">
     The victim was directed to the deptoy.co platform, which presented itself as a legitimate cryptocurrency exchange. Two BTC withdrawals were made from the victim's Robinhood account:
   </p>
 
@@ -156,7 +173,7 @@ li{margin-bottom:2px}
 
   <h3>What Is deptoy.co / BIPPAX?</h3>
   <p style="line-height:1.8">
-    BIPPAX is a white-label fake exchange platform operated under multiple brand names. Each deployment receives a unique instance code (e.g., "BIPPAX-185"). The platform was incorporated in Canada as <b>BISSNEX CRYPTO GROUP LIMITED</b> (previously BIPPAX CRYPTO GROUP LIMITED, and before that ALPHA TECHNOLOGY HOLDING LIMITED). The company was dissolved in July 2025 after non-compliance, and its FINTRAC money services business registration expired in August 2025.
+    BIPPAX is a white-label fake exchange platform operated under multiple brand names. Each deployment gets a unique instance code (e.g., "BIPPAX-185"). It was incorporated in Canada as <b>BISSNEX CRYPTO GROUP LIMITED</b> (previously BIPPAX CRYPTO GROUP LIMITED, and before that ALPHA TECHNOLOGY HOLDING LIMITED). The company was dissolved in July 2025, and its FINTRAC money services registration expired in August 2025.
   </p>
 
   <div class="box box-dark" style="margin-top:12px">
@@ -168,27 +185,88 @@ li{margin-bottom:2px}
       <tr><td style="color:#8b949e">ICP registration</td><td>沪ICP备13026899号-3 (Shanghai, China &mdash; ties platform development to China)</td></tr>
     </table>
   </div>
-</div>
 
-<!-- ── THE CONNECTION ── -->
+  <!-- ── THE DISCOVERY CHAIN ── -->
+  <h3 style="margin-top:28px">How Scam 2 Unraveled the Entire Network</h3>
+  <p style="line-height:1.8;margin-bottom:16px">
+    Unlike Scam 1, the deptoy.co platform gave us a thread to pull: a <b>domain name</b>, a <b>brand</b> (BIPPAX), and a <b>corporate entity</b> (BISSNEX). Each step led to the next, ultimately exposing a three-layer industrial pig-butchering operation running from a Hong Kong server farm.
+  </p>
+
+  <div style="background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px">
+
+    <div class="chain-step">
+      <div class="chain-num" style="background:#f39c12;color:#111">1</div>
+      <div class="chain-text"><b>deptoy.co</b> &mdash; The fake exchange platform itself. Extracting its source code revealed the BIPPAX brand name, WeChat customer service handles (bmate601, bizzzan01), and a Chinese ICP registration number (沪ICP备13026899号-3).</div>
+    </div>
+    <div class="chain-arrow">&darr;</div>
+
+    <div class="chain-step">
+      <div class="chain-num" style="background:#f39c12;color:#111">2</div>
+      <div class="chain-text"><b>BIPPAX &rarr; BISSNEX CRYPTO GROUP LIMITED</b> &mdash; Searching the BIPPAX brand led to the Canadian federal corporation (#1231288-3). Its previous names (BIPPAX CRYPTO GROUP LIMITED, ALPHA TECHNOLOGY HOLDING LIMITED) confirmed it was the same operation. The company had a FINTRAC MSB registration and fake GlobeNewswire press releases claiming VC funding.</div>
+    </div>
+    <div class="chain-arrow">&darr;</div>
+
+    <div class="chain-step">
+      <div class="chain-num" style="background:#f39c12;color:#111">3</div>
+      <div class="chain-text"><b>BIPPAX-network domains &rarr; Colorado shell companies</b> &mdash; Related domains (byxgcoins.com, byxgexchange.com, bippaxcoins.com) were linked to BYXG Cryptocurrency Group Ltd, a Colorado company. Its registered agent: <b>Darryl Joel Dorfman</b>. Searching that name revealed 10+ Colorado shell companies and 4 UK companies, all following the same pattern.</div>
+    </div>
+    <div class="chain-arrow">&darr;</div>
+
+    <div class="chain-step">
+      <div class="chain-num" style="background:#e74c3c;color:#fff">4</div>
+      <div class="chain-text"><b>Dorfman &rarr; Nanolite Foundation &rarr; BaFin warning</b> &mdash; One of Dorfman's companies, Nanolite Foundation (still in Good Standing as a Colorado nonprofit), was explicitly warned about by <b>BaFin</b>, the German financial regulator. BaFin documented the same pig-butchering methodology: WhatsApp groups, fake "professors," impossible returns (550% in 40 days). The Nanolite Foundation website was <b>nanolite-foundationnlf.com</b>.</div>
+    </div>
+    <div class="chain-arrow">&darr;</div>
+
+    <div class="chain-step">
+      <div class="chain-num" style="background:#e74c3c;color:#fff">5</div>
+      <div class="chain-text"><b>nanolite-foundationnlf.com &rarr; Hong Kong server (202.79.174.5)</b> &mdash; Resolving the Nanolite domain led to IP <code>202.79.174.5</code>, hosted by <b>CTG Server Limited</b> (AS152194) in Tung Chung, Hong Kong. A reverse IP lookup on that server revealed it wasn't just hosting Nanolite &mdash; it was hosting <b>~35 fake finance websites</b> simultaneously.</div>
+    </div>
+    <div class="chain-arrow">&darr;</div>
+
+    <div class="chain-step">
+      <div class="chain-num" style="background:#e74c3c;color:#fff">6</div>
+      <div class="chain-text"><b>CTG Server &rarr; SHARE-DNS &rarr; 800,000+ malicious domains</b> &mdash; All 35+ scam sites on the Hong Kong server used the same DNS infrastructure: <b>SHARE-DNS.COM/NET</b>. Investigating those nameservers revealed they serve an estimated <b>800,000+ malicious domains</b> across 15+ customer slots. Both SHARE-DNS domains and the DUTT Exchange domain (mdutton.com, another Dorfman entity) were registered by the <b>same Gname.com account</b> in Singapore &mdash; tying the Chinese technical infrastructure directly to the Western shell companies.</div>
+    </div>
+    <div class="chain-arrow">&darr;</div>
+
+    <div class="chain-step">
+      <div class="chain-num" style="background:#9b59b6;color:#fff">7</div>
+      <div class="chain-text"><b>The three-layer architecture</b> &mdash; The full picture came into focus: a <b>Chinese factory</b> (Layer 1) builds and hosts the scam platforms on CTG Server using SHARE-DNS infrastructure. A <b>Western wrapper</b> (Layer 2) uses Dorfman's shell companies to register the platforms as legitimate US/UK/Canadian businesses. <b>Victim-facing personas</b> (Layer 3) on WhatsApp recruit marks into the fake exchanges. One victim. Two scams. A thread pulled from Scam 2 exposed an operation processing hundreds of thousands of BTC.</div>
+    </div>
+
+  </div>
+</div><!-- end scam 2 body -->
+
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+<!--  THE CONNECTION                                                           -->
+<!-- ══════════════════════════════════════════════════════════════════════════ -->
+
 <div class="section">
-  <h2>The Connection: One Wallet, Two Thefts</h2>
+  <h2>The Blockchain Connection: One Wallet, Two Thefts</h2>
 
   <div class="box box-red">
-    <div class="label label-red">CRITICAL FINDING &mdash; Same Criminal Organization Behind Both Thefts</div>
+    <div class="label label-red">CRITICAL FINDING &mdash; Same Criminal Organization Behind Both Scams</div>
     <div style="font-size:13px;line-height:1.9;margin-top:6px">
-      The scammer wallet <code style="color:#e74c3c">3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy</code> is the link between both incidents:
+      Independent of the OSINT trail above, blockchain analysis proved the two scams are connected at the wallet level:
       <ul style="margin-top:8px">
-        <li><b>Incident 1 (2022):</b> Victim's stolen 0.848 BTC reached this wallet via a 2-hop relay chain.</li>
-        <li><b>Incident 2 (July 2024):</b> The deptoy.co/BIPPAX aggregation wallet sent <b>140 BTC in 7 direct transactions</b> to this same wallet.</li>
+        <li><b>Scam 1 (2022):</b> Victim's stolen 0.848 BTC reached scammer wallet <code style="color:#e74c3c">3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy</code> via a 2-hop relay chain.</li>
+        <li><b>Scam 2 (July 2024):</b> The deptoy.co/BIPPAX aggregation wallet sent <b>140 BTC in 7 direct transactions</b> to that same scammer wallet.</li>
       </ul>
       <p style="margin-top:10px">
-        Only the holder of the private key for this wallet can receive funds at that address. <b>The same person or group stole from this victim in 2022 and again in July 2024 through a different platform.</b>
+        Only the holder of the private key for this wallet can receive funds at that address. <b>The same person or group stole from this victim in 2022 and again in July 2024 through a different platform.</b> This means the OSINT trail uncovered from Scam 2 (deptoy.co &rarr; BIPPAX &rarr; Dorfman &rarr; Nanolite &rarr; CTG Server &rarr; SHARE-DNS) also applies to Scam 1.
       </p>
     </div>
   </div>
+</div>
 
-  <h3>Scammer Wallet Scale</h3>
+<!-- ── SCAMMER WALLET SCALE ── -->
+<div class="section">
+  <h2>Scammer Wallet Scale</h2>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0">
     <div class="stat-card">
       <div class="stat-lbl">Total BTC Received</div>
@@ -211,7 +289,6 @@ li{margin-bottom:2px}
       <div class="stat-sub">Operation ongoing</div>
     </div>
   </div>
-
   <p style="line-height:1.8;font-size:13px">
     The scale of this wallet &mdash; nearly 400,000 BTC over its lifetime &mdash; indicates this is not a small operation. This is an industrial-scale fraud network that has processed billions of dollars in stolen cryptocurrency.
   </p>
@@ -219,9 +296,9 @@ li{margin-bottom:2px}
 
 <!-- ── THREE LAYERS ── -->
 <div class="section">
-  <h2>What This Investigation Uncovered</h2>
+  <h2>The Three-Layer Architecture</h2>
   <p style="line-height:1.8;margin-bottom:14px">
-    Starting from these two thefts, the investigation traced outward through blockchain analysis, domain intelligence, corporate records, and OSINT to reveal a <b>three-layer criminal architecture</b>:
+    The investigation trail from Scam 2 revealed a structured criminal organization operating across three layers:
   </p>
 
   <div style="display:flex;flex-direction:column;gap:6px">
@@ -229,21 +306,24 @@ li{margin-bottom:2px}
       <div style="width:160px;flex-shrink:0;display:flex;align-items:center;padding:12px 14px;font-weight:bold;font-size:12px;background:#e74c3c22;color:#e74c3c">Layer 1<br><small style="font-weight:normal;font-size:10px">Chinese Factory</small></div>
       <div style="flex:1;padding:12px 14px;font-size:12px;line-height:1.8;border-left:1px solid rgba(255,255,255,0.05)">
         Builds and operates technical infrastructure: servers, DNS, scam website templates, backend platforms. Operates from Hong Kong and Southeast Asia.<br>
-        <b>Key entities:</b> CTG Server Limited (HK hosting), SHARE-DNS.COM/NET (800K+ malicious domains), Gname.com account (Singapore registrar)
+        <b>Key entities:</b> CTG Server Limited (HK hosting), SHARE-DNS.COM/NET (800K+ malicious domains), Gname.com account (Singapore registrar)<br>
+        <b>Discovered via:</b> Nanolite Foundation domain &rarr; HK server IP &rarr; reverse IP &rarr; shared DNS fingerprint
       </div>
     </div>
     <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;background:#1a0d00;border:1px solid #f39c12">
       <div style="width:160px;flex-shrink:0;display:flex;align-items:center;padding:12px 14px;font-weight:bold;font-size:12px;background:#f39c1222;color:#f39c12">Layer 2<br><small style="font-weight:normal;font-size:10px">Western Wrapper</small></div>
       <div style="flex:1;padding:12px 14px;font-size:12px;line-height:1.8;border-left:1px solid rgba(255,255,255,0.05)">
         Provides Western legal legitimacy to defeat victim due diligence: US/UK/Canadian company registrations, FinCEN filings, fake press releases.<br>
-        <b>Key entity:</b> "Darryl Joel Dorfman" (Colorado) &mdash; registered agent for 10+ shell companies, 4 dissolved UK companies
+        <b>Key entity:</b> "Darryl Joel Dorfman" (Colorado) &mdash; registered agent for 10+ shell companies, 4 dissolved UK companies<br>
+        <b>Discovered via:</b> BIPPAX domains &rarr; BYXG Colorado company &rarr; Dorfman as registered agent
       </div>
     </div>
     <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;background:#0d1a10;border:1px solid #2ecc71">
       <div style="width:160px;flex-shrink:0;display:flex;align-items:center;padding:12px 14px;font-weight:bold;font-size:12px;background:#2ecc7122;color:#2ecc71">Layer 3<br><small style="font-weight:normal;font-size:10px">Victim-Facing</small></div>
       <div style="flex:1;padding:12px 14px;font-size:12px;line-height:1.8;border-left:1px solid rgba(255,255,255,0.05)">
         WhatsApp and social media personas that recruit and manage victims. Run from scam compounds in Myanmar/Cambodia/Laos Golden Triangle area.<br>
-        <b>Key personas:</b> "Prof. Darryl Joel Dorfman," "Prof. M&uuml;ller," "Greta," "Bexley," "Susan," "Matthew"
+        <b>Key personas:</b> "Prof. Darryl Joel Dorfman," "Prof. M&uuml;ller," "Greta," "Bexley," "Susan," "Matthew"<br>
+        <b>Discovered via:</b> BaFin warning on Nanolite &rarr; WhatsApp group methodology &rarr; victim reports
       </div>
     </div>
   </div>
