@@ -53,7 +53,7 @@ Chain: deptoy.co → BIPPAX brand → byxgcoins.com (BIPPAX-network domain) → 
 | Cappo FX | Unknown | Flagged fraud | — |
 | K2 Exchange | Unknown | Flagged fraud | — |
 | USDcc | Unknown | Flagged fraud | — |
-| DUTT Cryptocurrency Exchange Ltd | Unknown | Press release entity | Denver, Colorado |
+| DUTT Cryptocurrency Exchange Ltd | **20211471867** | **Good Standing** | 1800 Larimer Street, Denver CO 80202 (virtual address — Blackstone office tower) |
 
 ## All Registered Addresses (Colorado SOS)
 1. 26 West Dry Creek Cir Suite 700, Littleton CO 80120
@@ -82,11 +82,35 @@ Most residential-looking: 2123 S Franklin St, Denver CO 80210 and 150 S Garfield
 - This is the strongest candidate for his actual home address
 
 ## Online Presence
-- LinkedIn: linkedin.com/in/darryl-joel-dorfman-798a55274/ (listed as "Management Director - H-E-B")
-- Press releases: SSW Management Institute, CyberFusion5.0 AI trading system (Sep 2024)
-- Media contact for DUTT: "Simon John" (PR agent)
+- LinkedIn: linkedin.com/in/darryl-joel-dorfman-798a55274/ (listed as "Management Director - H-E-B" — false cover identity; H-E-B is a Texas grocery chain)
+- Press releases: SSW Management Institute, CyberFusion5.0 AI trading system (Sep 2024), DUTT Exchange launch (Nov 2025)
+- Media contact for DUTT: **"Simon John"** (confirmed fake persona — same "Simon John" listed as DUTT press contact on Digital Journal; "Simon John" also appears as media contact for DUTT Cryptocurrency Exchange press releases via Binary News Network)
 - Email: contact@wealthcommunities.com (linked to SSW Management Institute)
 - wealthcommunities.com — now parked/for sale on HugeDomains
+- Blog: darryljoeldorfman.blogspot.com (August 2024 — promotes SSW/CyberFusion5.0)
+- Hashnode: darryljoeldorfman.hashnode.dev
+- DeviantArt: deviantart.com/sswmanagement (SSW Management Institute journal posts)
+- Blog states born 1967 — CONFLICTS with UK Companies House (born June 1971) — likely fabricated persona bio
+
+## DUTT Cryptocurrency Exchange Ltd — Key Infrastructure
+- **Colorado Corp #20211471867** — incorporated April 14, 2021 — "Good Standing"
+- **FinCEN MSB registered** — 1800 Larimer Street, Denver CO 80202
+- **Registered agent:** Colorado Registered Agents Inc, 1500 N Grant St Ste R, Denver CO 80203
+- **Website:** mdutton.com — domain registered 2015, parked until January 24, 2026 (went live day); TLS cert issued February 23, 2026
+- **Hosting:** AWS (13.248.213.45, 76.223.67.189 — Amazon.com Inc, Seattle)
+- **Registrar:** GoDaddy.com LLC (expires September 7, 2026)
+- **Model:** Invite-only = pig-butchering handler model (each victim tethered to a specific recruiter)
+- **Note:** mdutton.com was acquired/parked since 2015 — borrowed domain history for legitimacy
+
+## Beta Global Finance — Key Infrastructure
+- **Platform domain:** 4tx9h.com (now DELETED from Verisign registry — "No match")
+- **Active period:** October 2024 – March 2025
+- **Victim recruited via:** Facebook Messenger (impersonating Bank of America strategist) → WhatsApp group "A1 — SSW Investment Vanguard" → WhatsApp group run by "Prof. Darryl Joel Dorfman"
+- **Victim loss:** $862,497.83 from retirement savings over 6 months
+- **False dashboard:** 13 million USDT displayed
+- **Withdrawal extortion:** 5% fee = ~$700,000 demanded; victim refused → locked out
+- **Fake claims:** SEC registration, FinCEN registration (both false)
+- **Associated front company:** betaglobalmanagements.com (registered Oct 2024, WholeSale Internet Kansas City 173.208.178.96 — clones content from legitimate privatelend.net real estate site)
 
 ## BaFin Warning — Nanolite Foundation (CRITICAL)
 BaFin explicitly warns (warning page): nanolite-foundationnlf.com (previously nanolite-foundation.com, nanolite-foundationn.com)

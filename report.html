@@ -60,6 +60,16 @@ a:hover{text-decoration:underline}
 .copy-btn{float:right;background:#21262d;border:1px solid #30363d;color:#8b949e;padding:3px 10px;border-radius:4px;cursor:pointer;font-size:11px}
 .copy-btn:hover{background:#30363d;color:#f0f6fc}
 pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:14px;font-size:11px;line-height:1.7;white-space:pre-wrap;word-break:break-all;color:#a8e6b0}
+/* ── Layout / Sidebar ──────────────────────────────────────────────────────── */
+.layout{display:flex;align-items:flex-start}
+.sidebar{width:220px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#161b22;border-right:1px solid #30363d;padding:12px 0;font-size:12px}
+.sidebar a{display:block;padding:6px 16px;color:#8b949e;text-decoration:none;border-left:3px solid transparent}
+.sidebar a:hover,.sidebar a.active{color:#f0f6fc;background:#21262d;border-left-color:#e74c3c}
+.sidebar .nav-group{padding:8px 16px 4px;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#e74c3c;margin-top:8px}
+.main-content{flex:1;min-width:0}
+.critical-bar{background:#1c1010;border-bottom:1px solid #e74c3c;padding:10px 28px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.crit-btn{padding:5px 14px;border-radius:4px;font-size:11px;font-weight:bold;text-decoration:none;cursor:pointer}
+.domain-filter{background:#161b22;border:1px solid #30363d;color:#f0f6fc;padding:6px 12px;border-radius:4px;font-size:12px;width:300px;margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -81,8 +91,55 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
   </div>
 </div>
 
+<!-- ── CRITICAL ACTIONS BAR ───────────────────────────────────────────────── -->
+<div class="critical-bar">
+  <span style="font-size:11px;font-weight:bold;color:#e74c3c;margin-right:4px">JUMP TO:</span>
+  <a class="crit-btn" href="#sec-summary" style="background:#1c2a1c;color:#2ecc71;border:1px solid #2ecc71">📋 Summary</a>
+  <a class="crit-btn" href="#sec-binance" style="background:#1a1100;color:#ffd166;border:1px solid #f1c40f">🏦 Binance KYC</a>
+  <a class="crit-btn" href="#sec-suspects" style="background:#1c1a00;color:#f1c40f;border:1px solid #f1c40f">🎯 Suspect: Dorfman</a>
+  <a class="crit-btn" href="#sec-active-threats" style="background:#1a0a00;color:#f39c12;border:1px solid #f39c12">⚡ Active Platforms</a>
+  <a class="crit-btn" href="#sec-aztex" style="background:#1a0a1a;color:#d9b3ff;border:1px solid #9b59b6">🖥 AZTEX Servers</a>
+  <a class="crit-btn" href="#sec-subpoena" style="background:#0d1a10;color:#58d68d;border:1px solid #27ae60">📨 Subpoena Guide</a>
+  <a class="crit-btn" href="#sec-le-package" style="background:#0d1f2d;color:#79c0ff;border:1px solid #1f6feb">⚖ LE Package</a>
+</div>
+
+<!-- ── LAYOUT WRAPPER ─────────────────────────────────────────────────────── -->
+<div class="layout">
+
+<!-- ── SIDEBAR NAVIGATION ────────────────────────────────────────────────── -->
+<nav class="sidebar">
+  <div style="padding:10px 16px 6px;font-size:13px;font-weight:bold;color:#e74c3c;border-bottom:1px solid #30363d;margin-bottom:4px">⚠ Scam Trace</div>
+  <div class="nav-group">Overview</div>
+  <a href="#sec-summary">Executive Summary</a>
+  <a href="#sec-timeline">Timeline</a>
+  <a href="#sec-map">Connection Map</a>
+  <div class="nav-group">Blockchain Evidence</div>
+  <a href="#sec-alerts">Exchange Alerts</a>
+  <a href="#sec-charts">Activity Charts</a>
+  <a href="#sec-graph">TX Flow Graph</a>
+  <a href="#sec-money-trail">Money Trail</a>
+  <a href="#sec-binance">Binance Attribution</a>
+  <div class="nav-group">Platforms</div>
+  <a href="#sec-deptoy">deptoy.co / BIPPAX</a>
+  <a href="#sec-active-threats" style="color:#f39c12">⚡ Active Threats</a>
+  <div class="nav-group">Criminal Network</div>
+  <a href="#sec-network">OSINT Profile</a>
+  <a href="#sec-domains">Domain Network</a>
+  <a href="#sec-suspects">Suspects &amp; Personas</a>
+  <a href="#sec-aztex">AZTEX Infrastructure</a>
+  <a href="#sec-hkserver">HK Scam Server</a>
+  <a href="#sec-subpoena">Subpoena Guide</a>
+  <div class="nav-group">Data</div>
+  <a href="#sec-addresses">Address Analysis</a>
+  <div class="nav-group">Law Enforcement</div>
+  <a href="#sec-le-package">LE Package</a>
+</nav>
+
+<!-- ── MAIN CONTENT ───────────────────────────────────────────────────────── -->
+<div class="main-content">
+
 <!-- ── EXECUTIVE SUMMARY ──────────────────────────────────────────────────── -->
-<div style="background:#161b22;border-left:4px solid #e74c3c;padding:18px 28px;border-bottom:1px solid #30363d">
+<div id="sec-summary" style="background:#161b22;border-left:4px solid #e74c3c;padding:18px 28px;border-bottom:1px solid #30363d">
   <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:10px">Executive Summary — For Law Enforcement</div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1100px">
     <div>
@@ -148,7 +205,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
 </div>
 
 <!-- ── CHRONOLOGICAL TIMELINE ──────────────────────────────────────────────── -->
-<div class="section">
+<div class="section" id="sec-timeline">
   <h2>Operation Timeline — Chronological Evidence Record</h2>
   <div style="position:relative;padding-left:28px;max-width:1050px">
     <div style="position:absolute;left:10px;top:0;bottom:0;width:2px;background:#30363d"></div>
@@ -341,7 +398,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
 </div>
 
 <!-- ── MASTER CONNECTION DIAGRAM ──────────────────────────────────────────── -->
-<div class="section">
+<div class="section" id="sec-map">
   <h2>Master Connection Map — How Both Thefts Link to the Same Criminal Network</h2>
 
   <div style="background:#0d1117;border:1px solid #30363d;border-radius:8px;padding:20px;overflow-x:auto">
@@ -424,12 +481,12 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
 </div>
 
 <!-- ── ALERTS ─────────────────────────────────────────────────────────────── -->
-<div class="section">
+<div class="section" id="sec-alerts">
   <div class="alert-box"><b>⚡ ACTIONABLE: 208 exchange/swept addresses detected.</b> Law enforcement can subpoena KYC.<br><ul style="margin:8px 0 0 20px"><li><code>3MTX68qCXiGDNSWPwEeptTpyxn6FT1C9tv</code> — <b>Swept deposit address (likely exchange)</b> — 24.9400 BTC</li><li><code>bc1qmvvalephcjhjxun4zn99p6d25vlx3gxs30n8jf</code> — <b>Swept deposit address (likely exchange)</b> — 18.9671 BTC</li><li><code>bc1qr6tgmssh94dm8060hugzu7rptc48kczcqqgcwp</code> — <b>Swept deposit address (likely exchange)</b> — 17.8736 BTC</li><li><code>3FmtVQr7zpF33gVTtjtXXz6jBMZQLQKDzm</code> — <b>Swept deposit address (likely exchange)</b> — 13.9944 BTC</li><li><code>3Hc2qHitVNxChgRQXhC9w17KHca9xJWCmN</code> — <b>Swept deposit address (likely exchange)</b> — 13.1335 BTC</li><li><code>3GGan1gv9GCMQy1Hm2M81VXJSWJ1Caiw8N</code> — <b>Swept deposit address (likely exchange)</b> — 11.9721 BTC</li><li><code>bc1qltp5zh0m47sss4c6hdadtyhvl75533qvedgsqf</code> — <b>Swept deposit address (likely exchange)</b> — 11.5313 BTC</li><li><code>bc1qh34j9tze2f8h848hxnvs083ayytr5qf5fcr797</code> — <b>Swept deposit address (likely exchange)</b> — 9.9895 BTC</li><li><code>3NAxzPX44MYGFtj5Siq3EcnuS4jGcHdgNe</code> — <b>Swept deposit address (likely exchange)</b> — 9.9645 BTC</li><li><code>36oSmuJQJoLM1yLbkjq8Q8w4AAo9ZJnqRv</code> — <b>Swept deposit address (likely exchange)</b> — 8.8544 BTC</li></ul></div>
 </div>
 
 <!-- ── CHARTS ─────────────────────────────────────────────────────────────── -->
-<div class="section">
+<div class="section" id="sec-charts">
   <h2>Activity Analysis</h2>
   <div class="charts">
     <div class="chart-box">
@@ -444,7 +501,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
 </div>
 
 <!-- ── GRAPH ──────────────────────────────────────────────────────────────── -->
-<div class="section">
+<div class="section" id="sec-graph">
   <h2>Transaction Flow Graph</h2>
   <div class="legend">
     <div class="li"><div class="dot" style="background:#e74c3c"></div>Target (scammer)</div>
@@ -461,7 +518,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
 
 <!-- ── VICTIM MONEY TRAIL ─────────────────────────────────────────────────── -->
 
-<div class="section">
+<div class="section" id="sec-money-trail">
   <h2>Victim Forensics — Money Trail</h2>
 
   <!-- Loss summary cards -->
@@ -680,7 +737,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
 
 <!-- ── BINANCE ATTRIBUTION ────────────────────────────────────────────────── -->
 
-<div class="section">
+<div class="section" id="sec-binance">
   <h2>Binance Attribution — Evidence Summary</h2>
   <div class="warn-box" style="background:#1a1100;border-color:#f1c40f;color:#ffd166">
     <b>⚡ Why we believe this is Binance:</b> Three independent lines of evidence converge.
@@ -782,7 +839,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
 
 <!-- ── DEPTOY.CO / BIPPAX PLATFORM LINK ───────────────────────────────────── -->
 
-<div class="section">
+<div class="section" id="sec-deptoy">
   <h2>deptoy.co Platform Link — BIPPAX Fake Exchange</h2>
 
   <div class="warn-box" style="background:#1a0a1a;border-color:#9b59b6;color:#d9b3ff">
@@ -884,7 +941,8 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
           <td><span class="badge" style="background:#9b59b6">Single large input sweep</span></td>
         </tr>
         <tr style="background:#1c1010">
-          <td><b>TOTAL</b></td>
+          <
+          td><b>TOTAL</b></td>
           <td></td>
           <td style="text-align:right;font-weight:bold;color:#e74c3c">140.000000</td>
           <td></td>
@@ -1067,7 +1125,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
 </div>
 
 <!-- ── CRIMINAL NETWORK OSINT PROFILE ─────────────────────────────────────── -->
-<div class="section">
+<div class="section" id="sec-network">
   <h2>Criminal Network OSINT Profile — BIPPAX / BISSNEX Operation</h2>
 
   <div class="warn-box" style="background:#0a1a0a;border-color:#2ecc71;color:#a8f0a8">
@@ -1147,8 +1205,9 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
     actively running platform infrastructure as recently as <b>March 2025</b>.
   </div>
 
-  <h3 style="color:#f0f6fc;font-size:13px;margin:16px 0 8px">Full Domain Network (Same Operation)</h3>
-  <table>
+  <h3 id="sec-domains" style="color:#f0f6fc;font-size:13px;margin:16px 0 8px">Full Domain Network (Same Operation)</h3>
+  <input class="domain-filter" id="domain-filter-input" type="text" placeholder="Filter domains, registrars, roles..." oninput="filterDomains(this.value)">
+  <table id="tbl-domains">
     <thead><tr><th>Domain</th><th>Registered</th><th>Registrar / Host</th><th>Role</th></tr></thead>
     <tbody>
       <tr><td style="font-family:monospace;font-size:11px;color:#8b949e"><s>deptoy.co</s></td><td>May 2024</td><td><b style="color:#8b949e">DEAD — DOMAIN NOT FOUND</b> (WHOIS confirms expired/dropped as of Mar 2026)</td><td>Was victim-facing fake exchange (direct victim, Incident 2). Domain no longer registered — expired after Let's Encrypt SSL ran May–Dec 2024.</td></tr>
@@ -1168,9 +1227,12 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
       <tr><td style="font-family:monospace;font-size:11px">coinbf.com</td><td>2023-08-11</td><td>—</td><td>Platform variant</td></tr>
       <tr><td style="font-family:monospace;font-size:11px;color:#2ecc71"><b>elwallets.com</b></td><td>2025-11-07</td><td>Metaregistrar BV (Netherlands) · Cloudflare</td><td><b style="color:#2ecc71">⚠ CURRENTLY ACTIVE</b> — created Nov 2025, Cloudflare-fronted, expires 2026-11-07. Current live scam domain.</td></tr>
       <tr><td style="font-family:monospace;font-size:11px">userhelpsdesk.com</td><td>2023 (archived May 2024)</td><td>Expired / DNS dead (2026)</td><td>Typosquat of legitimate userhelpdesk.com — fake customer support (customer-feedback@userhelpsdesk.com). Note: userhelpdesk.com (no 's') is a legitimate 2002-era IONOS-parked domain unrelated to scam.</td></tr>
-      <tr style="background:#1a0a1a"><td style="font-family:monospace;font-size:11px;color:#ff79c6"><b>2139exchange.com</b></td><td><b style="color:#ff79c6">Active — cert 2026-03-19</b></td><td>Porkbun / SIA VEESP AS42532, Riga Latvia (185.22.174.75) · <b>aaPanel (BaoTa 宝塔面板 — Chinese hosting panel)</b></td><td><b style="color:#ff79c6">⚠ CRITICAL OPERATOR LINK:</b> Same Porkbun nameservers as aztex.eu = same operator. TLS cert + aaPanel default page last modified <b>2026-03-19</b> — server was reset/reconfigured that day. <b>aaPanel (宝塔面板)</b> is a Chinese server control panel — confirms Chinese operator is managing this server. Currently serving placeholder page (exchange not yet deployed or wiped). 11 subdomains: intranet, hr, sharepoint (structured criminal org). "2139 Com Exchange" is a Dorfman CO entity (BrokersView fraud-flagged). Server: nginx, Riga Latvia (SIA VEESP). Abuse: abuse@porkbun.com, cert@latviacert.lv.</td></tr>
+      <tr style="background:#1a0a1a"><td style="font-family:monospace;font-size:11px;color:#ff79c6"><b>2139exchange.com</b></td><td><b style="color:#ff79c6">Active — cert 2026-03-19</b><br><small>Registered: 2024-07-08</small></td><td>Porkbun / SIA VEESP AS42532, Riga Latvia (185.22.174.75) · <b>aaPanel (BaoTa 宝塔面板 — Chinese hosting panel)</b></td><td><b style="color:#ff79c6">⚠ CRITICAL OPERATOR LINK:</b> Same Porkbun nameservers as aztex.eu = same operator. TLS cert + aaPanel default page last modified <b>2026-03-19</b> — server was reset/reconfigured that day. <b>aaPanel (宝塔面板)</b> is a Chinese server control panel — confirms Chinese operator is managing this server. Currently serving placeholder page (exchange not yet deployed or wiped). <b>Confirmed subdomains (subfinder 2026-03-25):</b> api, hr, portal, dev, intranet, m, sharepoint, wwww — <b>identical internal tooling fingerprint to aztex.eu (hr/intranet/sharepoint = structured criminal org)</b>. "2139 Com Exchange" is a Dorfman CO entity (BrokersView fraud-flagged). <b>Blocked by CONSOB (Italy) October 11, 2024.</b> Associated with <b>megat.vip (Mega Investment Group)</b> — Mega Team WhatsApp group used for victim recruitment; combined victim losses cited at <b>$50–70 million</b>. Multiple domain variants: 2139.lol, 2139a.com, 2139.nl, 2139.one (all dead). Also linked: <b>Dolphin</b> (fake crypto platform, same infrastructure pattern). Server: nginx, Riga Latvia (SIA VEESP). Abuse: abuse@porkbun.com, cert@latviacert.lv.</td></tr>
       <tr><td style="font-family:monospace;font-size:11px">aztex.eu</td><td>Active (Porkbun, updated 2026-03)</td><td>Contabo 194.60.201.83 (same server as deptoy.co cert) · SPF confirms single IP</td><td>AZTEX criminal infrastructure hub — Bitwarden, Matrix, Nextcloud, mail, RDP gateway, custom routing tools. Registrant redacted (EURid GDPR). <b>Full subdomain list (subfinder):</b> bitwarden, matrix, nextcloud, admin.nextcloud, owncloud, rdp, route-finder, route-lister, mail, webmail, webdisk, cpanel, cpcontacts, cpcalendars, autodiscover, somegoodnews, jukem, ninjazz, twenty48, www. Abuse: abuse@porkbun.com</td></tr>
       <tr><td style="font-family:monospace;font-size:11px">aztex.digital</td><td>Active (certs Jan 2020–Dec 2025)</td><td>Hetzner 37.27.206.233 (Helsinki)</td><td>AZTEX staging/development environment. Subdomains: project-cheapeats, project-omikami, t-contest, obsidian, slepsk. Redis + MinIO backend.</td></tr>
+      <tr id="sec-active-threats" style="background:#1a0a00"><td colspan="4" style="color:#f39c12;font-weight:bold;padding:6px 8px;font-size:11px">── DORFMAN DIRECT PLATFORMS — ACTIVE THREATS (Colorado / US fronts) ──</td></tr>
+      <tr style="background:#1a0a00"><td style="font-family:monospace;font-size:11px;color:#e74c3c"><b>4tx9h.com</b></td><td><b style="color:#e74c3c">DELETED</b><br><small>Active Oct 2024 – Mar 2025</small></td><td>Domain now deleted from Verisign registry ("No match")</td><td><b style="color:#e74c3c">⭐ BETA GLOBAL FINANCE PLATFORM</b> — Active scam platform Oct 2024–Mar 2025. Victim invested <b>$862,497.83</b> (retirement funds) after being recruited through Facebook Messenger impersonating BofA strategist → WhatsApp group "A1 — SSW Investment Vanguard" → "Prof. Darryl Joel Dorfman." Dashboard falsely showed 13 million USDT by March 2025. Demanded 5% withdrawal fee (~$700,000). After refusal, victim locked out. Platform claimed false SEC + FinCEN registrations. Domain now fully deleted from registry. Associated company: <b>betaglobalmanagements.com</b> (registered Oct 2024, WholeSale Internet Kansas City 173.208.178.96 — fake real estate/lending front site).</td></tr>
+      <tr style="background:#1a0a00"><td style="font-family:monospace;font-size:11px;color:#f39c12"><b>mdutton.com</b></td><td><b style="color:#f39c12">LIVE — Jan 2026</b><br><small>Domain since 2015</small></td><td>AWS (13.248.213.45, 76.223.67.189) · GoDaddy registrar · cert issued 2026-02-23 (wildcard *.mdutton.com)</td><td><b style="color:#f39c12">⚠ ACTIVE SCAM PLATFORM</b> — <b>DUTT Cryptocurrency Exchange Ltd</b>. Colorado Corporation #20211471867, incorporated <b>April 14, 2021</b>, "Good Standing." FinCEN MSB registered at <b>1800 Larimer Street, Denver, CO 80202</b> (Blackstone/Beacon Capital 500K sq ft office tower — virtual address). Registered agent: Colorado Registered Agents Inc, 1500 N Grant St Denver (commercial agent — not Dorfman directly). Website mdutton.com was parked/redirecting 2015–2025, went live <b>January 24, 2026</b>. TLS cert issued <b>February 23, 2026</b>. "Invite-only" registration = pig-butchering handler model (each victim tethered to specific recruiter). Founders: Darryl Joel Dorfman (press releases). Media contact: <b>Simon John</b> (confirmed fictional persona in this network). Claims spot trading, futures, institutional custody, Web3 services, $50M registered capital. Analyst: <b>invite-only = DO NOT join without law enforcement direction.</b></td></tr>
       <tr style="background:#0d1a1a"><td colspan="4" style="color:#3498db;font-weight:bold;padding:6px 8px;font-size:11px">── HONG KONG SERVER FARM DOMAINS (IP 202.79.174.5 · CTG Server Limited · all share SHARE-DNS.COM/NET nameservers) ──</td></tr>
       <tr style="background:#0d1510"><td style="font-family:monospace;font-size:11px;color:#e74c3c"><b>nanolite-foundationnlf.com</b></td><td>2025-08-06</td><td><b>NameSilo LLC</b> (Scottsdale AZ — US subpoena target) · Reg. expires 2026-08-06</td><td><b style="color:#e74c3c">⚠ BaFin-warned WhatsApp investment scam (Germany)</b> — Registered by Darryl Joel Dorfman. Site is an HTTrack copy of legitimate German VC hvcapital.com (copied 2025-05-28). Hardcoded token in JS: <code>TOKEN:"PpAz5O26OlepQn8sRcL2qgtt"</code>. React/Next.js frontend. Phone: 573001782. NameSilo holds real registrant identity (18 USC §2703).</td></tr>
       <tr style="background:#0d1510"><td style="font-family:monospace;font-size:11px;color:#f1c40f"><b>fmtcapitaltc.com</b></td><td><b>2025-08-26</b></td><td>Registrar.eu (Netherlands) · <b>Cloudflare CDN</b> · Registrant country: MY (Malaysia) · MX: mx.mail-ussl.com</td><td><b style="color:#f1c40f">⚠ ACTIVE</b> — Fake MT5 forex broker, copyright "FMT Capital LLC." <b>Technology: ThinkPHP (Chinese PHP framework)</b> — Chinese-built scam platform. 8+ languages incl. Arabic (بالعربية) — broad international targeting. MX: mx.mail-ussl.com (Cloudflare, same NS as fmtcapitaltc — same account). Copyright 2019 on 2025 domain = reused scam template. Batch-registered 2025-08-26.<br>
@@ -1184,7 +1246,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
     </tbody>
   </table>
 
-  <h3 style="color:#f0f6fc;font-size:13px;margin:16px 0 8px">Known Operator Personas &amp; Handles</h3>
+  <h3 id="sec-suspects" style="color:#f0f6fc;font-size:13px;margin:16px 0 8px">Known Operator Personas &amp; Handles</h3>
   <table>
     <thead><tr><th>Identifier</th><th>Platform</th><th>Role</th><th>Notes</th></tr></thead>
     <tbody>
@@ -1195,7 +1257,9 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
       <tr><td style="font-family:monospace">Professor Bingham</td><td>WhatsApp</td><td>Group leader / signals provider</td><td>WhatsApp investment group recruiter — likely one of multiple personas</td></tr>
       <tr><td style="font-family:monospace">Susan / Bexley / Matthew</td><td>WhatsApp</td><td>Group operators + "analyst"</td><td>"Carlyle &amp; BIPPAX-185" — confirmed Reddit victim lost $550,000 (May–Nov 2023). Script: impersonate The Carlyle Group; "Bexley" = analyst, "Susan" = moderator, "Matthew" = assigned trader. Fake coins BEV and ETIC pitched. 20% commission extracted from external accounts. Source: r/CryptoScams post u/Illustrious-Hawk8499 (2024-02-14). Victim filed IC3 and FTC reports Nov 2023.</td></tr>
       <tr><td style="font-family:monospace">Jack Williams</td><td>Canada Corp</td><td>Director of record</td><td>Fictitious Anglo name on federal filing — real person's ID required by Corporations Canada</td></tr>
-      <tr style="background:#1c1a00"><td style="font-family:monospace;color:#f1c40f"><b>Darryl Joel Dorfman</b></td><td>Colorado / UK / WhatsApp</td><td><b>Named suspect</b></td><td style="color:#f1c40f"><b>IDENTIFIED — VERIFY AGE:</b> UK Companies House shows "Darryl Joel Dorfman" born <b>June 1971</b> (American) at <b>90 Interlocken Crescent, Broomfield CO 80021</b> as director of 4 UK shell companies (HYPER SOFTWARE LTD, MYIM NETWORK TECHNOLOGY, OHIYO LTD, 35 EXCHANGE LIMITED — all dissolved). Also registered agent for 17+ Colorado shells. Runs WhatsApp groups as "Prof. Darryl Joel Dorfman" (Beta Global Finance — $862K group loss). BaFin-warned Nanolite Foundation registered in his name. <b>⚠ IF a different elderly Darryl Joel Dorfman exists in Colorado, the CO shells may involve identity theft of that person — the UK records (b. June 1971) would then be a separate individual who is the actual fraudster.</b> Aliases provided by source: Hailey Ramirez, Thaddeus Hawthorne, Maximilian Fairfax (none found in scam databases as of 2026-03-26 — unreported personas). LinkedIn: linkedin.com/in/darryl-joel-dorfman-798a55274/</td></tr>
+      <tr style="background:#1c1a00"><td style="font-family:monospace;color:#f1c40f"><b>Darryl Joel Dorfman</b></td><td>Colorado / UK / WhatsApp</td><td><b>Named suspect</b></td><td style="color:#f1c40f"><b>IDENTIFIED — VERIFY AGE:</b> UK Companies House shows "Darryl Joel Dorfman" born <b>June 1971</b> (American) at <b>90 Interlocken Crescent, Broomfield CO 80021</b> as director of 4 UK shell companies (HYPER SOFTWARE LTD, MYIM NETWORK TECHNOLOGY, OHIYO LTD, 35 EXCHANGE LIMITED — all dissolved). Also registered agent for 17+ Colorado shells. Runs WhatsApp groups as "Prof. Darryl Joel Dorfman" (Beta Global Finance — $862K group loss; platform was <b>4tx9h.com</b>, now deleted). BaFin-warned Nanolite Foundation registered in his name.<br>
+        <b style="color:#e74c3c">LATEST ACTIVE PLATFORM:</b> <b>DUTT Cryptocurrency Exchange Ltd</b> — Colorado Corp #20211471867 (April 14, 2021, "Good Standing"), FinCEN MSB, website <b>mdutton.com</b> (live January 24, 2026, cert February 23, 2026). Claims $50M registered capital. Invite-only model (pig-butchering). Press releases via King Newswire; media contact "Simon John" (confirmed fake persona). Blogger bio says born 1967 (conflicts with UK Companies House b. June 1971 — possible fabricated bio). LinkedIn claims role as "Management Director at H-E-B" (Texas grocery chain — clearly false cover identity). Blog at darryljoeldorfman.blogspot.com (August 2024 posts promoting SSW/CyberFusion5.0).<br>
+        <b>⚠ IF a different elderly Darryl Joel Dorfman exists in Colorado, the CO shells may involve identity theft of that person — the UK records (b. June 1971) would then be a separate individual who is the actual fraudster.</b> Aliases provided by source: Hailey Ramirez, Thaddeus Hawthorne, Maximilian Fairfax (none found in scam databases as of 2026-03-26 — unreported active personas). LinkedIn: linkedin.com/in/darryl-joel-dorfman-798a55274/</td></tr>
       <tr style="background:#1c1a00"><td style="font-family:monospace;color:#f1c40f"><b>"Barry" (AZTEX-BARRY)</b></td><td>RDP / Windows</td><td><b>UK Operator</b></td><td style="color:#f1c40f"><b>PARTIAL IDENTITY:</b> Person named "Barry" uses a Windows machine self-named "AZTEX-BARRY" on TalkTalk residential broadband in England (IP 79.78.160.133). Accesses AZTEX ops server via RDP. Surname unknown. UK Action Fraud / NCA referral target.</td></tr>
     </tbody>
   </table>
@@ -1256,7 +1320,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
           <b>US shells:</b> 17+ Colorado entities (BYXG, Nanolite Foundation, Cappo FX, 2139 Com Exchange, K2 Exchange…)<br>
           <b>UK shells:</b> 4 Companies House entities (2022–2025, all dissolved)<br>
           <b>Address:</b> 90 Interlocken Crescent, Broomfield CO 80021<br>
-          <b>Role:</b> Registered agent / front; lends legitimacy to shell platforms; BaFin-warned Nanolite Foundation; "Prof. Darryl Joel Dorfman" WhatsApp fraud persona ($862K loss); DUTT Exchange press releases
+          <b>Role:</b> Registered agent / front; lends legitimacy to shell platforms; BaFin-warned Nanolite Foundation; "Prof. Darryl Joel Dorfman" WhatsApp fraud persona ($862K loss via <b>4tx9h.com</b>); <b>DUTT Cryptocurrency Exchange Ltd</b> (mdutton.com, live Jan 2026, FinCEN MSB, CO Corp April 2021)
         </div>
       </div>
       <div style="background:#1a0a1a;border:1px solid #9b59b6;border-radius:6px;padding:12px">
@@ -1319,7 +1383,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
   </div>
 
   <!-- ── AZTEX INFRASTRUCTURE ────────────────────────────── -->
-  <h3 style="color:#f0f6fc;font-size:13px;margin:20px 0 8px">AZTEX Criminal Infrastructure — Discovered Server Network</h3>
+  <h3 id="sec-aztex" style="color:#f0f6fc;font-size:13px;margin:20px 0 8px">AZTEX Criminal Infrastructure — Discovered Server Network</h3>
   <div style="background:#0d1117;border:2px solid #9b59b6;border-radius:8px;padding:16px;margin-bottom:12px">
     <div style="color:#9b59b6;font-weight:bold;font-size:13px;margin-bottom:10px">⚠ AZTEX GROUP — Multi-Person Criminal Enterprise (Active)</div>
     <p style="font-size:12px;margin:0 0 8px">The "AZTEX" group operates a sophisticated self-hosted IT stack used to coordinate the scam operation. The AZTEX brand also appears directly as fake crypto exchange fronts (aztexchange.com, aztexcoins.com) within the BIPPAX domain network.</p>
@@ -1388,7 +1452,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
   </div>
 
   <!-- ── HONG KONG SCAM FARM ────────────────────────────── -->
-  <h3 style="color:#f0f6fc;font-size:13px;margin:20px 0 8px">Hong Kong Scam Server Farm — 202.79.174.5 (CTG Server Limited)</h3>
+  <h3 id="sec-hkserver" style="color:#f0f6fc;font-size:13px;margin:20px 0 8px">Hong Kong Scam Server Farm — 202.79.174.5 (CTG Server Limited)</h3>
   <div style="background:#0d1117;border:2px solid #e74c3c;border-radius:8px;padding:16px;margin-bottom:12px">
     <div style="color:#e74c3c;font-weight:bold;font-size:13px;margin-bottom:8px">⚠ ACTIVE SCAM INFRASTRUCTURE — ~30 FAKE FINANCE SITES ON ONE SERVER</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:11px;margin-bottom:10px">
@@ -1471,7 +1535,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
   </div>
 
   <!-- ── ADDITIONAL Russia-linked server subpoena -->
-  <h3 style="color:#f0f6fc;font-size:13px;margin:16px 0 8px">MLAT &amp; Jurisdictional Subpoena Guide</h3>
+  <h3 id="sec-subpoena" style="color:#f0f6fc;font-size:13px;margin:16px 0 8px">MLAT &amp; Jurisdictional Subpoena Guide</h3>
   <table>
     <thead><tr><th>Jurisdiction</th><th>Target</th><th>Legal Mechanism</th><th>Expected Intelligence</th></tr></thead>
     <tbody>
@@ -1586,7 +1650,13 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
         <td><b>USA</b></td>
         <td>Colorado Secretary of State — Darryl Joel Dorfman entities</td>
         <td>FBI Denver Field Office subpoena — Colorado has 18 USC §1343 wire fraud jurisdiction</td>
-        <td>Full business registration records for BYXG Cryptocurrency Group Ltd (#20231159680), 2139 Com Exchange, Cappo FX, K2 Exchange, USDcc, SSW Management Institute — all registered by Dorfman. Address: 26 West Dry Creek Cir Suite 700, Littleton CO 80120.</td>
+        <td>Full business registration records for BYXG Cryptocurrency Group Ltd (#20231159680), 2139 Com Exchange, Cappo FX, K2 Exchange, USDcc, SSW Management Institute, <b>DUTT Cryptocurrency Exchange Ltd (#20211471867)</b> — all registered by Dorfman. Address: 26 West Dry Creek Cir Suite 700, Littleton CO 80120. <b>DUTT Exchange is FinCEN MSB registered at 1800 Larimer St Denver CO 80202</b> (registered April 14, 2021, Good Standing). Also request: FinCEN SAR/CTR records for DUTT Exchange MSB under BSA.</td>
+      </tr>
+      <tr style="background:#1a0a1a">
+        <td><b>USA</b></td>
+        <td>GoDaddy.com LLC (Scottsdale, AZ) — mdutton.com registrar (DUTT Exchange)</td>
+        <td>18 USC §2703 subpoena — GoDaddy is a US company. Abuse: abuse@godaddy.com, 480-624-2505</td>
+        <td><b>HIGH VALUE:</b> mdutton.com is the active DUTT Cryptocurrency Exchange website (live January 2026). GoDaddy holds registrant identity + payment method. Domain expires September 2026. Also subpoena GoDaddy for cappofx.com (10-year registration 2023–2033, cert renewed March 2026).</td>
       </tr>
       <tr style="background:#1c1200">
         <td><b>UK</b></td>
@@ -1629,7 +1699,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
 </div>
 
 <!-- ── ADDRESS TABLES ─────────────────────────────────────────────────────── -->
-<div class="section">
+<div class="section" id="sec-addresses">
   <h2>Address Analysis</h2>
   <div class="tabs">
     <div class="tab active" onclick="showTab('hop1')">Hop-1 Destinations (250)</div>
@@ -6723,7 +6793,7 @@ pre.le-block{background:#161b22;border:1px solid #30363d;border-radius:6px;paddi
 </div>
 
 <!-- ── LAW ENFORCEMENT PACKAGE ────────────────────────────────────────────── -->
-<div class="section">
+<div class="section" id="sec-le-package">
   <h2>Law Enforcement Evidence Package</h2>
   <button class="copy-btn" onclick="copyLE()">Copy to clipboard</button>
   <pre class="le-block" id="le-block">================================================================================
@@ -6985,6 +7055,31 @@ document.querySelectorAll('th.sortable').forEach(th => th.addEventListener('clic
 function copyLE() {
   navigator.clipboard.writeText(document.getElementById('le-block').textContent)
     .then(() => { const b = document.querySelector('.copy-btn'); b.textContent='Copied!'; setTimeout(()=>b.textContent='Copy to clipboard',2000); });
+}
+</script>
+</div><!-- /.main-content -->
+</div><!-- /.layout -->
+
+<script>
+// Sidebar active state on scroll
+const sectionIds = ['sec-summary','sec-timeline','sec-map','sec-alerts','sec-charts','sec-graph','sec-money-trail','sec-binance','sec-deptoy','sec-network','sec-domains','sec-active-threats','sec-suspects','sec-aztex','sec-hkserver','sec-subpoena','sec-addresses','sec-le-package'];
+window.addEventListener('scroll', () => {
+  let current = '';
+  sectionIds.forEach(id => {
+    const el = document.getElementById(id);
+    if(el && el.getBoundingClientRect().top <= 80) current = id;
+  });
+  document.querySelectorAll('.sidebar a[href^="#"]').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#'+current);
+  });
+});
+
+// Domain table filter
+function filterDomains(val) {
+  const v = val.toLowerCase();
+  document.querySelectorAll('#tbl-domains tbody tr').forEach(row => {
+    row.style.display = row.textContent.toLowerCase().includes(v) ? '' : 'none';
+  });
 }
 </script>
 </body>
