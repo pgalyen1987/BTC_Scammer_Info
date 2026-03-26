@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Layer 1 — Chinese Criminal Factory Infrastructure</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;font-size:13px}
+.header{background:#161b22;padding:18px 28px;border-bottom:2px solid #e74c3c}
+.header h1{color:#e74c3c;font-size:20px;margin-bottom:4px}
+.sub{color:#8b949e;font-size:12px}
+.layout{display:flex;align-items:flex-start}
+.sidebar{width:220px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:#161b22;border-right:1px solid #30363d;padding:12px 0;font-size:12px}
+.sidebar a{display:block;padding:6px 16px;color:#8b949e;text-decoration:none;border-left:3px solid transparent}
+.sidebar a:hover,.sidebar a.active{color:#f0f6fc;background:#21262d;border-left-color:#e74c3c}
+.sidebar .nav-group{padding:8px 16px 4px;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#e74c3c;margin-top:8px}
+.main-content{flex:1;min-width:0;padding:0 28px 40px}
+.section{margin:24px 0}
+.section h2{color:#f0f6fc;font-size:15px;border-bottom:1px solid #30363d;padding-bottom:8px;margin-bottom:14px}
+.section h3{color:#f0f6fc;font-size:13px;margin:18px 0 10px}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:#161b22;color:#8b949e;text-align:left;padding:7px 8px;border-bottom:1px solid #30363d;font-size:10px;text-transform:uppercase;white-space:nowrap}
+td{padding:6px 8px;border-bottom:1px solid #21262d;vertical-align:top}
+tr:hover td{background:#161b22}
+code{background:#1c2128;border:1px solid #30363d;border-radius:3px;padding:1px 5px;font-size:11px;font-family:monospace}
+.box{border-radius:8px;padding:16px;margin:12px 0}
+.box-red{background:#1a0800;border:2px solid #e74c3c}
+.box-orange{background:#1a0d00;border:2px solid #f39c12}
+.box-blue{background:#0a1520;border:2px solid #3498db}
+.box-green{background:#0d1a10;border:2px solid #2ecc71}
+.box-purple{background:#150a1a;border:2px solid #9b59b6}
+.box-yellow{background:#1a1500;border:2px solid #f1c40f}
+.box-dark{background:#161b22;border:1px solid #30363d}
+.label{font-size:11px;font-weight:bold;margin-bottom:8px}
+.label-red{color:#e74c3c}
+.label-orange{color:#f39c12}
+.label-blue{color:#3498db}
+.label-green{color:#2ecc71}
+.label-yellow{color:#f1c40f}
+.label-purple{color:#9b59b6}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.critical-bar{background:#1c1010;border-bottom:1px solid #e74c3c;padding:10px 28px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.crit-btn{padding:5px 14px;border-radius:4px;font-size:11px;font-weight:bold;text-decoration:none;cursor:pointer}
+.ioc{font-family:monospace;background:#161b22;border:1px solid #30363d;border-radius:4px;padding:2px 8px;font-size:11px}
+.badge{padding:2px 8px;border-radius:12px;font-size:10px;font-weight:bold}
+.badge-red{background:#e74c3c;color:#fff}
+.badge-orange{background:#f39c12;color:#111}
+.badge-blue{background:#3498db;color:#fff}
+.badge-green{background:#2ecc71;color:#111}
+ul{padding-left:18px;line-height:1.9}
+li{margin-bottom:2px}
+.arch-row{display:flex;align-items:stretch;margin-bottom:6px;border-radius:6px;overflow:hidden}
+.arch-label{width:160px;flex-shrink:0;display:flex;align-items:center;padding:10px 14px;font-weight:bold;font-size:12px}
+.arch-body{flex:1;padding:10px 14px;font-size:11px;line-height:1.8;border-left:1px solid rgba(255,255,255,0.05)}
+.stat-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px;text-align:center}
+.stat-val{font-size:28px;font-weight:bold;color:#f0f6fc;margin:4px 0}
+.stat-lbl{font-size:10px;color:#8b949e;text-transform:uppercase;letter-spacing:.5px}
+.stat-sub{font-size:11px;color:#8b949e;margin-top:4px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:6px">PIG-BUTCHERING INVESTIGATION — LAYER 1 DEEP DIVE</div>
+  <h1>Chinese Criminal Factory — Infrastructure Analysis</h1>
+  <div class="sub" style="margin-top:6px">
+    Part of the BIPPAX / BISSNEX / DUTT Cryptocurrency Exchange scam network investigation &nbsp;|&nbsp;
+    <a href="report.html" style="color:#58a6ff">← Back to Main Report</a>
+    &nbsp;|&nbsp;
+    <a href="le-package.html" style="color:#2ecc71">⚖ LE Package →</a>
+  </div>
+</div>
+
+<div class="critical-bar">
+  <span style="font-size:11px;font-weight:bold;color:#e74c3c;margin-right:4px">⚠ KEY FINDINGS:</span>
+  <a class="crit-btn" href="#sec-gname" style="background:#1a0800;color:#e74c3c;border:1px solid #e74c3c">🔑 Gname.com Root</a>
+  <a class="crit-btn" href="#sec-sharedns" style="background:#1a0d00;color:#f39c12;border:1px solid #f39c12">🌐 SHARE-DNS 800K+</a>
+  <a class="crit-btn" href="#sec-ctg" style="background:#0a1520;color:#3498db;border:1px solid #3498db">🖥 CTG Server</a>
+  <a class="crit-btn" href="#sec-webnic" style="background:#150a1a;color:#9b59b6;border:1px solid #9b59b6">🇯🇵 WebNIC JP Bypass</a>
+  <a class="crit-btn" href="#sec-subpoenas" style="background:#0d1a10;color:#2ecc71;border:1px solid #2ecc71">📨 Subpoena Targets</a>
+</div>
+
+<div class="layout">
+
+<nav class="sidebar">
+  <div style="padding:10px 16px 6px;font-size:13px;font-weight:bold;color:#e74c3c;border-bottom:1px solid #30363d;margin-bottom:4px">Layer 1 Intel</div>
+  <div class="nav-group">Overview</div>
+  <a href="#sec-overview">Architecture</a>
+  <a href="#sec-scale">Scale Assessment</a>
+  <div class="nav-group">Infrastructure</div>
+  <a href="#sec-gname">Gname.com Root Account</a>
+  <a href="#sec-sharedns">SHARE-DNS Empire</a>
+  <a href="#sec-ctg">CTG Server Limited</a>
+  <a href="#sec-webnic">WebNIC Japan Bypass</a>
+  <div class="nav-group">Domain Intel</div>
+  <a href="#sec-domains-us">US Finance Targets</a>
+  <a href="#sec-domains-jp">Japan Targets</a>
+  <a href="#sec-domains-my">Malaysia Targets</a>
+  <div class="nav-group">Attribution</div>
+  <a href="#sec-iocs">IOC Registry</a>
+  <a href="#sec-subpoenas">Subpoena Targets</a>
+  <div class="nav-group">Pages</div>
+  <a href="report.html" style="color:#58a6ff">← Main Report</a>
+  <a href="le-package.html" style="color:#2ecc71">⚖ LE Package</a>
+</nav>
+
+<div class="main-content">
+
+<!-- ── OVERVIEW ── -->
+<div id="sec-overview" class="section">
+  <h2>Three-Layer Architecture — Where Layer 1 Fits</h2>
+  <div class="arch-row" style="background:#1a0800;border:1px solid #e74c3c">
+    <div class="arch-label" style="background:#e74c3c22;color:#e74c3c">Layer 1<br><small style="font-weight:normal;font-size:10px">Chinese Factory</small></div>
+    <div class="arch-body">
+      <b>THIS DOCUMENT.</b> Builds and operates the technical infrastructure: servers, DNS, domain registrations, scam website templates, backend platforms. Operates from Hong Kong / Southeast Asia.<br>
+      <b>Key entities:</b> CTG Server Limited (HK hosting), SHARE-DNS.COM/NET (DNS infrastructure), Gname.com account (domain registrar), WebNIC Malaysia (.co.jp bypass), ThinkPHP scam platform developers.<br>
+      <b>Evidence of scale:</b> 800,000+ domains across 15+ nameserver pairs. This is an infrastructure-as-a-service operation serving multiple criminal networks simultaneously.
+    </div>
+  </div>
+  <div class="arch-row" style="background:#1a0d00;border:1px solid #f39c12;margin-top:4px">
+    <div class="arch-label" style="background:#f39c1222;color:#f39c12">Layer 2<br><small style="font-weight:normal;font-size:10px">Western Wrapper</small></div>
+    <div class="arch-body">
+      Provides Western legal legitimacy to defeat victim due diligence. US LLC registrations (Colorado), UK shell companies, FinCEN MSB registrations, fake press releases.<br>
+      <b>Key entity:</b> "Darryl Joel Dorfman" (Colorado) — probable nominee/fabricated identity. See <a href="report.html#sec-suspects">Main Report → Suspects</a>.
+    </div>
+  </div>
+  <div class="arch-row" style="background:#0d1a10;border:1px solid #2ecc71;margin-top:4px">
+    <div class="arch-label" style="background:#2ecc7122;color:#2ecc71">Layer 3<br><small style="font-weight:normal;font-size:10px">Victim-Facing</small></div>
+    <div class="arch-body">
+      WhatsApp romance/investment personas. "Prof. Darryl Joel Dorfman," "Prof. Müller," "Greta," "Bexley," "Susan," "Matthew." Run from scam compounds (Myanmar/Cambodia/Laos Golden Triangle area).
+    </div>
+  </div>
+</div>
+
+<!-- ── SCALE ── -->
+<div id="sec-scale" class="section">
+  <h2>Scale Assessment</h2>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px">
+    <div class="stat-card">
+      <div class="stat-lbl">Scam Domains (est.)</div>
+      <div class="stat-val" style="color:#e74c3c">800K+</div>
+      <div class="stat-sub">SHARE-DNS total (~57K per pair × 15+ pairs)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-lbl">CTG Server IPs</div>
+      <div class="stat-val" style="color:#f39c12">22,212</div>
+      <div class="stat-sub">Across 467 network prefixes in HK, JP, SG, US</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-lbl">Confirmed Targets</div>
+      <div class="stat-val" style="color:#3498db">35+</div>
+      <div class="stat-sub">Typosquat domains on 202.79.174.5 (HK server)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-lbl">Infrastructure Active Since</div>
+      <div class="stat-val" style="color:#2ecc71">2022</div>
+      <div class="stat-sub">SHARE-DNS registered June 30, 2022</div>
+    </div>
+  </div>
+  <div class="box box-orange">
+    <div class="label label-orange">⚠ Context: Not Just One Scam</div>
+    <div style="font-size:12px;line-height:1.8">
+      The SHARE-DNS infrastructure serves <b>the entire Chinese scam ecosystem</b> — not just this pig-butchering operation. Domains using SHARE-DNS include gambling sites (.wang, .vip), phishing portals (Macy's typosquats), spam infrastructure (.top domains with random strings), fake investment platforms, and multiple pig-butchering verticals.
+      <br><br>
+      The operator of SHARE-DNS (the <b>zys@gname.com</b> Gname.com account) provides DNS-as-a-service to criminal networks as a business. Our investigation's BIPPAX/DUTT network is <b>one customer</b> renting nameserver pairs from this service.
+      <br><br>
+      <b>This makes the Gname.com account a priority target</b>: disrupting it would affect hundreds of thousands of criminal domains simultaneously.
+    </div>
+  </div>
+</div>
+
+<!-- ── GNAME.COM ROOT ── -->
+<div id="sec-gname" class="section">
+  <h2>🔑 The Root: One Gname.com Account Controls Everything</h2>
+  <div class="box box-red">
+    <div class="label label-red">CONFIRMED: Single Registrar Account — All Key Infrastructure</div>
+    <div style="font-size:12px;line-height:2;margin-top:6px">
+      A single <b>Gname.com Pte. Ltd. (Singapore)</b> account owns and manages:
+      <table style="margin-top:8px">
+        <thead><tr><th>Asset</th><th>Registration Date</th><th>Purpose</th><th>DNS</th></tr></thead>
+        <tbody>
+          <tr style="background:#1a0800"><td><code>SHARE-DNS.COM</code></td><td>2022-06-30</td><td>Scam DNS infrastructure (nameservers)</td><td>Cloudflare (troy/ulla NS)</td></tr>
+          <tr style="background:#1a0800"><td><code>SHARE-DNS.NET</code></td><td>2022-06-30</td><td>Scam DNS infrastructure (nameservers)</td><td>Cloudflare (anita/brad NS)</td></tr>
+          <tr style="background:#1a0d00"><td><code>mdutton.com</code></td><td>2015 (updated 2025-10-28)</td><td>DUTT Exchange active scam platform</td><td>Cloudflare</td></tr>
+          <tr style="background:#1a0d00"><td><code>bankofamerilcasl.com</code></td><td>2025</td><td>Bank of America typosquat</td><td>SHARE-DNS</td></tr>
+          <tr style="background:#1a0d00"><td><code>alliancebernsteinn.com (+3 variants)</code></td><td>2025</td><td>AllianceBernstein $700B AUM typosquat</td><td>SHARE-DNS</td></tr>
+          <tr style="background:#1a0d00"><td><code>wellingtonmanageementi.com</code></td><td>2025-08-17</td><td>Wellington Management $1.2T AUM typosquat</td><td>SHARE-DNS A5/B5</td></tr>
+          <tr style="background:#1a0d00"><td><code>warburgpiincusii.com</code></td><td>2025-12-18</td><td>Warburg Pincus $83B AUM typosquat</td><td>SHARE-DNS A11/B11</td></tr>
+          <tr><td><code>goassetmanagementptelttd.my (+4 variants)</code></td><td>2025</td><td>Go Asset Management Malaysia typosquat</td><td>SHARE-DNS</td></tr>
+          <tr><td><code>managementcapitalmad.com</code></td><td>2025-08-29</td><td>Asset manager impersonation</td><td>SHARE-DNS A7/B7</td></tr>
+          <tr><td><i>20+ additional HK server farm domains</i></td><td>2025</td><td>Various financial firm impersonations</td><td>SHARE-DNS</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:12px">
+    <div class="box box-orange">
+      <div class="label label-orange">Account Identifier: zys@gname.com</div>
+      <ul style="font-size:12px">
+        <li>Email appears as <b>"Registrar Abuse Contact"</b> on Malaysian scam domains (.my) — indicates this is a Gname.com reseller/account-specific contact, not the general abuse address</li>
+        <li>Standard Gname.com abuse contact is <code>complaint@gname.com</code> — the <code>zys@gname.com</code> variant identifies a specific internal account or reseller tier</li>
+        <li>Indexed in <b>AlienVault OTX</b> (Open Threat Exchange) as a threat IOC — already on the security community radar</li>
+        <li>Indexed in <b>Whoisology</b> (December 2024) as registrant email for malicious domains</li>
+        <li><b>"ZYS"</b> may be initials or username of the account holder — closest data point to a named Chinese operator identity</li>
+      </ul>
+    </div>
+    <div class="box box-blue">
+      <div class="label label-blue">MLAT Path to Attribution</div>
+      <div style="font-size:12px;line-height:1.9">
+        Gname.com Pte. Ltd. is incorporated in <b>Singapore</b>, subject to Singapore law (PDPA, CDSA s.10).<br><br>
+        <b>Legal process route:</b>
+        <ol style="margin-left:16px;line-height:2">
+          <li>US DOJ MLAT request to Singapore Attorney General's Chambers</li>
+          <li>Singapore MAS referral (financial fraud under Singapore Penal Code)</li>
+          <li>Direct Gname.com legal demand under Computer Misuse Act</li>
+        </ol>
+        <br>
+        <b>What Gname.com holds:</b> Account registration email, payment method (credit card / Alipay / WeChat Pay likely), IP login history, full list of registered domains under the account
+        <br><br>
+        <b>Gname.com abuse:</b> <code>complaint@gname.com</code> &nbsp;|&nbsp; +65.65189986
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SHARE-DNS ── -->
+<div id="sec-sharedns" class="section">
+  <h2>🌐 SHARE-DNS — Industrial Scam DNS Infrastructure</h2>
+
+  <div class="box box-red" style="margin-bottom:14px">
+    <div class="label label-red">SHARE-DNS.COM and SHARE-DNS.NET: ~800,000+ malicious domains</div>
+    <div class="grid3" style="margin-top:10px;font-size:12px">
+      <div>
+        <b>Registered:</b> Both June 30, 2022 via Gname.com<br>
+        <b>DNS provider:</b> Cloudflare (Cloudflare hides backend server IPs)<br>
+        <b>Structure:</b> Numbered pairs A1/B1 through A15+/B15+ — each pair assigned to one customer account<br>
+        <b>Our operation's pairs:</b> A2, A4, A5, A6, A7, A8, A10, A11, A12 (9 confirmed pairs)
+      </div>
+      <div>
+        <b>Scale (confirmed):</b><br>
+        A4.SHARE-DNS.COM: <b>57,663 domains</b><br>
+        A9.SHARE-DNS.COM: <b>57,617 domains</b><br>
+        Est. 15+ pairs: <b>~800,000–870,000 total</b><br><br>
+        <b>Backend IPs:</b> All A-record queries return <code>172.64.53.25</code> (Cloudflare proxy) — actual backend IPs hidden
+      </div>
+      <div>
+        <b>Domain types served:</b><br>
+        • Pig-butchering investment platforms<br>
+        • Gambling sites (.wang, .vip, .cc)<br>
+        • Phishing portals (Macy's, Yandex, others)<br>
+        • Spam infrastructure (.top random strings)<br>
+        • Fake financial firm typosquats<br>
+        • Chinese-language scam sites (.cn, .com.cn)
+      </div>
+    </div>
+  </div>
+
+  <h3>SHARE-DNS Customer Account Structure</h3>
+  <div style="font-size:12px;line-height:1.8;margin-bottom:12px">
+    Each customer of SHARE-DNS receives a dedicated nameserver pair (e.g., <code>A7.SHARE-DNS.COM</code> + <code>B7.SHARE-DNS.NET</code>). This is consistent with a commercial DNS reseller/hosting provider model. The numbered subdomains seen in passive DNS (1187, 4322, 4456, 4775, 557, 5774, 6785, 6787, 684, 7143, 74, 7562, 7644, 7768, 8165, 822681, 9782, 9suz7hi) appear to be internal customer IDs or backend routing identifiers.
+  </div>
+
+  <h3>Nameserver Pair Assignment — This Operation</h3>
+  <table>
+    <thead><tr><th>Nameserver Pair</th><th>Domains Using This Pair (sample)</th><th>Target Market</th></tr></thead>
+    <tbody>
+      <tr><td><code>A.SHARE-DNS.COM / B.SHARE-DNS.NET</code> (root)</td><td>bankofamerilcasl.com, eatonvancci.com, pimco-tw.com, warburgpiincusii.com, wellingtton.com, alphaitx.com, alphasll.com, managementcapitalmad.com</td><td>US / Taiwan</td></tr>
+      <tr><td><code>A2.SHARE-DNS.COM / B2.SHARE-DNS.NET</code></td><td>fujieemco.jp</td><td>Japan</td></tr>
+      <tr><td><code>A4.SHARE-DNS.COM / B4.SHARE-DNS.NET</code></td><td>wellingtton.com</td><td>US</td></tr>
+      <tr><td><code>A5.SHARE-DNS.COM / B5.SHARE-DNS.NET</code></td><td>wellingtonmanageementi.com, sofiils.com, tactiib.com, tradiler.com, stratiformspi.com, stratiformsps.com, bmtmax.com, hmcapitalv.com</td><td>US</td></tr>
+      <tr><td><code>A6.SHARE-DNS.COM / B6.SHARE-DNS.NET</code></td><td>ssonysecoo.jp (Sony Securities typosquat)</td><td>Japan</td></tr>
+      <tr><td><code>A7.SHARE-DNS.COM / B7.SHARE-DNS.NET</code></td><td>managementcapitalmad.com</td><td>US</td></tr>
+      <tr><td><code>A8.SHARE-DNS.COM / B8.SHARE-DNS.NET</code></td><td>fujizecco.jp</td><td>Japan</td></tr>
+      <tr><td><code>A10.SHARE-DNS.COM / B10.SHARE-DNS.NET</code></td><td>asahiesecco.jp (Asahi Securities typosquat)</td><td>Japan</td></tr>
+      <tr><td><code>A11.SHARE-DNS.COM / B11.SHARE-DNS.NET</code></td><td>warburgpiincusii.com</td><td>US</td></tr>
+      <tr><td><code>A12.SHARE-DNS.COM / B12.SHARE-DNS.NET</code></td><td>fujieebco.jp</td><td>Japan</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── CTG SERVER ── -->
+<div id="sec-ctg" class="section">
+  <h2>🖥 CTG Server Limited — Hong Kong Hosting Provider</h2>
+  <div class="grid2">
+    <div class="box box-blue">
+      <div class="label label-blue">Company Registration Details</div>
+      <table style="font-size:12px">
+        <tr><td style="color:#8b949e;white-space:nowrap;padding-right:12px">HK Companies Registry No.</td><td><b>2753848</b></td></tr>
+        <tr><td style="color:#8b949e">Business Registration No.</td><td><b>69956200</b></td></tr>
+        <tr><td style="color:#8b949e">Incorporated</td><td>October 11, 2018</td></tr>
+        <tr><td style="color:#8b949e">Status</td><td><span style="color:#2ecc71">Live (Active)</span></td></tr>
+        <tr><td style="color:#8b949e">ISP License No.</td><td>#1910 (issued July 26, 2023)</td></tr>
+        <tr><td style="color:#8b949e">License type</td><td>Internet Access + IVAN Services</td></tr>
+        <tr><td style="color:#8b949e">Registered address</td><td>202, 2/F Kam Sang Building, 257 Des Voeux Rd Central, Hong Kong</td></tr>
+        <tr><td style="color:#8b949e">Operational address</td><td>8-12 Wong Chuk Yeung Street, Fo Tan, Shatin, New Territories</td></tr>
+        <tr><td style="color:#8b949e">Abuse email</td><td><code>cs.mail@ctgserver.com</code></td></tr>
+        <tr><td style="color:#8b949e">Telegram</td><td>@CTGServer / @CTGSeverBot</td></tr>
+        <tr><td style="color:#8b949e">Portal</td><td>myctgs.com</td></tr>
+        <tr><td style="color:#8b949e">ASN</td><td>AS152194</td></tr>
+        <tr><td style="color:#8b949e">Directors / shareholders</td><td><span style="color:#f1c40f">Hidden — HK CR paywall. MLAT required.</span></td></tr>
+      </table>
+    </div>
+    <div class="box box-orange">
+      <div class="label label-orange">Infrastructure Scale</div>
+      <div style="font-size:12px;line-height:1.9">
+        <b>467 network prefixes</b><br>
+        <b>22,212 IP addresses</b><br>
+        Presence in: Hong Kong, Japan (<code>137.220.128.0/17</code> = 32,768 IPs), Singapore (<code>118.107.0.0/18</code> = 16,384 IPs), United States (<code>192.252.176.0/20</code> = 4,096 IPs)<br><br>
+        This is not a small VPS provider — CTG Server is a substantial hosting business with global data center footprint.<br><br>
+        <b>Scam server IP:</b> <code>202.79.174.5</code> (Tung Chung, HK)<br>
+        <b>Open ports:</b> 22 (OpenSSH 7.4), 80, 83, 443, 3306, 8080<br>
+        <b style="color:#e74c3c">⚠ MySQL 3306 publicly exposed — database directly accessible (no auth bypass required — credentials needed but port is open to internet)</b>
+      </div>
+    </div>
+  </div>
+
+  <h3>Scam Server Analysis — 202.79.174.5</h3>
+  <div class="box box-dark" style="font-size:12px;line-height:1.9">
+    <b>~35+ fake finance sites confirmed via reverse IP lookup</b> (hackertarget.com). All share SHARE-DNS.COM/NET nameservers. Admin panel exposed: <code>admin.stratiformsloogan.com</code>.<br><br>
+    <b>Scam platforms hosted:</b> Nanolite Foundation (BaFin-warned, HTTrack clone of hvcapital.com), fmtcapitaltc.com (fake MT5 broker, ThinkPHP backend, admin panel live at broker.fmtcapitaltc.com), stratiformspi.com, stratiformsps.com, and 30+ others.<br><br>
+    <b>Technical stack:</b> OpenSSH 7.4 (EOL — CVE-2023-48795 Terrapin vulnerable), ThinkPHP (Chinese PHP framework), MySQL 3306 open, PHP/7.4.33 (EOL)
+  </div>
+
+  <h3>Building History — ICIJ Offshore Leaks Connection</h3>
+  <div class="box box-yellow" style="font-size:12px;line-height:1.8">
+    CTG Server's registered address (2/F Kam Sang Building, 255-257 Des Voeux Road Central) appears in the <b>ICIJ Offshore Leaks database</b> with officer <b>"Zhang Lei"</b> listed as having a registered address at this exact floor/building. ICIJ data is from ≤2010 (predates CTG Server's 2018 incorporation), but confirms the building has a multi-decade history as a shell company registered address.<br><br>
+    <b>Adjacent business:</b> <b>信保找換匯款 (XIN BAO EXCHANGE REMIT)</b> is located directly across Des Voeux Road Central from Kam Sang Building. This business is <b>NOT FOUND</b> in the Hong Kong Customs licensed Money Service Operators list (as at 2026-03-25) — potentially operating as an unlicensed money service operator. Under the Hong Kong Money Service Operators Licensing Ordinance, operating without a license is a criminal offense. Referral to HKICECC warranted independently of any CTG Server connection.
+  </div>
+</div>
+
+<!-- ── WEBNIC JAPAN ── -->
+<div id="sec-webnic" class="section">
+  <h2>🇯🇵 WebNIC Malaysia — Japanese .co.jp Domain Bypass</h2>
+  <div class="box box-purple">
+    <div class="label label-purple">Fraudulent .co.jp Registration via Malaysian Registrar</div>
+    <div style="font-size:12px;line-height:1.9;margin-top:6px">
+      All Japanese typosquat domains (.co.jp and .jp) were registered through <b>Web Commerce Communications Limited (WebNIC), Malaysia</b> (<code>support@webnic.cc</code>). The registrant name submitted was <b>"FSFSFSDSDFSFS"</b> — deliberate garbage data.<br><br>
+      <b>.co.jp registration rules:</b> Requires a registered Japanese company (one domain per company). WebNIC appears to have registered multiple .co.jp domains for a non-existent entity, violating JPRS (.co.jp registry) rules.<br><br>
+      <b>ICANN action:</b> ICANN issued a <b>breach notice to WebNIC in July 2025</b> for systematic failure to mitigate DNS abuse — even after receiving actionable abuse reports, WebNIC delayed or refused action. Over 30,000 abuse reports in 2025 involved WebNIC, with 90%+ of active WebNIC domains in some samples tied to scams.
+    </div>
+  </div>
+
+  <h3>Confirmed Japanese Typosquat Domains</h3>
+  <table>
+    <thead><tr><th>Domain</th><th>Target Brand</th><th>Created</th><th>Nameservers</th><th>Registrant</th></tr></thead>
+    <tbody>
+      <tr><td><code>ssonysecoo.jp</code></td><td>Sony Securities (SBI 証券)</td><td>2025-08-30</td><td>A6/B6.SHARE-DNS</td><td>FSFSFSDSDFSFS / WebNIC</td></tr>
+      <tr><td><code>asahiesecco.jp</code></td><td>Asahi Securities (朝日証券)</td><td>2025-08-18</td><td>A10/B10.SHARE-DNS</td><td>Web Commerce Comm. Ltd / WebNIC</td></tr>
+      <tr><td><code>fujieebco.jp</code></td><td>Fuji / Fujitsu financial variant</td><td>2025-08-20</td><td>A12/B12.SHARE-DNS</td><td>Web Commerce Comm. Ltd / WebNIC</td></tr>
+      <tr><td><code>fujieemco.jp</code></td><td>Fuji financial variant</td><td>2025-08-20</td><td>A2/B2.SHARE-DNS</td><td>Web Commerce Comm. Ltd / WebNIC</td></tr>
+      <tr><td><code>fujieenco.jp</code></td><td>Fuji financial variant</td><td>2025-08-20</td><td>SHARE-DNS</td><td>Web Commerce Comm. Ltd / WebNIC</td></tr>
+      <tr><td><code>fujifecco.jp</code></td><td>Fuji financial variant</td><td>2025-08-20</td><td>SHARE-DNS</td><td>Web Commerce Comm. Ltd / WebNIC</td></tr>
+      <tr><td><code>fujixecco.jp</code></td><td>Fuji financial variant</td><td>2025-08-20</td><td>SHARE-DNS</td><td>Web Commerce Comm. Ltd / WebNIC</td></tr>
+      <tr><td><code>fujizecco.jp</code></td><td>Fuji financial variant</td><td>2025-08-20</td><td>A8/B8.SHARE-DNS</td><td>Web Commerce Comm. Ltd / WebNIC</td></tr>
+      <tr><td><code>growthmarket.co.jp</code></td><td>Japan growth market</td><td>—</td><td>—</td><td>Suspended/Deleted 2026-02-01</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── US FINANCE TARGETS ── -->
+<div id="sec-domains-us" class="section">
+  <h2>US Finance Impersonation Domains</h2>
+  <div class="box box-dark" style="margin-bottom:10px;font-size:12px">
+    All domains: <b>Gname.com registrar + SHARE-DNS nameservers</b>. All hosted on or linked to CTG Server infrastructure. All registered 2025.
+  </div>
+  <table>
+    <thead><tr><th>Domain</th><th>Impersonating</th><th>AUM / Significance</th><th>Registered</th><th>SHARE-DNS pair</th></tr></thead>
+    <tbody>
+      <tr style="background:#1a0800"><td><code>bankofamerilcasl.com</code></td><td>Bank of America</td><td>$3.3T assets</td><td>2025</td><td>A/B (root)</td></tr>
+      <tr style="background:#1a0800"><td><code>alliancebernsteinn.com</code> (×3 variants)</td><td>AllianceBernstein</td><td>$700B AUM</td><td>2025-07 to 2025-10</td><td>A/B (root)</td></tr>
+      <tr style="background:#1a0800"><td><code>eatonvancci.com</code></td><td>Eaton Vance / Morgan Stanley IM</td><td>$500B+ AUM</td><td>2025</td><td>A/B (root)</td></tr>
+      <tr style="background:#1a0800"><td><code>pimco-tw.com</code></td><td>PIMCO Taiwan</td><td>$1.8T AUM</td><td>2025</td><td>A/B (root)</td></tr>
+      <tr><td><code>wellingtonmanageementi.com</code></td><td>Wellington Management</td><td>$1.2T AUM</td><td>2025-08-17</td><td>A5/B5</td></tr>
+      <tr><td><code>wellingtton.com</code></td><td>Wellington Management (variant)</td><td>$1.2T AUM</td><td>2025-09-25</td><td>A4/B4</td></tr>
+      <tr><td><code>warburgpiincusii.com</code></td><td>Warburg Pincus</td><td>$83B AUM private equity</td><td>2025-12-18</td><td>A11/B11</td></tr>
+      <tr><td><code>sofiils.com</code></td><td>SoFi</td><td>Fintech / retail</td><td>2025</td><td>A5/B5</td></tr>
+      <tr><td><code>hmcapitalv.com</code></td><td>HM Capital</td><td>—</td><td>2025</td><td>A5/B5</td></tr>
+      <tr><td><code>tactiib.com / tactiiv.com</code></td><td>Tactile / Tactic variant</td><td>—</td><td>2025</td><td>A5/B5 / A5/B5</td></tr>
+      <tr><td><code>tradiler.com</code></td><td>Trader variant</td><td>—</td><td>2025</td><td>A5/B5</td></tr>
+      <tr><td><code>stratiformspi.com / stratiformsps.com / stratiformsloogan.com</code></td><td>Stratiform investment</td><td>Admin panel exposed</td><td>2025-08-26</td><td>A5/B5</td></tr>
+      <tr><td><code>bmtmax.com / bmtmaxx.com</code></td><td>BMT Capital</td><td>—</td><td>2025</td><td>A5/B5</td></tr>
+      <tr><td><code>managementcapitalmad.com</code></td><td>Capital management</td><td>—</td><td>2025-08-29</td><td>A7/B7</td></tr>
+      <tr><td><code>rw-advisoiry.com</code></td><td>RW Advisors</td><td>—</td><td>2025</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>bettermeent-llc.com</code></td><td>Betterment / Better.com</td><td>—</td><td>2025</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>triainvestmentlitd.com / triainvestmentltc.com</code></td><td>Tria Investment</td><td>—</td><td>2025</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>assetprivfyers.com / assetpvfyers.com</code></td><td>Asset management</td><td>—</td><td>2025</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>alphaitx.com / alphasll.com</code></td><td>Alpha Investment</td><td>—</td><td>2025</td><td>A/B (root)</td></tr>
+      <tr><td><code>dioep.com</code></td><td>Unknown</td><td>—</td><td>2025</td><td>SHARE-DNS</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── MALAYSIA TARGETS ── -->
+<div id="sec-domains-my" class="section">
+  <h2>🇲🇾 Malaysia Targeting — .my Domain Cluster</h2>
+  <table>
+    <thead><tr><th>Domain</th><th>Impersonating</th><th>Registrar</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><code>goassetmanagementptelttd.my</code></td><td>Go Asset Management Pte Ltd (legitimate Malaysian fund manager)</td><td>Gname.com</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>goassetmanagemenntptelttd.my</code></td><td>Same (double-n variant)</td><td>Gname.com</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>goassetmanagementpteltttd.my</code></td><td>Same (triple-t variant)</td><td>Gname.com</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>goassetmanagementtptelttd.my</code></td><td>Same (double-t variant)</td><td>Gname.com</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>goassets-systeem.my</code></td><td>Go Asset system variant</td><td>Gname.com</td><td>SHARE-DNS</td></tr>
+    </tbody>
+  </table>
+  <div class="box box-dark" style="margin-top:10px;font-size:12px">
+    <b>Note:</b> .my domain registration requires a Malaysian company or individual. The operator registered these via Gname.com — the abuse contact <code>zys@gname.com</code> appeared on these specific domains (vs. the standard <code>complaint@gname.com</code> for other Gname registrations), suggesting a specific account tier or reseller relationship.
+  </div>
+</div>
+
+<!-- ── IOC REGISTRY ── -->
+<div id="sec-iocs" class="section">
+  <h2>IOC Registry — Layer 1 Indicators of Compromise</h2>
+  <table>
+    <thead><tr><th>Type</th><th>Indicator</th><th>Confidence</th><th>Source</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr style="background:#1a0800"><td>Email</td><td><code>zys@gname.com</code></td><td><span class="badge badge-red">HIGH</span></td><td>WHOIS (.my domains), AlienVault OTX, Whoisology</td><td>Probable Layer 1 operator account identifier at Gname.com</td></tr>
+      <tr style="background:#1a0800"><td>Registrar account</td><td>Gname.com Pte. Ltd. — IANA ID 1923</td><td><span class="badge badge-red">HIGH</span></td><td>WHOIS (35+ domains)</td><td>Single account registers all scam domains + SHARE-DNS infrastructure</td></tr>
+      <tr style="background:#1a0d00"><td>Nameserver infra</td><td><code>*.SHARE-DNS.COM / *.SHARE-DNS.NET</code></td><td><span class="badge badge-red">HIGH</span></td><td>DNS, WHOIS</td><td>Registered 2022-06-30 via Gname.com; serves 800K+ malicious domains</td></tr>
+      <tr><td>IP address</td><td><code>202.79.174.5</code> (CTG Server AS152194)</td><td><span class="badge badge-red">HIGH</span></td><td>Direct server analysis</td><td>Hosts 35+ scam domains; MySQL 3306 exposed</td></tr>
+      <tr><td>ASN</td><td><code>AS152194</code> (CTG Server Limited)</td><td><span class="badge badge-orange">MEDIUM</span></td><td>BGP data</td><td>22,212 IPs across HK/JP/SG/US — shared hosting, not all malicious</td></tr>
+      <tr><td>Registrar</td><td>WebNIC / Web Commerce Comm. Ltd (<code>webnic.cc</code>)</td><td><span class="badge badge-orange">MEDIUM</span></td><td>JPRS WHOIS</td><td>Registrar for .co.jp/.jp typosquats with fake registrant "FSFSFSDSDFSFS"</td></tr>
+      <tr><td>CMS token</td><td><code>PpAz5O26OlepQn8sRcL2qgtt</code> (Storyblok)</td><td><span class="badge badge-blue">INFO</span></td><td>nanolite JS analysis</td><td>HV Capital's legitimate public token — scam site using HVCapital's own CMS (Storyblok Space 145121). HV Capital is a victim.</td></tr>
+      <tr><td>Vercel deployment</td><td><code>hvcapital-nx-dev.vercel.app</code></td><td><span class="badge badge-blue">INFO</span></td><td>Storyblok API</td><td>HV Capital dev deployment linked to stolen Storyblok space</td></tr>
+      <tr><td>Address</td><td>202, 2/F Kam Sang Building, 257 Des Voeux Rd Central, HK</td><td><span class="badge badge-orange">MEDIUM</span></td><td>ARIN / company registry</td><td>CTG Server registered address; ICIJ Offshore Leaks shows prior shell company use at same floor</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SUBPOENA TARGETS ── -->
+<div id="sec-subpoenas" class="section">
+  <h2>📨 Layer 1 Subpoena Targets</h2>
+  <table>
+    <thead><tr><th>Priority</th><th>Target</th><th>Jurisdiction</th><th>What to Request</th><th>Contact</th></tr></thead>
+    <tbody>
+      <tr style="background:#1a0800">
+        <td><span class="badge badge-red">P1 CRITICAL</span></td>
+        <td><b>Gname.com Pte. Ltd.</b><br>IANA Registrar ID: 1923</td>
+        <td>Singapore (MLAT via AGC or MAS referral)</td>
+        <td>Full account records for account associated with: (1) zys@gname.com, (2) mdutton.com, (3) SHARE-DNS.COM, (4) all listed scam domains. Account holder identity, payment method, IP login history, complete domain portfolio</td>
+        <td><code>complaint@gname.com</code><br>+65.65189986</td>
+      </tr>
+      <tr style="background:#1a0d00">
+        <td><span class="badge badge-red">P1 CRITICAL</span></td>
+        <td><b>CTG Server Limited</b><br>HK CR #2753848</td>
+        <td>Hong Kong (MLAT via DOJ → HK DOJ or HKPF)</td>
+        <td>Server logs for 202.79.174.5 (all tenant logins, file uploads, admin access); MySQL database dump; all hosted domain account identities; payment records for server rental</td>
+        <td><code>cs.mail@ctgserver.com</code><br>HKPF Cybercrime: cybercrime@police.gov.hk</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">P2 HIGH</span></td>
+        <td><b>Storyblok GmbH</b></td>
+        <td>EU — Austria (GDPR Art.15/17 + mutual assistance)</td>
+        <td>Access logs for Storyblok Space ID 145121 ("HVCapital") — specifically requests from IP 202.79.174.5 or any IP not matching legitimate hvcapital.com infrastructure. Timestamp and IP of scam server accessing HV Capital's content.</td>
+        <td>privacy@storyblok.com<br>abuse@storyblok.com</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">P2 HIGH</span></td>
+        <td><b>Vercel Inc.</b></td>
+        <td>USA — Delaware (18 USC §2703)</td>
+        <td>Access logs for hvcapital-nx-dev.vercel.app — identify IPs accessing HV Capital's development deployment from the scam server</td>
+        <td>security@vercel.com</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">P2 HIGH</span></td>
+        <td><b>WebNIC / Web Commerce Comm. Ltd</b></td>
+        <td>Malaysia (MLAT via DOJ → AGC Malaysia)</td>
+        <td>Account records for entity that registered ssonysecoo.jp, asahiesecco.jp, fujieebco.jp and all other .co.jp domains with registrant "FSFSFSDSDFSFS". Payment method, email, IP of registration. Also submit to JPRS for immediate suspension.</td>
+        <td>support@webnic.cc<br>JPRS abuse: abuse@jprs.co.jp</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">P2 HIGH</span></td>
+        <td><b>ICANN DNS Abuse Escalation</b></td>
+        <td>International</td>
+        <td>File formal DNS abuse complaint against: (1) Gname.com — hosting 35+ confirmed scam domain registrations, ignoring abuse; (2) WebNIC — ICANN already issued breach notice July 2025, escalate to ICANN Compliance. Use ICANN WICF: icann.org/wicf</td>
+        <td>compliance@icann.org<br>abuse@icann.org</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">P3 MEDIUM</span></td>
+        <td><b>HK Companies Registry</b></td>
+        <td>Hong Kong (direct request with court order)</td>
+        <td>Directors and shareholders of CTG Server Limited (CR #2753848) — requires HK court order or HKPF production order under OSCO</td>
+        <td>cr@cr.gov.hk<br>+852 2867 2600</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">P3 MEDIUM</span></td>
+        <td><b>HV Capital GmbH (notification)</b></td>
+        <td>Germany — Munich</td>
+        <td>Victim notification: Their website (hvcapital.com) was HTTrack-cloned to create nanolite-foundationnlf.com. Their Storyblok account (Space 145121, token PpAz5O26OlepQn8sRcL2qgtt) is being exploited by the scam site. Recommend: rotate Storyblok token, report to BaFin.</td>
+        <td>info@hvcapital.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="border-top:1px solid #30363d;padding:20px 0;margin-top:30px;font-size:11px;color:#8b949e">
+  Investigation ongoing — <a href="report.html">Main Report</a> | <a href="le-package.html">LE Package</a> | Last updated: 2026-03-26
+</div>
+
+</div><!-- end main-content -->
+</div><!-- end layout -->
+
+</body>
+</html>
