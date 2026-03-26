@@ -96,6 +96,7 @@ li{margin-bottom:2px}
   <a href="#sec-gname">Gname.com Root Account</a>
   <a href="#sec-sharedns">SHARE-DNS Empire</a>
   <a href="#sec-ctg">CTG Server Limited</a>
+  <a href="#sec-uwork">Penguin / UWORK Kit Supplier</a>
   <a href="#sec-webnic">WebNIC Japan Bypass</a>
   <div class="nav-group">Domain Intel</div>
   <a href="#sec-domains-us">US Finance Targets</a>
@@ -315,17 +316,121 @@ li{margin-bottom:2px}
         Presence in: Hong Kong, Japan (<code>137.220.128.0/17</code> = 32,768 IPs), Singapore (<code>118.107.0.0/18</code> = 16,384 IPs), United States (<code>192.252.176.0/20</code> = 4,096 IPs)<br><br>
         This is not a small VPS provider — CTG Server is a substantial hosting business with global data center footprint.<br><br>
         <b>Scam server IP:</b> <code>202.79.174.5</code> (Tung Chung, HK)<br>
-        <b>Open ports:</b> 22 (OpenSSH 7.4), 80, 83, 443, 3306, 8080<br>
-        <b style="color:#e74c3c">⚠ MySQL 3306 publicly exposed — database directly accessible (no auth bypass required — credentials needed but port is open to internet)</b>
+        <b>Open ports:</b> 22 (OpenSSH 7.4), 80, <b>83</b> (Japanese FSA content), 443, <b style="color:#e74c3c">3306 (MySQL 8.0.24 — EXPOSED)</b>, 8080, <b style="color:#e74c3c">33060 (MySQL X Protocol — no TLS)</b><br>
+        <b style="color:#e74c3c">⚠ MySQL 3306 + X Protocol 33060 both publicly exposed — all victim CRM data across every site on this server is in this database. No network-level auth required.</b><br>
+        <b>Active TLS cert:</b> CN=<code>fsazegsrr.qpon</code> (Let's Encrypt R12, Feb–May 2026) — fake Japanese FSA domain<br>
+        <b>Last confirmed active:</b> 2026-03-23 (Shodan scan)
       </div>
     </div>
   </div>
 
   <h3>Scam Server Analysis — 202.79.174.5</h3>
   <div class="box box-dark" style="font-size:12px;line-height:1.9">
-    <b>~35+ fake finance sites confirmed via reverse IP lookup</b> (hackertarget.com). All share SHARE-DNS.COM/NET nameservers. Admin panel exposed: <code>admin.stratiformsloogan.com</code>.<br><br>
-    <b>Scam platforms hosted:</b> Nanolite Foundation (BaFin-warned, HTTrack clone of hvcapital.com), fmtcapitaltc.com (fake MT5 broker, ThinkPHP backend, admin panel live at broker.fmtcapitaltc.com), stratiformspi.com, stratiformsps.com, and 30+ others.<br><br>
-    <b>Technical stack:</b> OpenSSH 7.4 (EOL — CVE-2023-48795 Terrapin vulnerable), ThinkPHP (Chinese PHP framework), MySQL 3306 open, PHP/7.4.33 (EOL)
+    <b>39 confirmed phishing domains</b> (urlscan.io passive scans, Sep 2025–Mar 2026). All share SHARE-DNS.COM/NET nameservers. Admin panel exposed: <code>admin.stratiformsloogan.com</code>.<br><br>
+    <b>Two victim populations targeted simultaneously:</b><br>
+    — <b>Japanese retail investors:</b> 8× fake 金融庁 (FSA) government pages + 10× securities firm typosquats (Sony, Asahi, Fuji). Port 83 on this server serves Japanese FSA content. The <b>.qpon TLD</b> domains (fsaaiesr.qpon, fsaaijsr.qpon, fsaaivsr.qpon, fsaaixsr.qpon, fsazegsrr.qpon) mimic <code>fsa.go.jp</code> URL patterns — used to show victims fake government "investment approval" pages.<br>
+    — <b>English-language / Chinese diaspora investors:</b> Goldman Sachs, Warburg Pincus, Wellington, AllianceBernstein, SoFi, Adams Street Partners typosquats.<br><br>
+    <b>Scam kit:</b> fmtcapitaltc.com admin panel + victim CRM architecture matches a <b>UWORK-supplied pig-butchering kit</b> — see <a href="#sec-uwork">UWORK section</a>.<br><br>
+    <b>Technical stack:</b> OpenSSH 7.4 (EOL — CVE-2023-48795 Terrapin), ThinkPHP (Chinese PHP framework), MySQL 8.0.24 (3306 + 33060 open), PHP/7.4.33 (EOL), nginx reverse proxy, HSTS enabled
+  </div>
+
+  <h3>Confirmed Phishing Domains — Full urlscan.io List (39 domains, Sep 2025 – Mar 2026)</h3>
+  <div class="grid2" style="margin-bottom:10px">
+    <div>
+      <div class="label label-blue" style="margin-bottom:6px">🇯🇵 Japanese FSA (.qpon fakes)</div>
+      <table style="font-size:11px">
+        <thead><tr><th>Domain</th><th>Last Seen</th></tr></thead>
+        <tbody>
+          <tr style="background:#150a1a"><td><code>fsazegsrr.qpon</code></td><td>2025-12-23</td></tr>
+          <tr style="background:#150a1a"><td><code>fsaaiesr.qpon</code></td><td>2025-12-22</td></tr>
+          <tr style="background:#150a1a"><td><code>fsaaivsr.qpon</code></td><td>2025-12-19</td></tr>
+          <tr style="background:#150a1a"><td><code>fsaaijsr.qpon</code></td><td>2025-12-19</td></tr>
+          <tr style="background:#150a1a"><td><code>fsaaixsr.qpon</code></td><td>2025-12-19</td></tr>
+          <tr><td><code>tradiler.com</code></td><td>2026-02-27</td></tr>
+          <tr><td><code>xopazs.com</code></td><td>2025-11-10</td></tr>
+          <tr><td><code>fsaaegir.jp</code></td><td>2025-09-01</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="label label-orange" style="margin-bottom:6px">🇯🇵 Japanese Securities Typosquats</div>
+      <table style="font-size:11px">
+        <thead><tr><th>Domain</th><th>Impersonates</th><th>Last Seen</th></tr></thead>
+        <tbody>
+          <tr><td><code>asahisec.com</code></td><td>Asahi Securities</td><td>2026-02-27</td></tr>
+          <tr><td><code>asahisecco.jp</code></td><td>Asahi Securities</td><td>2025-09-02</td></tr>
+          <tr><td><code>asahiqsecco.jp</code></td><td>Asahi Securities</td><td>2025-08-31</td></tr>
+          <tr><td><code>ssonysecyco.jp</code></td><td>Sony Securities</td><td>2025-09-04</td></tr>
+          <tr><td><code>ssonysecoo.jp</code></td><td>Sony Securities</td><td>2025-10-23</td></tr>
+          <tr><td><code>fujieebco.jp</code></td><td>Fuji Securities</td><td>2026-02-27</td></tr>
+          <tr><td><code>fujieemco.jp</code></td><td>Fuji Securities</td><td>2026-02-27</td></tr>
+          <tr><td><code>fujieenco.jp</code></td><td>Fuji Securities</td><td>2026-02-27</td></tr>
+          <tr><td><code>fujizecco.jp</code></td><td>Fuji Securities</td><td>2026-02-27</td></tr>
+          <tr><td><code>fujixecco.jp</code></td><td>Fuji Securities</td><td>2026-02-27</td></tr>
+          <tr><td><code>fujifecco.jp</code></td><td>Fuji Securities</td><td>2026-02-27</td></tr>
+          <tr><td><code>fujieevco.jp</code></td><td>Fuji Securities</td><td>2025-09-01</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="grid2">
+    <div>
+      <div class="label label-red" style="margin-bottom:6px">🇺🇸 International Investment Firm Spoofs</div>
+      <table style="font-size:11px">
+        <thead><tr><th>Domain</th><th>Impersonates</th><th>Last Seen</th></tr></thead>
+        <tbody>
+          <tr style="background:#1a0800"><td><code>alliancebernsteinn.com</code></td><td>AllianceBernstein</td><td>2026-01-24</td></tr>
+          <tr style="background:#1a0800"><td><code>alliancebernstseinn.com</code></td><td>AllianceBernstein</td><td>2026-02-24</td></tr>
+          <tr><td><code>warburgpiincusii.com</code></td><td>Warburg Pincus</td><td>2026-02-17</td></tr>
+          <tr><td><code>welliingttons.com</code></td><td>Wellington Management</td><td>2025-11-18</td></tr>
+          <tr><td><code>wellingtonmanaagementi.com</code></td><td>Wellington Management</td><td>2025-09-05</td></tr>
+          <tr><td><code>gssachssvip.com</code></td><td>Goldman Sachs</td><td>2025-12-10</td></tr>
+          <tr><td><code>adamsstreetpartnersi.com</code></td><td>Adams Street Partners</td><td>2025-09-16</td></tr>
+          <tr><td><code>triainvestmentltc.com</code></td><td>Tria Inversiones España</td><td>2025-11-18</td></tr>
+          <tr><td><code>rw-advisoiry.com</code></td><td>Timothy Investment (TW)</td><td>2026-02-13</td></tr>
+          <tr><td><code>sofji.com</code></td><td>SoFi</td><td>2025-09-17</td></tr>
+          <tr><td><code>sofjit.com</code></td><td>SoFi</td><td>2025-10-05</td></tr>
+          <tr><td><code>sofijii.com</code></td><td>SoFi</td><td>2025-10-09</td></tr>
+          <tr><td><code>sofils.com</code></td><td>SoFi Invest</td><td>2025-10-15</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="label" style="color:#8b949e;margin-bottom:6px">Other / Capital Fronts / Blocked</div>
+      <table style="font-size:11px">
+        <thead><tr><th>Domain</th><th>Brand / Notes</th><th>Last Seen</th></tr></thead>
+        <tbody>
+          <tr><td><code>jpngrowthmarket.com</code></td><td>GM Capital Management</td><td>2026-02-27</td></tr>
+          <tr><td><code>atptechh.com</code></td><td>Gsmkt MAX Capital Mgmt</td><td>2025-09-04</td></tr>
+          <tr><td><code>chieftoptrading.com</code></td><td>CHIEF INV致富國際</td><td>—</td></tr>
+          <tr style="color:#8b949e"><td><code>atptech.vip</code></td><td>403 Forbidden (geo-blocked)</td><td>2026-02-27</td></tr>
+          <tr style="color:#8b949e"><td><code>bmtmax.com</code></td><td>403 Forbidden</td><td>2026-02-27</td></tr>
+          <tr style="color:#8b949e"><td><code>bmtmaxx.com</code></td><td>403 Forbidden</td><td>2026-02-27</td></tr>
+          <tr style="color:#8b949e"><td><code>dioep.com</code></td><td>403 Forbidden</td><td>2026-02-27</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:#8b949e;margin-top:8px">403 Forbidden = geo/IP-blocked victim-facing pages. Content confirmed by scans from permitted IPs.</div>
+    </div>
+  </div>
+
+  <h3>fmtcapitaltc.com — Platform on This Server</h3>
+  <div class="box box-red" style="font-size:12px;line-height:1.9">
+    <div class="label label-red">CONFIRMED SCAM — FCA + CFTC FLAGGED</div>
+    <div style="display:flex;gap:12px;margin:8px 0 12px;flex-wrap:wrap">
+      <span style="background:#e74c3c22;border:1px solid #e74c3c;border-radius:4px;padding:4px 10px;font-weight:bold;color:#e74c3c">⚠ FCA Warning (UK)</span>
+      <span style="background:#f39c1222;border:1px solid #f39c12;border-radius:4px;padding:4px 10px;font-weight:bold;color:#f39c12">⚠ CFTC Red List (US)</span>
+      <span style="background:#8b949e22;border:1px solid #8b949e;border-radius:4px;padding:4px 10px;color:#8b949e">Unregistered Broker</span>
+    </div>
+    <table>
+      <tr><td style="color:#8b949e;width:160px">Domain registered</td><td><b>2024-11-14</b> — less than 6 months operational history</td></tr>
+      <tr><td style="color:#8b949e">Scam kit source</td><td><b>UWORK PBaaS kit</b> — admin panel + victim CRM + MetaTrader branding is a textbook UWORK deployment (~$2,500 full-package tier). See <a href="#sec-uwork">UWORK section ↓</a></td></tr>
+      <tr><td style="color:#8b949e">Technology</td><td><b>ThinkPHP</b> (Chinese PHP MVC framework) — confirmed via X-Powered-By header</td></tr>
+      <tr><td style="color:#8b949e">MT5 claim</td><td>Claims MetaTrader 5 integration but <b>NOT in official MT5 server list</b> — fake branding</td></tr>
+      <tr><td style="color:#8b949e">Admin panel</td><td><code>broker.fmtcapitaltc.com</code> → "manager-login", HTML comment <b>登录界面</b> (Chinese: "Login interface"), PHP/7.4.33 (EOL)</td></tr>
+      <tr><td style="color:#8b949e">Victim CRM</td><td><code>trader.fmtcapitaltc.com</code> → 8 languages including Arabic; KYC identity upload panel; content from 2024-11-14</td></tr>
+      <tr><td style="color:#8b949e">Mail infrastructure</td><td>mx.mail-ussl.com → <code>67.216.195.233</code> (IT7 Networks Inc, Los Angeles; mail-ussl.com reg. July 2023)</td></tr>
+      <tr><td style="color:#8b949e">Copyright field</td><td>"Copyright 2019" on domain registered 2025 = reused Chinese scam template</td></tr>
+    </table>
   </div>
 
   <h3>Building History — ICIJ Offshore Leaks Connection</h3>
@@ -335,15 +440,79 @@ li{margin-bottom:2px}
   </div>
 </div>
 
+<!-- ── UWORK / PENGUIN ── -->
+<div id="sec-uwork" class="section">
+  <h2>🛒 Penguin / UWORK — Pig-Butchering-as-a-Service Suppliers</h2>
+  <div class="box box-orange">
+    <div class="label label-orange">Infoblox Threat Intel Report — January 8, 2026</div>
+    <div style="font-size:12px;line-height:1.8;margin-top:6px">
+      In January 2026, Infoblox published a major report (<i>Scaling the Fraud Economy: Pig Butchering as a Service</i>) identifying two Chinese criminal service providers that supply infrastructure to pig-butchering operators — including the operator(s) using the CTG Server HK farm. The fmtcapitaltc.com platform architecture <b>exactly matches a UWORK kit deployment</b>.
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:14px">
+    <div class="box box-red">
+      <div class="label label-red">Penguin Account Store</div>
+      <div style="font-size:12px;line-height:1.8">
+        <b>Also known as:</b> Heavenly Alliance, Overseas Alliance<br>
+        <b>Model:</b> Crimeware-as-a-Service (CaaS)<br><br>
+        <b>Products sold:</b>
+        <ul>
+          <li>Stolen PII datasets ("shè gōng kù") of Chinese citizens</li>
+          <li>Pre-registered social media accounts: Twitter, Tinder, YouTube, Facebook, Instagram, OpenAI, Netflix, Spotify, Snapchat — <b>from $0.10/account</b></li>
+          <li>Stolen photo packages ("character sets") for fake identity creation</li>
+          <li>Bulk pre-registered SIM cards</li>
+          <li>4G/5G routers + IMSI catchers</li>
+          <li>SCRM AI platform for automated victim engagement across social channels</li>
+        </ul>
+        <br>
+        <b>Payment:</b> BCD Pay (Bochuang Guarantee) — anonymous P2P, linked to illegal online gambling
+      </div>
+    </div>
+    <div class="box box-orange">
+      <div class="label label-orange">UWORK — Scam Website Kit Supplier</div>
+      <div style="font-size:12px;line-height:1.8">
+        <b>Focus:</b> Investment scam website templates + agent management tools<br><br>
+        <b>Kit features:</b>
+        <ul>
+          <li>Pre-made investment platform templates (fake MT5, fake exchange)</li>
+          <li>KYC identity verification upload panels</li>
+          <li>Admin panel: oversight of agents + victims, profitability metrics, comms logs</li>
+          <li>Agent CRM: first-level agent management (the scam compound workers)</li>
+          <li>Multi-language support (matches 8-language fmtcapitaltc.com CRM)</li>
+        </ul>
+        <br>
+        <b>Pricing:</b><br>
+        • Website template + hosting: from <b>~$50</b><br>
+        • Full package (site + admin + VPS + mobile app + trading platform + front company + fake regulator registration): from <b>~$2,500</b>
+      </div>
+    </div>
+  </div>
+
+  <div class="box box-red" style="margin-top:12px">
+    <div class="label label-red">⚖ US Federal Prosecution Connection — Feb 2025</div>
+    <div style="font-size:12px;line-height:1.8">
+      UWORK infrastructure was cited by US investigators as the kit used by pig-butchering scammers <b>arrested in the United States in February 2025</b> and charged with defrauding victims of more than <b>$13 million</b>. This is a confirmed nexus between UWORK kits and prosecutable criminal activity in US jurisdiction.<br><br>
+      The fmtcapitaltc.com deployment on CTG Server HK uses the same architecture: ThinkPHP backend, broker.*/trader.* subdomain split, KYC panel, MT5 branding, multi-language CRM. This is strong circumstantial evidence the same or affiliated kit supplier was used.
+    </div>
+  </div>
+</div>
+
 <!-- ── WEBNIC JAPAN ── -->
 <div id="sec-webnic" class="section">
+<div id="sec-domains-jp"></div>
   <h2>🇯🇵 WebNIC Malaysia — Japanese .co.jp Domain Bypass</h2>
   <div class="box box-purple">
     <div class="label label-purple">Fraudulent .co.jp Registration via Malaysian Registrar</div>
     <div style="font-size:12px;line-height:1.9;margin-top:6px">
       All Japanese typosquat domains (.co.jp and .jp) were registered through <b>Web Commerce Communications Limited (WebNIC), Malaysia</b> (<code>support@webnic.cc</code>). The registrant name submitted was <b>"FSFSFSDSDFSFS"</b> — deliberate garbage data.<br><br>
       <b>.co.jp registration rules:</b> Requires a registered Japanese company (one domain per company). WebNIC appears to have registered multiple .co.jp domains for a non-existent entity, violating JPRS (.co.jp registry) rules.<br><br>
-      <b>ICANN action:</b> ICANN issued a <b>breach notice to WebNIC in July 2025</b> for systematic failure to mitigate DNS abuse — even after receiving actionable abuse reports, WebNIC delayed or refused action. Over 30,000 abuse reports in 2025 involved WebNIC, with 90%+ of active WebNIC domains in some samples tied to scams.
+      <b>ICANN breach notice — July 29, 2025:</b> ICANN issued a formal breach notice to WebNIC citing violation of <b>RAA Section 3.18.2</b> (DNS abuse mitigation obligations). Specific findings:<br>
+      &bull; WebNIC repeatedly <b>demanded re-submission of evidence</b> even when original abuse reports were already actionable<br>
+      &bull; Mitigation actions were <b>only taken after reporters escalated to ICANN directly</b><br>
+      &bull; Pattern of missed ICANN response deadlines and incomplete replies<br>
+      &bull; Also cited: failure to display required website disclosures (deletion policies, renewal fees, corporate officer info)<br>
+      ICANN had been raising issues since at least February 2025. Deadline to cure: <b>August 19, 2025</b> before termination proceedings. WebNIC manages ~500,000 .com domains in Asia.
     </div>
   </div>
 
@@ -359,9 +528,21 @@ li{margin-bottom:2px}
       <tr><td><code>fujifecco.jp</code></td><td>Fuji financial variant</td><td>2025-08-20</td><td>SHARE-DNS</td><td>Web Commerce Comm. Ltd / WebNIC</td></tr>
       <tr><td><code>fujixecco.jp</code></td><td>Fuji financial variant</td><td>2025-08-20</td><td>SHARE-DNS</td><td>Web Commerce Comm. Ltd / WebNIC</td></tr>
       <tr><td><code>fujizecco.jp</code></td><td>Fuji financial variant</td><td>2025-08-20</td><td>A8/B8.SHARE-DNS</td><td>Web Commerce Comm. Ltd / WebNIC</td></tr>
+      <tr><td><code>ssonysecyco.jp</code></td><td>Sony Securities (ソニー証券)</td><td>2025-09-04</td><td>SHARE-DNS</td><td>Web Commerce Comm. Ltd / WebNIC</td></tr>
+      <tr><td><code>asahisec.com</code></td><td>Asahi Securities (朝日証券)</td><td>2025</td><td>SHARE-DNS</td><td>WebNIC</td></tr>
+      <tr><td><code>asahiqsecco.jp</code></td><td>Asahi Securities</td><td>2025-08-31</td><td>SHARE-DNS</td><td>WebNIC</td></tr>
+      <tr><td><code>fujieevco.jp</code></td><td>Fuji Securities variant</td><td>2025-09-01</td><td>SHARE-DNS</td><td>WebNIC</td></tr>
+      <tr style="background:#150a1a"><td><code>fsaaegir.jp</code></td><td>Japanese FSA 金融庁 fake</td><td>2025-09-01</td><td>SHARE-DNS</td><td>WebNIC</td></tr>
+      <tr style="background:#150a1a"><td><code>tradiler.com</code></td><td>Japanese FSA 金融庁 fake</td><td>2025</td><td>A5/B5.SHARE-DNS</td><td>Gname.com</td></tr>
+      <tr style="background:#150a1a"><td><code>xopazs.com</code></td><td>Japanese FSA 金融庁 fake</td><td>2025</td><td>SHARE-DNS</td><td>Gname.com</td></tr>
+      <tr style="background:#150a1a"><td><code>fsaaiesr.qpon / fsaaijsr.qpon / fsaaivsr.qpon / fsaaixsr.qpon / fsazegsrr.qpon</code></td><td>Japanese FSA 金融庁 fake (.qpon TLD)</td><td>2025</td><td>SHARE-DNS</td><td>Gname.com</td></tr>
       <tr><td><code>growthmarket.co.jp</code></td><td>Japan growth market</td><td>—</td><td>—</td><td>Suspended/Deleted 2026-02-01</td></tr>
     </tbody>
   </table>
+  <div class="box box-purple" style="margin-top:12px;font-size:12px;line-height:1.8">
+    <div class="label label-purple">⚠ .qpon TLD — Fake Government Site Tactic</div>
+    The operator registered 5 domains under the <b>.qpon</b> gTLD with names matching the pattern <code>fsa[random].qpon</code>. The real Japanese FSA domain is <code>fsa.go.jp</code>. These fake .qpon domains are used as "regulatory approval" pages shown to Japanese victims — the victim is told their investment has been approved by the regulator, and the fake government page lends false legitimacy. This is a documented tactic in Japanese pig-butchering campaigns.
+  </div>
 </div>
 
 <!-- ── US FINANCE TARGETS ── -->
@@ -424,7 +605,8 @@ li{margin-bottom:2px}
       <tr style="background:#1a0800"><td>Email</td><td><code>zys@gname.com</code></td><td><span class="badge badge-red">HIGH</span></td><td>WHOIS (.my domains), AlienVault OTX, Whoisology</td><td>Probable Layer 1 operator account identifier at Gname.com</td></tr>
       <tr style="background:#1a0800"><td>Registrar account</td><td>Gname.com Pte. Ltd. — IANA ID 1923</td><td><span class="badge badge-red">HIGH</span></td><td>WHOIS (35+ domains)</td><td>Single account registers all scam domains + SHARE-DNS infrastructure</td></tr>
       <tr style="background:#1a0d00"><td>Nameserver infra</td><td><code>*.SHARE-DNS.COM / *.SHARE-DNS.NET</code></td><td><span class="badge badge-red">HIGH</span></td><td>DNS, WHOIS</td><td>Registered 2022-06-30 via Gname.com; serves 800K+ malicious domains</td></tr>
-      <tr><td>IP address</td><td><code>202.79.174.5</code> (CTG Server AS152194)</td><td><span class="badge badge-red">HIGH</span></td><td>Direct server analysis</td><td>Hosts 35+ scam domains; MySQL 3306 exposed</td></tr>
+      <tr><td>IP address</td><td><code>202.79.174.5</code> (CTG Server AS152194)</td><td><span class="badge badge-red">HIGH</span></td><td>Shodan + urlscan.io (2026-03-23)</td><td>39 confirmed phishing domains; MySQL 3306 + 33060 exposed; last active 2026-03-23</td></tr>
+      <tr><td>Scam kit supplier</td><td>UWORK / Penguin Account Store (Chinese PBaaS)</td><td><span class="badge badge-orange">MEDIUM</span></td><td>Infoblox Jan 2026 report; US federal case Feb 2025</td><td>fmtcapitaltc.com architecture matches UWORK kit; linked to $13M US fraud prosecution</td></tr>
       <tr><td>ASN</td><td><code>AS152194</code> (CTG Server Limited)</td><td><span class="badge badge-orange">MEDIUM</span></td><td>BGP data</td><td>22,212 IPs across HK/JP/SG/US — shared hosting, not all malicious</td></tr>
       <tr><td>Registrar</td><td>WebNIC / Web Commerce Comm. Ltd (<code>webnic.cc</code>)</td><td><span class="badge badge-orange">MEDIUM</span></td><td>JPRS WHOIS</td><td>Registrar for .co.jp/.jp typosquats with fake registrant "FSFSFSDSDFSFS"</td></tr>
       <tr><td>CMS token</td><td><code>PpAz5O26OlepQn8sRcL2qgtt</code> (Storyblok)</td><td><span class="badge badge-blue">INFO</span></td><td>nanolite JS analysis</td><td>HV Capital's legitimate public token — scam site using HVCapital's own CMS (Storyblok Space 145121). HV Capital is a victim.</td></tr>
@@ -479,7 +661,7 @@ li{margin-bottom:2px}
         <td><span class="badge badge-orange">P2 HIGH</span></td>
         <td><b>ICANN DNS Abuse Escalation</b></td>
         <td>International</td>
-        <td>File formal DNS abuse complaint against: (1) Gname.com — hosting 35+ confirmed scam domain registrations, ignoring abuse; (2) WebNIC — ICANN already issued breach notice July 2025, escalate to ICANN Compliance. Use ICANN WICF: icann.org/wicf</td>
+        <td>File formal DNS abuse complaint against: (1) Gname.com — 39+ confirmed scam domain registrations under one account; (2) WebNIC — ICANN breach notice issued 2025-07-29 for RAA §3.18.2 violations (DNS abuse mitigation). WebNIC is under active enforcement — a well-documented complaint now carries higher weight. Use ICANN WICF: icann.org/wicf. Reference WebNIC breach notice in complaint.</td>
         <td>compliance@icann.org<br>abuse@icann.org</td>
       </tr>
       <tr>
