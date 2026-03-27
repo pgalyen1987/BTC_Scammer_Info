@@ -1,0 +1,404 @@
+=== Network OSINT run 2026-03-27T19:11:25Z ===
+
+######## mdutton.com ########
+-- dig A --
+172.67.185.221
+104.21.68.36
+-- dig AAAA --
+2606:4700:3036::6815:4424
+2606:4700:3031::ac43:b9dd
+-- traceroute (45s max, 12 hops) --
+traceroute to mdutton.com (2606:4700:3036::6815:4424), 12 hops max, 80 byte packets
+ 1  2600:4040:40f5:c000::1  5.957 ms  5.821 ms  9.096 ms
+ 2  2600:4040:40d0::1  9.053 ms  8.983 ms  12.167 ms
+ 3  2600:4000:1:246::2a  90.384 ms 2600:4000:1:246::28  62.525 ms  25.041 ms
+ 4  * * *
+ 5  2600:803:93f::66  53.223 ms  53.173 ms  53.117 ms
+ 6  2400:cb00:16:2::3  14.888 ms  12.384 ms  12.234 ms
+ 7  2400:cb00:925:3::  12.725 ms  12.585 ms  12.517 ms
+ 8  2400:cb00:352:1024::ac46:294d  16.073 ms 2400:cb00:350:1024::ac46:21d0  16.060 ms 2400:cb00:573:1024::ac47:c171  12.762 ms
+
+######## nanolite-foundationnlf.com ########
+-- dig A --
+202.79.174.5
+-- dig AAAA --
+-- traceroute (45s max, 12 hops) --
+traceroute to nanolite-foundationnlf.com (202.79.174.5), 12 hops max, 60 byte packets
+ 1  192.168.1.1  6.212 ms  9.401 ms  9.342 ms
+ 2  70.109.61.1  45.169 ms  45.119 ms  45.074 ms
+ 3  100.41.23.102  12.391 ms 100.41.23.100  15.720 ms  15.673 ms
+ 4  * * *
+ 5  129.250.9.25  12.122 ms  12.078 ms 129.250.8.209  12.031 ms
+ 6  129.250.3.254  11.984 ms *  12.873 ms
+ 7  * * 129.250.6.1  75.284 ms
+ 8  129.250.5.225  75.231 ms  75.181 ms  75.132 ms
+ 9  129.250.5.77  183.160 ms  183.084 ms *
+10  202.79.174.5  217.949 ms !X  217.864 ms !X  217.810 ms !X
+
+######## 2139exchange.com ########
+-- dig A --
+185.22.174.75
+-- dig AAAA --
+-- traceroute (45s max, 12 hops) --
+traceroute to 2139exchange.com (185.22.174.75), 12 hops max, 60 byte packets
+ 1  192.168.1.1  6.476 ms  6.445 ms  6.422 ms
+ 2  70.109.61.1  9.649 ms  9.622 ms  9.600 ms
+ 3  * * *
+ 4  * * *
+ 5  * 80.239.135.178  12.812 ms *
+ 6  62.115.123.124  12.765 ms * *
+ 7  62.115.136.200  17.167 ms *  20.398 ms
+ 8  62.115.139.247  113.809 ms 80.91.254.90  93.858 ms *
+ 9  * 62.115.139.172  102.891 ms  101.471 ms
+10  62.115.139.203  112.722 ms  113.031 ms 62.115.135.226  99.756 ms
+11  62.115.199.74  108.778 ms 62.115.139.172  105.173 ms 62.115.199.74  115.402 ms
+12  62.115.139.203  118.051 ms * *
+
+######## www.2139exchange.com ########
+-- dig A --
+185.22.174.75
+-- dig AAAA --
+-- traceroute (45s max, 12 hops) --
+traceroute to www.2139exchange.com (185.22.174.75), 12 hops max, 60 byte packets
+ 1  192.168.1.1  6.513 ms  9.739 ms  9.706 ms
+ 2  70.109.61.1  9.674 ms  9.641 ms  9.611 ms
+ 3  100.41.23.102  12.733 ms  15.936 ms 100.41.23.100  15.891 ms
+ 4  * * *
+ 5  * 80.239.135.178  15.720 ms *
+ 6  62.115.123.124  15.649 ms *  13.212 ms
+ 7  62.115.136.200  19.331 ms  19.306 ms  22.888 ms
+ 8  80.91.254.90  98.373 ms 62.115.139.247  114.084 ms 80.91.254.90  95.331 ms
+ 9  * 62.115.139.172  101.748 ms  101.724 ms
+10  62.115.139.203  110.917 ms  111.204 ms  107.915 ms
+11  62.115.199.74  110.822 ms  114.930 ms  111.727 ms
+12  * * 62.115.139.203  116.438 ms
+
+######## aztex.eu ########
+-- dig A --
+194.60.201.83
+-- dig AAAA --
+-- traceroute (45s max, 12 hops) --
+traceroute to aztex.eu (194.60.201.83), 12 hops max, 60 byte packets
+ 1  192.168.1.1  6.433 ms  6.390 ms  6.362 ms
+ 2  70.109.61.1  9.643 ms  9.617 ms  9.587 ms
+ 3  100.41.23.102  12.749 ms 100.41.23.100  9.524 ms  19.223 ms
+ 4  * * *
+ 5  * 80.239.135.178  15.814 ms *
+ 6  62.115.123.124  15.761 ms * *
+ 7  62.115.140.106  95.814 ms  95.926 ms  95.896 ms
+ 8  * 62.115.136.185  110.391 ms  110.525 ms
+ 9  213.248.67.11  409.967 ms 62.115.45.149  409.914 ms 213.248.67.11  406.752 ms
+10  * * *
+11  * * *
+12  194.60.201.83  106.734 ms  106.708 ms  107.572 ms
+
+######## www.aztex.eu ########
+-- dig A --
+194.60.201.83
+-- dig AAAA --
+-- traceroute (45s max, 12 hops) --
+traceroute to www.aztex.eu (194.60.201.83), 12 hops max, 60 byte packets
+ 1  192.168.1.1  11.739 ms  11.695 ms  11.666 ms
+ 2  70.109.61.1  18.389 ms  18.313 ms  18.289 ms
+ 3  100.41.23.100  18.453 ms  29.600 ms 100.41.23.102  26.291 ms
+ 4  * * *
+ 5  80.239.135.178  26.281 ms * *
+ 6  62.115.141.51  26.127 ms 62.115.123.124  14.779 ms *
+ 7  62.115.140.106  95.650 ms *  95.569 ms
+ 8  62.115.136.185  105.321 ms  108.541 ms *
+ 9  213.248.67.11  411.383 ms * 62.115.45.149  405.012 ms
+10  * * *
+11  * * *
+12  194.60.201.83  107.416 ms  103.717 ms  111.293 ms
+
+######## cappofx.com ########
+-- dig A --
+104.21.54.94
+172.67.137.186
+-- dig AAAA --
+2606:4700:3031::6815:365e
+2606:4700:3035::ac43:89ba
+-- traceroute (45s max, 12 hops) --
+traceroute to cappofx.com (2606:4700:3031::6815:365e), 12 hops max, 80 byte packets
+ 1  2600:4040:40f5:c000::1  6.090 ms  6.006 ms  5.973 ms
+ 2  2600:4040:40d0::1  9.225 ms  9.194 ms  9.164 ms
+ 3  2600:4000:1:246::28  9.135 ms  9.102 ms 2600:4000:1:246::2a  9.145 ms
+ 4  * * *
+ 5  2600:803:93f::66  90.816 ms  90.789 ms  90.757 ms
+ 6  2400:cb00:16:2::4  15.470 ms 2400:cb00:16:2::3  12.753 ms 2400:cb00:16:2::4  12.669 ms
+ 7  2400:cb00:601:3::  12.639 ms 2400:cb00:1026:3::  16.073 ms 2400:cb00:352:3::  12.892 ms
+ 8  2400:cb00:413:1024::ac46:ad6f  12.862 ms 2400:cb00:601:1024::ac47:ddc7  12.832 ms 2400:cb00:16:1024::a29e:4d16  12.803 ms
+
+######## fmtcapitaltc.com ########
+-- dig A --
+172.67.175.136
+104.21.91.163
+-- dig AAAA --
+2606:4700:3035::ac43:af88
+2606:4700:3032::6815:5ba3
+-- traceroute (45s max, 12 hops) --
+traceroute to fmtcapitaltc.com (2606:4700:3035::ac43:af88), 12 hops max, 80 byte packets
+ 1  2600:4040:40f5:c000::1  6.112 ms  9.233 ms  9.180 ms
+ 2  2600:4040:40d0::1  12.407 ms  12.358 ms  12.319 ms
+ 3  2600:4000:1:246::2a  15.565 ms  15.528 ms  15.489 ms
+ 4  * * *
+ 5  2600:803:93f::66  15.337 ms  15.295 ms  15.257 ms
+ 6  2400:cb00:16:2::4  15.221 ms 2400:cb00:16:2::3  19.352 ms  16.090 ms
+ 7  2400:cb00:16:3::  22.547 ms 2400:cb00:1025:3::  45.163 ms 2400:cb00:352:3::  15.970 ms
+ 8  2400:cb00:350:1024::ac46:21b9  15.928 ms 2400:cb00:1026:1024::6817:d64a  15.912 ms 2400:cb00:573:1024::ac47:c125  15.303 ms
+
+######## deptoy.co ########
+-- dig A --
+-- dig AAAA --
+-- traceroute (45s max, 12 hops) --
+deptoy.co: Name or service not known
+Cannot handle "host" cmdline arg `deptoy.co' on position 1 (argc 6)
+
+######## REMAINING DOMAINS ########
+######## bissnex.com ########
+-- dig A --
+-- traceroute --
+(no A record or NXDOMAIN)
+
+######## elwallets.com ########
+-- dig A --
+104.21.91.144
+172.67.222.23
+-- traceroute --
+traceroute to elwallets.com (2606:4700:3035::ac43:de17), 12 hops max, 80 byte packets
+ 1  2600:4040:40f5:c000::1  6.373 ms  9.614 ms  9.602 ms
+ 2  2600:4040:40d0::1  12.999 ms  12.988 ms  12.967 ms
+ 3  2600:4000:1:246::2a  12.956 ms 2600:4000:1:246::28  32.471 ms  32.460 ms
+ 4  * * *
+ 5  2600:803:93f::66  82.796 ms  82.785 ms  82.774 ms
+ 6  2400:cb00:16:2::4  12.854 ms  9.734 ms 2400:cb00:16:2::3  13.090 ms
+ 7  2400:cb00:354:3::  13.052 ms 2400:cb00:352:3::  22.810 ms 2400:cb00:16:3::  19.430 ms
+ 8  2400:cb00:1026:1024::6817:d666  12.804 ms 2400:cb00:925:1024::ac44:f62b  12.785 ms 2400:cb00:626:1024::ac46:25a8  12.765 ms
+
+######## userhelpsdesk.com ########
+-- dig A --
+-- traceroute --
+(no A record or NXDOMAIN)
+
+######## alliancebernsteinn.com ########
+-- dig A --
+-- traceroute --
+(no A record or NXDOMAIN)
+
+######## bankofamerilcasl.com ########
+-- dig A --
+-- traceroute --
+(no A record or NXDOMAIN)
+
+######## warburgpiincusii.com ########
+-- dig A --
+202.79.174.5
+-- traceroute --
+traceroute to warburgpiincusii.com (202.79.174.5), 12 hops max, 60 byte packets
+ 1  192.168.1.1  6.337 ms  6.264 ms  6.226 ms
+ 2  70.109.61.1  12.724 ms  12.646 ms  12.598 ms
+ 3  100.41.23.100  12.579 ms 100.41.23.102  12.558 ms 100.41.23.100  12.540 ms
+ 4  * * *
+ 5  129.250.9.25  12.480 ms 129.250.8.209  15.762 ms  15.746 ms
+ 6  * * 129.250.3.254  12.916 ms
+ 7  129.250.6.1  72.577 ms  72.506 ms *
+ 8  129.250.5.225  72.441 ms  72.425 ms  72.409 ms
+ 9  129.250.5.77  180.795 ms * *
+10  129.250.2.51  226.316 ms  225.463 ms *
+11  202.79.174.5  225.850 ms !X  222.589 ms !X  225.711 ms !X
+
+######## gssachssvip.com ########
+-- dig A --
+-- traceroute --
+(no A record or NXDOMAIN)
+
+######## share-dns.com ########
+-- dig A --
+-- traceroute --
+(no A record or NXDOMAIN)
+
+######## share-dns.net ########
+-- dig A --
+-- traceroute --
+(no A record or NXDOMAIN)
+
+######## mail-ussl.com ########
+-- dig A --
+104.21.1.194
+172.67.129.222
+-- traceroute --
+traceroute to mail-ussl.com (2606:4700:3037::ac43:81de), 12 hops max, 80 byte packets
+ 1  2600:4040:40f5:c000::1  6.675 ms  6.621 ms  6.595 ms
+ 2  2600:4040:40d0::1  13.002 ms  12.977 ms  12.953 ms
+ 3  2600:4000:1:246::2a  12.930 ms 2600:4000:1:246::28  12.906 ms 2600:4000:1:246::2a  12.880 ms
+ 4  * * *
+ 5  2600:803:93f::66  12.851 ms  12.759 ms  12.804 ms
+ 6  2400:cb00:16:2::3  12.712 ms 2400:cb00:16:2::4  12.811 ms  12.763 ms
+ 7  2400:cb00:601:3::  12.737 ms 2400:cb00:16:3::  19.571 ms 2400:cb00:413:3::  22.688 ms
+ 8  2400:cb00:352:1024::ac46:29eb  12.981 ms 2400:cb00:413:1024::ac46:ad4c  16.052 ms 2400:cb00:626:1024::ac46:2567  12.930 ms
+
+######## stratiformspi.com ########
+-- dig A --
+-- traceroute --
+(no A record or NXDOMAIN)
+
+######## megat.vip ########
+-- dig A --
+-- traceroute --
+(no A record or NXDOMAIN)
+
+######## aztex.digital ########
+-- dig A --
+-- traceroute --
+(no A record or NXDOMAIN)
+
+######## www.aztex.digital ########
+-- dig A --
+-- traceroute --
+(no A record or NXDOMAIN)
+
+######## broker.fmtcapitaltc.com ########
+-- dig A --
+172.67.175.136
+104.21.91.163
+-- traceroute --
+traceroute to broker.fmtcapitaltc.com (2606:4700:3032::6815:5ba3), 12 hops max, 80 byte packets
+ 1  2600:4040:40f5:c000::1  9.445 ms  9.395 ms  9.368 ms
+ 2  2600:4040:40d0::1  12.654 ms  12.629 ms  12.604 ms
+ 3  2600:4000:1:246::2a  15.858 ms 2600:4000:1:246::28  12.535 ms  12.511 ms
+ 4  * * *
+ 5  2600:803:93f::66  15.684 ms  15.659 ms  15.620 ms
+ 6  2400:cb00:16:2::3  15.588 ms  12.836 ms  12.772 ms
+ 7  2400:cb00:354:3::  12.725 ms 2400:cb00:1024:3::  12.929 ms 2400:cb00:352:3::  12.890 ms
+ 8  2400:cb00:572:1024::ac47:bdc6  12.864 ms 2400:cb00:573:1024::ac47:c197  12.841 ms 2400:cb00:626:1024::ac46:2513  12.818 ms
+
+######## IPINFO (selected IPs) ########
+--- 202.79.174.5 ---
+{
+  "ip": "202.79.174.5",
+  "city": "Tung Chung",
+  "region": "Islands",
+  "country": "HK",
+  "loc": "22.2878,113.9424",
+  "org": "AS152194 CTG Server Limited",
+  "postal": "999077",
+  "timezone": "Asia/Hong_Kong",
+  "readme": "https://ipinfo.io/missingauth"
+}
+--- 185.22.174.75 ---
+{
+  "ip": "185.22.174.75",
+  "city": "Riga",
+  "region": "Riga",
+  "country": "LV",
+  "loc": "56.9460,24.1059",
+  "org": "AS42532 SIA VEESP",
+  "postal": "LV-1011",
+  "timezone": "Europe/Riga",
+  "readme": "https://ipinfo.io/missingauth"
+}
+--- 194.60.201.83 ---
+{
+  "ip": "194.60.201.83",
+  "hostname": "mail.aztex.eu",
+  "city": "Lauterbourg",
+  "region": "Grand Est",
+  "country": "FR",
+  "loc": "48.9751,8.1785",
+  "org": "AS51167 Contabo GmbH",
+  "postal": "67630",
+  "timezone": "Europe/Paris",
+  "readme": "https://ipinfo.io/missingauth"
+}
+--- 67.216.195.233 ---
+{
+  "ip": "67.216.195.233",
+  "hostname": "mx.mail-ussl.com",
+  "city": "Los Angeles",
+  "region": "California",
+  "country": "US",
+  "loc": "34.0522,-118.2437",
+  "org": "AS25820 IT7 Networks Inc",
+  "postal": "90012",
+  "timezone": "America/Los_Angeles",
+  "readme": "https://ipinfo.io/missingauth"
+}
+--- 104.21.68.36 ---
+{
+  "ip": "104.21.68.36",
+  "city": "San Francisco",
+  "region": "California",
+  "country": "US",
+  "loc": "37.7621,-122.3971",
+  "org": "AS13335 Cloudflare, Inc.",
+  "postal": "94107",
+  "timezone": "America/Los_Angeles",
+  "readme": "https://ipinfo.io/missingauth",
+  "anycast": true
+}
+######## WHOIS ASN (sample) ########
+route:          1.32.192.0/18
+origin:         AS152194
+descr:          RACKIP CONSULTANCY PTE. LTD.
+                No. 3, Pemimpin Drive, #07-04 Lip Hing, Industrial Building,
+mnt-by:         MAINT-RCPL-SG
+
+######## DNS NS / MX probes ########
+--- share-dns.com ---
+troy.ns.cloudflare.com.
+ulla.ns.cloudflare.com.
+--- share-dns.net ---
+anita.ns.cloudflare.com.
+brad.ns.cloudflare.com.
+5 mail.share-dns.net.
+--- mdutton.com ---
+houston.ns.cloudflare.com.
+rita.ns.cloudflare.com.
+--- nanolite-foundationnlf.com ---
+ns3.dnsowl.com.
+ns1.dnsowl.com.
+ns2.dnsowl.com.
+--- deptoy.co ---
+
+######## Reverse DNS ########
+--- 202.79.174.5 ---
+--- 185.22.174.75 ---
+--- 194.60.201.83 ---
+mail.aztex.eu.
+
+
+================================================================================
+SUMMARY (automated run, 2026-03-27 UTC)
+================================================================================
+
+RESOLVED ORIGIN IPS (not CDN edge)
+  202.79.174.5  — nanolite-foundationnlf.com, warburgpiincusii.com (same IP = CTG co-host)
+                — HK, AS152194 CTG Server Limited (ipinfo: Tung Chung). Traceroute completes
+                  to host; last hop ICMP may show !X (filtered) — common for production HTTP hosts.
+  185.22.174.75 — 2139exchange.com (Riga, AS42532 SIA VEESP). Traceroute reaches European path
+                  toward Latvia (~100–120 ms from US probe).
+  194.60.201.83 — aztex.eu (Lauterbourg FR, AS51167 Contabo). PTR: mail.aztex.eu.
+
+CLOUDFLARE-PROXIED (traceroute shows Cloudflare anycast; origin IP not revealed by A record)
+  mdutton.com, cappofx.com, fmtcapitaltc.com (+ broker.fmtcapitaltc.com), elwallets.com,
+  mail-ussl.com — A records 104.21.x / 172.67.x (AS13335). Real origin is hidden.
+
+MAIL / INFRA (direct IP from prior intel; confirmed ipinfo)
+  67.216.195.233 — mx.mail-ussl.com path (Los Angeles, AS25820 IT7 Networks) — fmtcapitaltc email.
+
+NO PUBLIC A RECORD AT THIS RUN (dropped, never registered, or internal-only)
+  deptoy.co, bissnex.com, userhelpsdesk.com, alliancebernsteinn.com, bankofamerilcasl.com,
+  gssachssvip.com, stratiformspi.com, megat.vip, aztex.digital — NXDOMAIN or empty A.
+
+SHARE-DNS
+  share-dns.com / share-dns.net — NS at Cloudflare (troy/ulla, anita/brad). No A in public DNS
+  for apex in this query; domains exist as nameserver hostnames for Gname portfolio.
+
+KEY OSINT LINK
+  warburgpiincusii.com and nanolite-foundationnlf.com both resolve to 202.79.174.5 — ties typosquat
+  farm to BaFin-warned Nanolite host (CTG Server Limited).
+
+NOTES
+  — Traceroute paths reflect the probe’s ISP (US residential), not the victim’s geography.
+  — For CDN-fronted domains, use hosting abuse, SSL transparency logs, or historical DNS (e.g.
+    SecurityTrails) to recover origin if needed.

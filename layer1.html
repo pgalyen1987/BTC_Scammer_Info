@@ -121,20 +121,20 @@ li{margin-bottom:2px}
     <div class="arch-body">
       <b>THIS DOCUMENT.</b> Builds and operates the technical infrastructure: servers, DNS, domain registrations, scam website templates, backend platforms. Operates from Hong Kong / Southeast Asia.<br>
       <b>Key entities:</b> CTG Server Limited (HK hosting), SHARE-DNS.COM/NET (DNS infrastructure), Gname.com account (domain registrar), WebNIC Malaysia (.co.jp bypass), ThinkPHP scam platform developers.<br>
-      <b>Evidence of scale:</b> 800,000+ domains across 15+ nameserver pairs. This is an infrastructure-as-a-service operation serving multiple criminal networks simultaneously.
+      <b>Scale (methodology in this file):</b> Passive DNS / pair counts for SHARE-DNS nameserver labels are listed in the SHARE-DNS section below.
     </div>
   </div>
   <div class="arch-row" style="background:#1a0d00;border:1px solid #f39c12;margin-top:4px">
     <div class="arch-label" style="background:#f39c1222;color:#f39c12">Layer 2<br><small style="font-weight:normal;font-size:10px">Western Wrapper</small></div>
     <div class="arch-body">
       Provides Western legal legitimacy to defeat victim due diligence. US LLC registrations (Colorado), UK shell companies, FinCEN MSB registrations, fake press releases.<br>
-      <b>Key entity:</b> "Darryl Joel Dorfman" (Colorado) — probable nominee/fabricated identity. See <a href="report.html#sec-suspects">Main Report → Suspects</a>.
+      <b>Registry:</b> Colorado SOS and UK Companies House list <b>Darryl Joel Dorfman</b> as registered agent and/or director on entities documented in <a href="corporate-network.html">Corporate Network</a>.
     </div>
   </div>
   <div class="arch-row" style="background:#0d1a10;border:1px solid #2ecc71;margin-top:4px">
     <div class="arch-label" style="background:#2ecc7122;color:#2ecc71">Layer 3<br><small style="font-weight:normal;font-size:10px">Victim-Facing</small></div>
     <div class="arch-body">
-      WhatsApp romance/investment personas. "Prof. Darryl Joel Dorfman," "Prof. Müller," "Greta," "Bexley," "Susan," "Matthew." Run from scam compounds (Myanmar/Cambodia/Laos Golden Triangle area).
+      WhatsApp romance/investment personas named in victim and regulator materials: e.g. &ldquo;Prof. Darryl Joel Dorfman,&rdquo; &ldquo;Prof. Müller,&rdquo; &ldquo;Greta,&rdquo; &ldquo;Bexley,&rdquo; &ldquo;Susan,&rdquo; &ldquo;Matthew.&rdquo; Geographic origin of operators is not established in this technical appendix.
     </div>
   </div>
 </div>
@@ -167,11 +167,7 @@ li{margin-bottom:2px}
   <div class="box box-orange">
     <div class="label label-orange">⚠ Context: Not Just One Scam</div>
     <div style="font-size:12px;line-height:1.8">
-      The SHARE-DNS infrastructure serves <b>the entire Chinese scam ecosystem</b> — not just this pig-butchering operation. Domains using SHARE-DNS include gambling sites (.wang, .vip), phishing portals (Macy's typosquats), spam infrastructure (.top domains with random strings), fake investment platforms, and multiple pig-butchering verticals.
-      <br><br>
-      The operator of SHARE-DNS (the <b>zys@gname.com</b> Gname.com account) provides DNS-as-a-service to criminal networks as a business. Our investigation's BIPPAX/DUTT network is <b>one customer</b> renting nameserver pairs from this service.
-      <br><br>
-      <b>This makes the Gname.com account a priority target</b>: disrupting it would affect hundreds of thousands of criminal domains simultaneously.
+      <b>Scope note:</b> SHARE-DNS nameservers appear on domains beyond this investigation. Palo Alto Networks Unit 42 and other vendors have published independent reports naming SHARE-DNS in large-scale fraudulent-domain campaigns; cite those reports for ecosystem-wide claims. This site documents only the overlap with <b>mdutton.com</b>, HK typosquats, and the BIPPAX/DUTT thread listed here.
     </div>
   </div>
 </div>
@@ -209,7 +205,6 @@ li{margin-bottom:2px}
         <li>Standard Gname.com abuse contact is <code>complaint@gname.com</code> — the <code>zys@gname.com</code> variant identifies a specific internal account or reseller tier</li>
         <li>Indexed in <b>AlienVault OTX</b> (Open Threat Exchange) as a threat IOC — already on the security community radar</li>
         <li>Indexed in <b>Whoisology</b> (December 2024) as registrant email for malicious domains</li>
-        <li><b>"ZYS"</b> may be initials or username of the account holder — closest data point to a named Chinese operator identity</li>
       </ul>
     </div>
     <div class="box box-blue">
@@ -223,7 +218,7 @@ li{margin-bottom:2px}
           <li>Direct Gname.com legal demand under Computer Misuse Act</li>
         </ol>
         <br>
-        <b>What Gname.com holds:</b> Account registration email, payment method (credit card / Alipay / WeChat Pay likely), IP login history, full list of registered domains under the account
+        <b>What Gname.com holds (per standard registrar retention; confirm via subpoena):</b> Account registration email, payment method, IP login history, full list of registered domains under the account
         <br><br>
         <b>Gname.com abuse:</b> <code>complaint@gname.com</code> &nbsp;|&nbsp; +65.65189986
       </div>
@@ -505,8 +500,8 @@ li{margin-bottom:2px}
   <div class="box box-purple">
     <div class="label label-purple">Fraudulent .co.jp Registration via Malaysian Registrar</div>
     <div style="font-size:12px;line-height:1.9;margin-top:6px">
-      All Japanese typosquat domains (.co.jp and .jp) were registered through <b>Web Commerce Communications Limited (WebNIC), Malaysia</b> (<code>support@webnic.cc</code>). The registrant name submitted was <b>"FSFSFSDSDFSFS"</b> — deliberate garbage data.<br><br>
-      <b>.co.jp registration rules:</b> Requires a registered Japanese company (one domain per company). WebNIC appears to have registered multiple .co.jp domains for a non-existent entity, violating JPRS (.co.jp registry) rules.<br><br>
+      Japanese typosquat domains (.co.jp and .jp) in this table were registered through <b>Web Commerce Communications Limited (WebNIC), Malaysia</b> (<code>support@webnic.cc</code>). WHOIS for the cluster shows registrant name <b>FSFSFSDSDFSFS</b>.<br><br>
+      <b>JPRS / policy:</b> .co.jp registration rules are published by the registry; evaluate compliance against the registry&rsquo;s public terms. <b>ICANN</b> issued a breach notice to WebNIC (29 July 2025) referencing RAA §3.18.2 (DNS abuse mitigation) &mdash; cite ICANN&rsquo;s letter for procedural facts.<br><br>
       <b>ICANN breach notice — July 29, 2025:</b> ICANN issued a formal breach notice to WebNIC citing violation of <b>RAA Section 3.18.2</b> (DNS abuse mitigation obligations). Specific findings:<br>
       &bull; WebNIC repeatedly <b>demanded re-submission of evidence</b> even when original abuse reports were already actionable<br>
       &bull; Mitigation actions were <b>only taken after reporters escalated to ICANN directly</b><br>

@@ -9,7 +9,7 @@ from collections import defaultdict
 GRAPH_PATH   = Path("/home/me/scamfinder/graph.json")
 VICTIM_PATH  = Path("/home/me/scamfinder/victim_report.json")
 TX_PATH      = Path("/home/me/scamfinder/transactions.json")
-REPORT_PATH  = Path("/home/me/scamfinder/report.html")
+REPORT_PATH  = Path("/home/me/scamfinder/report-full.html")
 
 ENTITY_OVERRIDE = {
     'Exchange': '#2ecc71', 'Coinbase': '#2ecc71', 'Binance': '#f1c40f',

@@ -12,6 +12,27 @@ This package contains:
   E. GoDaddy Subpoena Template (US)
   F. GlobeNewswire / Notified Subpoena Template (wire fraud angle)
   G. FBI IC3 Submission Checklist
+  H. Supplemental US identity targets (see law-enforcement.html Page 6)
+
+================================================================================
+H. SUPPLEMENTAL US TARGETS — IDENTITY GAPS (BRIEF)
+================================================================================
+Full subpoena language and contact rows: law-enforcement.html (Priority 1, rows 11–16).
+
+Preserve and request without delay:
+  - Meta Platforms — WhatsApp / Facebook Messenger (recruitment + "Prof. Dorfman" groups)
+  - Cloudflare, Inc. — origin IPs and account billing for mdutton.com, fmtcapitaltc.com,
+    elwallets.com, and other Cloudflare-proxied IOCs
+  - Google LLC — Gmail / Android / OAuth if referenced in victim comms
+  - Apple Inc. — Apple ID / App Store if scam app or iCloud appears in evidence
+  - Banks & payment processors — victim outgoing wires; Stripe/PayPal/etc. if merchant IDs known
+  - Microsoft Corp. — Outlook/Azure/Skype/LinkedIn if emails tie to MSFT services
+
+International gap fill:
+  - Telegram FZ-LLC (@CTGServer / @CTGSeverBot) — UAE MLAT or Telegram LE channel
+  - FinCEN SAR access (federal LE) for mule names not in OSINT
+
+Civil parallel: John Doe / pre-suit discovery (jurisdiction-specific) — see same HTML page.
 
 ================================================================================
 A. ICP LOOKUP — DO THIS YOURSELF (CAPTCHA REQUIRED)
@@ -131,7 +152,7 @@ URGENCY: The criminal operation is ongoing. Records should be preserved
 immediately pending formal production.
 
 EVIDENCE SUPPORTING THIS REQUEST:
-  [Attach: report.html, blockchain transaction records, deptoy.co source
+  [Attach: report-full.html, blockchain transaction records, deptoy.co source
    code extracts showing bmate601/bizzzan01/ICP number, screenshots]
 
 ---------- END DRAFT ----------
@@ -434,7 +455,7 @@ INCIDENT 2 (2024 deptoy.co):
   [ ] Pivot address: 3JMjHDTJjKPnrvS7DycPAgYcA6HrHRk8UG → 140 BTC → scammer wallet
 
 ATTACHMENTS TO INCLUDE:
-  [ ] report.html (this report — full blockchain trace)
+  [ ] report-full.html (this report — full blockchain trace)
   [ ] Screenshots of deptoy.co / BIPPAX platform
   [ ] Any communications with scammer (WeChat, email, WhatsApp screenshots)
   [ ] Transaction receipts / blockchain confirmations

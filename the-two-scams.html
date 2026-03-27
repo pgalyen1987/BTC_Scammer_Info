@@ -70,7 +70,7 @@ li{margin-bottom:2px}
 <div class="header">
   <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:6px">Investigation Report &mdash; Page 1 of 6</div>
   <h1>The Two Scams</h1>
-  <div class="sub">How one victim was defrauded twice by the same criminal network &mdash; and how the second scam unraveled an industrial-scale operation</div>
+  <div class="sub">Same wallet in 2022 and 2024 &mdash; and how <b>deptoy.co</b> led from a Colorado filing to <b>CTG Server (Hong Kong)</b> and SHARE-DNS</div>
 </div>
 
 <div class="nav-bar">
@@ -173,18 +173,8 @@ li{margin-bottom:2px}
 
   <h3>What Is deptoy.co / BIPPAX?</h3>
   <p style="line-height:1.8">
-    BIPPAX is a white-label fake exchange platform operated under multiple brand names. Each deployment gets a unique instance code (e.g., "BIPPAX-185"). It was incorporated in Canada as <b>BISSNEX CRYPTO GROUP LIMITED</b> (previously BIPPAX CRYPTO GROUP LIMITED, and before that ALPHA TECHNOLOGY HOLDING LIMITED). The company was dissolved in July 2025, and its FINTRAC money services registration expired in August 2025.
+    BIPPAX is a white-label fake exchange operated under multiple brand names (instance codes such as &ldquo;BIPPAX-185&rdquo;). Canada filings list <b>BISSNEX CRYPTO GROUP LIMITED</b> (ex-BIPPAX, ex-ALPHA TECHNOLOGY) &mdash; now dissolved; FINTRAC registration lapsed. Source code exposed WeChat handles <b>bmate601</b> / <b>bizzzan01</b> and Shanghai ICP <b>沪ICP备13026899号-3</b>. Full corporate table (director address, MSB #, branch): <a href="corporate-network.html">Corporate Network</a>.
   </p>
-
-  <div class="box box-dark" style="margin-top:12px">
-    <table>
-      <tr><td style="color:#8b949e;width:200px">Director on file</td><td>"Jack Williams" at 20 Leslie St, Toronto, ON M4M 3L4 (likely fictitious)</td></tr>
-      <tr><td style="color:#8b949e">FINTRAC phone</td><td>2478001924 (invalid North American number &mdash; fabricated)</td></tr>
-      <tr><td style="color:#8b949e">Registered activities</td><td>Virtual currency dealing, money transfer, foreign exchange</td></tr>
-      <tr><td style="color:#8b949e">WeChat customer service</td><td>bmate601 (confirmed banned), bizzzan01</td></tr>
-      <tr><td style="color:#8b949e">ICP registration</td><td>沪ICP备13026899号-3 (Shanghai, China &mdash; ties platform development to China)</td></tr>
-    </table>
-  </div>
 
   <!-- ── THE DISCOVERY CHAIN ── -->
   <h3 style="margin-top:28px">How Scam 2 Unraveled the Entire Network</h3>
@@ -220,7 +210,7 @@ li{margin-bottom:2px}
 
     <div class="chain-step">
       <div class="chain-num" style="background:#e74c3c;color:#fff">5</div>
-      <div class="chain-text"><b>nanolite-foundationnlf.com &rarr; Hong Kong server (202.79.174.5)</b> &mdash; Resolving the Nanolite domain led to IP <code>202.79.174.5</code>, hosted by <b>CTG Server Limited</b> (AS152194) in Tung Chung, Hong Kong. A reverse IP lookup on that server revealed it wasn't just hosting Nanolite &mdash; it was hosting <b>~35 fake finance websites</b> simultaneously.</div>
+      <div class="chain-text"><b>nanolite-foundationnlf.com &rarr; Hong Kong server (202.79.174.5)</b> &mdash; Resolving the Nanolite domain led to IP <code>202.79.174.5</code>, hosted by <b>CTG Server Limited</b> (AS152194) in Tung Chung, Hong Kong. A reverse IP lookup on that server revealed it wasn't just hosting Nanolite &mdash; it was hosting <b>~39 fake finance websites</b> simultaneously.</div>
     </div>
     <div class="chain-arrow">&darr;</div>
 
@@ -232,7 +222,7 @@ li{margin-bottom:2px}
 
     <div class="chain-step">
       <div class="chain-num" style="background:#9b59b6;color:#fff">7</div>
-      <div class="chain-text"><b>The three-layer architecture</b> &mdash; The full picture came into focus: a <b>Chinese factory</b> (Layer 1) builds and hosts the scam platforms on CTG Server using SHARE-DNS infrastructure. A <b>Western wrapper</b> (Layer 2) uses Dorfman's shell companies to register the platforms as legitimate US/UK/Canadian businesses. <b>Victim-facing personas</b> (Layer 3) on WhatsApp recruit marks into the fake exchanges. One victim. Two scams. A thread pulled from Scam 2 exposed an operation processing hundreds of thousands of BTC.</div>
+      <div class="chain-text"><b>Architecture</b> &mdash; Technical infrastructure (CTG, SHARE-DNS, AZTEX) + Western shells (Dorfman) + WhatsApp personas. <b>Expanded diagrams and IOC tables:</b> <a href="infrastructure.html">Criminal Infrastructure</a> (not repeated here).</div>
     </div>
 
   </div>
@@ -262,36 +252,6 @@ li{margin-bottom:2px}
       </p>
     </div>
   </div>
-</div>
-
-<!-- ── SCAMMER WALLET SCALE ── -->
-<div class="section">
-  <h2>Scammer Wallet Scale</h2>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0">
-    <div class="stat-card">
-      <div class="stat-lbl">Total BTC Received</div>
-      <div class="stat-val" style="color:#e74c3c">395,190</div>
-      <div class="stat-sub">Lifetime</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-lbl">Total Transactions</div>
-      <div class="stat-val" style="color:#f39c12">5,170</div>
-      <div class="stat-sub">Inbound</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-lbl">BIPPAX Contribution</div>
-      <div class="stat-val" style="color:#3498db">64,255</div>
-      <div class="stat-sub">BTC from 25,117 txs</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-lbl">Most Recent TX</div>
-      <div class="stat-val" style="color:#2ecc71;font-size:20px">2026-01-21</div>
-      <div class="stat-sub">Operation ongoing</div>
-    </div>
-  </div>
-  <p style="line-height:1.8;font-size:13px">
-    The scale of this wallet &mdash; nearly 400,000 BTC over its lifetime &mdash; indicates this is not a small operation. This is an industrial-scale fraud network that has processed billions of dollars in stolen cryptocurrency.
-  </p>
 </div>
 
 <!-- ── NEXT PAGE ── -->

@@ -1,0 +1,78 @@
+================================================================================
+KALI LINUX CLI OSINT — passive DNS / WHOIS / TLS / traceroute
+Host: Kali, session 2026-03-27
+Tools: dig, host, whois, openssl s_client, traceroute, curl
+Note: No port scanning; no Tor in this session.
+================================================================================
+
+--- A / AAAA (dig +short) — selected IOCs ---
+mdutton.com              → 172.67.185.221 104.21.68.36 (Cloudflare)
+nanolite-foundationnlf.com → 202.79.174.5 (direct to CTG farm; NOT behind CF)
+fmtcapitaltc.com         → 172.67.175.136 104.21.91.163 (Cloudflare)
+cappofx.com              → Cloudflare
+2139exchange.com         → 185.22.174.75 (VEESP Latvia — matches file)
+aztex.eu                 → 194.60.201.83 (Contabo — matches file)
+myctgs.com / ctgserver.com → Cloudflare (official CTG marketing sites)
+elwallets.com            → Cloudflare
+mumuex.org               → 103.224.212.214 (Trellian/Above.com parking LB)
+otia.app                 → Cloudflare
+
+--- NS clustering ---
+mdutton.com     → houston.ns.cloudflare.com, rita.ns.cloudflare.com
+share-dns.com   → ulla.ns.cloudflare.com, troy.ns.cloudflare.com
+share-dns.net   → brad.ns.cloudflare.com, anita.ns.cloudflare.com
+nanolite-foundationnlf.com → ns1.dnsowl.com … (DNSOWL / NameSilo path)
+
+--- MX ---
+fmtcapitaltc.com → 10 mx.mail-ussl.com (ties to mail-ussl.com SMTP chain in file)
+cappofx.com      → GoDaddy secureserver.net mail
+
+--- whois 202.79.174.5 (APNIC) — CTG / abuse ---
+inetnum: 202.79.168.0 - 202.79.175.255
+netname: CTG79-168-KR
+descr:   CTG Server Ltd.
+country: KR (allocation); IRT object:
+address: 202, 2/F Kam Sang BLDG 257, Des Voeux RD Central Hong Kong
+e-mail / abuse-mailbox: cs.mail@ctgserver.com
+irt: IRT-CTG-HK
+remarks: cs.mail@ctgserver.com validated 2026-02-04
+role: RACKIP CONSULTANCY PTE LTD administrator (399 Chai Wan Road, HK)
+
+--- TLS (openssl x509 -noout -subject -issuer -dates) ---
+mdutton.com        CN=mdutton.com | Google Trust Services WE1 | notBefore Feb 23 2026
+fmtcapitaltc.com   CN=fmtcapitaltc.com | GTS WE1 | notBefore Feb 19 2026
+
+--- whois domain (registrar summary) ---
+mdutton.com: Gname.com Pte. Ltd. IANA 1923 | Created 2015-11-10 | Exp 2026-11-10
+             Registrant country: US (rest RDAP redacted)
+             Abuse: complaint@gname.com
+fmtcapitaltc.com: Registrar.eu (Openprovider) IANA 1647 | Created 2025-08-26
+             Registrant state: Wilayah Persekutuan Kuala Lumpur (Malaysia)
+nanolite-foundationnlf.com: NameSilo LLC | Created 2025-08-06 | NS dnsowl.com
+mumuex.org: MOBIKAPP Limited / Galcomm IANA 695 | Created 2025-04-29
+             NS ns15/ns16.abovedomains.com
+
+--- whois 185.22.174.5 (RIPE) — 2139exchange ---
+abuse: abuse@veesp.com | Veesp SIA | Liepaja, LV
+
+--- whois 103.224.212.214 (mumuex.org) ---
+Trellian Pty / Above.com parking | abuse@trellian.com | AU
+
+--- traceroute 202.79.174.5 ---
+Reaches last hop 202.79.174.5 with ~300ms RTT from test network; hop 11 !X (ICMP admin prohibited common).
+
+--- curl -sI https://mdutton.com ---
+HTTP/2 200 | server: cloudflare | last-modified: Sun, 01 Mar 2026 | cf-ray: …-IAD
+
+================================================================================
+REPEATABLE KALI COMMANDS (copy-paste)
+================================================================================
+dig +short A example.com
+dig +short NS example.com
+whois example.com | less
+whois 203.0.113.1 | less
+echo | openssl s_client -connect example.com:443 -servername example.com 2>/dev/null | openssl x509 -noout -dates -subject -issuer
+curl -sI --max-time 15 https://example.com
+traceroute -n -m 15 TARGET_IP
+
+Optional (install if needed): dnsrecon, theharvester, amass — use only in scope.

@@ -58,7 +58,7 @@ li{margin-bottom:2px}
 <div class="header">
   <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:6px">Investigation Report &mdash; Page 4 of 6</div>
   <h1>Criminal Infrastructure</h1>
-  <div class="sub">AZTEX operations servers, Hong Kong scam server farm, 2139exchange.com, and the SHARE-DNS empire &nbsp;|&nbsp; <a href="layer1.html" style="color:#9b59b6">Layer 1 Deep Dive &rarr;</a></div>
+  <div class="sub">Technical IOCs only &mdash; <a href="the-two-scams.html" style="color:#9b59b6">deptoy&rarr;CTG story is on Page 1</a> &nbsp;|&nbsp; <a href="layer1.html" style="color:#9b59b6">Layer 1 Deep Dive &rarr;</a></div>
 </div>
 
 <div class="nav-bar">
@@ -77,7 +77,7 @@ li{margin-bottom:2px}
 <div class="section">
   <h2>How We Got Here</h2>
   <p style="line-height:1.8">
-    The corporate trail (<a href="corporate-network.html">Page 3</a>) revealed the shell companies used as Western fronts. Investigating the domains associated with those companies &mdash; and the scam platforms themselves &mdash; led to two distinct infrastructure clusters: the <b>AZTEX</b> operational infrastructure (European-based, running the BIPPAX platform backend) and the <b>Hong Kong scam server farm</b> (Chinese-based, hosting dozens of financial impersonation sites including Nanolite Foundation). Domain registration fingerprinting then revealed these connect through a shared DNS infrastructure (<b>SHARE-DNS</b>) operated by a single account at <b>Gname.com</b> in Singapore.
+    <a href="the-two-scams.html">Page 1</a> explains how <b>deptoy.co</b> &rarr; BIPPAX &rarr; Dorfman &rarr; <b>nanolite-foundationnlf.com</b> &rarr; <b>CTG Server Limited</b> (<code>202.79.174.5</code>) &rarr; <b>SHARE-DNS</b> / Gname. <b>This page</b> is the technical appendix: IPs, ASN, nameservers, hosted domains, and operator fingerprints &mdash; not a second copy of the victim narrative.
   </p>
 </div>
 
@@ -94,7 +94,7 @@ li{margin-bottom:2px}
     <table style="font-size:12px">
       <tr><td style="color:#8b949e;width:140px">IP</td><td><code>194.60.201.83</code></td></tr>
       <tr><td style="color:#8b949e">Provider</td><td>Contabo GmbH (AS51167), Lauterbourg, France &bull; abuse@contabo.de</td></tr>
-      <tr><td style="color:#8b949e">Key finding</td><td>TLS certificates for <b>both aztec.eu AND deptoy.co</b> are co-hosted on this server</td></tr>
+      <tr><td style="color:#8b949e">Key finding</td><td>TLS certificates for <b>both aztex.eu AND deptoy.co</b> are co-hosted on this server</td></tr>
       <tr><td style="color:#8b949e">SMTP banner</td><td><code>220-mail.aztex.eu ESMTP</code></td></tr>
       <tr><td style="color:#8b949e">Reverse IP domains</td><td>aztex.eu, bitwarden.aztex.eu, mail.aztex.eu</td></tr>
     </table>
@@ -174,7 +174,7 @@ li{margin-bottom:2px}
   <div class="box box-orange" style="margin-top:10px">
     <div class="label label-orange">Internal Subdomains Reveal Organized Operation</div>
     <div style="font-size:12px;line-height:1.8">
-      <b>intranet.2139exchange.com</b> (staff management), <b>hr.2139exchange.com</b> (human resources/employee records), and <b>sharepoint.2139exchange.com</b> (document sharing) are not customer-facing &mdash; they are internal operations infrastructure. A proper HR and intranet system implies a <b>structured organization with multiple employees</b>.
+      <b>intranet.2139exchange.com</b>, <b>hr.2139exchange.com</b>, and <b>sharepoint.2139exchange.com</b> resolve as subdomains (documented in this file&rsquo;s IOC pass); labels follow hostname naming (intranet / hr / sharepoint).
     </div>
   </div>
 </div>
@@ -192,7 +192,7 @@ li{margin-bottom:2px}
       <table style="font-size:12px">
         <tr><td style="color:#8b949e">IP</td><td><code>202.79.174.5</code></td></tr>
         <tr><td style="color:#8b949e">Hostname</td><td><code>fsazegsrr.qpon</code> — fake Japanese FSA domain</td></tr>
-        <tr><td style="color:#8b949e">Location</td><td>Tseung Kwan O, Hong Kong</td></tr>
+        <tr><td style="color:#8b949e">Location</td><td>Tung Chung, Hong Kong</td></tr>
         <tr><td style="color:#8b949e">ASN</td><td>AS152194 &mdash; CTG Server Limited</td></tr>
         <tr><td style="color:#8b949e">Open ports</td><td>22, 80, <b>83</b> (JP FSA content), 443, <b style="color:#e74c3c">3306 MySQL</b>, 8080, <b style="color:#e74c3c">33060 MySQL X</b></td></tr>
         <tr><td style="color:#8b949e">Last active</td><td>2026-03-23 (Shodan)</td></tr>
@@ -257,15 +257,15 @@ li{margin-bottom:2px}
   <div class="box box-red">
     <div class="label label-red">ONE GNAME.COM ACCOUNT CONTROLS EVERYTHING</div>
     <div style="font-size:12px;line-height:1.9">
-      A single <b>Gname.com Pte. Ltd. (Singapore)</b> account owns: SHARE-DNS.COM, SHARE-DNS.NET, mdutton.com (DUTT Exchange), bankofamerilcasl.com, alliancebernsteinn.com variants, wellingtonmanageementi.com, warburgpiincusii.com, the Malaysian .my domains, and 20+ additional scam domains. The account identifier <code>zys@gname.com</code> appears as abuse contact on Malaysian domains and is indexed in AlienVault OTX as a threat IOC. "ZYS" may be the initials of the Layer 1 Chinese operator.
+      The same <b>Gname.com Pte. Ltd. (Singapore)</b> registration account controls at minimum: SHARE-DNS.COM, SHARE-DNS.NET, mdutton.com (DUTT), and the typosquat domains listed in <a href="layer1.html">Layer 1</a>. Abuse/registrar contact <code>zys@gname.com</code> appears on WHOIS for domains in that set; AlienVault OTX lists related IOCs (verify in OTX).
     </div>
   </div>
 
   <div class="box box-purple" style="margin-top:12px">
     <div class="label label-purple">NOT JUST OUR SCAM — Confirmed by Palo Alto Unit 42</div>
     <div style="font-size:12px;line-height:1.8">
-      SHARE-DNS serves the <b>entire Chinese scam ecosystem</b> &mdash; gambling sites (.wang, .vip), phishing portals, spam infrastructure (.top), and multiple pig-butchering operations. Our BIPPAX/DUTT network is one customer. Disrupting the Gname.com account would affect hundreds of thousands of criminal domains simultaneously.<br><br>
-      <b>Unit 42 (Palo Alto Networks) independently confirmed</b> SHARE-DNS.com as the shared nameserver infrastructure for a coordinated campaign of Chinese fraudulent gambling and investment scam domains. All registrant locations in that cluster listed different Chinese provinces (deliberate WHOIS obfuscation). Example domains: climbolympic[.]com, allolympic[.]com (Olympic-themed gambling lures).
+      <b>Unit 42 (Palo Alto Networks)</b> published analysis naming <b>SHARE-DNS.com</b> as shared nameserver infrastructure in a campaign of fraudulent gambling and investment domains; read their report for domain samples and methodology.<br><br>
+      This investigation&rsquo;s overlap with SHARE-DNS is limited to the domains and pairs enumerated in <a href="layer1.html">Layer 1</a> and the tables above.
     </div>
   </div>
 
@@ -274,39 +274,12 @@ li{margin-bottom:2px}
   </p>
 </div>
 
-<!-- ── THREE LAYERS ── -->
+<!-- ── THREE LAYERS (pointer only — full story on Page 1) ── -->
 <div class="section">
-  <h2>The Three-Layer Architecture</h2>
-  <p style="line-height:1.8;margin-bottom:14px">
-    Having traced the full infrastructure chain &mdash; from the victim's fake exchange through the corporate shell network and into the server farms behind it &mdash; the three-layer structure of this operation comes into focus:
+  <h2>Three-Layer Model</h2>
+  <p style="line-height:1.8;font-size:12px;color:#8b949e">
+    Infrastructure (CTG, SHARE-DNS, AZTEX) + Western shells (Dorfman) + WhatsApp personas are summarized on <a href="the-two-scams.html">Page 1</a> (chain steps 1&ndash;7) and in <a href="personas.html">Personas</a>. This file avoids duplicating that prose.
   </p>
-
-  <div style="display:flex;flex-direction:column;gap:6px">
-    <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;background:#1a0800;border:1px solid #e74c3c">
-      <div style="width:160px;flex-shrink:0;display:flex;align-items:center;padding:12px 14px;font-weight:bold;font-size:12px;background:#e74c3c22;color:#e74c3c">Layer 1<br><small style="font-weight:normal;font-size:10px">Chinese Factory</small></div>
-      <div style="flex:1;padding:12px 14px;font-size:12px;line-height:1.8;border-left:1px solid rgba(255,255,255,0.05)">
-        Builds and operates technical infrastructure: servers, DNS, scam website templates, backend platforms. Operates from Hong Kong and Southeast Asia.<br>
-        <b>Key entities:</b> CTG Server Limited (HK hosting &mdash; 202.79.174.5), AZTEX European servers (194.60.201.83, 37.27.206.233), SHARE-DNS.COM/NET (800K+ malicious domains), Gname.com account zys@gname.com (Singapore registrar)<br>
-        <b>Discovery path:</b> Nanolite Foundation domain &rarr; HK server IP &rarr; reverse IP lookup &rarr; shared DNS fingerprint
-      </div>
-    </div>
-    <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;background:#1a0d00;border:1px solid #f39c12">
-      <div style="width:160px;flex-shrink:0;display:flex;align-items:center;padding:12px 14px;font-weight:bold;font-size:12px;background:#f39c1222;color:#f39c12">Layer 2<br><small style="font-weight:normal;font-size:10px">Western Wrapper</small></div>
-      <div style="flex:1;padding:12px 14px;font-size:12px;line-height:1.8;border-left:1px solid rgba(255,255,255,0.05)">
-        Provides Western legal legitimacy to defeat victim due diligence: US/UK/Canadian company registrations, FinCEN MSB filings, GlobeNewswire press releases claiming VC backing.<br>
-        <b>Key entity:</b> "Darryl Joel Dorfman" (Broomfield, CO) &mdash; registered agent for 10+ Colorado shell companies and 4 UK companies; operator of DUTT Cryptocurrency Exchange Ltd (FinCEN MSB, live Jan 2026)<br>
-        <b>Discovery path:</b> deptoy.co &rarr; BIPPAX brand &rarr; BYXG domain &rarr; Colorado SOS &rarr; Dorfman as registered agent
-      </div>
-    </div>
-    <div style="display:flex;align-items:stretch;border-radius:6px;overflow:hidden;background:#0d1a10;border:1px solid #2ecc71">
-      <div style="width:160px;flex-shrink:0;display:flex;align-items:center;padding:12px 14px;font-weight:bold;font-size:12px;background:#2ecc7122;color:#2ecc71">Layer 3<br><small style="font-weight:normal;font-size:10px">Victim-Facing</small></div>
-      <div style="flex:1;padding:12px 14px;font-size:12px;line-height:1.8;border-left:1px solid rgba(255,255,255,0.05)">
-        WhatsApp and social media personas that recruit and manage victims into fake investment groups. Likely operated from scam compounds in Southeast Asia (Myanmar/Cambodia/Laos Golden Triangle area).<br>
-        <b>Key personas:</b> "Prof. Darryl Joel Dorfman," "Prof. M&uuml;ller," "Greta," "Bexley," "Susan," "Matthew," "Professor Bingham"<br>
-        <b>Discovery path:</b> BaFin warning on Nanolite Foundation &rarr; WhatsApp group methodology documented &rarr; victim reports on reportyourscam.com
-      </div>
-    </div>
-  </div>
 </div>
 
 <!-- ── GOEKE CLEARED ── -->
