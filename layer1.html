@@ -618,6 +618,11 @@ li{margin-bottom:2px}
       <tr><td>IP / timezone</td><td><code>94.26.255.20</code> GMT offset UTC+4 (not UTC+0)</td><td><span class="badge badge-orange">MEDIUM</span></td><td>dacm-crypto.top WordPress API</td><td>dacm-crypto.top operator is in UTC+4 timezone (Russia/UAE), NOT Ivory Coast (UTC+0) — timezone leakage from WP server config</td></tr>
       <tr><td>Vercel deployment</td><td><code>hvcapital-nx-dev.vercel.app</code></td><td><span class="badge badge-blue">INFO</span></td><td>Storyblok API</td><td>HV Capital dev deployment linked to stolen Storyblok space</td></tr>
       <tr><td>Address</td><td>202, 2/F Kam Sang Building, 257 Des Voeux Rd Central, HK</td><td><span class="badge badge-orange">MEDIUM</span></td><td>ARIN / company registry</td><td>CTG Server registered address; ICIJ Offshore Leaks shows prior shell company use at same floor</td></tr>
+      <tr style="background:#1a0d00"><td>Subdomain / PWA</td><td><code>app.mdutton.com</code> — HTML title: "Google Play"</td><td><span class="badge badge-red">HIGH</span></td><td>Direct HTTP probe 2026-03-28</td><td><b>Deceptive PWA install page</b> — named "Google Play" to trick victims into believing they are downloading from Google's app store. Installs DUTT Exchange as a Progressive Web App (service worker + manifest.json) without Play Store review. PWA manifest: name "DUTT", description "DUTT APP", start_url "./main".</td></tr>
+      <tr><td>Subdomain</td><td><code>admin.mdutton.com</code> — bare nginx default page</td><td><span class="badge badge-orange">MEDIUM</span></td><td>Direct HTTP probe 2026-03-28; crt.sh confirms no cert issued for this subdomain (wildcard *.mdutton.com covers it)</td><td>Backend nginx server reachable without configured vhost — no application deployed on this subdomain; possible misconfigured admin panel or inactive staging endpoint</td></tr>
+      <tr style="background:#1a0d00"><td>Corporate identity</td><td>Colorado entity #20211357517 — originally "Tenhuang Ltd" (天煌), address: 4152 Kerwood Ct, San Diego CA 92130</td><td><span class="badge badge-red">HIGH</span></td><td>Colorado SOS; SEC EDGAR Form D CIK 0002093026</td><td>DUTT Cryptocurrency Exchange Ltd corporate vehicle was registered in 2021 as "Tenhuang Ltd" (天煌 = Heavenly Brilliance) — Chinese name reveals true origin. Address is a real residential property (Carmel Valley, built 1989, last sold 2016) — likely a real resident's address used without their knowledge. Revived Oct 2025 simultaneously with mdutton.com launch. SEC Form D lists director: DARRYL JOEL DORFMAN. No California entity named Tenhuang found.</td></tr>
+      <tr><td>Social media prop</td><td>Medium @schultheistetsufumi694 — "DUTT Cryptocurrency Exchange Ltd"</td><td><span class="badge badge-orange">MEDIUM</span></td><td>DUTT Vue.js bundle (hardcoded); direct Medium fetch</td><td>10 AI-generated articles Jan 2026; 3 followers; username = German surname + Japanese given name + number — consistent with Chinese procedural username generation to pass platform name-validity checks; articles exist solely to create social proof when victims research the company</td></tr>
+      <tr><td>Domain (dead)</td><td><code>fairwin.store</code></td><td><span class="badge badge-orange">MEDIUM</span></td><td>crt.sh SAN analysis; domain probe 2026-03-28</td><td>Expired Feb 2026; confirmed on same cPanel server as felfly.co via shared TLS cert SANs; three-way link: fairwin.store ↔ felfly.co ↔ bippax.com (all same cPanel account). Co-located with bonita.academy.</td></tr>
     </tbody>
   </table>
 </div>
@@ -718,6 +723,20 @@ li{margin-bottom:2px}
         <td>Ireland / USA (MLAT or 18 USC §2703)</td>
         <td>Account records for property ID <code>67ffcfaa703938190f0ee5f5</code> (dacm-crypto.top Tawk.to account). Account holder identity, payment method, IP login history. All chat transcripts with victims who engaged the dacm-crypto.top live chat (victim acquisition funnel for Ivory Coast targets).</td>
         <td>support@tawk.to<br>legal@tawk.to</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">P3 MEDIUM</span></td>
+        <td><b>Medium Inc.</b></td>
+        <td>USA — California (18 USC §2703)</td>
+        <td>Account records for handle <b>@schultheistetsufumi694</b> ("DUTT Cryptocurrency Exchange Ltd"). Account registration email, IP address at signup, payment method. This account is hardcoded as a social proof link in the DUTT Exchange Vue.js frontend bundle — it is a prop account operated by the DUTT Exchange criminals, not an independent publisher.</td>
+        <td>legal@medium.com</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-green">P3 MEDIUM</span></td>
+        <td><b>Colorado Secretary of State</b></td>
+        <td>USA — Colorado (civil subpoena or law enforcement request)</td>
+        <td>Full filing history and IP/email records for Colorado entity #20211357517 (originally "Tenhuang Ltd", now "DUTT Cryptocurrency Exchange Ltd"). The address used at formation (4152 Kerwood Ct, San Diego CA 92130) may be a victim of address theft — County Recorder deed records for parcel 304-243-34-00 would confirm the actual owner. Cross-reference with SEC EDGAR Form D filed 2025-10-22 (CIK 0002093026).</td>
+        <td>sos.colorado.gov<br>SEC EDGAR: efts.sec.gov</td>
       </tr>
     </tbody>
   </table>

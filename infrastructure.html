@@ -305,6 +305,18 @@ li{margin-bottom:2px}
     <div class="label label-grey">Unauthenticated API Endpoint &mdash; Configuration Disclosure</div>
     <b>GET</b> <code>https://api.mdutton.com/ruyc-api/common/prop?key=K</code> returns platform configuration without authentication. Confirmed keys: <code>download_android</code> (APK download URL), <code>download_ios</code> (IPA URL), <code>service_url_salesmartly</code> (live chat widget URL including license key). Spring Boot Actuator at <code>/ruyc-api/actuator/health</code> and Swagger UI at <code>/ruyc-api/swagger-ui.html</code> both exist but require authentication. 91 total API endpoints documented from bundle analysis.
   </div>
+
+  <h3>Known Subdomains &mdash; mdutton.com (confirmed 2026-03-28)</h3>
+  <table>
+    <thead><tr><th>Subdomain</th><th>HTTP Response</th><th>Content / Role</th><th>Significance</th></tr></thead>
+    <tbody>
+      <tr><td><code>mdutton.com</code></td><td>200 (Cloudflare)</td><td>DUTT Exchange Vue.js SPA</td><td>Main victim-facing platform</td></tr>
+      <tr><td><code>api.mdutton.com</code></td><td>200 (Cloudflare)</td><td>Spring Boot REST API — <code>/ruyc-api/</code></td><td>Backend; 91 endpoints; unauthenticated <code>/common/prop</code></td></tr>
+      <tr style="background:#1a0d00"><td><code>app.mdutton.com</code></td><td>200 (Cloudflare)</td><td>PWA install page &mdash; HTML title: <b>"Google Play"</b></td><td><b>Deliberate deception</b> — victims believe they are downloading from Google Play; service worker + manifest.json = installable PWA; avoids Play Store review entirely; PWA name "DUTT", description "DUTT APP"</td></tr>
+      <tr style="background:#1a0800"><td><code>admin.mdutton.com</code></td><td>200 (Cloudflare)</td><td><b>Default nginx "Welcome to nginx!" page</b></td><td><b>Bare backend exposed</b> — no application configured on this vhost; covered by *.mdutton.com wildcard cert (Sectigo DV + Google Trust Services); no separate cert issued (crt.sh confirms). Suggests the backend server nginx is reachable via this subdomain without routing to the app — possible admin panel path not yet activated or misconfigured</td></tr>
+    </tbody>
+  </table>
+  <div style="font-size:11px;color:#8b949e;margin-top:6px">All subdomains resolve to Cloudflare IPs 172.67.185.221 / 104.21.68.36. Real origin IP not exposed. Wildcard cert (*.mdutton.com) issued by Sectigo DV E36 and Google Trust Services WE1 — 18 certs total; most recent 2026-02-23; valid through May 2026.</div>
 </div>
 
 <!-- ── SHARE-DNS ── -->
