@@ -91,8 +91,9 @@ li{margin-bottom:2px}
       <tr style="background:#1a0800"><td><b>AZTEX Primary</b></td><td><code>194.60.201.83</code></td><td>Contabo GmbH, France — AS51167</td><td>Criminal ops hub: Bitwarden, Matrix, Nextcloud, RDP, mail</td></tr>
       <tr style="background:#1a0800"><td><b>AZTEX Dev/Storage</b></td><td><code>37.27.206.233</code></td><td>Hetzner Online, Helsinki — AS24940</td><td>MinIO S3, FTP, dev staging</td></tr>
       <tr style="background:#0a1520"><td><b>2139exchange</b></td><td><code>185.22.174.75</code></td><td>SIA VEESP, Riga Latvia — AS42532</td><td>2139exchange.com; CONSOB Italy blacklisted</td></tr>
+      <tr><td><b>Servikus (BIPPAX/pipgainers)</b></td><td><code>23.138.140.66 / 173.208.178.96</code></td><td>Servikus LLC / NOCIX, Kansas City MO</td><td>betaglobalmanagements.com + 26 co-hosted scam domains via pipgainers.com account</td></tr>
       <tr><td><b>BIPPAX Mail</b></td><td><code>67.216.195.233</code></td><td>IT7 Networks, Los Angeles — AS25820</td><td>mail-ussl.com SMTP for fmtcapitaltc.com</td></tr>
-      <tr><td><b>BIPPAX Russian</b></td><td><code>94.26.255.20</code></td><td>Selectel JSC, Saint Petersburg — AS204720</td><td>dacm-crypto.top (linked via bissnex.com)</td></tr>
+      <tr><td><b>BIPPAX Russian</b></td><td><code>94.26.255.20</code></td><td>Selectel JSC, Saint Petersburg — AS204720</td><td>dacm-crypto.top web + mail; fastfox.pro SOA host</td></tr>
       <tr style="background:#1a0d00"><td><b>TalkTalk UK (BARRY)</b></td><td><code>79.78.160.133</code></td><td>TalkTalk, Essex UK — AS13285</td><td>Residential; RDP cert CN=<b>AZTEX-BARRY</b></td></tr>
     </tbody>
   </table>
@@ -289,7 +290,7 @@ li{margin-bottom:2px}
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0">
     <div class="stat-card"><div class="stat-lbl">SHARE-DNS Total Domains</div><div class="stat-val" style="color:#8b949e">3.7M+</div><div class="stat-sub">Total domains served — criminal proportion unknown</div></div>
     <div class="stat-card"><div class="stat-lbl">Registered</div><div class="stat-val" style="color:#f39c12;font-size:20px">2022-06-30</div><div class="stat-sub">Both via Gname.com</div></div>
-    <div class="stat-card"><div class="stat-lbl">Abuse Contact (Gname)</div><div class="stat-val" style="color:#3498db;font-size:16px">zys@gname.com</div><div class="stat-sub">Appears on malicious domains in this network; not confirmed as SHARE-DNS operator</div></div>
+    <div class="stat-card"><div class="stat-lbl">Gname.com (Singapore)</div><div class="stat-val" style="color:#3498db;font-size:16px">UEN 202013923E</div><div class="stat-sub">Incorporated 2020-05-19 &bull; NetBeacon: 9% of phishing domains, 2% market share</div></div>
     <div class="stat-card"><div class="stat-lbl">Backend</div><div class="stat-val" style="color:#2ecc71;font-size:16px">Cloudflare</div><div class="stat-sub">Real IPs hidden</div></div>
   </div>
 
@@ -313,6 +314,67 @@ li{margin-bottom:2px}
   <p style="margin-top:14px;font-size:12px;line-height:1.8">
     For the full technical deep dive into SHARE-DNS nameserver pairs, CTG Server Limited company details, WebNIC Japan bypass (.co.jp fraud registrations), and complete domain/IOC listings, see the <a href="layer1.html">Layer 1 Deep Dive</a>.
   </p>
+</div>
+
+<!-- ── SERVIKUS / PIPGAINERS ── -->
+<div class="section">
+  <h2>Servikus LLC &mdash; US Hosting for BIPPAX/pipgainers Cluster</h2>
+  <p style="line-height:1.8;margin-bottom:14px">
+    The BIPPAX-linked domain <b>betaglobalmanagements.com</b> and an associated account named <b>pipgainers.com</b> both resolve to nameservers operated by <b>Servikus LLC</b> (ARIN handle SL-2224), a US-based hosting provider using WholeSale Internet (NOCIX) infrastructure in Kansas City, MO.
+  </p>
+
+  <div class="box box-dark" style="margin-bottom:14px">
+    <div class="label label-grey">Servikus LLC — ARIN Record</div>
+    <table style="margin:0">
+      <tbody>
+        <tr><td style="color:#8b949e;width:140px">Address</td><td>99 Wall Street #5005, New York, NY 10005 (virtual office)</td></tr>
+        <tr><td style="color:#8b949e">Phone</td><td>+1-914-705-7374 (Westchester area code)</td></tr>
+        <tr><td style="color:#8b949e">Abuse email</td><td>abuse@servikus.com</td></tr>
+        <tr><td style="color:#8b949e">ARIN handle</td><td>SL-2224</td></tr>
+        <tr><td style="color:#8b949e">IPs used</td><td><code>23.138.140.66</code>, <code>173.208.178.96</code>, <code>173.208.178.66</code> (WholeSale Internet / NOCIX blocks)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-dark">
+    <div class="label label-grey">pipgainers.com — Shared cPanel Account (Confirmed via crt.sh)</div>
+    <p style="font-size:12px;line-height:1.8;margin-bottom:10px">
+      Certificate transparency logs reveal that <code>www.betaglobalmanagements.com.pipgainers.com</code> appears as a Subject Alternative Name in TLS certificates, proving that both domains are served from the same cPanel account under <b>pipgainers.com</b>. The following domains all share this single Servikus hosting account:
+    </p>
+    <table style="margin:0">
+      <thead><tr><th>Domain</th><th>Last Cert</th><th>Role</th></tr></thead>
+      <tbody>
+        <tr><td><code>pipgainers.com</code></td><td>—</td><td>Account billing name &bull; 174 certs since 2025-04-22</td></tr>
+        <tr><td><code>betaglobalmanagements.com</code></td><td>2026-03-02</td><td>BIPPAX / Beta Global Finance fraud platform</td></tr>
+        <tr><td><code>elevateglobalmarkets.com</code></td><td>2026-03-24</td><td>Investment scam front (most recently active)</td></tr>
+        <tr><td><code>econtrader.net</code></td><td>2026-03-21</td><td>Investment scam front</td></tr>
+        <tr><td><code>managementofficial.com</code></td><td>2026-03-21</td><td>Scam front</td></tr>
+        <tr><td><code>toppairassets.com</code></td><td>2026-03-21</td><td>Investment scam front</td></tr>
+        <tr><td><code>swiftcouriercompany.net</code></td><td>2026-03-21</td><td>Courier scam</td></tr>
+        <tr><td><code>statetitleescrowservicesinc.com</code></td><td>2026-03-21</td><td>Fake escrow</td></tr>
+        <tr><td><code>pioneerfinancescu.com</code></td><td>2026-03-21</td><td>Investment scam front</td></tr>
+        <tr><td><code>pdbfinances.com</code></td><td>2026-03-21</td><td>Investment scam front</td></tr>
+        <tr><td><code>acseinvestmentsllc.com</code></td><td>2026-03-21</td><td>Fake LLC scam</td></tr>
+        <tr><td><code>homeescrowservicellc.com</code></td><td>2026-03-02</td><td>Fake escrow</td></tr>
+        <tr><td><code>muskfoundationpartners.org</code></td><td>2026-03-02</td><td>Fake Elon Musk foundation</td></tr>
+        <tr><td><code>ap3investmentsllc.com</code></td><td>2026-03-02</td><td>Fake LLC scam</td></tr>
+        <tr><td><code>regionalsaving.com</code></td><td>2026-03-02</td><td>Scam front</td></tr>
+        <tr><td><code>profitpeakcapital.com</code></td><td>2026-03-02</td><td>Investment scam front</td></tr>
+        <tr><td><code>protradeoptions.org</code></td><td>2026-02-22</td><td>Investment scam front</td></tr>
+        <tr><td><code>toptiercapital.live</code></td><td>2026-02-06</td><td>Investment scam front</td></tr>
+        <tr><td><code>topexpertspro.live</code></td><td>2026-01-05</td><td>Investment scam front</td></tr>
+        <tr><td><code>rubiescu.com</code></td><td>2025-12-23</td><td>Scam support</td></tr>
+        <tr><td><code>bluemach.engineering</code></td><td>2025-09-17</td><td>Scam support</td></tr>
+        <tr><td><code>colerealestategroupsllc.co</code></td><td>2025-08-23</td><td>Fake LLC scam</td></tr>
+        <tr><td><code>slrfinancesllc.com</code></td><td>2025-06-25</td><td>Fake LLC scam</td></tr>
+        <tr><td><code>anthemtitlesettlementscompanyllc.com</code></td><td>2025-06-26</td><td>Fake title/escrow</td></tr>
+        <tr><td><code>jonesinvestmentscompany.com</code></td><td>2025-06-08</td><td>Fake investment company</td></tr>
+        <tr><td><code>protradeoptions.live</code></td><td>2025-06-12</td><td>Investment scam variant</td></tr>
+        <tr><td><code>votalityfx.com</code></td><td>—</td><td>FX scam; separate IP 185.53.179.136 but same Registrar.eu / Servikus cluster</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px;color:#8b949e;margin-top:10px">Source: crt.sh certificate transparency — Subject Alternative Names enumerated across 174 certificates issued 2025-04-22 through 2026-03-24. All domains use ns1–4.servikus.com and Registrar.eu registrar. WHOIS registrant: privacy-redacted on all.</p>
+  </div>
 </div>
 
 <!-- ── THREE LAYERS (pointer only — full story on Page 1) ── -->

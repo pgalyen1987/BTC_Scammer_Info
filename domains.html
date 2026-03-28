@@ -78,11 +78,11 @@ p{line-height:1.8;margin-bottom:10px}
   <div class="stat-row">
     <div class="stat-card"><div class="stat-lbl">CTG Server HK</div><div class="stat-val" style="color:#e74c3c">39+</div><div class="stat-sub">Confirmed scam domains on 202.79.174.5</div></div>
     <div class="stat-card"><div class="stat-lbl">AZTEX / 2139 Network</div><div class="stat-val" style="color:#f39c12">~28</div><div class="stat-sub">AZTEX EU + 2139exchange subdomains</div></div>
-    <div class="stat-card"><div class="stat-lbl">BIPPAX / Dorfman</div><div class="stat-val" style="color:#3498db">~14</div><div class="stat-sub">BIPPAX, BISSNEX, DUTT cluster</div></div>
+    <div class="stat-card"><div class="stat-lbl">BIPPAX + pipgainers cluster</div><div class="stat-val" style="color:#3498db">~40</div><div class="stat-sub">BIPPAX + 26 co-hosted scam domains (Servikus)</div></div>
     <div class="stat-card"><div class="stat-lbl">SHARE-DNS Total Domains</div><div class="stat-val" style="color:#8b949e">3.7M+</div><div class="stat-sub">Total domains served — criminal proportion unknown</div></div>
   </div>
   <div class="box box-dark" style="font-size:12px;line-height:1.8">
-    <b>Total documented IOC domains in this investigation: ~110+.</b> SHARE-DNS.COM/NET is a DNS provider serving approximately 3.7 million domains in total. It is used by the criminal network documented here, and has been flagged for abuse by Palo Alto Unit 42 and malwareurl.com — but the proportion of its total domains that are criminal is unknown. Many may be ordinary users. This investigation documents only the domains directly linked to this network. Compiled 2026-03-27.
+    <b>Total documented IOC domains in this investigation: ~140+.</b> SHARE-DNS.COM/NET is a DNS provider serving approximately 3.7 million domains in total. It is used by the criminal network documented here, and has been flagged for abuse by Palo Alto Unit 42 and malwareurl.com — but the proportion of its total domains that are criminal is unknown. Many may be ordinary users. This investigation documents only the domains directly linked to this network. Compiled 2026-03-27.
   </div>
 </div>
 
@@ -115,7 +115,7 @@ p{line-height:1.8;margin-bottom:10px}
       <tr><td><code>bippaxcoins.com</code></td><td>BIPPAX coin variant</td><td>Unknown</td><td><span class="unknown">Unknown</span></td><td>Linked to BYXG/BIPPAX cluster</td></tr>
       <tr><td><code>mdutton.com</code></td><td>DUTT Cryptocurrency Exchange (Dorfman live platform)</td><td><code>172.67.185.221 / 104.21.68.36</code> — AS13335 Cloudflare</td><td><span class="live">Live</span></td><td>Gname.com registrar (same as SHARE-DNS); Google Trust TLS Feb 2026; last-modified March 2026; FinCEN MSB registered</td></tr>
       <tr><td><code>cappofx.com</code></td><td>Cappo FX — Dorfman-linked FX broker</td><td><code>104.21.54.94 / 172.67.137.186</code> — Cloudflare</td><td><span class="live">Live</span></td><td>GoDaddy registrar; secureserver.net MX</td></tr>
-      <tr><td><code>betaglobalmanagements.com</code></td><td>Beta Global Finance front site</td><td>Unknown</td><td><span class="unknown">Unknown</span></td><td>Original platform was 4tx9h.com (deleted)</td></tr>
+      <tr><td><code>betaglobalmanagements.com</code></td><td>Beta Global Finance front site</td><td><code>23.138.140.66</code> — Servikus LLC (NOCIX)</td><td><span class="live">Live</span></td><td>SOA: ns1.servikus.com; SPF includes 173.208.178.96 (PTR: 173-208-178-96-s10.servikus.net); cPanel account: pipgainers.com; original platform was 4tx9h.com (deleted)</td></tr>
       <tr><td><code>4tx9h.com</code></td><td>Beta Global Finance internal platform</td><td>Deleted</td><td><span class="dead">Dead</span></td><td>Dorfman's Beta Global Finance; now deleted</td></tr>
       <tr><td><code>nanolite-foundationnlf.com</code></td><td>Nanolite Foundation — HTTrack clone of hvcapital.com</td><td><code>202.79.174.5</code> — AS152194 CTG Server HK</td><td><span class="live">Live</span></td><td>BaFin warned 22 Aug 2025; Dorfman Colorado nonprofit; NameSilo registrar; DNSOWL NS; React stack; stolen Storyblok token from HV Capital</td></tr>
       <tr><td><code>elwallets.com</code></td><td>Wallet phishing</td><td><code>104.21.91.144 / 172.67.222.23</code> — Cloudflare</td><td><span class="live">Live</span></td><td>Resolved in network scan</td></tr>
@@ -304,6 +304,44 @@ p{line-height:1.8;margin-bottom:10px}
       <tr><td><code>userhelpsdesk.com</code></td><td>Fake helpdesk / support scam</td><td><span class="dead">Dead</span></td><td>NXDOMAIN; investigated as possible AZTEX-linked support front</td></tr>
     </tbody>
   </table>
+</div>
+
+<!-- ── GROUP J: PIPGAINERS CLUSTER ── -->
+<div class="section">
+  <h2>Group J — pipgainers.com Cluster (Servikus cPanel) <span class="badge badge-conf-medium">MEDIUM</span></h2>
+  <p>Discovered via crt.sh certificate transparency: <code>betaglobalmanagements.com</code> (Group A, BIPPAX) has TLS SANs including <code>www.betaglobalmanagements.com.pipgainers.com</code>, revealing a shared cPanel hosting account on Servikus LLC. All domains in this cluster use <code>ns1–4.servikus.com</code> and Registrar.eu; all WHOIS registrant fields are privacy-redacted. 174 certificates issued on this account since 2025-04-22.</p>
+  <table>
+    <thead><tr><th>Domain</th><th>Last Cert</th><th>Status</th><th>Category</th></tr></thead>
+    <tbody>
+      <tr><td><code>elevateglobalmarkets.com</code></td><td>2026-03-24</td><td><span class="live">Live</span></td><td>Investment scam</td></tr>
+      <tr><td><code>econtrader.net</code></td><td>2026-03-21</td><td><span class="live">Live</span></td><td>Investment scam</td></tr>
+      <tr><td><code>managementofficial.com</code></td><td>2026-03-21</td><td><span class="live">Live</span></td><td>Scam front</td></tr>
+      <tr><td><code>toppairassets.com</code></td><td>2026-03-21</td><td><span class="live">Live</span></td><td>Investment scam</td></tr>
+      <tr><td><code>swiftcouriercompany.net</code></td><td>2026-03-21</td><td><span class="live">Live</span></td><td>Courier scam</td></tr>
+      <tr><td><code>statetitleescrowservicesinc.com</code></td><td>2026-03-21</td><td><span class="live">Live</span></td><td>Fake escrow service</td></tr>
+      <tr><td><code>pioneerfinancescu.com</code></td><td>2026-03-21</td><td><span class="live">Live</span></td><td>Investment scam</td></tr>
+      <tr><td><code>pdbfinances.com</code></td><td>2026-03-21</td><td><span class="live">Live</span></td><td>Investment scam</td></tr>
+      <tr><td><code>acseinvestmentsllc.com</code></td><td>2026-03-21</td><td><span class="live">Live</span></td><td>Fake LLC</td></tr>
+      <tr><td><code>colerealestategroupsllc.com</code></td><td>2026-03-20</td><td><span class="live">Live</span></td><td>Fake LLC</td></tr>
+      <tr><td><code>homeescrowservicellc.com</code></td><td>2026-03-02</td><td><span class="live">Live</span></td><td>Fake escrow</td></tr>
+      <tr><td><code>muskfoundationpartners.org</code></td><td>2026-03-02</td><td><span class="live">Live</span></td><td>Fake Elon Musk foundation</td></tr>
+      <tr><td><code>ap3investmentsllc.com</code></td><td>2026-03-02</td><td><span class="live">Live</span></td><td>Fake LLC</td></tr>
+      <tr><td><code>regionalsaving.com</code></td><td>2026-03-02</td><td><span class="live">Live</span></td><td>Scam front</td></tr>
+      <tr><td><code>profitpeakcapital.com</code></td><td>2026-03-02</td><td><span class="live">Live</span></td><td>Investment scam</td></tr>
+      <tr><td><code>protradeoptions.org</code></td><td>2026-02-22</td><td><span class="live">Live</span></td><td>Options trading scam</td></tr>
+      <tr><td><code>toptiercapital.live</code></td><td>2026-02-06</td><td><span class="live">Live</span></td><td>Investment scam</td></tr>
+      <tr><td><code>topexpertspro.live</code></td><td>2026-01-05</td><td><span class="live">Live</span></td><td>Investment scam</td></tr>
+      <tr><td><code>rubiescu.com</code></td><td>2025-12-23</td><td><span class="live">Live</span></td><td>Scam support</td></tr>
+      <tr><td><code>bluemach.engineering</code></td><td>2025-09-17</td><td><span class="live">Live</span></td><td>Scam support</td></tr>
+      <tr><td><code>colerealestategroupsllc.co</code></td><td>2025-08-23</td><td><span class="live">Live</span></td><td>Fake LLC variant</td></tr>
+      <tr><td><code>slrfinancesllc.com</code></td><td>2025-06-25</td><td><span class="live">Live</span></td><td>Fake LLC</td></tr>
+      <tr><td><code>anthemtitlesettlementscompanyllc.com</code></td><td>2025-06-26</td><td><span class="live">Live</span></td><td>Fake title/escrow</td></tr>
+      <tr><td><code>jonesinvestmentscompany.com</code></td><td>2025-06-08</td><td><span class="live">Live</span></td><td>Fake investment co.</td></tr>
+      <tr><td><code>protradeoptions.live</code></td><td>2025-06-12</td><td><span class="live">Live</span></td><td>Options trading variant</td></tr>
+      <tr><td><code>votalityfx.com</code></td><td>—</td><td><span class="unknown">Unknown</span></td><td>FX scam; alt IP 185.53.179.136; same Registrar.eu/Servikus cluster</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:11px;color:#8b949e;margin-top:10px">Note: These domains are connected to Group A (BIPPAX) through shared Servikus infrastructure. Attribution to Dorfman specifically is MEDIUM — infrastructure overlap confirmed, but multiple operators may share the same Servikus hosting reseller. Law enforcement subpoena to Registrar.eu and Servikus would reveal registrant identity.</p>
 </div>
 
 <!-- ── SHARE-DNS NS PAIRS ── -->

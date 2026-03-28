@@ -400,8 +400,65 @@ p{line-height:1.8;margin-bottom:10px}
   </div>
 </div>
 
+<!-- ── 11. DOMAIN OSINT LEADS 2026-03-27 ── -->
+<div class="section">
+  <h2>New Identity Leads — Domain OSINT (2026-03-27)</h2>
+
+  <!-- tian cixue -->
+  <div class="box box-orange" style="margin-bottom:16px">
+    <div class="label label-orange">Non-Redacted Registrant — ssonysecyco.jp</div>
+    <div class="person-name">"tian cixue" — Claimed Registrant of ssonysecyco.jp</div>
+    <div class="person-meta">Chinese personal name &bull; Registrant of Sony Securities Japan typosquat &bull; Medium confidence</div>
+
+    <div class="kv" style="margin-bottom:14px">
+      <div class="kv-key">Domain</div>
+      <div class="kv-val"><code>ssonysecyco.jp</code> — typosquat of Sony Securities Japan (ソニー証券)</div>
+      <div class="kv-key">Registrant name</div>
+      <div class="kv-val"><b>tian cixue</b> — Chinese personal name, not privacy-protected. Only non-redacted human name found in network domain registrations.</div>
+      <div class="kv-key">Registrar</div>
+      <div class="kv-val">Web Commerce Communications Limited (WebNIC.cc, Malaysia) — IANA 460</div>
+      <div class="kv-key">Address given</div>
+      <div class="kv-val">3-9-3 Nishishinjuku, Shinjuku-ku, Tokyo 1600023</div>
+      <div class="kv-key">Phone given</div>
+      <div class="kv-val">+603.89966788 (Malaysia country code — inconsistent with Tokyo address, likely false)</div>
+      <div class="kv-key">Created / expires</div>
+      <div class="kv-val">2025-09-04 / 2026-09-30 &bull; Status: Active, DomainTransferLocked</div>
+      <div class="kv-key">Related domain</div>
+      <div class="kv-val"><code>fujieebco.jp</code> (typosquat of Fujie &amp; Co.) — registered via same WebNIC account, 2025-08-20 &bull; NS: a12.share-dns.com / b12.share-dns.net</div>
+    </div>
+
+    <div class="box box-dark" style="font-size:12px;margin-top:6px">
+      <div class="label label-orange">Path to Identification</div>
+      WebNIC.cc (IANA 460) is a Malaysian registrar accredited under ICANN's RAA. A law enforcement request via MLAT (Malaysia-US MLA Agreement, or via FBI attaché in Kuala Lumpur) to WebNIC would return KYC data: full name, address, email address, and payment records for the account that registered ssonysecyco.jp and fujieebco.jp. The Tokyo address is assessed as false; the registrant email and payment records are the valuable data points. Note: NetBeacon Institute (May 2025) also named WebNIC as holding 6% of malicious phishing domains despite &lt;1% market share.
+    </div>
+  </div>
+
+  <!-- Google Site Verification -->
+  <div class="box box-orange">
+    <div class="label label-orange">Google Search Console Link — rw-advisoiry.com</div>
+    <div class="person-name">Unknown — Verified Owner of rw-advisoiry.com in Google Search Console</div>
+    <div class="person-meta">Operator of RW Baird typosquat &bull; Medium confidence &bull; Actionable with Google subpoena</div>
+
+    <div class="kv" style="margin-bottom:14px">
+      <div class="kv-key">Domain</div>
+      <div class="kv-val"><code>rw-advisoiry.com</code> — typosquat of RW Baird (real US financial firm)</div>
+      <div class="kv-key">TXT record</div>
+      <div class="kv-val"><code>google-site-verification=oSrrYkACtk3M2QyHUk1u1VlM5qiB5zq7quVYBxF2kto</code></div>
+      <div class="kv-key">Significance</div>
+      <div class="kv-val">The operator added this token to Google Search Console to verify domain ownership — this links to a Google account (Gmail or Workspace). Google's records will show the account that performed the verification, plus IP address and timestamp.</div>
+      <div class="kv-key">Domain status</div>
+      <div class="kv-val">Currently dead — no A record resolving. Domain abandoned but DNS record still present.</div>
+    </div>
+
+    <div class="box box-dark" style="font-size:12px;margin-top:6px">
+      <div class="label label-orange">Path to Identification</div>
+      An FBI subpoena (18 U.S.C. § 2703) to Google for records associated with the Search Console property verification of <code>rw-advisoiry.com</code> will return: the Google account that performed the verification, account creation IP, verification IP, account recovery email/phone, and any associated Google Workspace or Gmail identifiers. Google's Legal Investigations Support team responds to US law enforcement requests at <a href="https://support.google.com/legal/troubleshooter/1114905">support.google.com/legal</a>. This is a domestic (US jurisdiction) action — no MLAT required.
+    </div>
+  </div>
+</div>
+
 <div class="footer">
-  Investigation Report &mdash; 2026-03-27 &nbsp;|&nbsp; All sources passive/public OSINT &nbsp;|&nbsp; Corporate records: Colorado SOS, UK Companies House, Corporations Canada, FinCEN &nbsp;|&nbsp; Technical: crt.sh, Shodan, passive DNS
+  Investigation Report &mdash; 2026-03-27 &nbsp;|&nbsp; All sources passive/public OSINT &nbsp;|&nbsp; Corporate records: Colorado SOS, UK Companies House, Corporations Canada, FinCEN &nbsp;|&nbsp; Technical: crt.sh, Shodan, passive DNS, WHOIS, ARIN RDAP
 </div>
 
 </div>
