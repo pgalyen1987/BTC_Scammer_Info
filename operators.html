@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Operators &amp; Persons of Interest — Pig-Butchering Network Investigation</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;font-size:13px}
+.header{background:#161b22;padding:18px 28px;border-bottom:2px solid #2ecc71}
+.header h1{color:#2ecc71;font-size:20px;margin-bottom:4px}
+.sub{color:#8b949e;font-size:12px}
+.nav-bar{background:#161b22;border-bottom:1px solid #30363d;padding:8px 28px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+.nav-bar a{color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:4px;border:1px solid transparent}
+.nav-bar a:hover,.nav-bar a.active{color:#f0f6fc;background:#21262d;border-color:#2ecc71}
+.content{max-width:1000px;margin:0 auto;padding:28px}
+.section{margin-bottom:32px}
+.section h2{color:#f0f6fc;font-size:16px;border-bottom:1px solid #30363d;padding-bottom:8px;margin-bottom:14px}
+.section h3{color:#f0f6fc;font-size:14px;margin:20px 0 10px}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+th{background:#161b22;color:#8b949e;text-align:left;padding:7px 10px;border-bottom:1px solid #30363d;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:7px 10px;border-bottom:1px solid #21262d;vertical-align:top}
+tr:hover td{background:#161b22}
+code{background:#1c2128;border:1px solid #30363d;border-radius:3px;padding:1px 5px;font-size:11px;font-family:monospace}
+.box{border-radius:8px;padding:16px;margin:14px 0}
+.box-red{background:#1a0800;border:2px solid #e74c3c}
+.box-green{background:#0a1a0a;border:2px solid #2ecc71}
+.box-blue{background:#0a1520;border:2px solid #3498db}
+.box-orange{background:#1a0d00;border:2px solid #f39c12}
+.box-dark{background:#161b22;border:1px solid #30363d}
+.label{font-size:11px;font-weight:bold;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.label-red{color:#e74c3c}.label-green{color:#2ecc71}.label-blue{color:#3498db}.label-orange{color:#f39c12}.label-grey{color:#8b949e}
+ul,ol{padding-left:20px;line-height:1.9}li{margin-bottom:4px}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:bold}
+.badge-red{background:#e74c3c;color:#fff}.badge-green{background:#2ecc71;color:#111}.badge-orange{background:#f39c12;color:#111}.badge-blue{background:#3498db;color:#fff}.badge-grey{background:#30363d;color:#c9d1d9}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:14px 0}
+.stat{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;text-align:center}
+.stat-num{font-size:28px;font-weight:bold;color:#2ecc71;display:block}
+.stat-label{font-size:11px;color:#8b949e;margin-top:4px}
+p{line-height:1.8;margin-bottom:10px}
+.footer{border-top:1px solid #30363d;padding:20px 0;margin-top:30px;font-size:11px;color:#8b949e;text-align:center}
+.confidence-high{color:#2ecc71;font-weight:bold}.confidence-med{color:#f39c12;font-weight:bold}.confidence-low{color:#8b949e}
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;margin:1px;background:#21262d;color:#8b949e;border:1px solid #30363d}
+.person-name{font-size:15px;font-weight:bold;color:#f0f6fc;margin-bottom:4px}
+.person-meta{font-size:11px;color:#8b949e;margin-bottom:10px}
+.kv{display:grid;grid-template-columns:160px 1fr;gap:4px 12px;font-size:12px;line-height:1.8}
+.kv-key{color:#8b949e}
+.kv-val{color:#c9d1d9}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:6px">Investigation Report &mdash; 2026-03-27</div>
+  <h1>Operators &amp; Persons of Interest</h1>
+  <div class="sub">Identified and suspected individuals connected to the network</div>
+</div>
+
+<div class="nav-bar">
+  <a href="index.html">Overview</a>
+  <a href="operations.html">Operations</a>
+  <a href="operators.html" class="active">Operators</a>
+  <a href="infrastructure.html">Infrastructure</a>
+  <a href="domains.html">Domains</a>
+  <a href="corporate-network.html">Corporate</a>
+  <a href="blockchain-trail.html">Blockchain</a>
+  <a href="law-enforcement.html">Law Enforcement</a>
+</div>
+
+<div class="content">
+
+<!-- ── 1. CONFIDENCE LEVELS ── -->
+<div class="section">
+  <h2>Confidence Level Framework</h2>
+  <div class="box box-dark">
+    <div class="kv">
+      <div class="kv-key"><span class="confidence-high">HIGH</span></div>
+      <div class="kv-val">Verified via multiple independent sources (e.g., government filings + OSINT + technical fingerprint). Attribution would withstand legal scrutiny.</div>
+      <div class="kv-key"><span class="confidence-med">MEDIUM</span></div>
+      <div class="kv-val">Single strong indicator or two weak corroborating sources. Sufficient to direct further investigation; not sufficient for direct prosecution alone.</div>
+      <div class="kv-key"><span class="confidence-low">LOW</span></div>
+      <div class="kv-val">Circumstantial only. Handle confirmed on infrastructure or role inferred from context; no real-world identity corroboration found.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 2. DORFMAN ── -->
+<div class="section">
+  <h2>Darryl Joel Dorfman &mdash; <span class="confidence-high">HIGH CONFIDENCE</span></h2>
+
+  <div class="box box-red">
+    <div class="label label-red">Confirmed Operator &mdash; BIPPAX / Nanolite / DUTT</div>
+    <div class="person-name">Darryl Joel Dorfman</div>
+    <div class="person-meta">American national &bull; b. June 1971 (UK Companies House) &bull; Blog self-reports 1967 (conflict)</div>
+
+    <div class="kv" style="margin-bottom:16px">
+      <div class="kv-key">Address</div>
+      <div class="kv-val">90 Interlocken Crescent, Broomfield, CO 80021 (confirmed via UK Companies House)</div>
+      <div class="kv-key">WhatsApp personas</div>
+      <div class="kv-val">"Prof. Darryl Bingham" / "Prof. M&uuml;ller" &mdash; academic impersonation for victim recruitment</div>
+      <div class="kv-key">SEC EDGAR</div>
+      <div class="kv-val">CIK 0002093026 &bull; EIN 394817522 &bull; DUTT LLC (Colorado)</div>
+      <div class="kv-key">FinCEN MSB</div>
+      <div class="kv-val">M20852872 &mdash; DUTT Cryptocurrency Exchange Ltd &bull; mdutton.com (live as of Jan 2026, AWS-hosted)</div>
+      <div class="kv-key">CO Corporation #</div>
+      <div class="kv-val">20211357517 (DUTT) &bull; Good Standing &bull; Incorporated April 2021</div>
+      <div class="kv-key">BaFin warning</div>
+      <div class="kv-val">August 2025 &mdash; nanolite-foundationnlf.com (Nanolite Foundation) &bull; site is HTTrack clone of hvcapital.com</div>
+      <div class="kv-key">Beta platform</div>
+      <div class="kv-val">4tx9h.com (now deleted) &mdash; Beta Global Finance platform</div>
+      <div class="kv-key">LinkedIn cover</div>
+      <div class="kv-val">Claims H-E-B (Texas grocery chain) employment &mdash; assessed as false cover story</div>
+    </div>
+
+    <h3 style="margin-top:12px;margin-bottom:8px;font-size:13px;color:#f0f6fc">Operations &amp; Entities</h3>
+    <div class="grid2">
+      <div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#e74c3c;margin-bottom:6px">Active / High Risk</div>
+        <ul style="font-size:12px">
+          <li><b>DUTT Cryptocurrency Exchange Ltd</b> &mdash; FinCEN MSB, mdutton.com live</li>
+          <li><b>BIPPAX / deptoy.co</b> &mdash; primary scam platform (now dead)</li>
+          <li><b>dacm-crypto.top</b> &mdash; DacmCrypto rebrand on Russian server</li>
+          <li><b>Nanolite Foundation</b> &mdash; BaFin-warned; still resolvable</li>
+          <li><b>Celestia</b> &mdash; additional linked brand</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#8b949e;margin-bottom:6px">Colorado Shell Companies (17+, most delinquent)</div>
+        <ul style="font-size:12px">
+          <li>BYXG &bull; 2139 Com Exchange &bull; Cappo FX</li>
+          <li>K2 Exchange &bull; USDcc &bull; SSW</li>
+          <li>Winston Education &bull; Super Profit 8</li>
+          <li>Nanolite Foundation (CO nonprofit)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;font-size:12px">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#8b949e;margin-bottom:6px">Canada</div>
+      <b>BISSNEX CRYPTO GROUP LIMITED</b> &mdash; Corporations Canada #1231288-3 &bull; Director listed as "Jack Williams" (assessed alias for Dorfman) &bull; Dissolved July 2025
+    </div>
+
+    <div style="margin-top:12px;font-size:12px">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#8b949e;margin-bottom:6px">United Kingdom</div>
+      4 dissolved UK shell companies (confirmed via UK Companies House search on address and DOB)
+    </div>
+  </div>
+</div>
+
+<!-- ── 3. AZTEX BARRY ── -->
+<div class="section">
+  <h2>"AZTEX Barry" &mdash; <span class="confidence-med">MEDIUM CONFIDENCE</span></h2>
+
+  <div class="box box-orange">
+    <div class="label label-orange">Strong Lead &mdash; Real Name Unknown &mdash; Location Confirmed</div>
+    <div class="person-name">"AZTEX Barry" &mdash; Handle: BARRY</div>
+    <div class="person-meta">UK residential broadband operator &bull; Southend-on-Sea, Essex</div>
+
+    <div class="kv" style="margin-bottom:14px">
+      <div class="kv-key">Handle source</div>
+      <div class="kv-val">RDP certificate CN: <code>AZTEX-BARRY</code> &mdash; issued on the criminal AZTEX server infrastructure</div>
+      <div class="kv-key">IP address</div>
+      <div class="kv-val"><code>79.78.160.133</code> &mdash; PTR: <code>host-79-78-160-133.static.as9105.net</code></div>
+      <div class="kv-key">ISP</div>
+      <div class="kv-val">TalkTalk Telecom Group (AS13285) &bull; Static residential broadband &bull; England, UK</div>
+      <div class="kv-key">Location</div>
+      <div class="kv-val">Southend-on-Sea, Essex, SS1 postcode, United Kingdom</div>
+      <div class="kv-key">Device</div>
+      <div class="kv-val">MikroTik RouterOS (home/office router) &bull; Ports 8291 (Winbox) and 8728 (MikroTik API) exposed &bull; Physical on-premises device</div>
+      <div class="kv-key">RDP port</div>
+      <div class="kv-val">21680 &mdash; used to access AZTEX criminal infrastructure via remote desktop</div>
+      <div class="kv-key">Role</div>
+      <div class="kv-val">Primary AZTEX operations manager; named in server certificate on AZTEX infrastructure; responsible for day-to-day platform operation</div>
+    </div>
+
+    <div class="box box-dark" style="margin-top:6px;font-size:12px">
+      <div class="label label-orange">Path to Identification</div>
+      UK production order (RIPA) served on TalkTalk (AS13285) for subscriber account registered to IP <code>79.78.160.133</code> will return the subscriber name, address, and account details. Route: UK National Crime Agency (NCA) or Action Fraud referral &rarr; RIPA Part I/II production order &rarr; TalkTalk compliance team. No MLAT required &mdash; domestic UK action only.
+    </div>
+  </div>
+</div>
+
+<!-- ── 4. JONAS HAGMAR ── -->
+<div class="section">
+  <h2>Jonas Hagmar &mdash; <span class="confidence-high">HIGH CONFIDENCE</span> (identity) / <span class="confidence-low">LOW</span> (criminal involvement)</h2>
+
+  <div class="box box-blue">
+    <div class="label label-blue">Server Owner &mdash; Assessed as Witness, Not Criminal Actor</div>
+    <div class="person-name">Jonas Hagmar</div>
+    <div class="person-meta">Swedish national &bull; G&ouml;teborg, Sweden &bull; Legitimate researcher / software developer</div>
+
+    <div class="kv" style="margin-bottom:14px">
+      <div class="kv-key">Email</div>
+      <div class="kv-val"><code>jonas.hagmar@gmail.com</code></div>
+      <div class="kv-key">GitHub</div>
+      <div class="kv-val"><a href="https://github.com/jhagmar">github.com/jhagmar</a></div>
+      <div class="kv-key">Employer</div>
+      <div class="kv-val">Fraunhofer-Chalmers Centre / Industrial Path Solutions (IPS), G&ouml;teborg</div>
+      <div class="kv-key">Server</div>
+      <div class="kv-val">Contabo GmbH (AS51167), Lauterbourg, France &bull; IP <code>194.60.201.83</code> &bull; This is the primary AZTEX operations server</div>
+      <div class="kv-key">Personal projects</div>
+      <div class="kv-val"><b>ninjazz</b> (WebAssembly demo, at ninjazz.aztex.eu), <b>twenty48</b> (2048 game, at twenty48.aztex.eu), personal Obsidian notes &mdash; all verified in his GitHub repos</div>
+      <div class="kv-key">Criminal tools</div>
+      <div class="kv-val"><b>route-finder.aztex.eu</b> and <b>route-lister.aztex.eu</b> (2023, BIPPAX active period) are NOT in his public GitHub repos &mdash; deployed by Barry or another operator, not Hagmar</div>
+    </div>
+
+    <div class="box box-dark" style="font-size:12px;margin-top:6px">
+      <div class="label label-blue">Assessment &amp; Investigative Value</div>
+      Jonas Hagmar is assessed as an almost certainly legitimate researcher and developer whose VPS was used (possibly without full knowledge or consent) by the AZTEX criminal operation. His personal projects are on the same server and are consistent with his public GitHub activity and professional profile. He has no visible criminal connections.<br><br>
+      <b>Investigative value:</b> Hagmar likely holds server logs from the 2023 BIPPAX active period, which could document operator IP addresses, tool usage patterns, and connection metadata. He should be approached as a cooperative witness. A mutual legal assistance request to Swedish authorities (or direct approach via his employer) would be the appropriate channel.
+    </div>
+  </div>
+</div>
+
+<!-- ── 5. SLEPSK ── -->
+<div class="section">
+  <h2>"slepsk" &mdash; <span class="confidence-med">MEDIUM CONFIDENCE</span> (handle) / <span class="confidence-low">LOW</span> (real identity)</h2>
+
+  <div class="box box-dark">
+    <div class="label label-grey">Developer Handle &mdash; Active on AZTEX Infrastructure 2023&ndash;2025</div>
+    <div class="person-name">"slepsk"</div>
+    <div class="person-meta">Developer on AZTEX team &bull; Assessed Ukrainian or Russian national &bull; Born approximately 1987</div>
+
+    <div class="kv" style="margin-bottom:14px">
+      <div class="kv-key">GitHub handles</div>
+      <div class="kv-val"><code>slepsk1987</code> (dormant account, birth year suffix) &bull; <code>slepskyi-xgen</code> (created June 2023, activity correlated with BIPPAX period)</div>
+      <div class="kv-key">Name clue</div>
+      <div class="kv-val">"Slepskyi" is a Ukrainian-style transliteration of a Slavic surname; consistent with Ukrainian or Russian national</div>
+      <div class="kv-key">Infrastructure</div>
+      <div class="kv-val">Subdomain: <code>slepsk.aztex.digital</code> &bull; TLS cert issued 2025-07-12, expired 2025-10-10 &bull; Did not renew &mdash; assessed as departed from project Q3 2025</div>
+      <div class="kv-key">Role</div>
+      <div class="kv-val">Developer on AZTEX team; had a personal project/workspace on the aztex.digital developer sandbox domain</div>
+    </div>
+
+    <div class="box-dark" style="border:1px solid #30363d;border-radius:6px;padding:12px;font-size:12px;background:#0d1117">
+      <b>Note:</b> The non-renewal of <code>slepsk.aztex.digital</code> in October 2025 may indicate departure from the project or reassignment. The <code>slepskyi-xgen</code> GitHub account created in June 2023 aligns with the period of active BIPPAX operation (route-finder/route-lister tools active on the same server). No real-world identity corroboration has been found beyond these GitHub handles.
+    </div>
+  </div>
+</div>
+
+<!-- ── 6. JUKEM ── -->
+<div class="section">
+  <h2>"jukem" &mdash; <span class="confidence-low">LOW CONFIDENCE</span></h2>
+
+  <div class="box box-dark">
+    <div class="label label-grey">Developer Handle &mdash; Most Actively Maintained Subdomain</div>
+    <div class="person-name">"jukem"</div>
+    <div class="person-meta">Developer on AZTEX team &bull; Real-world identity unknown</div>
+
+    <div class="kv" style="margin-bottom:14px">
+      <div class="kv-key">Infrastructure</div>
+      <div class="kv-val">Subdomain: <code>jukem.aztex.eu</code> &bull; 10 TLS certificates issued &bull; Auto-renewed every ~2 months through December 2025</div>
+      <div class="kv-key">Activity level</div>
+      <div class="kv-val">The most consistently auto-renewed personal subdomain in the AZTEX stack &mdash; possibly the lead developer or most active technical contributor</div>
+      <div class="kv-key">Role</div>
+      <div class="kv-val">Developer on AZTEX team; consistent long-term presence on aztex.eu infrastructure</div>
+      <div class="kv-key">Real identity</div>
+      <div class="kv-val">No real-world identity found. Handle "jukem" does not match any public GitHub, forum, or social media profile discovered in this investigation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 7. KL OPERATOR ── -->
+<div class="section">
+  <h2>KL Operator &mdash; fmtcapitaltc.com &mdash; <span class="confidence-med">MEDIUM CONFIDENCE</span></h2>
+
+  <div class="box box-orange">
+    <div class="label label-orange">Malaysian Operator &mdash; UWORK Kit Customer</div>
+    <div class="person-name">KL Operator (unidentified)</div>
+    <div class="person-meta">Kuala Lumpur, Malaysia &bull; Registrant: Wilayah Persekutuan &bull; Operation launched early 2026</div>
+
+    <div class="kv" style="margin-bottom:14px">
+      <div class="kv-key">Registrar</div>
+      <div class="kv-val">Registrar.eu / OpenProvider (Netherlands) &bull; MLAT-responsive jurisdiction &bull; Will produce registrant KYC on court order</div>
+      <div class="kv-key">Platform</div>
+      <div class="kv-val">UWORK pig-butchering-as-a-service (PBaaS) kit &bull; Full package ~$2,500 &bull; Supplier: Chinese or Taiwanese vendor</div>
+      <div class="kv-key">Technical stack</div>
+      <div class="kv-val">ThinkPHP + PHP 7.4.33 &bull; <code>broker.fmtcapitaltc.com</code> (admin panel, Chinese login UI) &bull; <code>trader.fmtcapitaltc.com</code> (victim CRM, 8 languages incl. Arabic)</div>
+      <div class="kv-key">Regulatory flags</div>
+      <div class="kv-val"><span class="badge badge-red">FCA Warning</span> &nbsp;<span class="badge badge-orange">CFTC Red List</span></div>
+      <div class="kv-key">Cert date</div>
+      <div class="kv-val">TLS certificates first issued February 2026 &mdash; operation launched early 2026</div>
+      <div class="kv-key">Server</div>
+      <div class="kv-val">CTG Server HK (<code>202.79.174.5</code>, AS152194) behind Cloudflare</div>
+    </div>
+
+    <div class="box box-dark" style="font-size:12px;margin-top:6px">
+      <div class="label label-orange">Assessment &amp; Path to ID</div>
+      The KL Operator is assessed as a Malaysian-based individual or organization that purchased a UWORK PBaaS kit and deployed it as fmtcapitaltc.com. This profile is consistent with the Southeast Asian compound customer model documented in USCC testimony. The operator is not the platform manufacturer (Chinese/Taiwanese origin) but a downstream customer.<br><br>
+      <b>Path to identification:</b> MLAT request to the Netherlands (Registrar.eu / OpenProvider headquarters) &rarr; registrant KYC data including name, address, email, and payment records. Netherlands is an EU member with a strong MLAT track record. CFTC and FCA warning status provide parallel referral channels.
+    </div>
+  </div>
+</div>
+
+<!-- ── 8. MENTOR CLAUS ── -->
+<div class="section">
+  <h2>"Mentor Claus" &mdash; <span class="confidence-high">HIGH</span> (role) / <span class="confidence-low">LOW</span> (real identity)</h2>
+
+  <div class="box box-dark">
+    <div class="label label-grey">Italian-Market Telegram Promoter &mdash; 2139exchange</div>
+    <div class="person-name">"Mentor Claus"</div>
+    <div class="person-meta">Italian-speaking regional promoter &bull; Assessed Italian national &bull; Not the platform operator</div>
+
+    <div class="kv" style="margin-bottom:14px">
+      <div class="kv-key">Role</div>
+      <div class="kv-val">Italian-language Telegram promoter and recruiter for 2139exchange; primary interface with Italian victim community; issued public statements on behalf of 2139exchange via Italian Telegram groups when withdrawals froze</div>
+      <div class="kv-key">Geographic reach</div>
+      <div class="kv-val">Lecce and Perugia provinces hardest hit; tens of millions of euros in confirmed Italian victim losses linked to this persona's promotional activity</div>
+      <div class="kv-key">Investigation</div>
+      <div class="kv-val">Guardia di Finanza (GdF) Lecce &mdash; active criminal investigation open as of 2026 Q1</div>
+      <div class="kv-key">Third-party forensics</div>
+      <div class="kv-val">Decripto.org has published forensic findings on the Italian 2139exchange operation; GdF Lecce has been provided this material</div>
+    </div>
+
+    <div class="box-dark" style="border:1px solid #30363d;border-radius:6px;padding:12px;font-size:12px;background:#0d1117">
+      <b>Assessment:</b> "Mentor Claus" is an Italian-speaking regional promoter, not the platform operator. The 2139exchange platform itself is Chinese-origin per TRON on-chain analysis and aaPanel (BaoTa) backend fingerprint. Mentor Claus is likely an Italian national functioning as a local affiliate/recruiter. Real identity is the subject of the active GdF Lecce investigation.<br><br>
+      <b>Path to identification:</b> The GdF Lecce investigation is already open and the most direct route. Parallel path: Telegram legal process in Italy under domestic court order.
+    </div>
+  </div>
+</div>
+
+<!-- ── 9. LOGAN SMITH ── -->
+<div class="section">
+  <h2>"Logan Smith" &mdash; Confirmed Fake Persona</h2>
+
+  <div class="box box-dark">
+    <div class="label label-grey">Fabricated Founder Identity &mdash; Mega Investment Group</div>
+    <div class="person-name">"Logan Smith" &mdash; Stock photo persona</div>
+    <div class="person-meta">Claimed founder of Mega Investment Group (megat.vip) &bull; Confirmed fabricated identity</div>
+
+    <div class="kv" style="margin-bottom:14px">
+      <div class="kv-key">Claims</div>
+      <div class="kv-val">Domain registered 2023; website claimed "founded 2015, Denver USA" &mdash; all fabricated</div>
+      <div class="kv-key">Persona method</div>
+      <div class="kv-val">Stock photo image used as founder headshot; no real individual behind the name</div>
+      <div class="kv-key">Operator contact</div>
+      <div class="kv-val"><code>admin@megaig.vip</code> &mdash; decoded from Cloudflare email obfuscation on megat.vip</div>
+      <div class="kv-key">Telegram</div>
+      <div class="kv-val">@mega_ig &bull; Channel ID: 1227836042</div>
+      <div class="kv-key">Current status</div>
+      <div class="kv-val">megat.vip domain and platform: DEAD as of investigation date (March 2026)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 10. AZTEX DEVELOPER TEAM SUMMARY ── -->
+<div class="section">
+  <h2>AZTEX Developer Team Summary</h2>
+
+  <div class="box box-dark">
+    <div class="label label-grey">Four Confirmed Handles on AZTEX Infrastructure</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Handle</th>
+          <th>Real Identity</th>
+          <th>Location</th>
+          <th>Role</th>
+          <th>Last Active (infra)</th>
+          <th>Confidence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>BARRY</b></td>
+          <td>Unknown &mdash; TalkTalk subscriber</td>
+          <td>Southend-on-Sea, Essex SS1, UK</td>
+          <td>Operations manager</td>
+          <td>2026-02-19 (Bitwarden/mail renewed)</td>
+          <td><span class="confidence-med">MEDIUM</span></td>
+        </tr>
+        <tr>
+          <td><b>ninjazz</b> (Jonas Hagmar)</td>
+          <td>Jonas Hagmar &mdash; verified</td>
+          <td>G&ouml;teborg, Sweden</td>
+          <td>Server owner (witness)</td>
+          <td>Ongoing (legitimate use)</td>
+          <td><span class="confidence-high">HIGH</span> (ID) / <span class="confidence-low">LOW</span> (criminal)</td>
+        </tr>
+        <tr>
+          <td><b>jukem</b></td>
+          <td>Unknown</td>
+          <td>Unknown</td>
+          <td>Developer (lead?)</td>
+          <td>December 2025 (cert renewal)</td>
+          <td><span class="confidence-low">LOW</span></td>
+        </tr>
+        <tr>
+          <td><b>slepsk</b></td>
+          <td>Unknown &mdash; "Slepskyi" surname (Ukrainian/Russian)</td>
+          <td>Unknown &bull; ~born 1987</td>
+          <td>Developer</td>
+          <td>October 2025 (cert expired, not renewed)</td>
+          <td><span class="confidence-med">MEDIUM</span> (handle) / <span class="confidence-low">LOW</span> (ID)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  Investigation Report &mdash; 2026-03-27 &nbsp;|&nbsp; All sources passive/public OSINT &nbsp;|&nbsp; Corporate records: Colorado SOS, UK Companies House, Corporations Canada, FinCEN &nbsp;|&nbsp; Technical: crt.sh, Shodan, passive DNS
+</div>
+
+</div>
+</body>
+</html>

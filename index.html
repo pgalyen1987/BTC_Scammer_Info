@@ -2,123 +2,358 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BIPPAX / BISSNEX / DUTT — Scam Investigation</title>
+<title>Operation Overview — Pig-Butchering Network Investigation</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;font-size:14px;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px}
-.container{max-width:900px;width:100%}
-h1{color:#e74c3c;font-size:26px;margin-bottom:6px}
-.subtitle{color:#8b949e;font-size:13px;margin-bottom:30px;line-height:1.6}
-.pages{display:flex;flex-direction:column;gap:10px;margin-bottom:36px}
-a.page-link{display:flex;align-items:flex-start;gap:16px;background:#161b22;border:1px solid #30363d;border-radius:8px;padding:18px 22px;color:#c9d1d9;text-decoration:none;transition:border-color .15s,background .15s}
-a.page-link:hover{border-color:#58a6ff;background:#1c2230}
-.page-num{font-size:28px;font-weight:bold;color:#e74c3c;min-width:36px;text-align:center;line-height:1}
-.page-info h2{color:#f0f6fc;font-size:15px;margin-bottom:4px}
-.page-info p{color:#8b949e;font-size:12px;line-height:1.5}
-.divider{border:none;border-top:1px solid #30363d;margin:28px 0}
-.section-label{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:#8b949e;margin-bottom:12px}
-.technical-links{display:flex;gap:10px;flex-wrap:wrap}
-a.tech-link{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:12px 18px;color:#58a6ff;text-decoration:none;font-size:13px;transition:border-color .15s}
-a.tech-link:hover{border-color:#58a6ff;text-decoration:underline}
-a.tech-link .desc{color:#8b949e;font-size:11px;display:block;margin-top:3px}
-.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:bold;margin-left:8px}
-.badge-red{background:#e74c3c;color:#fff}
-.badge-green{background:#2ecc71;color:#111}
-.header-meta{display:flex;gap:20px;margin-top:16px;flex-wrap:wrap}
-.meta-card{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:10px 14px;font-size:12px}
-.meta-card .val{color:#f0f6fc;font-weight:bold;font-size:14px}
-.meta-card .lbl{color:#8b949e;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;font-size:13px}
+.header{background:#161b22;padding:18px 28px;border-bottom:2px solid #2ecc71}
+.header h1{color:#2ecc71;font-size:20px;margin-bottom:4px}
+.sub{color:#8b949e;font-size:12px}
+.nav-bar{background:#161b22;border-bottom:1px solid #30363d;padding:8px 28px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+.nav-bar a{color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:4px;border:1px solid transparent}
+.nav-bar a:hover,.nav-bar a.active{color:#f0f6fc;background:#21262d;border-color:#2ecc71}
+.content{max-width:1000px;margin:0 auto;padding:28px}
+.section{margin-bottom:32px}
+.section h2{color:#f0f6fc;font-size:16px;border-bottom:1px solid #30363d;padding-bottom:8px;margin-bottom:14px}
+.section h3{color:#f0f6fc;font-size:14px;margin:20px 0 10px}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+th{background:#161b22;color:#8b949e;text-align:left;padding:7px 10px;border-bottom:1px solid #30363d;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:7px 10px;border-bottom:1px solid #21262d;vertical-align:top}
+tr:hover td{background:#161b22}
+code{background:#1c2128;border:1px solid #30363d;border-radius:3px;padding:1px 5px;font-size:11px;font-family:monospace}
+.box{border-radius:8px;padding:16px;margin:14px 0}
+.box-red{background:#1a0800;border:2px solid #e74c3c}
+.box-green{background:#0a1a0a;border:2px solid #2ecc71}
+.box-blue{background:#0a1520;border:2px solid #3498db}
+.box-orange{background:#1a0d00;border:2px solid #f39c12}
+.box-dark{background:#161b22;border:1px solid #30363d}
+.label{font-size:11px;font-weight:bold;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.label-red{color:#e74c3c}.label-green{color:#2ecc71}.label-blue{color:#3498db}.label-orange{color:#f39c12}.label-grey{color:#8b949e}
+ul,ol{padding-left:20px;line-height:1.9}li{margin-bottom:4px}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:bold}
+.badge-red{background:#e74c3c;color:#fff}.badge-green{background:#2ecc71;color:#111}.badge-orange{background:#f39c12;color:#111}.badge-blue{background:#3498db;color:#fff}.badge-grey{background:#30363d;color:#c9d1d9}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:14px 0}
+.grid4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;margin:14px 0}
+.stat{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;text-align:center}
+.stat-num{font-size:28px;font-weight:bold;color:#2ecc71;display:block}
+.stat-label{font-size:11px;color:#8b949e;margin-top:4px}
+p{line-height:1.8;margin-bottom:10px}
+.footer{border-top:1px solid #30363d;padding:20px 0;margin-top:30px;font-size:11px;color:#8b949e;text-align:center}
+.confidence-high{color:#2ecc71;font-weight:bold}.confidence-med{color:#f39c12;font-weight:bold}.confidence-low{color:#8b949e}
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;margin:1px;background:#21262d;color:#8b949e;border:1px solid #30363d}
+.quick-link-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px 18px;text-decoration:none;color:#c9d1d9;display:block;transition:border-color .15s,background .15s}
+.quick-link-card:hover{border-color:#2ecc71;background:#1c2128;text-decoration:none}
+.quick-link-card h3{color:#f0f6fc;font-size:13px;margin:0 0 6px}
+.quick-link-card p{color:#8b949e;font-size:11px;margin:0;line-height:1.6}
 </style>
 </head>
 <body>
 
-<div class="container">
-  <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:10px">Investigation Report</div>
-  <h1>Pig Butchering / Cryptocurrency Fraud Network</h1>
-  <div class="subtitle">
-    BIPPAX &middot; BISSNEX &middot; DUTT &middot; AZTEX &middot; Nanolite Foundation<br>
-    Two confirmed thefts from one victim traced to a multinational criminal operation
-  </div>
+<div class="header">
+  <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:6px">Investigation Report &mdash; 2026-03-27</div>
+  <h1>Operation Overview</h1>
+  <div class="sub">Criminal network investigation &mdash; pig-butchering cryptocurrency fraud</div>
+</div>
 
-  <div class="header-meta">
-    <div class="meta-card"><div class="lbl">Incident 1</div><div class="val">0.848 BTC (~$19,833)</div>2022-07-31 &mdash; Romance scam</div>
-    <div class="meta-card"><div class="lbl">Incident 2</div><div class="val">~$10,000 USD</div>July 2024 &mdash; Fake exchange (deptoy.co)</div>
-    <div class="meta-card"><div class="lbl">Scammer Wallet Total</div><div class="val">395,190 BTC</div>5,170 transactions &mdash; still active</div>
-    <div class="meta-card"><div class="lbl">Last Updated</div><div class="val">2026-03-26</div></div>
-  </div>
+<div class="nav-bar">
+  <a href="index.html" class="active">Overview</a>
+  <a href="operations.html">Operations</a>
+  <a href="operators.html">Operators</a>
+  <a href="infrastructure.html">Infrastructure</a>
+  <a href="domains.html">Domains</a>
+  <a href="corporate-network.html">Corporate</a>
+  <a href="blockchain-trail.html">Blockchain</a>
+  <a href="law-enforcement.html">Law Enforcement</a>
+</div>
 
-  <div style="background:#161b22;border:1px solid #e74c3c;border-radius:8px;padding:18px 20px;margin-bottom:8px;line-height:1.75;font-size:13px;color:#c9d1d9">
-    <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#e74c3c;margin-bottom:8px">Through-line</div>
-    <p style="margin:0 0 10px 0">The July 2024 <b>deptoy.co</b> deployment used the same <b>BIPPAX</b> codebase as other branded fakes. Victim deposits flowed into the platform aggregation wallet and then to master wallet <code style="font-size:11px">3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy</code> &mdash; <b>the same wallet that received the 2022 theft</b>, proving one organization behind both crimes (<a href="blockchain-trail.html">Page 2</a>).</p>
-    <p style="margin:0">Following the <b>deptoy</b> thread (brand, domains, corporate filings) surfaced <b>Dorfman&rsquo;s Colorado shells</b> and the BaFin-warned <b>Nanolite</b> site. That domain resolved to <b>CTG Server Limited</b> in Hong Kong (<code>202.79.174.5</code>) alongside dozens of other fraud sites. The same <b>Gname / SHARE-DNS</b> footprint that serves that host also controls <b>mdutton.com</b> (DUTT) &mdash; tying the fake exchange pipeline to the CTG server farm (<a href="the-two-scams.html">Page 1</a> chain &rarr; <a href="infrastructure.html">Page 4</a>).</p>
-  </div>
+<div class="content">
 
-  <hr class="divider">
-  <div class="section-label">Investigation Narrative</div>
-
-  <div class="pages">
-    <a class="page-link" href="the-two-scams.html">
-      <div class="page-num">1</div>
-      <div class="page-info">
-        <h2>The Two Scams</h2>
-        <p>Incident timeline, the BIPPAX/deptoy platform, and the <b>seven-step discovery chain</b> from fake exchange to <b>CTG Server (HK)</b> and SHARE-DNS. Wallet proof that both scams are one operation.</p>
-      </div>
-    </a>
-    <a class="page-link" href="blockchain-trail.html">
-      <div class="page-num">2</div>
-      <div class="page-info">
-        <h2>Following the Money</h2>
-        <p><b>Blockchain-only</b> detail: hop-by-hop flows, deposit addresses, Binance KYC path. <i>(Narrative context is on Page 1.)</i></p>
-      </div>
-    </a>
-    <a class="page-link" href="corporate-network.html">
-      <div class="page-num">3</div>
-      <div class="page-info">
-        <h2>The Corporate Network</h2>
-        <p>BISSNEX / Canada filings, Dorfman-linked Colorado IDs, DUTT, Nanolite. <i>Does not repeat the deptoy&rarr;CTG story &mdash; that lives on Page 1.</i></p>
-      </div>
-    </a>
-    <a class="page-link" href="infrastructure.html">
-      <div class="page-num">4</div>
-      <div class="page-info">
-        <h2>Criminal Infrastructure <span class="badge badge-red">ACTIVE</span></h2>
-        <p>Technical IOCs: AZTEX, <b>CTG Server</b> IP and hosted domains, 2139exchange, SHARE-DNS / Gname. <i>Technical deep dive listed below.</i></p>
-      </div>
-    </a>
-    <a class="page-link" href="personas.html">
-      <div class="page-num">5</div>
-      <div class="page-info">
-        <h2>Personas &amp; Aliases</h2>
-        <p>Known scammer identities: WhatsApp personas, WeChat handles, corporate cover names, social media impersonation accounts, and fake press contacts.</p>
-      </div>
-    </a>
-    <a class="page-link" href="law-enforcement.html">
-      <div class="page-num">6</div>
-      <div class="page-info">
-        <h2>Law Enforcement Targets <span class="badge badge-green">ACTIONABLE</span></h2>
-        <p>Consolidated subpoena targets by priority, MLAT request drafts, IC3 submission checklist, and referral contacts for FBI, RCMP, NCA, BaFin, and Hong Kong Police.</p>
-      </div>
-    </a>
-  </div>
-
-  <hr class="divider">
-  <div class="section-label">Technical Reports &amp; Data</div>
-
-  <div class="technical-links">
-    <a class="tech-link" href="report-full.html">
-      Blockchain Trace Report
-      <span class="desc">Full blockchain analysis with interactive graphs, charts, transaction tables, and address analysis (auto-generated)</span>
-    </a>
-    <a class="tech-link" href="layer1.html">
-      Layer 1 Deep Dive
-      <span class="desc">Chinese criminal factory infrastructure &mdash; CTG Server, SHARE-DNS, Gname.com, WebNIC Japan bypass</span>
-    </a>
-  </div>
-
-  <div style="margin-top:40px;font-size:11px;color:#8b949e;border-top:1px solid #30363d;padding-top:16px">
-    All blockchain data sourced from public records (mempool.space / blockstream.info). Corporate records from Colorado SOS, UK Companies House, Corporations Canada, FINTRAC. Domain data from public WHOIS, CT logs (crt.sh), and passive DNS.
+<!-- ── 1. NETWORK AT A GLANCE ── -->
+<div class="section">
+  <h2>Network at a Glance</h2>
+  <div class="grid4">
+    <div class="stat">
+      <span class="stat-num">$50&ndash;420M</span>
+      <div class="stat-label">Estimated stolen<br><span style="font-size:10px;color:#30363d">&mdash;&mdash;&mdash;&mdash;</span><br><span style="font-size:10px">2139exchange alone; lower bound confirmed; upper from Italian investigative reporting</span></div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">100K+</span>
+      <div class="stat-label">Victims globally<br><span style="font-size:10px;color:#30363d">&mdash;&mdash;&mdash;&mdash;</span><br><span style="font-size:10px">Across all three operations; Italian market alone accounts for tens of thousands</span></div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">~110</span>
+      <div class="stat-label">IOC domains documented<br><span style="font-size:10px;color:#30363d">&mdash;&mdash;&mdash;&mdash;</span><br><span style="font-size:10px">Across all clusters; CTG HK alone hosts 39 on one IP</span></div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <div class="stat-label">Countries of server infrastructure<br><span style="font-size:10px;color:#30363d">&mdash;&mdash;&mdash;&mdash;</span><br><span style="font-size:10px">Hong Kong, France, Latvia, Finland / Russia</span></div>
+    </div>
   </div>
 </div>
 
+<!-- ── 2. WHAT THIS NETWORK IS ── -->
+<div class="section">
+  <h2>What This Network Is</h2>
+
+  <p>This investigation documents a multi-operation <b>pig-butchering (sha zhu pan)</b> fraud network characterized by Chinese-origin technology, a Southeast Asian operator nexus, and globally distributed victims. The network spans at least three distinct but infrastructurally overlapping criminal operations, all sharing core technical fingerprints: CTG Server Limited HK hosting, SHARE-DNS.COM nameservers, and Gname.com as registrar. The underlying scam platforms originate from Chinese-language pig-butchering-as-a-service (PBaaS) kits sold by suppliers in mainland China and Taiwan.</p>
+
+  <p>Three distinct operations have been identified and partially attributed. <b>fmtcapitaltc.com</b> (the FMT Capital operation) is a Malaysian-deployed UWORK kit launched in early 2026, registered via Registrar.eu/OpenProvider and hosted behind Cloudflare on the CTG HK server. <b>2139exchange.com</b> and its associated brand Mega Investment Group (megat.vip) is the largest operation by victim count, serving the Italian and broader European market, CONSOB-blacklisted since September 2024, and confirmed linked to the AZTEX criminal infrastructure via shared Porkbun nameserver fingerprint. <b>BIPPAX / deptoy.co</b> is a smaller operation linked to Darryl Joel Dorfman (Broomfield, CO), using a Canadian shell company (BISSNEX CRYPTO GROUP LIMITED), now defunct; the victim CRM and platform code was deployed as dacm-crypto.top on a Russian server (Selectel SPB).</p>
+
+  <p>All three operations share overlapping infrastructure: the <b>CTG Server HK</b> cluster (<code>202.79.174.5</code>) hosts both the Nanolite Foundation (Dorfman) and fmtcapitaltc.com, and all CTG-hosted domains use <b>SHARE-DNS.COM</b> nameservers registered at <b>Gname.com</b>. The broader geopolitical context is relevant: March 2026 congressional testimony (Reva Price, US-China Economic &amp; Security Review Commission) confirmed that Beijing provides implicit backing for SE Asian compound operations; the "Chinese don't scam Chinese" targeting philosophy is confirmed in this network's domain strategy, which focuses typosquats on US, European, and Japanese financial institutions while avoiding Chinese domestic brands.</p>
+</div>
+
+<!-- ── 3. NETWORK MAP ── -->
+<div class="section">
+  <h2>Network Map &mdash; Three Operations</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Operation</th>
+        <th>Platform</th>
+        <th>Status</th>
+        <th>Victims / Scale</th>
+        <th>Server</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>FMT Capital</b></td>
+        <td><code>fmtcapitaltc.com</code></td>
+        <td><span class="badge badge-red">LIVE</span></td>
+        <td>Unknown (launched early 2026)</td>
+        <td>CTG Server HK (<code>202.79.174.5</code>) + Cloudflare</td>
+      </tr>
+      <tr>
+        <td><b>2139 Exchange / Mega Investment Group</b></td>
+        <td><code>2139exchange.com</code> + <code>megat.vip</code> (Mega dead)</td>
+        <td><span class="badge badge-orange">2139 LIVE</span> <span class="badge badge-grey">Mega dead</span></td>
+        <td>100,000+ / $50&ndash;420M</td>
+        <td>VEESP Latvia (<code>185.22.174.75</code>)</td>
+      </tr>
+      <tr>
+        <td><b>BIPPAX / deptoy.co</b></td>
+        <td><code>deptoy.co</code> (dead), <code>dacm-crypto.top</code></td>
+        <td><span class="badge badge-grey">DEAD</span></td>
+        <td>Known victim: $550K (BIPPAX-185)</td>
+        <td>Selectel SPB Russia</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box box-dark" style="margin-top:16px;font-size:12px">
+    <div class="label label-grey">Shared Infrastructure Fingerprints</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px">
+      <span class="tag">CTG Server AS152194 (HK)</span>
+      <span class="tag">SHARE-DNS.COM nameservers</span>
+      <span class="tag">Gname.com registrar</span>
+      <span class="tag">Porkbun NS (AZTEX + 2139exchange)</span>
+      <span class="tag">UWORK PBaaS kit (fmtcapitaltc)</span>
+      <span class="tag">ThinkPHP backend</span>
+      <span class="tag">broker.* + trader.* subdomain split</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── 4. INFRASTRUCTURE CLUSTERS ── -->
+<div class="section">
+  <h2>Infrastructure Clusters</h2>
+  <p style="font-size:12px;color:#8b949e;margin-bottom:10px">Four server clusters host the criminal infrastructure. Full technical detail: <a href="infrastructure.html">Infrastructure page &rarr;</a></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Cluster</th>
+        <th>IP / Provider</th>
+        <th>Location</th>
+        <th>Role</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:#1a0800">
+        <td><b>CTG Server HK</b></td>
+        <td><code>202.79.174.5</code> &mdash; AS152194 CTG Server Limited</td>
+        <td>Tung Chung, Hong Kong</td>
+        <td>~39 scam domains; fmtcapitaltc + Nanolite + typosquats; MySQL 3306 exposed</td>
+        <td><span class="badge badge-red">LIVE</span></td>
+      </tr>
+      <tr>
+        <td><b>Contabo FR (AZTEX)</b></td>
+        <td><code>194.60.201.83</code> &mdash; AS51167 Contabo GmbH</td>
+        <td>Lauterbourg, France</td>
+        <td>AZTEX ops server; Bitwarden, Matrix, Nextcloud, RDP, mail; deptoy.co + aztex.eu co-hosted</td>
+        <td><span class="badge badge-orange">ACTIVE</span></td>
+      </tr>
+      <tr>
+        <td><b>VEESP Latvia (2139)</b></td>
+        <td><code>185.22.174.75</code> &mdash; AS42532 SIA VEESP</td>
+        <td>Riga, Latvia</td>
+        <td>2139exchange.com; intranet + HR + sharepoint subdomains; cert renewed 2026-03-19</td>
+        <td><span class="badge badge-red">LIVE</span></td>
+      </tr>
+      <tr>
+        <td><b>Hetzner HEL (AZTEX dev)</b></td>
+        <td><code>37.27.206.233</code> &mdash; AS24940 Hetzner Online</td>
+        <td>Helsinki, Finland</td>
+        <td>AZTEX dev/staging; Redis, MinIO; t-contest.aztex.digital</td>
+        <td><span class="badge badge-grey">DEV</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── 5. KEY PERSONS ── -->
+<div class="section">
+  <h2>Key Persons Identified</h2>
+  <p style="font-size:12px;color:#8b949e;margin-bottom:10px">Full profiles and attribution detail: <a href="operators.html">Operators page &rarr;</a></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name / Handle</th>
+        <th>Role</th>
+        <th>Location</th>
+        <th>Confidence</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>Darryl Joel Dorfman</b></td>
+        <td>BIPPAX / Nanolite / DUTT operator; 17+ CO shells; BaFin-warned</td>
+        <td>Broomfield, CO 80021</td>
+        <td><span class="confidence-high">HIGH</span></td>
+      </tr>
+      <tr>
+        <td><b>"AZTEX Barry"</b></td>
+        <td>AZTEX operations manager; named in RDP certificate on criminal server</td>
+        <td>Southend-on-Sea, Essex SS1, UK (TalkTalk residential)</td>
+        <td><span class="confidence-med">MEDIUM</span></td>
+      </tr>
+      <tr>
+        <td><b>Jonas Hagmar</b></td>
+        <td>AZTEX server owner (Contabo FR); likely witness; legitimate researcher</td>
+        <td>G&ouml;teborg, Sweden</td>
+        <td><span class="confidence-high">HIGH</span> (identity) / <span class="confidence-low">LOW</span> (involvement)</td>
+      </tr>
+      <tr>
+        <td><b>"slepsk"</b></td>
+        <td>AZTEX developer; personal subdomain on aztex.digital (expired Q3 2025)</td>
+        <td>Ukrainian/Russian, born ~1987</td>
+        <td><span class="confidence-med">MEDIUM</span></td>
+      </tr>
+      <tr>
+        <td><b>"jukem"</b></td>
+        <td>AZTEX developer; most actively maintained subdomain (auto-renewed through Dec 2025)</td>
+        <td>Unknown</td>
+        <td><span class="confidence-low">LOW</span></td>
+      </tr>
+      <tr>
+        <td><b>KL Operator</b></td>
+        <td>fmtcapitaltc.com operator; purchased UWORK PBaaS kit (~$2,500)</td>
+        <td>Wilayah Persekutuan, Kuala Lumpur, Malaysia</td>
+        <td><span class="confidence-med">MEDIUM</span></td>
+      </tr>
+      <tr>
+        <td><b>"Mentor Claus"</b></td>
+        <td>2139exchange Italian-market Telegram promoter/recruiter; GdF Lecce investigation open</td>
+        <td>Italy (likely)</td>
+        <td><span class="confidence-high">HIGH</span> (role) / <span class="confidence-low">LOW</span> (real ID)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── 6. REGULATORY ACTIONS ── -->
+<div class="section">
+  <h2>Regulatory Actions</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Authority</th>
+        <th>Target</th>
+        <th>Action</th>
+        <th>Date</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>BaFin</b> (Germany)</td>
+        <td>Nanolite Foundation / nanolite-foundationnlf.com</td>
+        <td>Public warning issued</td>
+        <td>August 2025</td>
+        <td>Linked to Dorfman; site is HTTrack clone of hvcapital.com</td>
+      </tr>
+      <tr>
+        <td><b>CONSOB</b> (Italy)</td>
+        <td>2139exchange.com</td>
+        <td>Blacklisted / investment warning</td>
+        <td>September 2024 (updated Oct 2024)</td>
+        <td>Italian market most heavily targeted; GdF investigation open</td>
+      </tr>
+      <tr>
+        <td><b>FCA</b> (UK)</td>
+        <td>fmtcapitaltc.com + 2139exchange.com</td>
+        <td>Warning list entries</td>
+        <td>2024&ndash;2026</td>
+        <td>Both entities on FCA unauthorised firms warning list</td>
+      </tr>
+      <tr>
+        <td><b>CFTC</b> (USA)</td>
+        <td>fmtcapitaltc.com</td>
+        <td>RED List (Registration Deficient)</td>
+        <td>2025&ndash;2026</td>
+        <td>Also listed by CFTC as unregistered soliciting entity</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── 7. QUICK LINKS ── -->
+<div class="section">
+  <h2>Report Sections</h2>
+
+  <div class="grid2" style="margin-top:14px">
+    <a class="quick-link-card" href="operations.html">
+      <h3>Operations</h3>
+      <p>Detailed breakdown of all three criminal operations: FMT Capital, 2139exchange/Mega IG, and BIPPAX/deptoy.co — victim flows, platform architecture, and discovery chains.</p>
+    </a>
+    <a class="quick-link-card" href="operators.html">
+      <h3>Operators &amp; Persons of Interest</h3>
+      <p>Full profiles for all identified and suspected individuals: Dorfman, "AZTEX Barry," Jonas Hagmar, slepsk, jukem, KL Operator, Mentor Claus, and Logan Smith (fake persona).</p>
+    </a>
+    <a class="quick-link-card" href="infrastructure.html">
+      <h3>Infrastructure</h3>
+      <p>Technical IOC detail: CTG Server HK, AZTEX server stack (Contabo FR + Hetzner HEL), VEESP Latvia (2139), UK residential connection, SHARE-DNS, Gname.com subpoena path.</p>
+    </a>
+    <a class="quick-link-card" href="domains.html">
+      <h3>Domains</h3>
+      <p>Full IOC domain listing across all clusters: ~39 CTG HK domains, 2139 variants, AZTEX subdomains, dacm-crypto / bissnex chain, and all regulatory-flagged URLs.</p>
+    </a>
+    <a class="quick-link-card" href="corporate-network.html">
+      <h3>Corporate Network</h3>
+      <p>Dorfman's 17+ Colorado shell companies, 4 UK dissolved entities, BISSNEX Canada (#1231288-3), DUTT LLC (FinCEN MSB M20852872), SEC EDGAR filings, and BaFin link.</p>
+    </a>
+    <a class="quick-link-card" href="blockchain-trail.html">
+      <h3>Blockchain Trail</h3>
+      <p>Wallet hop-by-hop analysis proving both 2022 and 2024 thefts converge on master wallet 3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy; Binance KYC path; TRON on-chain for 2139exchange.</p>
+    </a>
+    <a class="quick-link-card" href="law-enforcement.html">
+      <h3>Law Enforcement</h3>
+      <p>Consolidated subpoena targets by jurisdiction (TalkTalk RIPA, Registrar.eu MLAT, Gname Singapore MLAT, Porkbun, Contabo), referral contacts, and IC3 submission checklist.</p>
+    </a>
+  </div>
+</div>
+
+<div class="footer">
+  Investigation Report &mdash; 2026-03-27 &nbsp;|&nbsp; All sources passive/public OSINT &nbsp;|&nbsp; Corporate records: Colorado SOS, UK Companies House, Corporations Canada &nbsp;|&nbsp; Domain data: WHOIS, crt.sh, passive DNS
+</div>
+
+</div>
 </body>
 </html>

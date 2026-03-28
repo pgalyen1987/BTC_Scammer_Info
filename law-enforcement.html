@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Page 6: Law Enforcement Targets</title>
+<title>Law Enforcement — Pig-Butchering Network Investigation</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;font-size:13px}
@@ -11,8 +11,7 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;fo
 .sub{color:#8b949e;font-size:12px}
 .nav-bar{background:#161b22;border-bottom:1px solid #30363d;padding:8px 28px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
 .nav-bar a{color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:4px;border:1px solid transparent}
-.nav-bar a:hover{color:#f0f6fc;background:#21262d}
-.nav-bar a.active{color:#f0f6fc;background:#21262d;border-color:#2ecc71}
+.nav-bar a:hover,.nav-bar a.active{color:#f0f6fc;background:#21262d;border-color:#2ecc71}
 .content{max-width:960px;margin:0 auto;padding:28px}
 .section{margin-bottom:32px}
 .section h2{color:#f0f6fc;font-size:16px;border-bottom:1px solid #30363d;padding-bottom:8px;margin-bottom:14px}
@@ -48,19 +47,19 @@ li{margin-bottom:4px}
 <body>
 
 <div class="header">
-  <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:6px">Investigation Report &mdash; Page 6 of 6</div>
   <h1>Law Enforcement Targets</h1>
   <div class="sub">Consolidated subpoena targets, MLAT requests, and filing checklists &mdash; organized by priority and jurisdiction</div>
 </div>
 
 <div class="nav-bar">
-  <a href="index.html">&larr; Contents</a>
-  <a href="the-two-scams.html">1. The Two Scams</a>
-  <a href="blockchain-trail.html">2. Following the Money</a>
-  <a href="corporate-network.html">3. Corporate Network</a>
-  <a href="infrastructure.html">4. Infrastructure</a>
-  <a href="personas.html">5. Personas</a>
-  <a class="active" href="law-enforcement.html">6. Law Enforcement</a>
+  <a href="index.html">Overview</a>
+  <a href="operations.html">Operations</a>
+  <a href="operators.html">Operators</a>
+  <a href="infrastructure.html">Infrastructure</a>
+  <a href="domains.html">Domains</a>
+  <a href="corporate-network.html">Corporate</a>
+  <a href="blockchain-trail.html">Blockchain</a>
+  <a class="active" href="law-enforcement.html">Law Enforcement</a>
 </div>
 
 <div class="content">
@@ -274,29 +273,36 @@ li{margin-bottom:4px}
         <td>Account records for server 185.22.174.75 (2139exchange.com). Account holder, payment, logs.</td>
         <td>Latvian CERT (cert.lv) / EU MLA</td>
       </tr>
-      <tr>
+      <tr style="background:#1a0800">
         <td>7</td>
+        <td><b>Registrar.eu / OpenProvider / Hosting Concepts B.V.</b><br><span style="color:#e74c3c;font-size:11px">&#9733; HIGHEST PRIORITY MLAT — Malaysian registrant ID</span></td>
+        <td>Netherlands (EU)</td>
+        <td>KYC / registrant identity for <code>fmtcapitaltc.com</code> — registered to a person/entity in <b>Wilayah Persekutuan, Kuala Lumpur, Malaysia</b>. This is the primary operator-linked identity node for the most active pig-butchering platform in the network. Request: full registrant name, address, identity document, payment method, registration IP, email address, all domains under account. Dutch registrar subject to EU GDPR but will respond to law enforcement production order or MLAT. Abuse contact: abuse@registrar.eu / +31 10 4482297.</td>
+        <td>DOJ &rarr; Netherlands MLAT (Mutual Legal Assistance Treaty; Nl is EU partner)<br>Or direct production order via Registrar.eu LE portal</td>
+      </tr>
+      <tr>
+        <td>8</td>
         <td><b>WebNIC / Web Commerce Comm. Ltd</b></td>
         <td>Malaysia</td>
         <td>Account for .co.jp/.jp typosquat registrations (registrant "FSFSFSDSDFSFS"). Payment, email, IP.</td>
         <td>DOJ &rarr; AGC Malaysia + JPRS abuse</td>
       </tr>
       <tr>
-        <td>8</td>
+        <td>9</td>
         <td><b>Storyblok GmbH</b></td>
         <td>Austria (EU)</td>
         <td>Access logs for Space ID 145121 ("HVCapital") from IP 202.79.174.5 or non-legitimate IPs.</td>
         <td>privacy@storyblok.com</td>
       </tr>
       <tr>
-        <td>9</td>
+        <td>10</td>
         <td><b>Telegram FZ-LLC</b><br>(Dubai)</td>
         <td>UAE &mdash; mutual legal assistance</td>
         <td>Subscriber and session data for <b>@CTGServer</b>, <b>@CTGSeverBot</b>, and any operator/channel handles tied to CTG Server marketing or scam support. Telegram publishes a <b>law enforcement</b> request channel; UAE MLAT may apply. Lower priority than US registrars but closes the Telegram gap.</td>
         <td>See <a href="https://telegram.org/faq#q-what-about-law-enforcement-requests">Telegram LE FAQ</a> &mdash; hotline @telcompliance_bot (verify current process)</td>
       </tr>
       <tr>
-        <td>10</td>
+        <td>11</td>
         <td><b>FinCEN (US Treasury)</b></td>
         <td>US &mdash; 31 USC &sect;5318(g)</td>
         <td><b>SAR database access</b> (federal LE) for subjects, accounts, or addresses already named in bank filings. BSA records can name <b>mule account holders</b> and <b>counterparties</b> that never appear in public OSINT.</td>
@@ -304,6 +310,67 @@ li{margin-bottom:4px}
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- ── SE ASIA COMPOUND CONTEXT ── -->
+<div class="section">
+  <h2>Geopolitical Context: Southeast Asian Scam Compound Ecosystem</h2>
+
+  <div class="box box-red">
+    <div class="label label-red">CRITICAL FRAMING FOR LAW ENFORCEMENT REFERRAL</div>
+    <p style="font-size:12px;line-height:1.85;margin-bottom:10px">
+      On <b>25 March 2026</b>, U.S.-China Economic and Security Review Commission commissioner Reva Price testified before Congress that Beijing has <b>"implicitly backed Chinese criminal syndicates running cyber scam compounds across Southeast Asia,"</b> including commingling of government funds with scam proceeds and investment in Belt and Road projects alongside state-owned enterprises. Myanmar, Cambodia, and Laos compound operations generate an estimated <b>$44 billion annually — 40% of their combined GDP</b>. (<a href="https://therecord.media/china-scam-compounds-southeast-asia">The Record, 2026-03-25</a>)
+    </p>
+    <p style="font-size:12px;line-height:1.85">
+      The network documented in this report exhibits fingerprints <b>directly consistent with SE Asian compound-sourced infrastructure</b>: Chinese-origin tech stack (ThinkPHP, aaPanel/BaoTa), HK-based bulletproof hosting, Malaysian operator nexus, and the "Chinese don't scam Chinese" targeting philosophy — non-Chinese victims only (Italian, Japanese, Western). This places the operation within the broader compound ecosystem and elevates its national security and transnational organized crime significance beyond a standard fraud case.
+    </p>
+  </div>
+
+  <h3>How This Network Maps to the Compound Model</h3>
+  <table>
+    <thead><tr><th>Compound Characteristic</th><th>Evidence in This Network</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Chinese-origin technology</b></td>
+        <td>ThinkPHP (Chinese PHP framework) + PHP 7.4.33 (EOL) on fmtcapitaltc.com; aaPanel/BaoTa Chinese server management panel on 2139exchange.com; UWORK pig-butchering-as-a-service kit (Chinese compound product)</td>
+      </tr>
+      <tr>
+        <td><b>HK / SE Asia infrastructure nexus</b></td>
+        <td>CTG Server Limited (Tung Chung, HK) hosts ~50 scam domains; Gname.com Pte. Ltd. (Singapore) is registrar for SHARE-DNS and most victim-facing domains; fmtcapitaltc.com registrant in <b>Wilayah Persekutuan, Kuala Lumpur, Malaysia</b></td>
+      </tr>
+      <tr>
+        <td><b>"Chinese don't scam Chinese" targeting</b></td>
+        <td>fmtcapitaltc.com supports Arabic, Japanese, English — not Mandarin; Japanese FSA impersonation fakes target Japanese victims; 2139exchange targets Italian and Western victims; zero Mandarin-language victim infrastructure found</td>
+      </tr>
+      <tr>
+        <td><b>Pig-butchering-as-a-service (PBaaS)</b></td>
+        <td>fmtcapitaltc.com identified as UWORK kit deployment — a commercial scam platform sold to compound operators; victim CRM (trader.*) supports 8 languages including Arabic; full KYC upload flow for victims</td>
+      </tr>
+      <tr>
+        <td><b>Scale consistent with compound operations</b></td>
+        <td>2139exchange: $50–420M stolen, 100,000+ victims, 20,000+ in Italy alone; $27M+ traced on-chain toward Binance; fmtcapitaltc.com unindexed and newly operational (Feb 2026 certs) — likely early-stage compound campaign</td>
+      </tr>
+      <tr>
+        <td><b>Corporate deception layer</b></td>
+        <td>Fake "Mega Investment Group" ($98.2B AUM claim lifted from legitimate fund); false registration claims (ACRA Singapore, SEC, FinCEN); 2139exchange subdomain structure mirrors real corporate IT (HR, intranet, sharepoint)</td>
+      </tr>
+      <tr style="background:#0a1a0a">
+        <td><b>Malaysian nexus — highest priority lead</b></td>
+        <td>fmtcapitaltc.com registered to a person/entity in <b>Wilayah Persekutuan (Kuala Lumpur), Malaysia</b> via Registrar.eu. Malaysia is a documented transit hub for SE Asian compound money flows and operator proxies. The KL registrant is the most accessible real-world identity node — Dutch registrar (Registrar.eu/OpenProvider) will respond to MLAT and has KYC on file.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box box-orange" style="margin-top:16px">
+    <div class="label label-orange">RECOMMENDED ESCALATION PATH</div>
+    <ul style="font-size:12px;line-height:1.85">
+      <li><b>FBI Cyber Division / IC3:</b> Flag this as a transnational organized crime / compound-linked operation, not a standalone fraud. Reference the March 2026 congressional testimony and $44B compound ecosystem.</li>
+      <li><b>HSI (Homeland Security Investigations):</b> Has jurisdiction over transnational criminal organizations; compound-linked operations with US victims fall squarely within HSI mandate.</li>
+      <li><b>Treasury OFAC:</b> If links to sanctioned entities (e.g., Wan Kuok-Koi network) are established via further investigation, OFAC designation of infrastructure providers is possible.</li>
+      <li><b>FinCEN:</b> File SARs referencing the compound ecosystem context; the Binance on-chain trace ($27M+) may already be in existing SAR filings from Italian investigators via FINTRAC.</li>
+      <li><b>Five Eyes coordination:</b> Italian investigators (CONSOB) have the most developed case on 2139exchange. UK NCA has AZTEX-Barry lead. Australian AFP and Canadian RCMP (BISSNEX) are already in the chain. Coordinate through FBI Legat channels.</li>
+    </ul>
+  </div>
 </div>
 
 <!-- ── FBI REFERRALS ── -->
@@ -314,6 +381,9 @@ li{margin-bottom:4px}
     <table style="font-size:12px">
       <tr><td style="color:#8b949e;width:140px"><b>FBI Denver</b></td><td>Colorado shell companies, Dorfman home address (Broomfield CO), wire fraud (18 USC &sect;1343), investment fraud (18 USC &sect;1348)</td></tr>
       <tr><td style="color:#8b949e"><b>FBI Houston</b></td><td>Nanolite Foundation principal office at 10225 Bissonnet St, Houston TX 77036 &mdash; false nonprofit filings</td></tr>
+      <tr><td style="color:#8b949e"><b>FBI Cyber Division / IC3</b></td><td>Flag as transnational organized crime / SE Asian compound-linked operation per March 2026 congressional testimony (Reva Price, USCC). Reference $44B compound ecosystem. Compound-linked cases receive elevated DOJ priority and Five Eyes coordination.</td></tr>
+      <tr><td style="color:#8b949e"><b>HSI (Homeland Security Investigations)</b></td><td>Transnational criminal organization jurisdiction; Malaysian operator nexus + Chinese compound infrastructure with US victims. HSI has active SE Asia compound task forces.</td></tr>
+      <tr><td style="color:#8b949e"><b>Treasury OFAC</b></td><td>If links established to sanctioned compound operators (e.g., Wan Kuok-Koi network, Shwe Kokko entities), OFAC designation of CTG Server HK and SHARE-DNS infrastructure is possible. Provide IOC domain list.</td></tr>
       <tr><td style="color:#8b949e"><b>BaFin &rarr; FBI</b></td><td>Existing BaFin warning about Nanolite Foundation provides European law enforcement hook and corroborating evidence</td></tr>
       <tr><td style="color:#8b949e"><b>ICANN Compliance</b></td><td>DNS abuse complaints: (1) Gname.com hosting 35+ scam domains, (2) WebNIC escalation (ICANN breach notice Jul 2025). Use ICANN WICF: icann.org/wicf</td></tr>
     </table>

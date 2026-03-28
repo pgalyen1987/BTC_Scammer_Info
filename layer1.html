@@ -155,8 +155,8 @@ li{margin-bottom:2px}
     </div>
     <div class="stat-card">
       <div class="stat-lbl">Confirmed Targets</div>
-      <div class="stat-val" style="color:#3498db">35+</div>
-      <div class="stat-sub">Typosquat domains on 202.79.174.5 (HK server)</div>
+      <div class="stat-val" style="color:#3498db">39</div>
+      <div class="stat-sub">Domains observed on 202.79.174.5 via passive DNS (urlscan.io)</div>
     </div>
     <div class="stat-card">
       <div class="stat-lbl">Infrastructure Active Since</div>
@@ -175,10 +175,10 @@ li{margin-bottom:2px}
 <!-- ── GNAME.COM ROOT ── -->
 <div id="sec-gname" class="section">
   <h2>🔑 The Root: One Gname.com Account Controls Everything</h2>
-  <div class="box box-red">
-    <div class="label label-red">CONFIRMED: Single Registrar Account — All Key Infrastructure</div>
+  <div class="box box-orange">
+    <div class="label label-orange">SAME REGISTRAR (GNAME.COM) — ACCOUNT LINK REQUIRES SUBPOENA TO CONFIRM</div>
     <div style="font-size:12px;line-height:2;margin-top:6px">
-      A single <b>Gname.com Pte. Ltd. (Singapore)</b> account owns and manages:
+      All assets below are registered at <b>Gname.com Pte. Ltd. (Singapore, IANA 1923)</b>. Whether they share a single Gname <em>account</em> is not established by public WHOIS — all registrant fields are privacy-redacted. Live WHOIS confirms the registrar match; account-level attribution requires a Singapore MLAT subpoena to Gname.
       <table style="margin-top:8px">
         <thead><tr><th>Asset</th><th>Registration Date</th><th>Purpose</th><th>DNS</th></tr></thead>
         <tbody>
@@ -199,12 +199,13 @@ li{margin-bottom:2px}
 
   <div class="grid2" style="margin-top:12px">
     <div class="box box-orange">
-      <div class="label label-orange">Account Identifier: zys@gname.com</div>
+      <div class="label label-orange">Lead Email: zys@gname.com</div>
       <ul style="font-size:12px">
-        <li>Email appears as <b>"Registrar Abuse Contact"</b> on Malaysian scam domains (.my) — indicates this is a Gname.com reseller/account-specific contact, not the general abuse address</li>
-        <li>Standard Gname.com abuse contact is <code>complaint@gname.com</code> — the <code>zys@gname.com</code> variant identifies a specific internal account or reseller tier</li>
-        <li>Indexed in <b>AlienVault OTX</b> (Open Threat Exchange) as a threat IOC — already on the security community radar</li>
-        <li>Indexed in <b>Whoisology</b> (December 2024) as registrant email for malicious domains</li>
+        <li>Appears as <b>registrar abuse contact</b> on Malaysian typosquat domains (.my) in this network &mdash; <em>not</em> on mdutton.com or SHARE-DNS.COM/NET directly (those are privacy-redacted)</li>
+        <li>Standard Gname abuse email is <code>complaint@gname.com</code>; the <code>zys@gname.com</code> variant suggests a specific internal account or reseller sub-contact</li>
+        <li>Indexed in <b>AlienVault OTX</b> as a threat IOC</li>
+        <li>Indexed in <b>Whoisology</b> (December 2024) as registrant email on malicious domains</li>
+        <li><b>Live WHOIS (2026-03-27):</b> mdutton.com registrant country = US; SHARE-DNS.COM/NET registrant country = SG. Both privacy-redacted. Same registrar confirmed; same account unconfirmed without subpoena.</li>
       </ul>
     </div>
     <div class="box box-blue">
@@ -283,12 +284,13 @@ li{margin-bottom:2px}
 
 <!-- ── CTG SERVER ── -->
 <div id="sec-ctg" class="section">
-  <h2>🖥 CTG Server Limited — Hong Kong Hosting Provider</h2>
+  <h2>🖥 CTG Server Limited — The Hosting Network (AS152194)</h2>
   <div class="grid2">
     <div class="box box-blue">
       <div class="label label-blue">Company Registration Details</div>
       <table style="font-size:12px">
         <tr><td style="color:#8b949e;white-space:nowrap;padding-right:12px">HK Companies Registry No.</td><td><b>2753848</b></td></tr>
+        <tr><td style="color:#8b949e">IP block upstream</td><td><b>RACKIP CONSULTANCY PTE. LTD.</b> (Singapore) &mdash; CTG Server leases this block from Rackip; explains SG country code and Korean (KR) entries in WHOIS inetnum for 202.79.168.0/21</td></tr>
         <tr><td style="color:#8b949e">Business Registration No.</td><td><b>69956200</b></td></tr>
         <tr><td style="color:#8b949e">Incorporated</td><td>October 11, 2018</td></tr>
         <tr><td style="color:#8b949e">Status</td><td><span style="color:#2ecc71">Live (Active)</span></td></tr>
@@ -310,7 +312,7 @@ li{margin-bottom:2px}
         <b>22,212 IP addresses</b><br>
         Presence in: Hong Kong, Japan (<code>137.220.128.0/17</code> = 32,768 IPs), Singapore (<code>118.107.0.0/18</code> = 16,384 IPs), United States (<code>192.252.176.0/20</code> = 4,096 IPs)<br><br>
         This is not a small VPS provider — CTG Server is a substantial hosting business with global data center footprint.<br><br>
-        <b>Scam server IP:</b> <code>202.79.174.5</code> (Tung Chung, HK)<br>
+        <b>Scam server IP:</b> <code>202.79.174.5</code> (Tung Chung, HK) &mdash; CTG Server is the <em>network owner (ISP)</em>; the scam operator is an unknown CTG customer<br>
         <b>Open ports:</b> 22 (OpenSSH 7.4), 80, <b>83</b> (Japanese FSA content), 443, <b style="color:#e74c3c">3306 (MySQL 8.0.24 — EXPOSED)</b>, 8080, <b style="color:#e74c3c">33060 (MySQL X Protocol — no TLS)</b><br>
         <b style="color:#e74c3c">⚠ MySQL 3306 + X Protocol 33060 both publicly exposed — all victim CRM data across every site on this server is in this database. No network-level auth required.</b><br>
         <b>Active TLS cert:</b> CN=<code>fsazegsrr.qpon</code> (Let's Encrypt R12, Feb–May 2026) — fake Japanese FSA domain<br>
@@ -321,7 +323,7 @@ li{margin-bottom:2px}
 
   <h3>Scam Server Analysis — 202.79.174.5</h3>
   <div class="box box-dark" style="font-size:12px;line-height:1.9">
-    <b>39 confirmed phishing domains</b> (urlscan.io passive scans, Sep 2025–Mar 2026). All share SHARE-DNS.COM/NET nameservers. Admin panel exposed: <code>admin.stratiformsloogan.com</code>.<br><br>
+    <b>39 domains observed resolving to this IP</b> via urlscan.io passive DNS scans (Sep 2025&ndash;Mar 2026). All share SHARE-DNS.COM/NET nameservers. An exposed admin panel was observed at: <code>admin.stratiformsloogan.com</code>. Note: passive DNS shows domains that <em>resolved</em> to this IP during the scan window; some may have since moved.<br><br>
     <b>Two victim populations targeted simultaneously:</b><br>
     — <b>Japanese retail investors:</b> 8× fake 金融庁 (FSA) government pages + 10× securities firm typosquats (Sony, Asahi, Fuji). Port 83 on this server serves Japanese FSA content. The <b>.qpon TLD</b> domains (fsaaiesr.qpon, fsaaijsr.qpon, fsaaivsr.qpon, fsaaixsr.qpon, fsazegsrr.qpon) mimic <code>fsa.go.jp</code> URL patterns — used to show victims fake government "investment approval" pages.<br>
     — <b>English-language / Chinese diaspora investors:</b> Goldman Sachs, Warburg Pincus, Wellington, AllianceBernstein, SoFi, Adams Street Partners typosquats.<br><br>

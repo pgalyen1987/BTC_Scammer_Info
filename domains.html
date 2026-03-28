@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Domains — Pig-Butchering Network Investigation</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;font-size:13px}
+.header{background:#161b22;padding:18px 28px;border-bottom:2px solid #2ecc71}
+.header h1{color:#2ecc71;font-size:20px;margin-bottom:4px}
+.sub{color:#8b949e;font-size:12px}
+.nav-bar{background:#161b22;border-bottom:1px solid #30363d;padding:8px 28px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+.nav-bar a{color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:4px;border:1px solid transparent}
+.nav-bar a:hover,.nav-bar a.active{color:#f0f6fc;background:#21262d;border-color:#2ecc71}
+.content{max-width:1000px;margin:0 auto;padding:28px}
+.section{margin-bottom:32px}
+.section h2{color:#f0f6fc;font-size:16px;border-bottom:1px solid #30363d;padding-bottom:8px;margin-bottom:14px}
+.section h3{color:#f0f6fc;font-size:14px;margin:20px 0 10px}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+th{background:#161b22;color:#8b949e;text-align:left;padding:7px 10px;border-bottom:1px solid #30363d;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:7px 10px;border-bottom:1px solid #21262d;vertical-align:top}
+tr:hover td{background:#161b22}
+code{background:#1c2128;border:1px solid #30363d;border-radius:3px;padding:1px 5px;font-size:11px;font-family:monospace}
+.box{border-radius:8px;padding:16px;margin:14px 0}
+.box-red{background:#1a0800;border:2px solid #e74c3c}
+.box-green{background:#0a1a0a;border:2px solid #2ecc71}
+.box-blue{background:#0a1520;border:2px solid #3498db}
+.box-orange{background:#1a0d00;border:2px solid #f39c12}
+.box-dark{background:#161b22;border:1px solid #30363d}
+.label{font-size:11px;font-weight:bold;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.label-red{color:#e74c3c}.label-green{color:#2ecc71}.label-blue{color:#3498db}.label-orange{color:#f39c12}.label-grey{color:#8b949e}
+ul,ol{padding-left:20px;line-height:1.9}li{margin-bottom:4px}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:bold}
+.badge-red{background:#e74c3c;color:#fff}.badge-green{background:#2ecc71;color:#111}.badge-orange{background:#f39c12;color:#111}.badge-blue{background:#3498db;color:#fff}.badge-grey{background:#30363d;color:#c9d1d9}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+p{line-height:1.8;margin-bottom:10px}
+.footer{border-top:1px solid #30363d;padding:20px 0;margin-top:30px;font-size:11px;color:#8b949e;text-align:center}
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+.stat-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px;text-align:center}
+.stat-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#8b949e;margin-bottom:6px}
+.stat-val{font-size:24px;font-weight:bold;margin-bottom:4px}
+.stat-sub{font-size:11px;color:#8b949e}
+.live{color:#2ecc71;font-weight:bold}.dead{color:#e74c3c}.unknown{color:#8b949e}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Domain Inventory</h1>
+  <div class="sub">All documented domains in the criminal network — grouped by cluster, with IP, registrar, status, and notes</div>
+</div>
+
+<div class="nav-bar">
+  <a href="index.html">Overview</a>
+  <a href="operations.html">Operations</a>
+  <a href="operators.html">Operators</a>
+  <a href="infrastructure.html">Infrastructure</a>
+  <a class="active" href="domains.html">Domains</a>
+  <a href="corporate-network.html">Corporate</a>
+  <a href="blockchain-trail.html">Blockchain</a>
+  <a href="law-enforcement.html">Law Enforcement</a>
+</div>
+
+<div class="content">
+
+<div class="section">
+  <h2>Summary Statistics</h2>
+  <div class="stat-row">
+    <div class="stat-card"><div class="stat-lbl">CTG Server HK</div><div class="stat-val" style="color:#e74c3c">39+</div><div class="stat-sub">Confirmed scam domains on 202.79.174.5</div></div>
+    <div class="stat-card"><div class="stat-lbl">AZTEX / 2139 Network</div><div class="stat-val" style="color:#f39c12">~28</div><div class="stat-sub">AZTEX EU + 2139exchange subdomains</div></div>
+    <div class="stat-card"><div class="stat-lbl">BIPPAX / Dorfman</div><div class="stat-val" style="color:#3498db">~14</div><div class="stat-sub">BIPPAX, BISSNEX, DUTT cluster</div></div>
+    <div class="stat-card"><div class="stat-lbl">SHARE-DNS Served</div><div class="stat-val" style="color:#2ecc71">800K+</div><div class="stat-sub">Estimated malicious domains across all operators</div></div>
+  </div>
+  <div class="box box-dark" style="font-size:12px;line-height:1.8">
+    <b>Total documented IOC domains in this investigation: ~110+.</b> The SHARE-DNS infrastructure (share-dns.com / share-dns.net) serves an estimated 800,000+ malicious domains across all operators globally — this investigation documents only those directly linked to this network. Compiled 2026-03-27.
+  </div>
+</div>
+
+<!-- ── GROUP A: BIPPAX ── -->
+<div class="section">
+  <h2>Group A — BIPPAX / BISSNEX / deptoy.co Network</h2>
+  <p>Western-facing layer. Dorfman shell companies. Victim-facing fake crypto exchanges using BIPPAX white-label platform.</p>
+  <table>
+    <thead><tr><th>Domain</th><th>Role</th><th>IP / Host</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><code>deptoy.co</code></td><td>Fake crypto exchange — BIPPAX branding</td><td>NXDOMAIN</td><td><span class="dead">Dead</span></td><td>BIPPAX-185 victim platform; JS shared codebase with bissnex.com; expired/dropped March 2026</td></tr>
+      <tr><td><code>bissnex.com</code></td><td>Fake crypto exchange (DacmCrypto via Wayback)</td><td>NXDOMAIN</td><td><span class="dead">Dead</span></td><td>Wayback Oct 2024: title "DacmCrypto" + link to dacm-crypto.top; byte.bissnex.com TLS active Dec 2024 + Mar 2025; now NXDOMAIN</td></tr>
+      <tr><td><code>dacm-crypto.top</code></td><td>Downstream crypto front</td><td><code>94.26.255.20</code> — AS204720 Selectel, Saint Petersburg RU</td><td><span class="live">Live</span></td><td>nginx 1.28.2 + PHP 8.2.29; Russian server; linked via bissnex.com JS download</td></tr>
+      <tr><td><code>byxgexchange.com</code></td><td>BYXG Cryptocurrency Group exchange</td><td>Expired</td><td><span class="dead">Dead</span></td><td>WHOIS "no match"; no live A record March 2026</td></tr>
+      <tr><td><code>byxgcoins.com</code></td><td>BYXG Cryptocurrency Group coin brand</td><td>Expired</td><td><span class="dead">Dead</span></td><td>WHOIS "no match"; no live A record March 2026</td></tr>
+      <tr><td><code>bippaxcoins.com</code></td><td>BIPPAX coin variant</td><td>Unknown</td><td><span class="unknown">Unknown</span></td><td>Linked to BYXG/BIPPAX cluster</td></tr>
+      <tr><td><code>mdutton.com</code></td><td>DUTT Cryptocurrency Exchange (Dorfman live platform)</td><td><code>172.67.185.221 / 104.21.68.36</code> — AS13335 Cloudflare</td><td><span class="live">Live</span></td><td>Gname.com registrar (same as SHARE-DNS); Google Trust TLS Feb 2026; last-modified March 2026; FinCEN MSB registered</td></tr>
+      <tr><td><code>cappofx.com</code></td><td>Cappo FX — Dorfman-linked FX broker</td><td><code>104.21.54.94 / 172.67.137.186</code> — Cloudflare</td><td><span class="live">Live</span></td><td>GoDaddy registrar; secureserver.net MX</td></tr>
+      <tr><td><code>betaglobalmanagements.com</code></td><td>Beta Global Finance front site</td><td>Unknown</td><td><span class="unknown">Unknown</span></td><td>Original platform was 4tx9h.com (deleted)</td></tr>
+      <tr><td><code>4tx9h.com</code></td><td>Beta Global Finance internal platform</td><td>Deleted</td><td><span class="dead">Dead</span></td><td>Dorfman's Beta Global Finance; now deleted</td></tr>
+      <tr><td><code>nanolite-foundationnlf.com</code></td><td>Nanolite Foundation — HTTrack clone of hvcapital.com</td><td><code>202.79.174.5</code> — AS152194 CTG Server HK</td><td><span class="live">Live</span></td><td>BaFin warned 22 Aug 2025; Dorfman Colorado nonprofit; NameSilo registrar; DNSOWL NS; React stack; stolen Storyblok token from HV Capital</td></tr>
+      <tr><td><code>elwallets.com</code></td><td>Wallet phishing</td><td><code>104.21.91.144 / 172.67.222.23</code> — Cloudflare</td><td><span class="live">Live</span></td><td>Resolved in network scan</td></tr>
+      <tr><td><code>mumuex.org</code></td><td>Parked exchange front</td><td><code>103.224.212.214</code> — Trellian/Above.com AU</td><td>Parked</td><td>Created 2025-04-29; NS: abovedomains.com; Galcomm/MOBIKAPP registrar</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── GROUP B: AZTEX ── -->
+<div class="section">
+  <h2>Group B — AZTEX Infrastructure (European Operations)</h2>
+  <p>Internal criminal operations hub. All on <code>194.60.201.83</code> (Contabo France) except the dev/staging server on Hetzner Helsinki.</p>
+  <table>
+    <thead><tr><th>Domain</th><th>Role</th><th>IP</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr style="background:#1a0800"><td><code>aztex.eu</code></td><td>AZTEX criminal ops hub — primary domain</td><td><code>194.60.201.83</code></td><td><span class="live">Live</span></td><td>Porkbun NS (same 4-NS cluster as 2139exchange.com); SPF includes this IP; PTR: mail.aztex.eu</td></tr>
+      <tr><td><code>mail.aztex.eu</code></td><td>Self-hosted SMTP/IMAP mail server</td><td><code>194.60.201.83</code></td><td><span class="live">Live</span></td><td>SMTP banner: <code>220-mail.aztex.eu ESMTP</code>; open redirect via ?v= parameter</td></tr>
+      <tr style="background:#1a0800"><td><code>bitwarden.aztex.eu</code></td><td>Shared Bitwarden/Vaultwarden password manager</td><td><code>194.60.201.83</code></td><td><span class="live">Live</span></td><td>Last renewed 2026-02-19 — confirms operation active</td></tr>
+      <tr><td><code>vaultwarden.aztex.eu</code></td><td>Vaultwarden alt subdomain</td><td><code>194.60.201.83</code></td><td><span class="live">Live</span></td><td>Same server as bitwarden subdomain</td></tr>
+      <tr style="background:#1a0800"><td><code>matrix.aztex.eu</code></td><td>Encrypted group messaging (Matrix protocol)</td><td><code>194.60.201.83</code></td><td><span class="live">Live</span></td><td>Encrypted comms for criminal coordination</td></tr>
+      <tr><td><code>nextcloud.aztex.eu</code></td><td>Shared file storage</td><td><code>194.60.201.83</code></td><td><span class="live">Live</span></td><td>Upgraded Nov/Dec 2025</td></tr>
+      <tr><td><code>rdp.aztex.eu</code></td><td>Web-based RDP gateway</td><td><code>194.60.201.83</code></td><td><span class="live">Live</span></td><td>RDP port 3389 also open directly</td></tr>
+      <tr style="background:#1a0800"><td><code>route-finder.aztex.eu</code></td><td>Custom money-mule routing tool</td><td><code>194.60.201.83</code></td><td><span class="live">Live</span></td><td>Active during BIPPAX period (2023); custom criminal tooling</td></tr>
+      <tr style="background:#1a0800"><td><code>route-lister.aztex.eu</code></td><td>Companion routing tool</td><td><code>194.60.201.83</code></td><td><span class="live">Live</span></td><td>Active 2023 alongside route-finder</td></tr>
+      <tr><td><code>jukem.aztex.eu</code></td><td>Unknown app — actively maintained</td><td><code>194.60.201.83</code></td><td><span class="live">Live</span></td><td>10 CT certs; auto-renewed every 2 months through Dec 2025</td></tr>
+      <tr><td><code>ninjazz.aztex.eu</code></td><td>Unknown application</td><td><code>194.60.201.83</code></td><td><span class="unknown">Unknown</span></td><td>Unknown purpose</td></tr>
+      <tr><td><code>somegoodnews.aztex.eu</code></td><td>Unknown</td><td><code>194.60.201.83</code></td><td><span class="unknown">Unknown</span></td><td>Unknown purpose</td></tr>
+      <tr><td><code>twenty48.aztex.eu</code></td><td>Dev/staging — 2048 game</td><td><code>194.60.201.83</code></td><td><span class="live">Live</span></td><td>Likely test/development deployment</td></tr>
+      <tr><td><code>aztex.digital</code></td><td>AZTEX secondary domain</td><td>NXDOMAIN</td><td><span class="dead">Dead</span></td><td>Subdomains: project-cheapeats, project-omikami (Solana memecoin), t-contest</td></tr>
+      <tr><td><code>t-contest.aztex.digital</code></td><td>Dev/staging on Hetzner</td><td><code>37.27.206.233</code> — AS24940 Hetzner Helsinki</td><td><span class="live">Live</span></td><td>TLS cert; Redis + MinIO Console</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── GROUP C: 2139exchange ── -->
+<div class="section">
+  <h2>Group C — 2139exchange.com Network</h2>
+  <div class="box box-red" style="font-size:12px;line-height:1.8;margin-bottom:14px">
+    <div class="label label-red">Same Porkbun Account as aztex.eu — Same Operator</div>
+    Both aztex.eu and 2139exchange.com use identical Porkbun nameservers (curitiba/fortaleza/maceio/salvador.ns.porkbun.com). CONSOB Italy blacklisted October 2024. TLS cert renewed 2026-03-19 — <b>actively maintained</b>. Chinese BaoTa (aaPanel) server admin. 20,000+ Italian victims reported; up to €100K per family. Estimated total losses $50–420M.
+  </div>
+  <table>
+    <thead><tr><th>Domain</th><th>Role</th><th>IP</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr style="background:#1a0800"><td><code>2139exchange.com</code></td><td>Fake cryptocurrency exchange</td><td><code>185.22.174.75</code> — AS42532 VEESP Latvia</td><td><span class="live">Live</span></td><td>CONSOB Italy blacklisted Oct 2024; cert 2026-03-19; aaPanel</td></tr>
+      <tr><td><code>api.2139exchange.com</code></td><td>Backend API</td><td><code>185.22.174.75</code></td><td><span class="live">Live</span></td><td>Exchange backend API</td></tr>
+      <tr><td><code>m.2139exchange.com</code></td><td>Mobile victim interface</td><td><code>185.22.174.75</code></td><td><span class="live">Live</span></td><td>Mobile-optimized victim portal</td></tr>
+      <tr><td><code>portal.2139exchange.com</code></td><td>User account portal</td><td><code>185.22.174.75</code></td><td><span class="live">Live</span></td><td>Victim account access</td></tr>
+      <tr style="background:#1a0800"><td><code>intranet.2139exchange.com</code></td><td>Internal management panel</td><td><code>185.22.174.75</code></td><td><span class="live">Live</span></td><td>Staff/management internal access</td></tr>
+      <tr style="background:#1a0800"><td><code>hr.2139exchange.com</code></td><td>HR system</td><td><code>185.22.174.75</code></td><td><span class="live">Live</span></td><td>Human resources for criminal operation</td></tr>
+      <tr><td><code>sharepoint.2139exchange.com</code></td><td>Document storage</td><td><code>185.22.174.75</code></td><td><span class="live">Live</span></td><td>Document and file sharing</td></tr>
+      <tr><td><code>dev.2139exchange.com</code></td><td>Development instance</td><td><code>185.22.174.75</code></td><td><span class="live">Live</span></td><td>Development/testing</td></tr>
+      <tr><td><code>megat.vip</code></td><td>Mega Investment Group — linked platform</td><td>NXDOMAIN</td><td><span class="dead">Dead</span></td><td>Associated with 2139exchange; $50–70M total victims reported</td></tr>
+      <tr><td><code>2139.lol</code> / <code>2139a.com</code> / <code>2139.nl</code> / <code>2139.one</code></td><td>Domain variants</td><td>NXDOMAIN</td><td><span class="dead">Dead</span></td><td>All dead domain variants</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── GROUP D: Japanese FSA fakes ── -->
+<div class="section">
+  <h2>Group D — CTG Server HK: Japanese FSA 金融庁 Fakes</h2>
+  <p>Fake Japanese Financial Services Agency pages shown to Japanese victims as "proof" of regulatory approval. All on <code>202.79.174.5</code> / SHARE-DNS.</p>
+  <table>
+    <thead><tr><th>Domain</th><th>Impersonates</th><th>Last Seen</th><th>Registrar</th></tr></thead>
+    <tbody>
+      <tr><td><code>fsazegsrr.qpon</code></td><td>Japanese FSA 金融庁 (fsa.go.jp)</td><td>2025-12-23</td><td>Gname.com; .qpon TLD</td></tr>
+      <tr><td><code>fsaaiesr.qpon</code></td><td>Japanese FSA</td><td>2025-12-22</td><td>Gname.com</td></tr>
+      <tr><td><code>fsaaivsr.qpon</code></td><td>Japanese FSA</td><td>2025-12-19</td><td>Gname.com</td></tr>
+      <tr><td><code>fsaaijsr.qpon</code></td><td>Japanese FSA</td><td>2025-12-19</td><td>Gname.com</td></tr>
+      <tr><td><code>fsaaixsr.qpon</code></td><td>Japanese FSA</td><td>2025-12-19</td><td>Gname.com</td></tr>
+      <tr><td><code>fsaaegir.jp</code></td><td>Japanese FSA (.jp)</td><td>2025-09-01</td><td>WebNIC registrar</td></tr>
+      <tr><td><code>tradiler.com</code></td><td>Trader / FSA variant</td><td>2026-02-27</td><td>Gname.com; SHARE-DNS A5/B5</td></tr>
+      <tr><td><code>xopazs.com</code></td><td>FSA redirect</td><td>2025-11-10</td><td>Gname.com; SHARE-DNS</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── GROUP E: JP Securities typosquats ── -->
+<div class="section">
+  <h2>Group E — CTG Server HK: Japanese Securities Typosquats</h2>
+  <p>Targeting Japanese retail investors via typosquatted securities brand domains. Registered via WebNIC / registrant "FSFSFSDSDFSFS". All SHARE-DNS. All on <code>202.79.174.5</code>.</p>
+  <table>
+    <thead><tr><th>Domain</th><th>Impersonates</th><th>Last Seen</th></tr></thead>
+    <tbody>
+      <tr><td><code>ssonysecyco.jp</code></td><td>Sony Securities (ソニー証券)</td><td>2025-09-04</td></tr>
+      <tr><td><code>ssonysecoo.jp</code></td><td>Sony / SBI Securities</td><td>2025-10-23 (created 2025-08-30)</td></tr>
+      <tr><td><code>asahisec.com</code></td><td>Asahi Securities (朝日証券)</td><td>2026-02-27</td></tr>
+      <tr><td><code>asahisecco.jp</code></td><td>Asahi Securities</td><td>2025-09-02</td></tr>
+      <tr><td><code>asahiesecco.jp</code></td><td>Asahi Securities</td><td>per layer1 (created 2025-08-18)</td></tr>
+      <tr><td><code>asahiqsecco.jp</code></td><td>Asahi Securities</td><td>2025-08-31</td></tr>
+      <tr><td><code>fujieebco.jp</code></td><td>Fuji Securities (created 2025-08-20)</td><td>2026-02-27</td></tr>
+      <tr><td><code>fujieemco.jp</code></td><td>Fuji Securities</td><td>2026-02-27</td></tr>
+      <tr><td><code>fujieenco.jp</code></td><td>Fuji Securities</td><td>2026-02-27</td></tr>
+      <tr><td><code>fujizecco.jp</code></td><td>Fuji Securities</td><td>2026-02-27</td></tr>
+      <tr><td><code>fujixecco.jp</code></td><td>Fuji Securities</td><td>2026-02-27</td></tr>
+      <tr><td><code>fujifecco.jp</code></td><td>Fuji Securities</td><td>2026-02-27</td></tr>
+      <tr><td><code>fujieevco.jp</code></td><td>Fuji Securities</td><td>2025-09-01</td></tr>
+      <tr><td><code>growthmarket.co.jp</code></td><td>Japan growth market</td><td>Suspended/Deleted 2026-02-01</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── GROUP F: International typosquats ── -->
+<div class="section">
+  <h2>Group F — CTG Server HK: International Finance Typosquats</h2>
+  <p>Impersonating major global asset managers and financial institutions. All on <code>202.79.174.5</code> unless noted. All use Gname.com / SHARE-DNS except fmtcapitaltc.com.</p>
+  <table>
+    <thead><tr><th>Domain</th><th>Impersonates</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr style="background:#1a0800"><td><code>fmtcapitaltc.com</code></td><td>Fake MT5 broker "FMT Capital LLC"</td><td><span class="live">Live</span></td><td><span class="badge badge-red">FCA</span> <span class="badge badge-orange">CFTC</span> UWORK PBaaS kit; Registrar.eu; MY registrant; Cloudflare-proxied; created 2025-08-26</td></tr>
+      <tr style="background:#1a0800"><td><code>broker.fmtcapitaltc.com</code></td><td>Admin/manager panel</td><td><span class="live">Live</span></td><td>Chinese-language ThinkPHP; PHP 7.4.33; manager-login page</td></tr>
+      <tr style="background:#1a0800"><td><code>trader.fmtcapitaltc.com</code></td><td>Victim CRM / trading portal</td><td><span class="live">Live</span></td><td>8 languages inc. Arabic; KYC upload; UWORK kit</td></tr>
+      <tr><td><code>alliancebernsteinn.com</code></td><td>AllianceBernstein ($700B AUM)</td><td><span class="live">Live</span></td><td>2025-07 to 2025-10; SHARE-DNS A/B root</td></tr>
+      <tr><td><code>alliancebernstseinn.com</code></td><td>AllianceBernstein variant</td><td><span class="live">Live</span> (2026-02-24)</td><td>3 AB variants total</td></tr>
+      <tr><td><code>warburgpiincusii.com</code></td><td>Warburg Pincus ($83B PE)</td><td><span class="live">Live</span></td><td>Created 2025-12-18; DNS confirmed live 2026-03-27; SHARE-DNS A11/B11</td></tr>
+      <tr><td><code>welliingttons.com</code></td><td>Wellington Management ($1.2T)</td><td><span class="live">Live</span> (2025-11-18)</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>wellingtonmanaagementi.com</code></td><td>Wellington Management</td><td><span class="live">Live</span> (2025-09-05)</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>wellingtonmanageementi.com</code></td><td>Wellington Management</td><td><span class="live">Live</span></td><td>SHARE-DNS A5/B5; created 2025-08-17</td></tr>
+      <tr><td><code>wellingtton.com</code></td><td>Wellington Management</td><td><span class="live">Live</span></td><td>SHARE-DNS A4/B4; created 2025-09-25</td></tr>
+      <tr><td><code>gssachssvip.com</code></td><td>Goldman Sachs</td><td><span class="dead">Likely dead</span></td><td>Last seen Shodan 2025-12-10; NXDOMAIN 2026-03-27</td></tr>
+      <tr><td><code>bankofamerilcasl.com</code></td><td>Bank of America ($3.3T)</td><td><span class="dead">Likely dead</span></td><td>NXDOMAIN 2026-03-27; Gname.com; SHARE-DNS A/B root</td></tr>
+      <tr><td><code>eatonvancci.com</code></td><td>Eaton Vance / Morgan Stanley IM ($500B)</td><td><span class="live">Live</span></td><td>SHARE-DNS A/B root</td></tr>
+      <tr><td><code>pimco-tw.com</code></td><td>PIMCO Taiwan ($1.8T AUM)</td><td><span class="live">Live</span></td><td>SHARE-DNS A/B root</td></tr>
+      <tr><td><code>adamsstreetpartnersi.com</code></td><td>Adams Street Partners</td><td><span class="live">Live</span> (2025-09-16)</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>triainvestmentltc.com</code></td><td>Tria Inversiones España</td><td><span class="live">Live</span> (2025-11-18)</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>triainvestmentlitd.com</code></td><td>Tria Investment variant</td><td><span class="live">Live</span></td><td>SHARE-DNS A5/B5; created 2025-08-17</td></tr>
+      <tr><td><code>rw-advisoiry.com</code></td><td>Timothy Investment (TW) / RW Advisors</td><td><span class="live">Live</span> (2026-02-13)</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>sofji.com</code> / <code>sofjit.com</code> / <code>sofijii.com</code> / <code>sofils.com</code> / <code>sofiils.com</code></td><td>SoFi Invest fintech (5 variants)</td><td>Mixed</td><td>Last seen 2025-09 to 2025-10; SHARE-DNS A5/B5</td></tr>
+      <tr><td><code>jpngrowthmarket.com</code></td><td>GM Capital Management fake</td><td><span class="live">Live</span> (2026-02-27)</td><td>SHARE-DNS; Name SRS AB registrar</td></tr>
+      <tr><td><code>atptechh.com</code></td><td>Gsmkt MAX Capital Management</td><td><span class="live">Live</span> (2025-09-04)</td><td>SHARE-DNS</td></tr>
+      <tr><td><code>atptech.vip</code></td><td>ATP Tech — geo-blocked</td><td>403 Geo-blocked (2026-02-27)</td><td>SHARE-DNS; 403 Forbidden to non-permitted IPs</td></tr>
+      <tr><td><code>chieftoptrading.com</code></td><td>CHIEF INV 致富國際</td><td><span class="live">Live</span></td><td>SHARE-DNS</td></tr>
+      <tr><td><code>bmtmax.com</code> / <code>bmtmaxx.com</code></td><td>BMT Capital</td><td>403 Geo-blocked (2026-02-27)</td><td>SHARE-DNS A5/B5; 403 Forbidden</td></tr>
+      <tr><td><code>dioep.com</code></td><td>Unknown — geo-blocked</td><td>403 Geo-blocked (2026-02-27)</td><td>SHARE-DNS; 403 Forbidden</td></tr>
+      <tr><td><code>stratiformspi.com</code></td><td>Stratiform investment</td><td><span class="dead">Likely dead</span></td><td>NXDOMAIN 2026-03-27; SHARE-DNS A5/B5; created 2025-08-26</td></tr>
+      <tr><td><code>stratiformsps.com</code></td><td>Stratiform variant</td><td><span class="live">Live</span></td><td>SHARE-DNS A5/B5</td></tr>
+      <tr style="background:#1a0800"><td><code>stratiformsloogan.com</code></td><td>Stratiform variant</td><td><span class="live">Live</span></td><td><b>admin.stratiformsloogan.com EXPOSED</b> on public reverse IP lookup</td></tr>
+      <tr><td><code>hmcapitalv.com</code></td><td>HM Capital</td><td><span class="live">Live</span></td><td>SHARE-DNS A5/B5; Name SRS AB registrar</td></tr>
+      <tr><td><code>tactiib.com</code> / <code>tactiiv.com</code></td><td>Tactile/Tactic investment</td><td><span class="live">Live</span></td><td>SHARE-DNS A5/B5</td></tr>
+      <tr><td><code>managementcapitalmad.com</code></td><td>Capital management impersonation</td><td><span class="live">Live</span></td><td>SHARE-DNS A7/B7; created 2025-08-29</td></tr>
+      <tr><td><code>bettermeent-llc.com</code></td><td>Betterment / Better.com</td><td><span class="live">Live</span></td><td>SHARE-DNS</td></tr>
+      <tr><td><code>assetprivfyers.com</code> / <code>assetpvfyers.com</code></td><td>Asset management</td><td><span class="live">Live</span></td><td>SHARE-DNS</td></tr>
+      <tr><td><code>alphaitx.com</code> / <code>alphasll.com</code></td><td>Alpha Investment</td><td><span class="live">Live</span></td><td>SHARE-DNS A/B root; Name SRS AB registrar (alphaitx.com)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── GROUP G: Malaysia ── -->
+<div class="section">
+  <h2>Group G — Malaysia (.my) Targeting Cluster</h2>
+  <p>Typosquatting Malaysian fund manager "Go Asset Management Pte Ltd". All via SHARE-DNS; Gname.com registrar; abuse contact <code>zys@gname.com</code>.</p>
+  <table>
+    <thead><tr><th>Domain</th><th>Variant</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td><code>goassetmanagementptelttd.my</code></td><td>Base typosquat</td><td><span class="unknown">Unknown</span></td></tr>
+      <tr><td><code>goassetmanagemenntptelttd.my</code></td><td>Double-n variant</td><td><span class="unknown">Unknown</span></td></tr>
+      <tr><td><code>goassetmanagementpteltttd.my</code></td><td>Triple-t variant</td><td><span class="unknown">Unknown</span></td></tr>
+      <tr><td><code>goassetmanagementtptelttd.my</code></td><td>Double-t variant</td><td><span class="unknown">Unknown</span></td></tr>
+      <tr><td><code>goassets-systeem.my</code></td><td>System variant</td><td><span class="unknown">Unknown</span></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── GROUP H: DNS Infrastructure ── -->
+<div class="section">
+  <h2>Group H — DNS / Mail Infrastructure</h2>
+  <p>Not victim-facing scam sites — the underlying criminal DNS and mail infrastructure.</p>
+  <table>
+    <thead><tr><th>Domain</th><th>Role</th><th>IP</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr style="background:#1a0800"><td><code>share-dns.com</code></td><td>Criminal DNS infrastructure (nameserver root)</td><td>Cloudflare proxy (172.64.53.25)</td><td><span class="live">Live</span></td><td>Registered 2022-06-30; Gname.com registrar; 15+ numbered A/B NS pairs; WHOIS updated 2026-03-25; expires 2027-06-30; ~800K+ malicious domains; NS: troy/ulla.ns.cloudflare.com</td></tr>
+      <tr style="background:#1a0800"><td><code>share-dns.net</code></td><td>Criminal DNS infrastructure (companion)</td><td>Cloudflare proxy</td><td><span class="live">Live</span></td><td>Registered same day (2022-06-30) as .com; NS: anita/brad.ns.cloudflare.com; MX: mail.share-dns.net; no SPF/DMARC — operator can spoof freely</td></tr>
+      <tr><td><code>mail-ussl.com</code></td><td>Dedicated SMTP for fmtcapitaltc.com</td><td><code>67.216.195.233</code> — AS25820 IT7 Networks LA</td><td><span class="live">Live</span></td><td>MX origin: mx.mail-ussl.com; registered July 2023 via Hostinger; Cloudflare NS; Nginx+Postfix stack</td></tr>
+      <tr><td><code>ctgserver.com</code></td><td>CTG Server Ltd — ISP marketing site</td><td>Cloudflare (172.67.73.150)</td><td><span class="live">Live</span></td><td>ISP's own domain; MX: larksuite.com (ByteDance Lark); abuse contact for HK server: cs.mail@ctgserver.com; Porkbun registrar</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── GROUP I: AZTEX-linked ── -->
+<div class="section">
+  <h2>Group I — AZTEX-Linked / Suspended Variants</h2>
+  <table>
+    <thead><tr><th>Domain</th><th>Role</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><code>aztexchange.com</code></td><td>AZTEX exchange typosquat / brand grab</td><td><span class="dead">Suspended</span></td><td>Registered 2026-03-01 via Realtime Register; suspended 2026-03-03 (within 48hrs); Pulsedive HIGH / Scam; no DNS records</td></tr>
+      <tr><td><code>userhelpsdesk.com</code></td><td>Fake helpdesk / support scam</td><td><span class="dead">Dead</span></td><td>NXDOMAIN; investigated as possible AZTEX-linked support front</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ── SHARE-DNS NS PAIRS ── -->
+<div class="section">
+  <h2>SHARE-DNS Nameserver Infrastructure</h2>
+  <p>SHARE-DNS operates 15+ numbered nameserver pairs (a1/b1 through a15/b15), each pair serving tens of thousands of malicious domains. All have no web presence (HTTP 000) — pure DNS infrastructure.</p>
+  <div class="box box-dark" style="font-size:12px;line-height:1.9">
+    <div class="label label-grey">Nameserver Format</div>
+    <code>a1.share-dns.com</code> / <code>b1.share-dns.com</code> through <code>a15.share-dns.com</code> / <code>b15.share-dns.com</code> (30 nameservers total)<br><br>
+    <b>Domain-to-pair examples documented:</b>
+    <ul style="margin-top:8px">
+      <li>Pair 2 (a2/b2): fujieemco.jp, ssonysecoo.jp</li>
+      <li>Pair 4 (a4/b4): wellingtton.com</li>
+      <li>Pair 5 (a5/b5): stratiformspi.com, stratiformsps.com, hmcapitalv.com, tactiib.com, tactiiv.com, bmtmax.com, bmtmaxx.com, sofils.com, sofiils.com, alphaitx.com, wellingtonmanageementi.com</li>
+      <li>Pair 6 (a6/b6): ssonysecoo.jp</li>
+      <li>Pair 7 (a7/b7): managementcapitalmad.com</li>
+      <li>Pair 8 (a8/b8): fujizecco.jp</li>
+      <li>Pair 10 (a10/b10): asahiesecco.jp</li>
+      <li>Pair 11 (a11/b11): warburgpiincusii.com, jpngrowthmarket.com</li>
+      <li>Pair 12 (a12/b12): fujieebco.jp</li>
+      <li>Root A/B: alliancebernsteinn.com, alphaitx.com, alphasll.com, eatonvancci.com, pimco-tw.com, bankofamerilcasl.com</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">
+  <a href="infrastructure.html">&larr; Infrastructure</a> &nbsp;|&nbsp;
+  <b>Domains</b> &nbsp;|&nbsp;
+  <a href="corporate-network.html">Corporate &rarr;</a>
+</div>
+
+</div>
+</body>
+</html>

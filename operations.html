@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Operations — Scam Investigation</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;font-size:13px}
+.header{background:#161b22;padding:18px 28px;border-bottom:2px solid #2ecc71}
+.header h1{color:#2ecc71;font-size:20px;margin-bottom:4px}
+.sub{color:#8b949e;font-size:12px}
+.nav-bar{background:#161b22;border-bottom:1px solid #30363d;padding:8px 28px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
+.nav-bar a{color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:4px;border:1px solid transparent}
+.nav-bar a:hover,.nav-bar a.active{color:#f0f6fc;background:#21262d;border-color:#2ecc71}
+.content{max-width:1000px;margin:0 auto;padding:28px}
+.section{margin-bottom:32px}
+.section h2{color:#f0f6fc;font-size:16px;border-bottom:1px solid #30363d;padding-bottom:8px;margin-bottom:14px}
+.section h3{color:#f0f6fc;font-size:14px;margin:20px 0 10px}
+a{color:#58a6ff;text-decoration:none}
+a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;font-size:12px;margin:10px 0}
+th{background:#161b22;color:#8b949e;text-align:left;padding:7px 10px;border-bottom:1px solid #30363d;font-size:10px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:7px 10px;border-bottom:1px solid #21262d;vertical-align:top}
+tr:hover td{background:#161b22}
+code{background:#1c2128;border:1px solid #30363d;border-radius:3px;padding:1px 5px;font-size:11px;font-family:monospace}
+.box{border-radius:8px;padding:16px;margin:14px 0}
+.box-red{background:#1a0800;border:2px solid #e74c3c}
+.box-green{background:#0a1a0a;border:2px solid #2ecc71}
+.box-blue{background:#0a1520;border:2px solid #3498db}
+.box-orange{background:#1a0d00;border:2px solid #f39c12}
+.box-dark{background:#161b22;border:1px solid #30363d}
+.label{font-size:11px;font-weight:bold;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.label-red{color:#e74c3c}.label-green{color:#2ecc71}.label-blue{color:#3498db}.label-orange{color:#f39c12}.label-grey{color:#8b949e}
+ul,ol{padding-left:20px;line-height:1.9}li{margin-bottom:4px}
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:10px;font-weight:bold}
+.badge-red{background:#e74c3c;color:#fff}.badge-green{background:#2ecc71;color:#111}.badge-orange{background:#f39c12;color:#111}.badge-blue{background:#3498db;color:#fff}.badge-grey{background:#30363d;color:#c9d1d9}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+p{line-height:1.8;margin-bottom:10px}
+.footer{border-top:1px solid #30363d;padding:20px 0;margin-top:30px;font-size:11px;color:#8b949e;text-align:center}
+.tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:10px;margin:1px;background:#21262d;color:#8b949e;border:1px solid #30363d}
+.live{color:#2ecc71;font-weight:bold}.dead{color:#e74c3c}.unknown{color:#8b949e}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:6px">Investigation Report &mdash; Operations</div>
+  <h1>The Operations</h1>
+  <div class="sub">Three distinct pig-butchering campaigns sharing common infrastructure</div>
+</div>
+
+<div class="nav-bar">
+  <a href="index.html">Overview</a>
+  <a href="operations.html" class="active">Operations</a>
+  <a href="operators.html">Operators</a>
+  <a href="infrastructure.html">Infrastructure</a>
+  <a href="domains.html">Domains</a>
+  <a href="corporate-network.html">Corporate</a>
+  <a href="blockchain-trail.html">Blockchain</a>
+  <a href="law-enforcement.html">Law Enforcement</a>
+</div>
+
+<div class="content">
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1: OVERVIEW -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+
+<div class="section">
+  <h2>Operation Overview</h2>
+
+  <p>
+    Pig-butchering (<i>sha zhu pan</i>, 杀猪盘) is a long-horizon social engineering fraud in which victims are cultivated over weeks or months through romantic or investment relationships before being persuaded to deposit funds into a fake exchange platform — the "slaughter." Once a sufficient balance has accumulated the platform blocks withdrawals and the operators vanish. The name refers to fattening a pig before killing it.
+  </p>
+  <p>
+    All three operations documented in this investigation use technology of Chinese origin: the ThinkPHP PHP framework, aaPanel (BaoTa) Chinese server management software, and/or commercial pig-butchering-as-a-service kits sourced from Chinese code-sharing platforms and vendors. This is consistent with the broader Southeast Asian compound ecosystem documented by <i>The Record</i> (March 2026), in which criminal syndicates — many operating from fortified compounds in Myanmar, Cambodia, and the Philippines — license Chinese-developed fraud software to run industrialised fraud operations against victims worldwide.
+  </p>
+
+  <div class="box box-dark" style="margin-top:16px">
+    <div class="label label-grey">Three Operations at a Glance</div>
+    <table style="margin-top:8px">
+      <thead>
+        <tr>
+          <th>Operation</th>
+          <th>Primary Domain</th>
+          <th>Status</th>
+          <th>Scale</th>
+          <th>Operator Origin</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>FMT Capital</b></td>
+          <td><code>fmtcapitaltc.com</code></td>
+          <td><span class="live">LIVE</span></td>
+          <td>Fresh deployment (Feb 2026)</td>
+          <td>Kuala Lumpur, Malaysia</td>
+        </tr>
+        <tr>
+          <td><b>2139 Exchange / Mega IG</b></td>
+          <td><code>2139exchange.com</code></td>
+          <td><span class="live">LIVE</span> (migrated)</td>
+          <td>100,000+ victims; $50&ndash;420M</td>
+          <td>Chinese / SE Asian</td>
+        </tr>
+        <tr>
+          <td><b>BIPPAX / BISSNEX / deptoy.co</b></td>
+          <td><code>deptoy.co</code> / <code>bissnex.com</code></td>
+          <td><span class="dead">DEAD</span></td>
+          <td>Known victim: $550K loss</td>
+          <td>Darryl Dorfman (Colorado/UK)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2: FMT CAPITAL -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+
+<div class="section">
+  <h2>Operation 1 &mdash; FMT Capital (<code>fmtcapitaltc.com</code>) <span class="badge badge-red">LIVE</span></h2>
+
+  <div class="box box-red">
+    <div class="label label-red">Active Operation &mdash; Launched February 2026</div>
+    <p style="margin-top:8px">
+      FMT Capital is a fresh deployment of a commercial pig-butchering kit targeting international investors under the guise of a regulated foreign-exchange and cryptocurrency trading platform. The FCA (UK) and CFTC (US) have both issued warnings; no archive or search-engine presence exists, indicating deliberate anti-forensic configuration.
+    </p>
+  </div>
+
+  <div class="grid2">
+    <div class="box box-dark">
+      <div class="label label-grey">Domain &amp; Registration</div>
+      <table>
+        <tr><td style="color:#8b949e;width:120px">Domain</td><td><code>fmtcapitaltc.com</code></td></tr>
+        <tr><td style="color:#8b949e">Registered</td><td>2025-08-26</td></tr>
+        <tr><td style="color:#8b949e">Registrar</td><td>Registrar.eu (OpenProvider, IANA ID 1647)</td></tr>
+        <tr><td style="color:#8b949e">Registrant</td><td>REDACTED — Wilayah Persekutuan Kuala Lumpur, <b>MY</b></td></tr>
+        <tr><td style="color:#8b949e">Expires</td><td>2026-08-26</td></tr>
+        <tr><td style="color:#8b949e">Nameservers</td><td>ace/lina.ns.cloudflare.com</td></tr>
+      </table>
+    </div>
+    <div class="box box-dark">
+      <div class="label label-grey">Regulatory Actions</div>
+      <table>
+        <tr><td style="color:#8b949e;width:120px">FCA (UK)</td><td>Blacklisted &mdash; unauthorised financial services</td></tr>
+        <tr><td style="color:#8b949e">CFTC (US)</td><td>RED List &mdash; Registration Deficient, unregistered foreign entity targeting US persons</td></tr>
+        <tr><td style="color:#8b949e">Wayback</td><td>No snapshots &mdash; robots.txt / Cloudflare bot block</td></tr>
+        <tr><td style="color:#8b949e">Search engines</td><td>No indexed presence (deliberate anti-forensics)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Platform: UWORK Pig-Butchering-as-a-Service</h3>
+  <p>
+    The technical architecture of <code>fmtcapitaltc.com</code> exactly matches the <b>UWORK</b> pig-butchering-as-a-service (PBaaS) kit documented by Infoblox in January 2026 and reported by <i>The Hacker News</i>. UWORK is a Chinese-operated (Taiwan-based vendor) platform selling complete fraud infrastructure packages starting at $50 for templates up to $2,500 for a full deployment including VPS, mobile app, MetaTrader integration, shell company paperwork, and regulatory registration assistance. The $2,500 full-kit architecture includes a two-panel CRM: an administrator/agent management panel and a victim-facing KYC/trading portal.
+  </p>
+
+  <div class="grid2">
+    <div class="box box-dark">
+      <div class="label label-grey">Technical Stack</div>
+      <ul>
+        <li>Framework: <b>ThinkPHP</b> (Chinese PHP MVC &mdash; signature of Chinese-sourced kits)</li>
+        <li>PHP: <b>7.4.33</b> (end of life Nov 2022 &mdash; unpatched)</li>
+        <li>Web server: <b>Nginx</b> behind Cloudflare</li>
+        <li>Database: <b>MySQL</b></li>
+        <li>Origin: Hidden behind Cloudflare; real server unknown from passive sources</li>
+        <li>Management panel: CTG Server HK for origin hosting layer</li>
+      </ul>
+    </div>
+    <div class="box box-dark">
+      <div class="label label-grey">Panels &amp; Subdomains</div>
+      <table>
+        <tr><td style="color:#8b949e">broker.fmtcapitaltc.com</td><td>Manager/agent login (Chinese-language UI); ThinkPHP; cert issued 2026-02-16</td></tr>
+        <tr><td style="color:#8b949e">trader.fmtcapitaltc.com</td><td>Victim CRM &mdash; 8 languages including Arabic; KYC upload; cert 2026-02-16</td></tr>
+        <tr><td style="color:#8b949e">*.fmtcapitaltc.com</td><td>Wildcard cert issued 2026-02-19 (3 days after panel certs)</td></tr>
+        <tr><td style="color:#8b949e">www.fmtcapitaltc.com</td><td>Main domain cert issued 2026-02-26</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Mail Infrastructure</h3>
+  <p>
+    The dedicated mail server <code>mail-ussl.com</code> was registered July 2023 via Hostinger &mdash; <b>over two years before the fmtcapitaltc.com domain</b> &mdash; suggesting it was prepared in advance or shared across operations. The mail server's real IP bypasses Cloudflare: <code>mx.mail-ussl.com</code> resolves to <code>67.216.195.233</code> at <b>IT7 Networks / Cluster Logic Inc</b> (AS25820, Los Angeles, CA). IT7 Networks is a known bulletproof-adjacent hosting provider. Both <code>mail-ussl.com</code> and <code>fmtcapitaltc.com</code> use the same Cloudflare nameserver pair (ace/lina.ns.cloudflare.com), strongly suggesting a single Cloudflare account manages both.
+  </p>
+
+  <div class="box box-dark">
+    <div class="label label-grey">Certificate Timeline &mdash; 6-Month Gap Between Registration and Launch</div>
+    <table>
+      <thead><tr><th>Date</th><th>Certificate Issued</th><th>Significance</th></tr></thead>
+      <tbody>
+        <tr><td>2025-08-26</td><td>Domain registered (fmtcapitaltc.com)</td><td>Preparation phase; registered same day as stratiformspi/stratiformsps batch</td></tr>
+        <tr><td>2026-02-16</td><td>broker.fmtcapitaltc.com + trader.fmtcapitaltc.com</td><td>Operation panels go live &mdash; 6 months after registration</td></tr>
+        <tr><td>2026-02-19</td><td>*.fmtcapitaltc.com (wildcard)</td><td>Full infrastructure secured</td></tr>
+        <tr><td>2026-02-26</td><td>fmtcapitaltc.com + www.fmtcapitaltc.com</td><td>Public-facing domain activated</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3: 2139 EXCHANGE -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+
+<div class="section">
+  <h2>Operation 2 &mdash; 2139 Exchange / Mega Investment Group <span class="badge badge-orange">2139 LIVE</span> <span class="badge badge-grey">MEGA DEAD</span></h2>
+
+  <div class="box box-orange">
+    <div class="label label-orange">Largest Confirmed Operation &mdash; Estimated $50M&ndash;$420M Stolen</div>
+    <p style="margin-top:8px">
+      The 2139 Exchange is the largest operation in this cluster by victim count and financial scale. Designated as <b>Italy's worst cryptocurrency fraud case</b> by CONSOB (the Italian securities regulator), it operated a TRON-based fake investment exchange serving over 100,000 victims globally before a regulatory crackdown forced migration from its original hosting to VEESP Latvia. As of 2026-03-27 the main domain remains live with a cert renewed on 2026-03-19.
+    </p>
+  </div>
+
+  <div class="grid2">
+    <div class="box box-dark">
+      <div class="label label-grey">Scale &amp; Victims</div>
+      <table>
+        <tr><td style="color:#8b949e;width:140px">Global victims</td><td>100,000+ estimated</td></tr>
+        <tr><td style="color:#8b949e">Italian victims</td><td>20,000+ (Lecce/Perugia hardest hit)</td></tr>
+        <tr><td style="color:#8b949e">Max individual loss</td><td>&euro;100,000</td></tr>
+        <tr><td style="color:#8b949e">Total deposited</td><td>$200M+ estimated</td></tr>
+        <tr><td style="color:#8b949e">Confirmed stolen (on-chain)</td><td>$50M</td></tr>
+        <tr><td style="color:#8b949e">Traced toward Binance</td><td>$27M+</td></tr>
+        <tr><td style="color:#8b949e">Total range estimate</td><td>$50M &ndash; $420M</td></tr>
+      </table>
+    </div>
+    <div class="box box-dark">
+      <div class="label label-grey">Regulatory Actions</div>
+      <table>
+        <tr><td style="color:#8b949e;width:140px">CONSOB Italy</td><td>Blacklisted 2024-09-20; additional domain blackouts Oct 2024 (2139.online, 2139.ltd, 2139.fun) &mdash; Italy's worst crypto fraud case</td></tr>
+        <tr><td style="color:#8b949e">FCA UK</td><td>Warning issued</td></tr>
+        <tr><td style="color:#8b949e">GdF Lecce</td><td>Criminal investigation opened (Lecce, Apulia)</td></tr>
+        <tr><td style="color:#8b949e">False claims</td><td>Fabricated ACRA (SG), SEC (US), FinCEN (US) registrations</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Infrastructure &amp; Current Hosting</h3>
+  <p>
+    After CONSOB blacklisted the exchange in September 2024, operators migrated from their original hosting to <b>VEESP Latvia</b> (AS42532, Riga). The main domain cert was renewed 2026-03-19, confirming active maintenance post-migration. The subdomain structure &mdash; <code>hr.</code>, <code>portal.</code>, <code>sharepoint.</code>, <code>intranet.</code>, <code>dev.</code>, <code>api.</code> &mdash; mirrors a corporate IT environment, deliberately created to appear legitimate. This mirrors the aaPanel/BaoTa Chinese panel structure also seen at aztex.eu. All subdomains are currently dead; only the main domain resolves.
+  </p>
+
+  <div class="box box-dark">
+    <div class="label label-grey">Subdomain Build-Out Timeline (crt.sh)</div>
+    <table>
+      <thead><tr><th>Date</th><th>Subdomain</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>2024-07-08</td><td>2139exchange.com registered (Porkbun)</td><td>Initial registration</td></tr>
+        <tr><td>2025-11-01</td><td>portal.2139exchange.com</td><td>User portal</td></tr>
+        <tr><td>2025-11-02</td><td>hr.2139exchange.com</td><td>HR system (corporate legitimacy facade)</td></tr>
+        <tr><td>2025-11-09</td><td>sharepoint.2139exchange.com</td><td>Document storage</td></tr>
+        <tr><td>2025-11-13</td><td>wwww.2139exchange.com</td><td>Typo variant / traffic capture</td></tr>
+        <tr><td>2026-01-16</td><td>dev.2139exchange.com</td><td>Development instance</td></tr>
+        <tr><td>2026-01-26</td><td>www.2139exchange.com</td><td>Public-facing site</td></tr>
+        <tr><td>2026-01-30</td><td>intranet.2139exchange.com</td><td>Internal management panel</td></tr>
+        <tr><td>2026-01-31</td><td>api.2139exchange.com</td><td>Backend API</td></tr>
+        <tr><td>2026-03-19</td><td>2139exchange.com (main cert renewed)</td><td>Post-CONSOB migration confirmed on VEESP Latvia</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Linked Platform: Mega Investment Group</h3>
+  <p>
+    <code>megat.vip</code> (Mega Investment Group) operated as a feeder platform within the same Telegram ecosystem as 2139exchange. Its archived contact email is <code>admin@megaig.vip</code>; the Telegram channel is <b>@mega_ig</b> (channel ID 1227836042). The platform fabricated a founder identity &mdash; <b>"Logan Smith"</b> (stock photo), claimed founded Denver 2015, claimed $98.2B AUM (text lifted verbatim from a legitimate fund's marketing materials). The platform is now dead; <code>megaig.vip</code> is under registry suspension (clientHold) with all DNS records removed.
+  </p>
+
+  <h3>On-Chain Attribution</h3>
+  <p>
+    2139exchange operated primarily on the <b>TRON blockchain</b> with secondary Ethereum activity. Italian investigators and Decripto.org on-chain analysis identified that TRON energy fees for 2139exchange wallets originated from <b>Feee.io</b> and <b>CCB-Exchange</b>, both assessed as Asian-origin scam infrastructure &mdash; pointing to Chinese criminal operators controlling the backend. Over $27M has been traced moving toward Binance accounts post-CONSOB action. The Italian promoter persona <b>"Mentor Claus"</b> served as the Italian-language Telegram intermediary between operators and victims; the GdF Lecce criminal investigation is open and may have identified this individual through domestic telco records.
+  </p>
+
+  <h3>Fabricated Corporate Identity</h3>
+  <div class="box box-dark">
+    <div class="label label-grey">megat.vip Archive Findings (2024-10-03 Snapshot)</div>
+    <table>
+      <thead><tr><th>Claimed</th><th>Reality</th></tr></thead>
+      <tbody>
+        <tr><td>Founder: "Logan Smith"</td><td>Stock photo &mdash; fictitious identity</td></tr>
+        <tr><td>Founded: Denver, USA, 2015</td><td>Domain registered May 2023 &mdash; 8 years after claimed founding</td></tr>
+        <tr><td>AUM: ~$98.2 billion (as of "September 2007")</td><td>Plagiarised verbatim from a legitimate asset manager's marketing materials</td></tr>
+        <tr><td>Offices: LA, SF, London, Paris, Mumbai, HK, Tokyo</td><td>No verified physical presence at any location</td></tr>
+        <tr><td>Team members: Adam Taylor, Aditsan Lewis, Conrad Wilson, etc.</td><td>Stock photo personas &mdash; none verified as real individuals</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-blue" style="margin-top:16px">
+    <div class="label label-blue">Confirmed Linked Platforms</div>
+    <ul>
+      <li><b>9k9m.com</b> &mdash; confirmed clone using identical SHARE-DNS infrastructure (Gname.com registrar, A.SHARE-DNS.COM nameserver); certs 2022-10 through 2025-10; now DEAD after exposure; identified by Italian investigators as a 2139 clone</li>
+      <li><b>"Dolphin" exchange</b> &mdash; also linked per prior intelligence</li>
+      <li><b>megat.vip / megaig.vip</b> &mdash; feeder platform; same Telegram ecosystem; $50&ndash;70M total victims reported; contact: admin@megaig.vip</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 4: BIPPAX / BISSNEX / DEPTOY -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+
+<div class="section">
+  <h2>Operation 3 &mdash; BIPPAX / deptoy.co / BISSNEX <span class="badge badge-grey">DEAD</span></h2>
+
+  <div class="box box-dark">
+    <div class="label label-grey">Status: Dismantled &mdash; deptoy.co Expired March 2026; bissnex.com NXDOMAIN; dacm-crypto.top Live on Russian Server</div>
+    <p style="margin-top:8px">
+      The BIPPAX/BISSNEX operation is the thread that unravelled the broader network. A victim was directed to <code>deptoy.co</code> in July 2024 and lost approximately $10,000 in Bitcoin. The platform was a white-label deployment of the BIPPAX fake exchange kit; the corporate entity behind it &mdash; BISSNEX CRYPTO GROUP LIMITED &mdash; was registered in Canada and linked via domain registration records to <b>Darryl Joel Dorfman</b> of Broomfield, Colorado. Dorfman maintained multiple Colorado and UK shell companies as a Western-facing corporate layer over the operation.
+    </p>
+  </div>
+
+  <div class="grid2">
+    <div class="box box-dark">
+      <div class="label label-grey">Corporate Entity</div>
+      <table>
+        <tr><td style="color:#8b949e;width:140px">Company</td><td>BISSNEX CRYPTO GROUP LIMITED (formerly BIPPAX CRYPTO GROUP LIMITED, formerly ALPHA TECHNOLOGY HOLDING LIMITED)</td></tr>
+        <tr><td style="color:#8b949e">Jurisdiction</td><td>Canada, Corp #1231288-3</td></tr>
+        <tr><td style="color:#8b949e">Director alias</td><td>"Jack Williams" (Dorfman alias used in filings)</td></tr>
+        <tr><td style="color:#8b949e">Status</td><td>Dissolved July 2025</td></tr>
+        <tr><td style="color:#8b949e">FINTRAC MSB</td><td>M20852872 (lapsed)</td></tr>
+      </table>
+    </div>
+    <div class="box box-dark">
+      <div class="label label-grey">Victim Transaction Data</div>
+      <table>
+        <tr><td style="color:#8b949e;width:140px">Date</td><td>July 2024</td></tr>
+        <tr><td style="color:#8b949e">Amount lost</td><td>~$10,000 USD (two BTC transactions)</td></tr>
+        <tr><td style="color:#8b949e">TX 1</td><td>2024-07-25 &mdash; 0.07622126 BTC</td></tr>
+        <tr><td style="color:#8b949e">TX 2</td><td>2024-07-26 &mdash; 0.07348114 BTC</td></tr>
+        <tr><td style="color:#8b949e">Deposit address</td><td><code>129z2g1vNMvVes3yiwbnVS8KtMSZFGm7Mc</code></td></tr>
+        <tr><td style="color:#8b949e">Platform instance</td><td>BIPPAX-185 (white-label)</td></tr>
+        <tr><td style="color:#8b949e">Known victim (BIPPAX-185)</td><td>$550,000 loss (documented)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Shared Codebase Proof</h3>
+  <p>
+    JavaScript extracted from <code>deptoy.co</code> matches the codebase fingerprint of <code>bissnex.com</code> &mdash; confirming both domains deployed the same development kit. The Wayback Machine (October 2024) captured <code>bissnex.com</code> with the page title "DacmCrypto" and a JavaScript download link pointing to <code>dacm-crypto.top</code>. That domain resolves to <code>94.26.255.20</code> &mdash; a server at <b>JSC Selectel, Saint Petersburg, Russia</b> &mdash; and remains live as of March 2026 (nginx 1.28.2 + PHP 8.2.29).
+  </p>
+
+  <h3>Operator: Darryl Joel Dorfman</h3>
+  <p>
+    The OSINT trail from deptoy.co leads to Darryl Joel Dorfman (b. June 1971, American), whose confirmed home address from UK Companies House is <b>90 Interlocken Crescent, Broomfield, CO 80021</b>. Dorfman maintained at least 17 Colorado shell companies and 4 UK companies as the Western-facing corporate layer. Key current entities include <b>DUTT Cryptocurrency Exchange Ltd</b> (CO Corp #20211357517, live at mdutton.com, FinCEN MSB registered, AWS hosting) and the <b>Nanolite Foundation</b> (Colorado nonprofit, still in Good Standing, BaFin-warned August 2025). See the <a href="operators.html">Operators</a> page for full detail.
+  </p>
+
+  <div class="box box-dark">
+    <div class="label label-grey">Pivot: dacm-crypto.top &mdash; Still Live on Russian Server</div>
+    <table>
+      <thead><tr><th>Field</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Domain</td><td><code>dacm-crypto.top</code></td></tr>
+        <tr><td>IP</td><td><code>94.26.255.20</code></td></tr>
+        <tr><td>Host</td><td>AS204720 JSC Selectel, Saint Petersburg, Russia (via fastfox.pro)</td></tr>
+        <tr><td>Stack</td><td>nginx 1.28.2 + PHP 8.2.29</td></tr>
+        <tr><td>Link</td><td>Bissnex.com JS download target (confirmed in Wayback Oct 2024)</td></tr>
+        <tr><td>Status</td><td><span class="live">LIVE as of 2026-03-27</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Related Active Entities</h3>
+  <ul>
+    <li><b>mdutton.com</b> (DUTT Exchange) &mdash; live, Cloudflare, Gname.com registrar; same registrar as SHARE-DNS.COM</li>
+    <li><b>nanolite-foundationnlf.com</b> &mdash; BaFin warned August 2025; co-hosted on CTG Server HK 202.79.174.5 alongside the fmtcapitaltc.com management panel &mdash; direct infrastructure link between Dorfman and the HK operation</li>
+    <li><b>cappofx.com</b> (Cappo FX) &mdash; live, Cloudflare, GoDaddy registrar</li>
+  </ul>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 5: TIMELINE -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+
+<div class="section">
+  <h2>Operation Timeline</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:130px">Date</th>
+        <th>Event</th>
+        <th>Significance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2021-03-03</td>
+        <td>aztex.eu cPanel certs issued (cpanel, autodiscover, webdisk, webmail)</td>
+        <td>AZTEX operation begins; criminal infrastructure established on Contabo FR server</td>
+      </tr>
+      <tr>
+        <td>2022-06-30</td>
+        <td>SHARE-DNS.COM and SHARE-DNS.NET registered via Gname.com</td>
+        <td>Criminal DNS infrastructure created &mdash; will eventually serve 800K+ malicious domains</td>
+      </tr>
+      <tr>
+        <td>2022-07-31</td>
+        <td>Scam 1: 0.848 BTC stolen from victim wallet (41-output fan-out laundering)</td>
+        <td>Funds traced to master scammer wallet 3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy; 97.25 BTC aggregated to Binance</td>
+      </tr>
+      <tr>
+        <td>2023-03-09</td>
+        <td>route-finder.aztex.eu cert issued</td>
+        <td>Custom money-mule routing tool deployed on AZTEX server &mdash; BIPPAX active period begins</td>
+      </tr>
+      <tr>
+        <td>2023-07-07</td>
+        <td>route-lister.aztex.eu cert issued</td>
+        <td>Companion routing tool; BIPPAX at peak activity</td>
+      </tr>
+      <tr>
+        <td>2023-07-29</td>
+        <td>mail-ussl.com registered (Hostinger)</td>
+        <td>Dedicated mail server for fmtcapitaltc.com prepared over 2 years in advance</td>
+      </tr>
+      <tr>
+        <td>2024-07-08</td>
+        <td>2139exchange.com registered (Porkbun)</td>
+        <td>2139 Exchange launches; same Porkbun nameserver cluster as aztex.eu = same operator</td>
+      </tr>
+      <tr>
+        <td>2024-07-25/26</td>
+        <td>Scam 2: ~$10,000 stolen via deptoy.co (BIPPAX-185)</td>
+        <td>Victim's Robinhood BTC sent to deptoy.co deposit address; leads to full OSINT investigation</td>
+      </tr>
+      <tr>
+        <td>2024-09-20</td>
+        <td>CONSOB Italy blacklists 2139exchange.com</td>
+        <td>Italy's worst crypto fraud case designated; additional domain blackouts through Oct 2024</td>
+      </tr>
+      <tr>
+        <td>2025-07</td>
+        <td>BISSNEX CRYPTO GROUP LIMITED dissolved (Canada)</td>
+        <td>Corporate shell wound down; bissnex.com goes dark; FINTRAC MSB lapsed</td>
+      </tr>
+      <tr>
+        <td>2025-08-22</td>
+        <td>BaFin warns on Nanolite Foundation (Dorfman)</td>
+        <td>German regulator documents pig-butchering via WhatsApp; 550% returns in 40 days claimed</td>
+      </tr>
+      <tr>
+        <td>2025-08-26</td>
+        <td>fmtcapitaltc.com registered (Registrar.eu, MY/KL registrant)</td>
+        <td>Same-day batch with stratiformspi.com and stratiformsps.com &mdash; coordinated registration</td>
+      </tr>
+      <tr>
+        <td>2025-11-01 to 2026-01-31</td>
+        <td>2139exchange subdomains added (portal, hr, sharepoint, intranet, dev, api)</td>
+        <td>Corporate legitimacy facade built out post-CONSOB; migration to VEESP Latvia underway</td>
+      </tr>
+      <tr>
+        <td>2026-02-16/19</td>
+        <td>fmtcapitaltc.com broker/trader/wildcard certs issued</td>
+        <td>FMT Capital goes operational &mdash; 6 months after domain registration</td>
+      </tr>
+      <tr>
+        <td>2026-02-19</td>
+        <td>aztex.eu: bitwarden.aztex.eu cert renewed</td>
+        <td>AZTEX Bitwarden + mail infrastructure confirmed active</td>
+      </tr>
+      <tr>
+        <td>2026-03-01</td>
+        <td>aztexchange.com registered (Realtime Register)</td>
+        <td>New AZTEX exchange domain attempted</td>
+      </tr>
+      <tr>
+        <td>2026-03-01 (within ~48hrs)</td>
+        <td>aztexchange.com suspended (clientHold)</td>
+        <td>Registrar or abuse report flags domain; NS set to suspended-domain.com; attempt abandoned</td>
+      </tr>
+      <tr>
+        <td>2026-03-19</td>
+        <td>2139exchange.com cert renewed (VEESP Latvia)</td>
+        <td>Post-CONSOB migration confirmed; operation continues under new hosting 185.22.174.75</td>
+      </tr>
+      <tr>
+        <td>2026-03-25</td>
+        <td>deptoy.co expires / NXDOMAIN</td>
+        <td>BIPPAX/BISSNEX operation fully dead; domain dropped without renewal</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  Investigation Report &mdash; The Operations &mdash; Updated 2026-03-27 &mdash;
+  <a href="operators.html">Operators</a> &mdash;
+  <a href="infrastructure.html">Infrastructure</a> &mdash;
+  <a href="domains.html">Domain IOC List</a>
+</div>
+
+</div><!-- end content -->
+</body>
+</html>

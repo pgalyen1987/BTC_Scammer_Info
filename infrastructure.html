@@ -2,17 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Page 4: Criminal Infrastructure</title>
+<title>Infrastructure — Pig-Butchering Network Investigation</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;font-size:13px}
-.header{background:#161b22;padding:18px 28px;border-bottom:2px solid #9b59b6}
-.header h1{color:#9b59b6;font-size:20px;margin-bottom:4px}
+.header{background:#161b22;padding:18px 28px;border-bottom:2px solid #2ecc71}
+.header h1{color:#2ecc71;font-size:20px;margin-bottom:4px}
 .sub{color:#8b949e;font-size:12px}
 .nav-bar{background:#161b22;border-bottom:1px solid #30363d;padding:8px 28px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px}
 .nav-bar a{color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:4px;border:1px solid transparent}
-.nav-bar a:hover{color:#f0f6fc;background:#21262d}
-.nav-bar a.active{color:#f0f6fc;background:#21262d;border-color:#9b59b6}
+.nav-bar a:hover,.nav-bar a.active{color:#f0f6fc;background:#21262d;border-color:#2ecc71}
+.stat-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px;text-align:center}
+.stat-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#8b949e;margin-bottom:6px}
+.stat-val{font-size:24px;font-weight:bold;margin-bottom:4px}
+.stat-sub{font-size:11px;color:#8b949e}
+.box-purple{background:#1a0a2a;border:2px solid #9b59b6}
+.label-purple{color:#9b59b6}
 .content{max-width:960px;margin:0 auto;padding:28px}
 .section{margin-bottom:32px}
 .section h2{color:#f0f6fc;font-size:16px;border-bottom:1px solid #30363d;padding-bottom:8px;margin-bottom:14px}
@@ -56,29 +61,41 @@ li{margin-bottom:2px}
 <body>
 
 <div class="header">
-  <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#8b949e;margin-bottom:6px">Investigation Report &mdash; Page 4 of 6</div>
-  <h1>Criminal Infrastructure</h1>
+  <h1>Technical Infrastructure</h1>
   <div class="sub">Technical IOCs only &mdash; <a href="the-two-scams.html" style="color:#9b59b6">deptoy&rarr;CTG story is on Page 1</a> &nbsp;|&nbsp; <a href="layer1.html" style="color:#9b59b6">Layer 1 Deep Dive &rarr;</a></div>
 </div>
 
 <div class="nav-bar">
-  <a href="index.html">&larr; Contents</a>
-  <a href="the-two-scams.html">1. The Two Scams</a>
-  <a href="blockchain-trail.html">2. Following the Money</a>
-  <a href="corporate-network.html">3. Corporate Network</a>
-  <a class="active" href="infrastructure.html">4. Infrastructure</a>
-  <a href="personas.html">5. Personas</a>
-  <a href="law-enforcement.html">6. Law Enforcement</a>
+  <a href="index.html">Overview</a>
+  <a href="operations.html">Operations</a>
+  <a href="operators.html">Operators</a>
+  <a class="active" href="infrastructure.html">Infrastructure</a>
+  <a href="domains.html">Domains</a>
+  <a href="corporate-network.html">Corporate</a>
+  <a href="blockchain-trail.html">Blockchain</a>
+  <a href="law-enforcement.html">Law Enforcement</a>
 </div>
 
 <div class="content">
 
-<!-- ── HOW WE GOT HERE ── -->
+<!-- ── OVERVIEW ── -->
 <div class="section">
-  <h2>How We Got Here</h2>
-  <p style="line-height:1.8">
-    <a href="the-two-scams.html">Page 1</a> explains how <b>deptoy.co</b> &rarr; BIPPAX &rarr; Dorfman &rarr; <b>nanolite-foundationnlf.com</b> &rarr; <b>CTG Server Limited</b> (<code>202.79.174.5</code>) &rarr; <b>SHARE-DNS</b> / Gname. <b>This page</b> is the technical appendix: IPs, ASN, nameservers, hosted domains, and operator fingerprints &mdash; not a second copy of the victim narrative.
+  <h2>Infrastructure Cluster Overview</h2>
+  <p style="line-height:1.8;margin-bottom:14px">
+    The criminal network spans six server clusters across four jurisdictions, a dedicated DNS infrastructure serving ~800K+ malicious domains, and residential broadband access points in the UK. This page covers IPs, ASN, nameservers, hosted domains, and operator fingerprints.
   </p>
+  <table>
+    <thead><tr><th>Cluster</th><th>IP</th><th>Host / ASN</th><th>Role</th></tr></thead>
+    <tbody>
+      <tr style="background:#0a1a0a"><td><b>CTG Server HK</b></td><td><code>202.79.174.5</code></td><td>CTG Server Ltd, Tung Chung HK — AS152194</td><td>~50 scam domains; MySQL 3306 exposed to internet</td></tr>
+      <tr style="background:#1a0800"><td><b>AZTEX Primary</b></td><td><code>194.60.201.83</code></td><td>Contabo GmbH, France — AS51167</td><td>Criminal ops hub: Bitwarden, Matrix, Nextcloud, RDP, mail</td></tr>
+      <tr style="background:#1a0800"><td><b>AZTEX Dev/Storage</b></td><td><code>37.27.206.233</code></td><td>Hetzner Online, Helsinki — AS24940</td><td>MinIO S3, FTP, dev staging</td></tr>
+      <tr style="background:#0a1520"><td><b>2139exchange</b></td><td><code>185.22.174.75</code></td><td>SIA VEESP, Riga Latvia — AS42532</td><td>2139exchange.com; CONSOB Italy blacklisted</td></tr>
+      <tr><td><b>BIPPAX Mail</b></td><td><code>67.216.195.233</code></td><td>IT7 Networks, Los Angeles — AS25820</td><td>mail-ussl.com SMTP for fmtcapitaltc.com</td></tr>
+      <tr><td><b>BIPPAX Russian</b></td><td><code>94.26.255.20</code></td><td>Selectel JSC, Saint Petersburg — AS204720</td><td>dacm-crypto.top (linked via bissnex.com)</td></tr>
+      <tr style="background:#1a0d00"><td><b>TalkTalk UK (BARRY)</b></td><td><code>79.78.160.133</code></td><td>TalkTalk, Essex UK — AS13285</td><td>Residential; RDP cert CN=<b>AZTEX-BARRY</b></td></tr>
+    </tbody>
+  </table>
 </div>
 
 <!-- ── AZTEX ── -->
@@ -125,9 +142,30 @@ li{margin-bottom:2px}
     </div>
   </div>
 
+  <h3>Exposed Paths — 2026-03-27 Scan <span class="badge badge-red">NEW</span></h3>
+  <div class="box box-red">
+    <div class="label label-red">Critical Exposures Identified</div>
+    <table style="font-size:12px">
+      <thead><tr><th>Path</th><th>Risk</th><th>Significance</th></tr></thead>
+      <tbody>
+        <tr><td><code>/wp-config</code></td><td><span class="badge badge-red">CRITICAL</span></td><td>May expose database credentials</td></tr>
+        <tr><td><code>/jmx-console</code></td><td><span class="badge badge-red">CRITICAL</span></td><td>JBoss RCE attack path (CVE-2010-0738 class)</td></tr>
+        <tr><td><code>/backup</code></td><td><span class="badge badge-orange">HIGH</span></td><td>Potential full backup file exposure</td></tr>
+        <tr><td><code>/console</code></td><td><span class="badge badge-orange">HIGH</span></td><td>Admin console</td></tr>
+        <tr><td><code>/_debug</code></td><td><span class="badge badge-orange">HIGH</span></td><td>Debug interface</td></tr>
+        <tr><td><code>/phpinfo</code></td><td><span class="badge badge-blue">MED</span></td><td>PHP environment info disclosure</td></tr>
+        <tr><td><code>/admin</code></td><td><span class="badge badge-blue">MED</span></td><td>Admin panel</td></tr>
+        <tr><td><code>/server-status</code></td><td><span class="badge badge-blue">MED</span></td><td>Apache server-status disclosure</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="box box-dark" style="font-size:12px;line-height:1.8;margin-top:10px">
+    <b>Open redirect:</b> <code>mail.aztex.eu?v=</code> parameter redirects to arbitrary URL — usable for phishing. <b>Open ports (2026-03-27):</b> 22 (OpenSSH 9.6p1), 143/465/587/993 (full mail stack), 3389 (RDP active). <b>Server:</b> Caddy web server, Ubuntu Linux. <b>IPv6:</b> <code>2a02:c207:2298:2627::1/64</code>. <b>API:</b> /v1, /v2, /v3, /rest, /api endpoints. <b>SPF:</b> <code>v=spf1 ip4:194.60.201.83 ip6:2a02:c207:2298:2627::1/64 include:_spf.porkbun.com -all</code>
+  </div>
+
   <h3>Dev/Staging Server &mdash; 37.27.206.233 (Finland)</h3>
   <div class="box box-dark" style="font-size:12px;line-height:1.8">
-    Provider: Hetzner Online (AS24940), Helsinki &bull; TLS cert: t-contest.aztex.digital &bull; Services: Redis (6379), MinIO Console (9000) &bull; Purpose: development and testing
+    Provider: Hetzner Online (AS24940), Helsinki &bull; TLS cert: t-contest.aztex.digital &bull; Services: Pure-FTPd (21), Redis (6379), MinIO S3 Console (9000/9001), port 887 (unknown) &bull; Purpose: development, testing, and file storage
   </div>
 
   <h3>UK Operator "BARRY" &mdash; 79.78.160.133 (England)</h3>
@@ -181,9 +219,10 @@ li{margin-bottom:2px}
 
 <!-- ── HK SERVER ── -->
 <div class="section">
-  <h2>Hong Kong Scam Server Farm &mdash; 202.79.174.5</h2>
+  <h2>One CTG Server IP: 202.79.174.5</h2>
   <p style="line-height:1.8;margin-bottom:12px">
-    This server hosts <b>39 confirmed phishing domains</b> (passive urlscan.io data, Sep 2025–Mar 2026), including the Nanolite Foundation site warned about by BaFin. Two distinct victim populations are targeted simultaneously: Japanese retail investors (fake FSA + securities typosquats) and English-language investors (Goldman Sachs, Warburg Pincus, Wellington, AllianceBernstein spoofs). Full domain analysis: <a href="layer1.html#sec-ctg">Layer 1 Deep Dive →</a>
+    <b>How we got here:</b> DNS lookup on <code>nanolite-foundationnlf.com</code> (a domain traced from Dorfman via BaFin warning) returned <code>202.79.174.5</code>. That IP falls within CTG Server Limited&rsquo;s network block (AS152194). CTG Server has <b>22,212 IPs across 467 prefixes</b> &mdash; this is one of them. The scam operator is an unknown CTG customer who rented a server at this address; CTG Server as a company is not established as a knowing participant.<br><br>
+    A reverse-IP lookup (passive DNS, urlscan.io, Sep 2025&ndash;Mar 2026) showed <b>39 other domains</b> also resolving to this same IP, all typosquats of financial firms using SHARE-DNS nameservers. Note: CTG Server may have many other IPs also hosting scam content &mdash; we only identified this one because a thread led here. Full domain analysis: <a href="layer1.html#sec-ctg">Layer 1 Deep Dive &rarr;</a>
   </p>
 
   <div class="grid2">
@@ -244,7 +283,7 @@ li{margin-bottom:2px}
 <div class="section">
   <h2>SHARE-DNS &mdash; Industrial-Scale Scam DNS</h2>
   <p style="line-height:1.8;margin-bottom:14px">
-    All the Hong Kong server domains, the Japanese typosquats, and the Malaysian impersonation sites share one fingerprint: they all use nameservers under <b>SHARE-DNS.COM</b> and <b>SHARE-DNS.NET</b>. These two domains were registered on the same day by the same Gname.com account that also registered <b>mdutton.com</b> (the DUTT Exchange platform).
+    All the domains observed on the Hong Kong server, the Japanese typosquats, and the Malaysian impersonation sites share one fingerprint: they use nameservers under <b>SHARE-DNS.COM</b> and <b>SHARE-DNS.NET</b>. Both SHARE-DNS domains and <b>mdutton.com</b> (DUTT Exchange) are registered at the same registrar, <b>Gname.com</b>. Whether they share the same Gname <em>account</em> is unconfirmed &mdash; registrant details are privacy-redacted in WHOIS. A subpoena to Gname is required to establish account-level linkage.
   </p>
 
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0">
@@ -254,10 +293,12 @@ li{margin-bottom:2px}
     <div class="stat-card"><div class="stat-lbl">Backend</div><div class="stat-val" style="color:#2ecc71;font-size:16px">Cloudflare</div><div class="stat-sub">Real IPs hidden</div></div>
   </div>
 
-  <div class="box box-red">
-    <div class="label label-red">ONE GNAME.COM ACCOUNT CONTROLS EVERYTHING</div>
+  <div class="box box-orange">
+    <div class="label label-orange">SAME REGISTRAR (GNAME.COM) — ACCOUNT LINK UNCONFIRMED WITHOUT SUBPOENA</div>
     <div style="font-size:12px;line-height:1.9">
-      The same <b>Gname.com Pte. Ltd. (Singapore)</b> registration account controls at minimum: SHARE-DNS.COM, SHARE-DNS.NET, mdutton.com (DUTT), and the typosquat domains listed in <a href="layer1.html">Layer 1</a>. Abuse/registrar contact <code>zys@gname.com</code> appears on WHOIS for domains in that set; AlienVault OTX lists related IOCs (verify in OTX).
+      <b>Confirmed:</b> SHARE-DNS.COM, SHARE-DNS.NET, mdutton.com (DUTT), and the typosquat domains in <a href="layer1.html">Layer 1</a> are all registered at <b>Gname.com Pte. Ltd.</b> (Singapore, IANA ID 1923).<br><br>
+      <b>Not confirmed:</b> Whether they share the same Gname <em>account</em>. Live WHOIS returns all registrant fields as privacy-redacted; mdutton.com registrant country is <b>US</b>, SHARE-DNS registrant country is <b>SG</b>. The email <code>zys@gname.com</code> appears as registrar abuse contact on Malaysian typosquat domains (per Whoisology / AlienVault OTX) &mdash; not on mdutton.com itself.<br><br>
+      <b>Same registrar is a strong lead, not proof of same account.</b> A Gname.com subpoena (Singapore MLAT) is the path to account-level confirmation.
     </div>
   </div>
 
@@ -291,9 +332,9 @@ li{margin-bottom:2px}
 </div>
 
 <div class="footer">
-  <a href="corporate-network.html">&larr; Page 3: Corporate Network</a> &nbsp;|&nbsp;
-  <b>Page 4: Infrastructure</b> &nbsp;|&nbsp;
-  <a href="personas.html">Page 5: Personas &rarr;</a>
+  <a href="corporate-network.html">&larr; Corporate</a> &nbsp;|&nbsp;
+  <b>Infrastructure</b> &nbsp;|&nbsp;
+  <a href="domains.html">Domains &rarr;</a>
 </div>
 
 </div>
