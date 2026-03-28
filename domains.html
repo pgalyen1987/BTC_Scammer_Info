@@ -43,13 +43,21 @@ p{line-height:1.8;margin-bottom:10px}
 .stat-val{font-size:24px;font-weight:bold;margin-bottom:4px}
 .stat-sub{font-size:11px;color:#8b949e}
 .live{color:#2ecc71;font-weight:bold}.dead{color:#e74c3c}.unknown{color:#8b949e}
+.conf-confirmed{border-left:4px solid #2ecc71}
+.conf-high{border-left:4px solid #f39c12}
+.conf-medium{border-left:4px solid #3498db}
+.conf-low{border-left:4px solid #30363d}
+.badge-conf-confirmed{background:#2ecc71;color:#111}
+.badge-conf-high{background:#f39c12;color:#111}
+.badge-conf-medium{background:#3498db;color:#fff}
+.badge-conf-low{background:#30363d;color:#c9d1d9}
 </style>
 </head>
 <body>
 
 <div class="header">
   <h1>Domain Inventory</h1>
-  <div class="sub">All documented domains in the criminal network — grouped by cluster, with IP, registrar, status, and notes</div>
+  <div class="sub">All documented domains — grouped by cluster, with operator attribution confidence</div>
 </div>
 
 <div class="nav-bar">
@@ -78,10 +86,24 @@ p{line-height:1.8;margin-bottom:10px}
   </div>
 </div>
 
+<div class="section">
+  <h2>Attribution Confidence Key</h2>
+  <p style="font-size:12px;color:#8b949e;margin-bottom:12px">Not all domains listed here are operated by the same people behind deptoy.co. Each group is rated by how directly it can be attributed to the deptoy.co criminal network.</p>
+  <table>
+    <thead><tr><th>Level</th><th>Meaning</th><th>Evidence basis</th></tr></thead>
+    <tbody>
+      <tr class="conf-confirmed"><td><span class="badge badge-conf-confirmed">CONFIRMED</span></td><td>Same operator as deptoy.co — proven</td><td>Shared TLS certs on same server, shared JS codebase, identical DNS fingerprint (same registrar account)</td></tr>
+      <tr class="conf-high"><td><span class="badge badge-conf-high">HIGH</span></td><td>Almost certainly same operator</td><td>Direct hyperlink from confirmed domain, or same named individual (Dorfman) as registered owner</td></tr>
+      <tr class="conf-medium"><td><span class="badge badge-conf-medium">MEDIUM</span></td><td>Different operator, overlapping infrastructure</td><td>Co-hosted on same server or same DNS provider — may be a client of the same criminal hosting platform, not the deptoy.co operators themselves</td></tr>
+      <tr class="conf-low"><td><span class="badge badge-conf-low">INFRASTRUCTURE</span></td><td>Shared criminal DNS/hosting used by many groups</td><td>Uses SHARE-DNS nameservers or CTG Server hosting, but no direct link to deptoy.co operators established</td></tr>
+    </tbody>
+  </table>
+</div>
+
 <!-- ── GROUP A: BIPPAX ── -->
 <div class="section">
-  <h2>Group A — BIPPAX / BISSNEX / deptoy.co Network</h2>
-  <p>Western-facing layer. Dorfman shell companies. Victim-facing fake crypto exchanges using BIPPAX white-label platform.</p>
+  <h2>Group A — BIPPAX / BISSNEX / deptoy.co Network <span class="badge badge-conf-confirmed">CONFIRMED</span></h2>
+  <p>Western-facing layer. Dorfman shell companies. Victim-facing fake crypto exchanges using BIPPAX white-label platform. These are the core deptoy.co operators — same codebase, same infrastructure, same person (Dorfman).</p>
   <table>
     <thead><tr><th>Domain</th><th>Role</th><th>IP / Host</th><th>Status</th><th>Notes</th></tr></thead>
     <tbody>
@@ -104,8 +126,8 @@ p{line-height:1.8;margin-bottom:10px}
 
 <!-- ── GROUP B: AZTEX ── -->
 <div class="section">
-  <h2>Group B — AZTEX Infrastructure (European Operations)</h2>
-  <p>Internal criminal operations hub. All on <code>194.60.201.83</code> (Contabo France) except the dev/staging server on Hetzner Helsinki.</p>
+  <h2>Group B — AZTEX Infrastructure (European Operations) <span class="badge badge-conf-confirmed">CONFIRMED</span></h2>
+  <p>Internal criminal operations hub. All on <code>194.60.201.83</code> (Contabo France) except the dev/staging server on Hetzner Helsinki. <b>Proven link to deptoy.co:</b> TLS certificates for both aztex.eu and deptoy.co were co-issued on the same server — the AZTEX operator ran the deptoy.co platform.</p>
   <table>
     <thead><tr><th>Domain</th><th>Role</th><th>IP</th><th>Status</th><th>Notes</th></tr></thead>
     <tbody>
@@ -130,10 +152,10 @@ p{line-height:1.8;margin-bottom:10px}
 
 <!-- ── GROUP C: 2139exchange ── -->
 <div class="section">
-  <h2>Group C — 2139exchange.com Network</h2>
+  <h2>Group C — 2139exchange.com Network <span class="badge badge-conf-confirmed">CONFIRMED</span></h2>
   <div class="box box-red" style="font-size:12px;line-height:1.8;margin-bottom:14px">
     <div class="label label-red">Same Porkbun Account as aztex.eu — Same Operator</div>
-    Both aztex.eu and 2139exchange.com use identical Porkbun nameservers (curitiba/fortaleza/maceio/salvador.ns.porkbun.com). CONSOB Italy blacklisted October 2024. TLS cert renewed 2026-03-19 — <b>actively maintained</b>. Chinese BaoTa (aaPanel) server admin. 20,000+ Italian victims reported; up to €100K per family. Estimated total losses $50–420M.
+    <b>Proven link to deptoy.co:</b> Same Porkbun account as aztex.eu (identical 4-NS fingerprint) = same operator as AZTEX = same operator as deptoy.co. Both aztex.eu and 2139exchange.com use identical Porkbun nameservers (curitiba/fortaleza/maceio/salvador.ns.porkbun.com). CONSOB Italy blacklisted October 2024. TLS cert renewed 2026-03-19 — <b>actively maintained</b>. Chinese BaoTa (aaPanel) server admin. 20,000+ Italian victims reported; up to €100K per family. Estimated total losses $50–420M.
   </div>
   <table>
     <thead><tr><th>Domain</th><th>Role</th><th>IP</th><th>Status</th><th>Notes</th></tr></thead>
@@ -154,8 +176,8 @@ p{line-height:1.8;margin-bottom:10px}
 
 <!-- ── GROUP D: Japanese FSA fakes ── -->
 <div class="section">
-  <h2>Group D — CTG Server HK: Japanese FSA 金融庁 Fakes</h2>
-  <p>Fake Japanese Financial Services Agency pages shown to Japanese victims as "proof" of regulatory approval. All on <code>202.79.174.5</code> / SHARE-DNS.</p>
+  <h2>Group D — CTG Server HK: Japanese FSA 金融庁 Fakes <span class="badge badge-conf-medium">MEDIUM</span></h2>
+  <p>Fake Japanese Financial Services Agency pages shown to Japanese victims as "proof" of regulatory approval. All on <code>202.79.174.5</code> / SHARE-DNS. <b>Attribution:</b> Co-hosted on same CTG Server HK IP as Dorfman's nanolite-foundationnlf.com, but registrant ("FSFSFSDSDFSFS" via WebNIC) is different — likely a separate criminal operation using the same hosting platform.</p>
   <table>
     <thead><tr><th>Domain</th><th>Impersonates</th><th>Last Seen</th><th>Registrar</th></tr></thead>
     <tbody>
@@ -173,8 +195,8 @@ p{line-height:1.8;margin-bottom:10px}
 
 <!-- ── GROUP E: JP Securities typosquats ── -->
 <div class="section">
-  <h2>Group E — CTG Server HK: Japanese Securities Typosquats</h2>
-  <p>Targeting Japanese retail investors via typosquatted securities brand domains. Registered via WebNIC / registrant "FSFSFSDSDFSFS". All SHARE-DNS. All on <code>202.79.174.5</code>.</p>
+  <h2>Group E — CTG Server HK: Japanese Securities Typosquats <span class="badge badge-conf-medium">MEDIUM</span></h2>
+  <p>Targeting Japanese retail investors via typosquatted securities brand domains. Registered via WebNIC / registrant "FSFSFSDSDFSFS". All SHARE-DNS. All on <code>202.79.174.5</code>. <b>Attribution:</b> Same server as Dorfman's nanolite domain but distinct registrant — separate criminal group on shared infrastructure.</p>
   <table>
     <thead><tr><th>Domain</th><th>Impersonates</th><th>Last Seen</th></tr></thead>
     <tbody>
@@ -198,8 +220,8 @@ p{line-height:1.8;margin-bottom:10px}
 
 <!-- ── GROUP F: International typosquats ── -->
 <div class="section">
-  <h2>Group F — CTG Server HK: International Finance Typosquats</h2>
-  <p>Impersonating major global asset managers and financial institutions. All on <code>202.79.174.5</code> unless noted. All use Gname.com / SHARE-DNS except fmtcapitaltc.com.</p>
+  <h2>Group F — CTG Server HK: International Finance Typosquats <span class="badge badge-conf-medium">MEDIUM</span></h2>
+  <p>Impersonating major global asset managers and financial institutions. All on <code>202.79.174.5</code> unless noted. All use Gname.com / SHARE-DNS except fmtcapitaltc.com. <b>Attribution:</b> Co-hosted with Dorfman's nanolite domain; fmtcapitaltc.com is a separately sold UWORK kit deployment (Malaysian operator). These are co-located criminal operations, not necessarily the same people as deptoy.co.</p>
   <table>
     <thead><tr><th>Domain</th><th>Impersonates</th><th>Status</th><th>Notes</th></tr></thead>
     <tbody>
@@ -243,8 +265,8 @@ p{line-height:1.8;margin-bottom:10px}
 
 <!-- ── GROUP G: Malaysia ── -->
 <div class="section">
-  <h2>Group G — Malaysia (.my) Targeting Cluster</h2>
-  <p>Typosquatting Malaysian fund manager "Go Asset Management Pte Ltd". All via SHARE-DNS; Gname.com registrar; abuse contact <code>zys@gname.com</code>.</p>
+  <h2>Group G — Malaysia (.my) Targeting Cluster <span class="badge badge-conf-low">INFRASTRUCTURE</span></h2>
+  <p>Typosquatting Malaysian fund manager "Go Asset Management Pte Ltd". All via SHARE-DNS; Gname.com registrar; abuse contact <code>zys@gname.com</code>. <b>Attribution:</b> Shares SHARE-DNS infrastructure and Gname.com registrar with the deptoy.co network, but no direct operator link established. Likely a different criminal group using the same DNS service.</p>
   <table>
     <thead><tr><th>Domain</th><th>Variant</th><th>Status</th></tr></thead>
     <tbody>
@@ -259,8 +281,8 @@ p{line-height:1.8;margin-bottom:10px}
 
 <!-- ── GROUP H: DNS Infrastructure ── -->
 <div class="section">
-  <h2>Group H — DNS / Mail Infrastructure</h2>
-  <p>Not victim-facing scam sites — the underlying criminal DNS and mail infrastructure.</p>
+  <h2>Group H — DNS / Mail Infrastructure <span class="badge badge-conf-low">INFRASTRUCTURE</span></h2>
+  <p>Not victim-facing scam sites — the underlying criminal DNS and mail infrastructure shared across multiple criminal groups. SHARE-DNS itself is not operated by the deptoy.co criminals; it is a criminal DNS-as-a-service used by many groups including them.</p>
   <table>
     <thead><tr><th>Domain</th><th>Role</th><th>IP</th><th>Status</th><th>Notes</th></tr></thead>
     <tbody>
@@ -274,7 +296,7 @@ p{line-height:1.8;margin-bottom:10px}
 
 <!-- ── GROUP I: AZTEX-linked ── -->
 <div class="section">
-  <h2>Group I — AZTEX-Linked / Suspended Variants</h2>
+  <h2>Group I — AZTEX-Linked / Suspended Variants <span class="badge badge-conf-confirmed">CONFIRMED</span></h2>
   <table>
     <thead><tr><th>Domain</th><th>Role</th><th>Status</th><th>Notes</th></tr></thead>
     <tbody>
