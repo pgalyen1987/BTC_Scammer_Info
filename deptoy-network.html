@@ -248,6 +248,164 @@ const nodes = [
     detail: 'Binance is the confirmed cashout destination. From Scam 1 (2022): aggregator wallet 34HVDP9RFA9MpopGQ4TutLLVMFhhJFM9AX forwarded 97.25 BTC to Binance in 34 transactions. Italian investigators (Decripto.org) independently traced $27M+ toward Binance from the 2139 cluster. Binance is a legal entity subject to subpoena/SAR in multiple jurisdictions. The KYC account(s) that received these funds are the highest-value identity lead.',
     badge: 'KYC RECORDS — FBI SAR / subpoena', badgeColor: '#2ecc71'
   },
+
+  // ── BRAND DOMAINS (from source code) ─────────────────────────────────────
+  {
+    id: 'bippax_pro', label: 'BIPPAX.PRO', sublabel: 'Self-stated brand name in source code\n"registered in Cayman Islands, HK team"',
+    type: 'platform_dead', r: 20,
+    detail: 'BIPPAX.PRO is the self-stated brand name hardcoded into the platform JavaScript in 13 languages: "BIPPAX.PRO is a leading digital asset trading platform in the world, registered in the Cayman Islands, with a core operating team in Hong Kong." The Cayman Islands and Hong Kong claims are the platform\'s own cover story.',
+    badge: 'BRAND DOMAIN — research Cayman registration', badgeColor: '#f39c12'
+  },
+  {
+    id: 'bippaxcoins', label: 'bippaxcoins.com', sublabel: 'Referenced in German source code text\nwww.bippaxcoins.com = main brand URL',
+    type: 'platform_dead', r: 20,
+    detail: 'bippaxcoins.com is referenced in the BIPPAX German-language UI: "BIPPAX (www.bippaxcoins.com) ist die weltweit führende Handelsplattform für digitale Vermögenswerte. Sie ist auf den Kaimaninseln registriert..." WHOIS "no match" as of March 2026 — domain dropped. Was hosted via GoDaddy/Domains By Proxy (privacy-protected).',
+    badge: 'DEAD — dropped/expired', badgeColor: '#636e7b'
+  },
+  {
+    id: 'bippax_com', label: 'bippax.com', sublabel: 'Main brand domain\nTrellian Pty Ltd AU · 103.224.212.213',
+    type: 'platform_dead', r: 20,
+    detail: 'bippax.com is the main BIPPAX brand domain. Prior research identified hosting at IP 103.224.212.213 via Trellian Pty Ltd (Australian hosting). Trellian is also the host of mumuex.org (parked domain in this network). Australian Federal Police mutual assistance → AUSTRAC could yield server logs and customer/payment records.',
+    badge: 'RESEARCH: Australian hosting jurisdiction', badgeColor: '#3498db'
+  },
+  {
+    id: 'bitspaieex', label: 'bitspaieex.com', sublabel: '⚠ DOMAIN NEVER EXISTED — confirmed\nRelated real domain: bitspaie.com',
+    type: 'platform_dead', r: 18,
+    detail: 'bitspaieex.com: ICANN returns "No match" — never registered OR dropped before certificate issuance. No crt.sh certs, no DNS records, no WHOIS data. The anwerbung@bitspaieex.com email found in source code appears to be a planned/placeholder address for a German-market deployment that was never launched. The REAL related domain is bitspaie.com (which has 4 documented operator emails). "bitspaieex" = "bitspaie" + "ex" (exchange) — naming convention consistent with other BIPPAX domain variants.',
+    badge: 'DOMAIN NEVER EXISTED — see bitspaie.com', badgeColor: '#636e7b'
+  },
+  {
+    id: 'api_deptoy', label: 'api.deptoy.co', sublabel: 'API backend for deptoy.co\nCentOS Linux · Apache default page',
+    type: 'infra', r: 16,
+    detail: 'api.deptoy.co was the API backend server for the deptoy.co fake exchange. At time of investigation it returned an Apache default page on CentOS Linux — operator forgot to remove the default page, confirming the server OS. The server is now dark (domain NXDOMAIN) but may still exist at its original IP if the operator didn\'t destroy it.',
+    badge: 'DARK — IP may still exist', badgeColor: '#636e7b'
+  },
+  {
+    id: 'trellian', label: 'Trellian Pty Ltd (AU)', sublabel: '103.224.212.213 · bippax.com hosting\nABN/ASIC: Australian company',
+    type: 'infra', r: 16,
+    detail: 'Trellian Pty Ltd is an Australian hosting/domain company that hosted bippax.com at IP 103.224.212.213. Australian jurisdiction means Australian Federal Police (AFP) cooperation and AUSTRAC (financial intelligence) can compel Trellian to disclose customer/payment records for the BIPPAX.com account. This is one of the most legally accessible hosting leads.',
+    badge: 'Australian jurisdiction — AFP/AUSTRAC', badgeColor: '#2ecc71'
+  },
+
+  // ── EMAILS (from source code) ─────────────────────────────────────────────
+  {
+    id: 'promo_email', label: 'promotion@BIPPAX.com', sublabel: 'Hardcoded in platform source (French UI)\n"envoyez un e-mail à promotion@BIPPAX.com"',
+    type: 'identifier', r: 20,
+    detail: 'Found in the BIPPAX French-language UI: "Si vous avez une bonne idée, envoyez un e-mail à promotion@BIPPAX.com" (If you have a good idea, send an email to promotion@BIPPAX.com). This is the operator\'s official contact for promotional/business inquiries. The email host (bippax.com MX records) should be subpoenaed for account records, IP logs, and any received messages. Check breach databases for this address.',
+    badge: 'HIGH VALUE — operator contact email', badgeColor: '#2ecc71'
+  },
+  {
+    id: 'anwerbung_email', label: 'anwerbung@bitspaieex.com', sublabel: 'German "recruitment" email\nAlternate BIPPAX deployment targeting DE speakers',
+    type: 'identifier', r: 18,
+    detail: '"anwerbung" = German for recruitment/advertising. anwerbung@bitspaieex.com is the German-language operator contact for recruiting victims or affiliates. bitspaieex.com is a probable alternate BIPPAX deployment. The MX server for bitspaieex.com would be the subpoena target. German BKA (Bundeskriminalamt) would have jurisdiction over German-speaking victims.',
+    badge: 'HIGH VALUE — German operator contact', badgeColor: '#f39c12'
+  },
+
+  // ── PHONE NUMBERS (from source code) ─────────────────────────────────────
+  {
+    id: 'phones', label: 'Phones: 01232 423232 / 01232 323232', sublabel: '⚠ CONFIRMED TEST DATA — not real contacts\n01232 = Belfast area code retired April 22, 2000',
+    type: 'identifier', r: 16,
+    detail: 'CONFIRMED PLACEHOLDER/TEST DATA. The 01232 area code (Belfast, Northern Ireland) was retired by Ofcom on April 22, 2000 — replaced by 028. No real number uses 01232 today. The repeating-digit local numbers (323232, 423232) are a classic developer convention for dummy/test data. These are NOT real operator contact numbers. They were likely inserted during development as placeholder values. No action recommended — dead lead.',
+    badge: 'DEAD LEAD — confirmed test/placeholder data', badgeColor: '#636e7b'
+  },
+
+  // ── ADDITIONAL WECHAT HANDLE ──────────────────────────────────────────────
+  {
+    id: 'wechat_883le', label: 'WeChat: 883le', sublabel: 'Third operator handle in source code\nfound alongside bmate601 / bizzzan01',
+    type: 'identifier', r: 16,
+    detail: 'A third WeChat handle (883le) found in the BIPPAX source code WeChat context alongside bmate601 and bizzzan01. May be a third customer service operator or a backup contact handle. WeChat accounts require Chinese phone number + real-name KYC. FBI legal attaché Beijing or DOJ MLAT to Chinese MPS could yield real-name registration.',
+    badge: 'LEAD: Chinese KYC-verified account', badgeColor: '#1abc9c'
+  },
+
+  // ── NEW LEADS FROM IDENTITY RESEARCH ─────────────────────────────────────
+  {
+    id: 'support_bissnex', label: 'support@bissnex.com', sublabel: 'From GlobeNewswire press releases (Dec 2023)\nSubpoena: Notified/West Technology Group',
+    type: 'identifier', r: 18,
+    detail: 'support@bissnex.com is the contact email listed on two GlobeNewswire press releases filed by BISSNEX in December 2023 (release IDs #2801562 and #2801734). Those releases falsely claimed funding from Paradigm, NGC Ventures, Multicoin Capital, and Pantera Capital — wire fraud under 18 USC §1343. GlobeNewswire (operated by Notified/West Technology Group) retains billing records, the account email address, and IP logs from whoever submitted these releases. A subpoena to Notified would likely yield the real operator\'s contact and payment method.',
+    badge: 'SUBPOENA: Notified/GlobeNewswire — billing + IP', badgeColor: '#2ecc71'
+  },
+  {
+    id: 'ssw_email', label: 'info@sswmanagementinstitute.com', sublabel: 'SSW Management Institute contact\nPRNewswire release #PH85630, Aug 2024',
+    type: 'identifier', r: 18,
+    detail: 'info@sswmanagementinstitute.com is the contact email listed on a PRNewswire press release (#PH85630, Aug 2024) titled "SSW Management Institute: Darryl Joel Dorfman Leads the Way in Financial Education." Listed contact name: "Emily Turner" (almost certainly another synthetic persona). PRNewswire is operated by Cision and retains billing account data and IP addresses from the account that filed the release. A subpoena to Cision is a direct path to the operator\'s payment method.',
+    badge: 'SUBPOENA: Cision/PRNewswire — billing + IP', badgeColor: '#2ecc71'
+  },
+  {
+    id: 'ssw_phone', label: 'Phone: 402-740-9014', sublabel: 'Nebraska area code (Omaha region)\nListed on PRNewswire SSW release',
+    type: 'identifier', r: 16,
+    detail: '402 is the Omaha, Nebraska area code. Phone number 402-740-9014 was listed on PRNewswire release #PH85630 for SSW Management Institute contact "Emily Turner." Reverse phone lookup may identify the VoIP provider or registered subscriber. Nebraska state law enforcement and FBI Omaha field office may be relevant if number is assigned domestically. VoIP number purchased with US payment method = potential financial record.',
+    badge: 'Nebraska 402 area code — reverse lookup', badgeColor: '#f39c12'
+  },
+  {
+    id: 'ssw_institute', label: 'SSW Management Institute', sublabel: 'Fake financial education brand\n"70,000+ students" (unverifiable) · Founded 2019',
+    type: 'corporate', r: 18,
+    detail: 'SSW Management Institute is a fake financial education company used as part of the "Prof. Darryl Joel Dorfman" WhatsApp recruitment persona. A victim report on Medium (author @78_fins_crasser) confirms victims were recruited via WhatsApp group "A1 — SSW Investment Vanguard" run by "Prof. Darryl Joel Dorfman," then directed to 4tx9h.com (Beta Global Finance platform). One documented victim lost $862,497.83. Domain: sswmanagementinstitute.com — WHOIS/hosting OSINT not yet complete.',
+    badge: 'Fake org — used for victim recruitment', badgeColor: '#e74c3c'
+  },
+  {
+    id: 'emily_turner', label: '"Emily Turner"', sublabel: 'PRNewswire contact name for SSW\nAlmost certainly synthetic persona',
+    type: 'person_fake', r: 16,
+    detail: '"Emily Turner" is listed as the press contact for SSW Management Institute on PRNewswire release #PH85630. Like "Jack Williams" (BISSNEX director), this is almost certainly a synthetic persona — a common generic Anglo name used to fill required fields on press releases. No public record of an "Emily Turner" associated with SSW Management Institute or cryptocurrency was found.',
+    badge: 'SYNTHETIC PERSONA — like "Jack Williams"', badgeColor: '#e74c3c'
+  },
+  {
+    id: 'globenewswire_sub', label: 'GlobeNewswire account', sublabel: 'Filed 2 wire fraud releases Dec 2023\nSubpoena: Notified / West Technology Group',
+    type: 'identifier', r: 16,
+    detail: 'A paying GlobeNewswire customer account filed releases #2801562 and #2801734 in December 2023, falsely claiming BISSNEX received VC funding from Paradigm, NGC Ventures, Multicoin Capital, and Pantera Capital — none of which funded BISSNEX. These false statements in interstate wire communications constitute wire fraud (18 USC §1343). The account holder\'s billing email, credit card, and submission IP address are held by Notified (West Technology Group, Hackensack NJ). This is a US company — domestic subpoena, no MLAT required.',
+    badge: '18 USC §1343 wire fraud — domestic US subpoena', badgeColor: '#e74c3c'
+  },
+
+  // ── TOP BLOCKCHAIN FUNDER ─────────────────────────────────────────────────
+  {
+    id: 'top_funder', label: 'bc1qm34lsc65zpw... (Binance)', sublabel: '⚠ CONFIRMED Binance DepositAndWithdraw_1\n179.55 BTC sent to BIPPAX aggregation wallet',
+    type: 'exchange', r: 20,
+    detail: 'bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h is CONFIRMED as a Binance exchange DepositAndWithdraw address (labeled "Binance: DepositAndWithdraw_1" on Arkham Intelligence, OKLink, BitInfoCharts). It sent 179.55 BTC to the BIPPAX aggregation wallet — the largest single funder. This means the BIPPAX operators held a Binance account and moved funds through it. Binance (under US jurisdiction since Changpeng Zhao\'s Nov 2023 plea) has KYC records for the account(s) transacting at this address at the relevant timestamps. A DOJ/FBI subpoena to Binance for account records tied to this address is the highest-value financial lead.',
+    badge: '⚠ BINANCE KYC EXISTS — FBI/DOJ subpoena', badgeColor: '#2ecc71'
+  },
+
+  // ── NEW INFRASTRUCTURE — bippax.com cPanel cluster ────────────────────────
+  {
+    id: 'felfly_co', label: 'felfly.co', sublabel: 'Shares cPanel server with bippax.com\nCN in multi-SAN cert covering *.bippax.com (Apr 2025)',
+    type: 'infra', r: 16,
+    detail: 'felfly.co was used as the CN (Common Name) in a multi-SAN TLS certificate (issued April 22, 2025) covering *.bippax.com, *.ww25.bippax.com, *.ww38.bippax.com, and *.accouservice.bippax.com. This proves felfly.co and bippax.com share the same cPanel server account — the operator who controls felfly.co controls the server that hosted bippax.com. Registered 2025-11-07 via CentralNic/.co Registry; status: inactive/no nameservers. Also has certs for mail.felfly.co and cpcontacts.felfly.co — confirming a full cPanel account. One associated cert (Sep 2024) has CN=hairy-nude-movies.xyz sharing SANs with felfly.co — possible obfuscation/noise domain.',
+    badge: 'cPanel co-hosted with bippax.com', badgeColor: '#3498db'
+  },
+  {
+    id: 'fairwin_store', label: 'fairwin.store', sublabel: 'Shared cPanel server with bippax.com\nCN in cert covering *.bippax.com (Feb 2025)',
+    type: 'infra', r: 16,
+    detail: 'fairwin.store was used as CN in a February 2025 TLS certificate covering identical bippax.com SANs as the felfly.co cert. This places fairwin.store in the same cPanel hosting account as bippax.com in early 2025. Domain expired/available as of March 2026. The sequence (fairwin.store CN → Feb 2025, then felfly.co CN → Apr 2025) suggests the operator cycled hosting account primary domains — a tradecraft technique to make cert tracking harder.',
+    badge: 'cPanel co-hosted with bippax.com', badgeColor: '#3498db'
+  },
+
+  // ── NEW IDENTIFIER — BIPPAX app developer email ───────────────────────────
+  {
+    id: 'bippax_app_email', label: 'bippax0319@hotmail.com', sublabel: 'Google Play BIPPAX app developer support\n"Spiritual Wealth" developer · Microsoft subpoena',
+    type: 'identifier', r: 20,
+    detail: 'bippax0319@hotmail.com is the listed support email for the BIPPAX Android app on Google Play, where the developer is listed as "Spiritual Wealth." App had 1000+ downloads, last updated May 20, 2023. The Hotmail address is a Microsoft account — a domestic US subpoena to Microsoft would yield: registration data, linked recovery email/phone, login IP addresses, and account activity. The "0319" suffix may indicate a birth date (March 19) or account creation date. This is a HIGH-VALUE identity lead — it is a direct link between the scam platform and a real email account.',
+    badge: 'HIGH VALUE — Microsoft domestic subpoena', badgeColor: '#2ecc71'
+  },
+
+  // ── NEW — bitspaie.com (real German-market domain) ────────────────────────
+  {
+    id: 'bitspaie_com', label: 'bitspaie.com', sublabel: 'Real BIPPAX German-market domain\n4 operator emails: support/apply/ceo/coop',
+    type: 'platform_dead', r: 18,
+    detail: 'bitspaie.com is the real German-language support/operations domain for the BIPPAX network (NOT bitspaieex.com which never existed). Contains 4 documented operator email addresses: support@bitspaie.com, apply@bitspaie.com (board/recruitment), ceo@bitspaie.com (suggestions), coop@bitspaie.com (cooperation). Referenced on bippax.com and coinbf.com — never independently live. Appears to be a "dark" backend domain for operator communications rather than a victim-facing site. German BKA jurisdiction for German-speaking victim cases.',
+    badge: '4 operator emails — German-market backend', badgeColor: '#e74c3c'
+  },
+
+  // ── NEW — Related scam app emails ─────────────────────────────────────────
+  {
+    id: 'cbot_hotmail', label: 'CBOTiYEX2022@hotmail.com', sublabel: 'T-AUZ Ultra app developer contact\nRelated scam app — Microsoft subpoena',
+    type: 'identifier', r: 16,
+    detail: 'CBOTiYEX2022@hotmail.com is listed as the support contact for T-AUZ Ultra, a related scam app connected to the BIPPAX network. Like bippax0319@hotmail.com, this is a Microsoft Hotmail account — domestic US subpoena to Microsoft would yield registration and login data. "CBOT" may refer to Chicago Board of Trade (financial legitimacy borrowing). "iYEX" and "2022" suggest this account was created in 2022 for this operation.',
+    badge: 'T-AUZ related app — Microsoft subpoena', badgeColor: '#f39c12'
+  },
+  {
+    id: 'barbara_gmail', label: 'barbarafelixv7@gmail.com', sublabel: 'T-AUZ Ultra privacy policy contact\nGoogle account — domestic subpoena',
+    type: 'identifier', r: 16,
+    detail: 'barbarafelixv7@gmail.com is the privacy policy contact for T-AUZ Ultra, the related scam app. Google LLC is a US company — domestic subpoena to Google for this Gmail account would yield: account registration info, linked phone number, recovery email, and sign-in IP history. The name "Barbara Felix" is likely another synthetic persona (the "v7" suffix suggests prior account creation attempts). This represents a different operator role from the Hotmail contacts.',
+    badge: 'T-AUZ app — Google domestic subpoena', badgeColor: '#f39c12'
+  },
 ];
 
 const links = [
@@ -287,6 +445,56 @@ const links = [
   { source: 'dutt', target: 'gname', label: 'registered at', dashed: true },
   { source: 'ctg', target: 'share_dns', label: 'all HK domains use', dashed: false },
   { source: 'share_dns', target: 'gname', label: 'owned/operated by', dashed: false },
+
+  // Brand domain connections
+  { source: 'deptoy', target: 'bippax_pro', label: 'self-identifies as', dashed: true },
+  { source: 'deptoy', target: 'bippaxcoins', label: 'same brand', dashed: true },
+  { source: 'bippax_pro', target: 'bissnex_corp', label: 'corporate entity', dashed: false },
+  { source: 'bippaxcoins', target: 'bissnex_corp', label: 'brand domain', dashed: false },
+  { source: 'bippax_com', target: 'bissnex_corp', label: 'main domain', dashed: false },
+  { source: 'bippax_com', target: 'trellian', label: 'hosted on', dashed: false },
+  { source: 'bitspaieex', target: 'anwerbung_email', label: 'email domain', dashed: false },
+  { source: 'deptoy', target: 'api_deptoy', label: 'API backend', dashed: false },
+
+  // Email connections
+  { source: 'bissnex_corp', target: 'promo_email', label: 'operator email (in source)', dashed: false },
+  { source: 'bissnex_corp', target: 'anwerbung_email', label: 'DE recruitment (in source)', dashed: false },
+  { source: 'bissnex_corp', target: 'bitspaieex', label: 'German deployment', dashed: true },
+
+  // Phone numbers
+  { source: 'bissnex_corp', target: 'phones', label: 'in platform source', dashed: false },
+
+  // Additional WeChat handle
+  { source: 'wechat', target: 'wechat_883le', label: 'third handle', dashed: true },
+
+  // Top funder → aggregation wallet (Binance hot wallet confirmed)
+  { source: 'top_funder', target: 'agg', label: '179.55 BTC sent', dashed: false },
+  { source: 'top_funder', target: 'binance', label: 'IS a Binance wallet', dashed: true },
+
+  // New infrastructure cluster — bippax.com cPanel server
+  { source: 'bippax_com', target: 'felfly_co', label: 'shared cPanel (cert SAN Apr 2025)', dashed: false },
+  { source: 'bippax_com', target: 'fairwin_store', label: 'shared cPanel (cert SAN Feb 2025)', dashed: false },
+
+  // BIPPAX app developer email
+  { source: 'bippax_com', target: 'bippax_app_email', label: 'Google Play app contact', dashed: false },
+
+  // bitspaie.com (real German domain)
+  { source: 'bissnex_corp', target: 'bitspaie_com', label: 'German-market backend', dashed: false },
+  { source: 'bitspaieex', target: 'bitspaie_com', label: 'real related domain', dashed: true },
+
+  // T-AUZ Ultra related app emails
+  { source: 'bissnex_corp', target: 'cbot_hotmail', label: 'T-AUZ related app', dashed: true },
+  { source: 'bissnex_corp', target: 'barbara_gmail', label: 'T-AUZ privacy contact', dashed: true },
+
+  // New identity research leads
+  { source: 'bissnex_corp', target: 'support_bissnex', label: 'press release contact', dashed: false },
+  { source: 'bissnex_corp', target: 'globenewswire_sub', label: 'wire fraud releases', dashed: false },
+  { source: 'bgf', target: 'ssw_institute', label: 'same operation', dashed: true },
+  { source: 'dorfman', target: 'ssw_institute', label: '"Prof." persona runs', dashed: false },
+  { source: 'ssw_institute', target: 'ssw_email', label: 'contact email', dashed: false },
+  { source: 'ssw_institute', target: 'ssw_phone', label: 'contact phone', dashed: false },
+  { source: 'ssw_institute', target: 'emily_turner', label: 'fake press contact', dashed: false },
+  { source: 'globenewswire_sub', target: 'support_bissnex', label: 'listed contact', dashed: true },
 ];
 
 // ── Color map ─────────────────────────────────────────────────────────────
@@ -303,6 +511,7 @@ const typeStyle = {
   wallet:          { fill: '#100a1a', stroke: '#9b59b6', textFill: '#9b59b6' },
   wallet_hot:      { fill: '#1a0010', stroke: '#e74c3c', textFill: '#e74c3c' },
   exchange:        { fill: '#001a08', stroke: '#2ecc71', textFill: '#2ecc71' },
+  email:           { fill: '#001520', stroke: '#58a6ff', textFill: '#58a6ff' },
 };
 
 // ── D3 setup ──────────────────────────────────────────────────────────────
