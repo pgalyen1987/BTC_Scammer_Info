@@ -77,7 +77,7 @@ p{line-height:1.8;margin-bottom:10px}
   </p>
 
   <div class="box box-dark" style="margin-top:16px">
-    <div class="label label-grey">Three Operations at a Glance</div>
+    <div class="label label-grey">Operations at a Glance</div>
     <table style="margin-top:8px">
       <thead>
         <tr>
@@ -103,6 +103,13 @@ p{line-height:1.8;margin-bottom:10px}
           <td>100,000+ victims; $50&ndash;420M</td>
           <td>Chinese / SE Asian</td>
         </tr>
+        <tr style="background:#0a1a0a">
+          <td><b>DUTT Exchange</b></td>
+          <td><code>mdutton.com</code></td>
+          <td><span class="live">LIVE</span></td>
+          <td>Live platform; fake ICO tokens; Dorfman-linked</td>
+          <td>Dorfman shells / AZTEX hub</td>
+        </tr>
         <tr>
           <td><b>BIPPAX / BISSNEX / deptoy.co</b></td>
           <td><code>deptoy.co</code> / <code>bissnex.com</code></td>
@@ -112,6 +119,57 @@ p{line-height:1.8;margin-bottom:10px}
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION: AZTEX OPERATIONS CENTER -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+
+<div class="section">
+  <h2>AZTEX Operations Center &mdash; The Centralized Back-Office</h2>
+
+  <div class="box box-red">
+    <div class="label label-red">Critical Finding &mdash; Single Shared Back-Office Hub for All Operations</div>
+    <p style="margin-top:8px">
+      The server at <code>194.60.201.83</code> (Contabo GmbH, France) is not merely a web host &mdash; it is the <b>back-office operations hub</b> shared across all fraud operations. Its subdomain stack reveals every function of a professional criminal enterprise: shared credential management, encrypted group communications, file storage, remote operator access, and custom money-routing tools. The AZTEX name appears in RDP certificate hostnames and domain registrations, confirming it is the operators&rsquo; own internal codename for this cluster.
+    </p>
+  </div>
+
+  <div class="grid2">
+    <div class="box box-dark">
+      <div class="label label-red">Criminal Operations Stack (194.60.201.83)</div>
+      <table>
+        <tr><td style="color:#8b949e;width:200px"><b>bitwarden.aztex.eu</b></td><td>Shared password vault (Vaultwarden) &mdash; all operator credentials stored here</td></tr>
+        <tr><td style="color:#8b949e"><b>matrix.aztex.eu</b></td><td>Encrypted group chat &mdash; operator coordination, victim playbooks</td></tr>
+        <tr><td style="color:#8b949e"><b>nextcloud.aztex.eu</b></td><td>Shared file storage &mdash; scripts, victim data, operational documents</td></tr>
+        <tr><td style="color:#8b949e"><b>rdp.aztex.eu</b></td><td>RDP gateway &mdash; remote operator desktop access from any location</td></tr>
+        <tr><td style="color:#8b949e"><b>mail.aztex.eu</b></td><td>Self-hosted SMTP/IMAP &mdash; outbound phishing &amp; victim correspondence</td></tr>
+        <tr><td style="color:#8b949e"><b>route-finder.aztex.eu</b></td><td>Custom money-mule routing tool (deployed 2023)</td></tr>
+        <tr><td style="color:#8b949e"><b>route-lister.aztex.eu</b></td><td>Companion routing tool (2023) &mdash; mule network management</td></tr>
+      </table>
+    </div>
+    <div class="box box-dark">
+      <div class="label label-orange">Operator Access Points</div>
+      <table>
+        <tr><td style="color:#8b949e;width:160px">UK Residential RDP</td><td><code>79.78.160.133</code> &mdash; TalkTalk, England &mdash; RDP cert CN=<b>AZTEX-BARRY</b></td></tr>
+        <tr><td style="color:#8b949e">Dev/Storage (Finland)</td><td><code>37.27.206.233</code> Hetzner Helsinki &mdash; MinIO S3, Redis, FTP</td></tr>
+        <tr><td style="color:#8b949e">Open ports</td><td>22 (SSH), 143/465/587/993 (mail stack), 3389 (RDP), 80/443 (web)</td></tr>
+        <tr><td style="color:#8b949e">Last active</td><td>2026-02-19 (Bitwarden cert renewed)</td></tr>
+        <tr><td style="color:#8b949e">SPF record</td><td>Explicitly authorises <code>194.60.201.83</code> to send mail for aztex.eu</td></tr>
+      </table>
+      <div style="margin-top:10px;font-size:12px;line-height:1.7;color:#f39c12">
+        <b>Named operator "BARRY":</b> A person named Barry uses TalkTalk residential broadband in England (79.78.160.133) to RDP into the AZTEX server. TalkTalk subscriber identity is obtainable via UK RIPA production order. Referral: NCA / Action Fraud.
+      </div>
+    </div>
+  </div>
+
+  <div class="box box-orange" style="margin-top:10px">
+    <div class="label label-orange">Seizure Value</div>
+    <div style="font-size:12px;line-height:1.9">
+      The Bitwarden vault contains credentials for every platform this group operates. The Nextcloud holds victim scripts, operational playbooks, and file-shared data. The Matrix server has logged every internal operator conversation since deployment. <b>A single legal order to Contabo GmbH (194.60.201.83, Lauterbourg, France) would yield credentials, communications, victim lists, and money-routing data for the entire operation.</b><br><br>
+      Abuse contact: <code>abuse@contabo.de</code> &bull; Legal requests: Contabo GmbH, Aschauer Str. 32a, 81549 Munich, Germany &bull; Contabo is a legitimate German cloud provider and responds to law enforcement requests.
+    </div>
   </div>
 </div>
 
@@ -297,6 +355,80 @@ p{line-height:1.8;margin-bottom:10px}
 </div>
 
 <!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3.5: DUTT EXCHANGE -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+
+<div class="section">
+  <h2>Operation 2b &mdash; DUTT Exchange (<code>mdutton.com</code>) <span class="badge badge-red">LIVE</span></h2>
+
+  <div class="box box-red">
+    <div class="label label-red">Live Operation &mdash; Dorfman-Linked Colorado Company &mdash; Internal Codename: "ruyc"</div>
+    <p style="margin-top:8px">
+      DUTT Exchange is a live pig-butchering exchange operated under the Colorado corporation <b>DUTT Cryptocurrency Exchange Ltd</b> (CO Corp #20211357517), registered to Darryl Dorfman. Unlike the BIPPAX/deptoy operation (ThinkPHP/PHP), DUTT runs a custom-built <b>Spring Boot Java backend</b> with a Vue.js SPA frontend &mdash; a significantly more sophisticated stack. Internal API path prefix is <code>/ruyc-api/</code>; CDN domain <code>duttcex.vip</code> confirms "ruyc" as the internal platform codename. FinCEN MSB registered (registration likely fabricated or fraudulent).
+    </p>
+  </div>
+
+  <div class="grid2">
+    <div class="box box-dark">
+      <div class="label label-grey">Technical Stack</div>
+      <table>
+        <tr><td style="color:#8b949e;width:140px">Backend</td><td><b>Spring Boot (Java)</b> &mdash; significantly more capable than BIPPAX&rsquo;s ThinkPHP</td></tr>
+        <tr><td style="color:#8b949e">Frontend</td><td><b>Vue.js SPA</b> &mdash; chunk-vendors.221809d4.js + app.4d9a7125.js</td></tr>
+        <tr><td style="color:#8b949e">API base URL</td><td><code>https://api.mdutton.com/ruyc-api/</code></td></tr>
+        <tr><td style="color:#8b949e">API endpoints</td><td>91 mapped endpoints: /account/kyc, /user/withdraw/add, /coin/contract/order/*, /common/prop (unauthenticated config disclosure)</td></tr>
+        <tr><td style="color:#8b949e">Proxy</td><td>Cloudflare (real origin IP unknown)</td></tr>
+        <tr><td style="color:#8b949e">Registrar</td><td>Gname.com (same as SHARE-DNS.COM)</td></tr>
+        <tr><td style="color:#8b949e">Mail server</td><td>info@duttex.com &rarr; Shinjiru Technology, Kuala Lumpur (Malaysian bulletproof hosting)</td></tr>
+      </table>
+    </div>
+    <div class="box box-dark">
+      <div class="label label-grey">Platform Config (Extracted from Vue.js Bundle)</div>
+      <table>
+        <tr><td style="color:#8b949e;width:140px">System name</td><td><code>$systemName = "DUTT"</code></td></tr>
+        <tr><td style="color:#8b949e">Support email</td><td><code>info@duttex.com</code></td></tr>
+        <tr><td style="color:#8b949e">Base currency</td><td>USDC (EUR as fiat)</td></tr>
+        <tr><td style="color:#8b949e">Margin trading</td><td>Enabled (<code>$IsBorrowMoney=true</code>)</td></tr>
+        <tr><td style="color:#8b949e">Languages</td><td>English, Spanish (es-ES), Chinese HK (zh-HK)</td></tr>
+        <tr><td style="color:#8b949e">Social</td><td>Facebook: <code>DuttCryptocurrencyExchange</code>; YouTube; Medium: <code>@schultheistetsufumi694</code></td></tr>
+        <tr><td style="color:#8b949e">Chat system</td><td>Salesmartly (license <code>gl5ywf</code>, projects 251593 / 258295) &mdash; all victim chat transcripts accessible with this key</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Fake ICO Token Scheme</h3>
+  <p>
+    The platform runs at least four fake ICO token offerings targeting Spanish-speaking and Chinese (Hong Kong) users. Tokens are priced at 1.1&ndash;1.5 USDC each with fabricated whitepapers and project identities. Token names: <b>PMND, NCN, GMIND, ENBD</b>. These tokens have no real blockchain existence and are used to manufacture apparent trading profits before exit.
+  </p>
+
+  <h3>Android App &mdash; Play Store Evasion</h3>
+  <div class="box box-dark" style="font-size:12px;line-height:1.8">
+    A dedicated Android APK was submitted to the Google Play Store disguised as a health app called <b>&ldquo;Dose Diary&rdquo;</b> (com.exolaryt.dosediary) to evade app review. The app has since been removed. Developer account identifier: <b>exolaryt</b> &mdash; a Google subpoena target. Google Play Developer Policy Unit can be engaged for account records.
+  </div>
+
+  <h3>CDN &amp; Content Infrastructure</h3>
+  <div class="grid2">
+    <div class="box box-dark">
+      <div class="label label-grey">duttcex.vip &mdash; Platform Image CDN</div>
+      <div style="font-size:12px;line-height:1.8">
+        All platform images served from <code>https://duttcex.vip/imgs/ruyc_img...</code>. First cert: 2025-10-28. Registered same batch as duttex.com. Confirms &ldquo;ruyc&rdquo; as internal platform codename matching the API path prefix.
+      </div>
+    </div>
+    <div class="box box-dark">
+      <div class="label label-grey">richashyej.com &mdash; Shared Multi-Platform CDN</div>
+      <div style="font-size:12px;line-height:1.8">
+        News article images served from richashyej.com &mdash; a shared CDN used across multiple scam deployments simultaneously. Registered September 2024 (Gname.com), 30+ certs continuously renewed. News article IDs at 112,000+ vs. Notice IDs at 12,000+ confirms it is a shared backend serving many parallel operations.
+      </div>
+    </div>
+  </div>
+
+  <h3>Unauthenticated API Disclosure</h3>
+  <div class="box box-orange" style="font-size:12px;line-height:1.8">
+    <div class="label label-orange">Config Endpoint: GET /ruyc-api/common/prop?key=K</div>
+    The <code>/common/prop</code> endpoint returns platform configuration values without authentication. Keys confirmed: <code>download_android</code> (APK URL), <code>download_ios</code> (IPA URL), <code>service_url_salesmartly</code> (live chat widget URL including license key). The Spring Boot Actuator path <code>/ruyc-api/actuator/health</code> exists but requires authentication. Swagger UI at <code>/ruyc-api/swagger-ui.html</code> also auth-protected but confirms 91 endpoint schema.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════ -->
 <!-- SECTION 4: BIPPAX / BISSNEX / DEPTOY -->
 <!-- ══════════════════════════════════════════════════════════════════════ -->
 
@@ -346,25 +478,33 @@ p{line-height:1.8;margin-bottom:10px}
   </p>
 
   <div class="box box-dark">
-    <div class="label label-grey">Pivot: dacm-crypto.top &mdash; Still Live on Russian Server</div>
+    <div class="label label-grey">dacm-crypto.top &mdash; WordPress SEO Honeypot on Russian Server</div>
     <table>
       <thead><tr><th>Field</th><th>Value</th></tr></thead>
       <tbody>
         <tr><td>Domain</td><td><code>dacm-crypto.top</code></td></tr>
         <tr><td>IP</td><td><code>94.26.255.20</code></td></tr>
-        <tr><td>Host</td><td>AS204720 JSC Selectel, Saint Petersburg, Russia (via fastfox.pro)</td></tr>
-        <tr><td>Stack</td><td>nginx 1.28.2 + PHP 8.2.29</td></tr>
+        <tr><td>Host</td><td>AS204720 JSC Selectel, Saint Petersburg, Russia</td></tr>
+        <tr><td>Stack</td><td><b>WordPress CMS</b> &mdash; PHP 8.2.29, nginx 1.28.2, Customify theme v0.4.2, Yoast SEO</td></tr>
+        <tr><td>Timezone</td><td><b>UTC+4</b> (server GMT offset) &mdash; consistent with Russian operator, NOT Ivory Coast (UTC+0)</td></tr>
+        <tr><td>Content</td><td>200+ AI-generated French-language articles about Ivory Coast crypto investing (created 2025-08-20 to 2025-10-27) &mdash; SEO spam to recruit victims via search</td></tr>
+        <tr><td>Chat widget</td><td>Tawk.to account <code>67ffcfaa703938190f0ee5f5</code> / widget <code>1iovk6cp8</code> &mdash; operators respond to recruits via live chat</td></tr>
+        <tr><td>WP API</td><td>REST API exposed at /wp-json/ &mdash; 200+ posts, single author "admin", no emails in content</td></tr>
         <tr><td>Link</td><td>Bissnex.com JS download target (confirmed in Wayback Oct 2024)</td></tr>
-        <tr><td>Status</td><td><span class="live">LIVE as of 2026-03-27</span></td></tr>
+        <tr><td>Status</td><td><span class="live">LIVE as of 2026-03-28</span></td></tr>
       </tbody>
     </table>
+    <div style="font-size:12px;color:#8b949e;margin-top:8px;line-height:1.7">
+      <b>Operational role:</b> dacm-crypto.top is a victim acquisition funnel. French-speaking users in West Africa searching for crypto investment opportunities land on SEO-optimised posts, then engage the Tawk.to live chat where operators recruit them into the BIPPAX/BISSNEX pig-butchering pipeline. The UTC+4 server timezone (vs. Ivory Coast UTC+0) reveals the site was not built by someone in Ivory Coast.
+    </div>
   </div>
 
   <h3>Related Active Entities</h3>
   <ul>
-    <li><b>mdutton.com</b> (DUTT Exchange) &mdash; live, Cloudflare, Gname.com registrar; same registrar as SHARE-DNS.COM</li>
-    <li><b>nanolite-foundationnlf.com</b> &mdash; BaFin warned August 2025; co-hosted on CTG Server HK 202.79.174.5 alongside the fmtcapitaltc.com management panel &mdash; direct infrastructure link between Dorfman and the HK operation</li>
+    <li><b>mdutton.com</b> (DUTT Exchange) &mdash; live Spring Boot platform; see Operation 2b above for full detail</li>
+    <li><b>nanolite-foundationnlf.com</b> &mdash; BaFin warned August 2025; Next.js SPA, HTTrack clone of hvcapital.com (German VC firm); accidently includes hvcapital&rsquo;s own Matomo analytics code (<code>hvcapital.matomo.cloud</code>) in the stolen config; co-hosted on CTG Server HK 202.79.174.5 alongside fmtcapitaltc.com &mdash; direct infrastructure link between Dorfman and the HK operation; last modified 2025-07-27</li>
     <li><b>cappofx.com</b> (Cappo FX) &mdash; live, Cloudflare, GoDaddy registrar</li>
+    <li><b>sswmanagementinstitute.com</b> &mdash; Colorado SSW Management Institute (Dorfman); timing out as of 2026-03-28</li>
   </ul>
 </div>
 
@@ -479,12 +619,27 @@ p{line-height:1.8;margin-bottom:10px}
         <td>deptoy.co expires / NXDOMAIN</td>
         <td>BIPPAX/BISSNEX operation fully dead; domain dropped without renewal</td>
       </tr>
+      <tr style="background:#071a07">
+        <td>2026-03-28</td>
+        <td>DUTT Exchange source analysis: Spring Boot Java backend, 91 API endpoints, Salesmartly chat (gl5ywf), fake ICO tokens (PMND/NCN/GMIND/ENBD), duttcex.vip CDN, Android APK com.exolaryt.dosediary</td>
+        <td>Full technical platform fingerprint obtained from Vue.js bundle; unauthenticated /common/prop endpoint confirms config</td>
+      </tr>
+      <tr style="background:#071a07">
+        <td>2026-03-28</td>
+        <td>dacm-crypto.top source analysis: WordPress, UTC+4 timezone, Tawk.to 67ffcfaa703938190f0ee5f5, 200+ AI-generated French articles targeting Ivory Coast</td>
+        <td>Confirms dacm-crypto.top is a victim acquisition funnel for French-speaking West Africa; operator timezone is UTC+4 not UTC+0</td>
+      </tr>
+      <tr style="background:#071a07">
+        <td>2026-03-28</td>
+        <td>nanolite-foundationnlf.com confirmed HTTrack clone of hvcapital.com; contains hvcapital&rsquo;s own Matomo analytics token in cloned config</td>
+        <td>Direct proof of site cloning methodology; Next.js SPA last modified 2025-07-27</td>
+      </tr>
     </tbody>
   </table>
 </div>
 
 <div class="footer">
-  Investigation Report &mdash; The Operations &mdash; Updated 2026-03-27 &mdash;
+  Investigation Report &mdash; The Operations &mdash; Updated 2026-03-28 &mdash;
   <a href="operators.html">Operators</a> &mdash;
   <a href="infrastructure.html">Infrastructure</a> &mdash;
   <a href="domains.html">Domain IOC List</a>

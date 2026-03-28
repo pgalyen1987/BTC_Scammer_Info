@@ -93,7 +93,7 @@ li{margin-bottom:2px}
       <tr style="background:#0a1520"><td><b>2139exchange</b></td><td><code>185.22.174.75</code></td><td>SIA VEESP, Riga Latvia — AS42532</td><td>2139exchange.com; CONSOB Italy blacklisted</td></tr>
       <tr><td><b>Servikus (BIPPAX/pipgainers)</b></td><td><code>23.138.140.66 / 173.208.178.96</code></td><td>Servikus LLC / NOCIX, Kansas City MO</td><td>betaglobalmanagements.com + 26 co-hosted scam domains via pipgainers.com account</td></tr>
       <tr><td><b>BIPPAX Mail</b></td><td><code>67.216.195.233</code></td><td>IT7 Networks, Los Angeles — AS25820</td><td>mail-ussl.com SMTP for fmtcapitaltc.com</td></tr>
-      <tr><td><b>BIPPAX Russian</b></td><td><code>94.26.255.20</code></td><td>Selectel JSC, Saint Petersburg — AS204720</td><td>dacm-crypto.top web + mail; fastfox.pro SOA host</td></tr>
+      <tr><td><b>BIPPAX Russian</b></td><td><code>94.26.255.20</code></td><td>Selectel JSC, Saint Petersburg — AS204720</td><td>dacm-crypto.top WordPress (victim acquisition funnel); UTC+4 timezone; Tawk.to 67ffcfaa703938190f0ee5f5; 200+ French SEO posts targeting Ivory Coast</td></tr>
       <tr style="background:#1a0d00"><td><b>TalkTalk UK (BARRY)</b></td><td><code>79.78.160.133</code></td><td>TalkTalk, Essex UK — AS13285</td><td>Residential; RDP cert CN=<b>AZTEX-BARRY</b></td></tr>
     </tbody>
   </table>
@@ -143,22 +143,25 @@ li{margin-bottom:2px}
     </div>
   </div>
 
-  <h3>Exposed Paths — 2026-03-27 Scan <span class="badge badge-red">NEW</span></h3>
-  <div class="box box-red">
-    <div class="label label-red">Critical Exposures Identified</div>
+  <h3>Scan Results &mdash; 2026-03-28 Titan Scan (194.60.201.83)</h3>
+  <div class="box box-dark">
+    <div class="label label-grey">Findings: Missing Security Headers Only &mdash; No Exploitable Paths</div>
     <table style="font-size:12px">
-      <thead><tr><th>Path</th><th>Risk</th><th>Significance</th></tr></thead>
+      <thead><tr><th>Finding</th><th>Severity</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td><code>/wp-config</code></td><td><span class="badge badge-red">CRITICAL</span></td><td>May expose database credentials</td></tr>
-        <tr><td><code>/jmx-console</code></td><td><span class="badge badge-red">CRITICAL</span></td><td>JBoss RCE attack path (CVE-2010-0738 class)</td></tr>
-        <tr><td><code>/backup</code></td><td><span class="badge badge-orange">HIGH</span></td><td>Potential full backup file exposure</td></tr>
-        <tr><td><code>/console</code></td><td><span class="badge badge-orange">HIGH</span></td><td>Admin console</td></tr>
-        <tr><td><code>/_debug</code></td><td><span class="badge badge-orange">HIGH</span></td><td>Debug interface</td></tr>
-        <tr><td><code>/phpinfo</code></td><td><span class="badge badge-blue">MED</span></td><td>PHP environment info disclosure</td></tr>
-        <tr><td><code>/admin</code></td><td><span class="badge badge-blue">MED</span></td><td>Admin panel</td></tr>
-        <tr><td><code>/server-status</code></td><td><span class="badge badge-blue">MED</span></td><td>Apache server-status disclosure</td></tr>
+        <tr><td>Missing HSTS</td><td><span class="badge badge-blue">MED</span></td><td>Strict-Transport-Security absent</td></tr>
+        <tr><td>Missing CSP</td><td><span class="badge badge-blue">MED</span></td><td>Content-Security-Policy absent</td></tr>
+        <tr><td>Missing X-Frame-Options</td><td><span class="badge badge-blue">MED</span></td><td>Clickjacking vector</td></tr>
+        <tr><td>Missing X-Content-Type-Options</td><td>LOW</td><td>MIME sniff risk</td></tr>
+        <tr><td>Missing Referrer-Policy</td><td>LOW</td><td>URL parameter leakage</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <h3>broker.fmtcapitaltc.com &mdash; Titan Scan False Positives Note</h3>
+  <div class="box box-dark" style="font-size:12px;line-height:1.8">
+    <div class="label label-grey">All CRITICAL/HIGH path findings on broker.fmtcapitaltc.com are FALSE POSITIVES</div>
+    The Titan scanner flagged /wp-config, /jmx-console, /backup, /console, /_debug as CRITICAL/HIGH. Manual verification (ffuf) confirms all these paths return <b>HTTP 302 redirect to /admin/login.html</b> &mdash; not actual sensitive content. Real findings: PHP 7.4.33 (EOL Nov 2022), admin panel at /admin/login.html (title: "manager-login", ThinkPHP Chinese backend), login API at POST /admin/login/action, ports 80/443/8080/8443 open. The "manager-login" admin panel with Chinese-language interface is the real finding.
   </div>
   <div class="box box-dark" style="font-size:12px;line-height:1.8;margin-top:10px">
     <b>Open redirect:</b> <code>mail.aztex.eu?v=</code> parameter redirects to arbitrary URL — usable for phishing. <b>Open ports (2026-03-27):</b> 22 (OpenSSH 9.6p1), 143/465/587/993 (full mail stack), 3389 (RDP active). <b>Server:</b> Caddy web server, Ubuntu Linux. <b>IPv6:</b> <code>2a02:c207:2298:2627::1/64</code>. <b>API:</b> /v1, /v2, /v3, /rest, /api endpoints. <b>SPF:</b> <code>v=spf1 ip4:194.60.201.83 ip6:2a02:c207:2298:2627::1/64 include:_spf.porkbun.com -all</code>
@@ -277,6 +280,30 @@ li{margin-bottom:2px}
       <tr><td style="color:#8b949e">Victim CRM</td><td><code>trader.fmtcapitaltc.com</code> → 8 languages incl. Arabic; KYC upload; content from Nov 2024</td></tr>
       <tr><td style="color:#8b949e">Mail server</td><td>mail-ussl.com → <code>67.216.195.233</code> (IT7 Networks LA, reg. July 2023)</td></tr>
     </table>
+  </div>
+</div>
+
+<!-- ── DUTT EXCHANGE ── -->
+<div class="section">
+  <h2>DUTT Exchange &mdash; mdutton.com Infrastructure</h2>
+
+  <div class="box box-orange">
+    <div class="label label-orange">Live Dorfman-Linked Platform &mdash; Spring Boot Java Backend &mdash; Internal Codename "ruyc"</div>
+    <table style="font-size:12px;margin-top:8px">
+      <tr><td style="color:#8b949e;width:160px">Domain</td><td><code>mdutton.com</code> &mdash; registered Gname.com (same as SHARE-DNS.COM); registrant country: US</td></tr>
+      <tr><td style="color:#8b949e">Cloudflare</td><td>Real origin IP masked; TLS cert issued 2025-11-06</td></tr>
+      <tr><td style="color:#8b949e">Backend</td><td>Spring Boot (Java) &mdash; API base: <code>https://api.mdutton.com/ruyc-api/</code></td></tr>
+      <tr><td style="color:#8b949e">Frontend</td><td>Vue.js SPA (chunk-vendors + app bundle, Webpack build)</td></tr>
+      <tr><td style="color:#8b949e">Mail server</td><td>info@duttex.com &rarr; <b>Shinjiru Technology Sdn Bhd</b>, Kuala Lumpur (Malaysian bulletproof hosting)</td></tr>
+      <tr><td style="color:#8b949e">Image CDN</td><td><code>duttcex.vip</code> &mdash; /imgs/ruyc_img* pattern; first cert 2025-10-28</td></tr>
+      <tr><td style="color:#8b949e">News CDN</td><td><code>richashyej.com</code> &mdash; shared with multiple other scam deployments; Gname.com registered Sept 2024</td></tr>
+      <tr><td style="color:#8b949e">Chat SaaS</td><td>Salesmartly (license <code>gl5ywf</code>, project IDs 251593 / 258295); created Feb 22 2025</td></tr>
+    </table>
+  </div>
+
+  <div class="box box-dark" style="margin-top:10px;font-size:12px;line-height:1.8">
+    <div class="label label-grey">Unauthenticated API Endpoint &mdash; Configuration Disclosure</div>
+    <b>GET</b> <code>https://api.mdutton.com/ruyc-api/common/prop?key=K</code> returns platform configuration without authentication. Confirmed keys: <code>download_android</code> (APK download URL), <code>download_ios</code> (IPA URL), <code>service_url_salesmartly</code> (live chat widget URL including license key). Spring Boot Actuator at <code>/ruyc-api/actuator/health</code> and Swagger UI at <code>/ruyc-api/swagger-ui.html</code> both exist but require authentication. 91 total API endpoints documented from bundle analysis.
   </div>
 </div>
 

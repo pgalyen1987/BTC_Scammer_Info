@@ -609,6 +609,13 @@ li{margin-bottom:2px}
       <tr><td>ASN</td><td><code>AS152194</code> (CTG Server Limited)</td><td><span class="badge badge-orange">MEDIUM</span></td><td>BGP data</td><td>22,212 IPs across HK/JP/SG/US — shared hosting, not all malicious</td></tr>
       <tr><td>Registrar</td><td>WebNIC / Web Commerce Comm. Ltd (<code>webnic.cc</code>)</td><td><span class="badge badge-orange">MEDIUM</span></td><td>JPRS WHOIS</td><td>Registrar for .co.jp/.jp typosquats with fake registrant "FSFSFSDSDFSFS"</td></tr>
       <tr><td>CMS token</td><td><code>PpAz5O26OlepQn8sRcL2qgtt</code> (Storyblok)</td><td><span class="badge badge-blue">INFO</span></td><td>nanolite JS analysis</td><td>HV Capital's legitimate public token — scam site using HVCapital's own CMS (Storyblok Space 145121). HV Capital is a victim.</td></tr>
+      <tr style="background:#1a0800"><td>Chat SaaS</td><td>Salesmartly license <code>gl5ywf</code> / projects 251593, 258295</td><td><span class="badge badge-red">HIGH</span></td><td>DUTT Exchange Vue.js bundle analysis</td><td>Live victim chat platform for mdutton.com DUTT Exchange; created Feb 22 2025; all victim transcripts accessible via this key</td></tr>
+      <tr style="background:#1a0800"><td>Chat widget</td><td>Tawk.to account <code>67ffcfaa703938190f0ee5f5</code> / widget <code>1iovk6cp8</code></td><td><span class="badge badge-red">HIGH</span></td><td>dacm-crypto.top source analysis 2026-03-28</td><td>Tawk.to live chat on dacm-crypto.top (victim acquisition funnel targeting Ivory Coast French speakers); chat logs = victim contact records</td></tr>
+      <tr><td>Android app ID</td><td><code>com.exolaryt.dosediary</code> ("Dose Diary")</td><td><span class="badge badge-orange">MEDIUM</span></td><td>DUTT Exchange /common/prop API endpoint</td><td>DUTT Exchange Android APK submitted to Play Store disguised as health app to evade review; developer account: exolaryt; app since removed</td></tr>
+      <tr><td>CDN domain</td><td><code>duttcex.vip</code></td><td><span class="badge badge-orange">MEDIUM</span></td><td>DUTT Exchange image URL analysis</td><td>DUTT Exchange image CDN; first cert 2025-10-28; URL pattern /imgs/ruyc_img* confirms "ruyc" internal codename</td></tr>
+      <tr><td>CDN domain</td><td><code>richashyej.com</code></td><td><span class="badge badge-orange">MEDIUM</span></td><td>DUTT Exchange news API</td><td>Shared news CDN used across multiple scam platforms; Gname.com registered Sept 2024; 30+ certs; news IDs 112,000+ confirms multi-platform shared backend</td></tr>
+      <tr><td>Mail hosting</td><td>Shinjiru Technology Sdn Bhd (KL, Malaysia) — duttex.com mail server</td><td><span class="badge badge-orange">MEDIUM</span></td><td>MX record analysis</td><td>Malaysian bulletproof hosting for DUTT Exchange mail; known for tolerating abuse</td></tr>
+      <tr><td>IP / timezone</td><td><code>94.26.255.20</code> GMT offset UTC+4 (not UTC+0)</td><td><span class="badge badge-orange">MEDIUM</span></td><td>dacm-crypto.top WordPress API</td><td>dacm-crypto.top operator is in UTC+4 timezone (Russia/UAE), NOT Ivory Coast (UTC+0) — timezone leakage from WP server config</td></tr>
       <tr><td>Vercel deployment</td><td><code>hvcapital-nx-dev.vercel.app</code></td><td><span class="badge badge-blue">INFO</span></td><td>Storyblok API</td><td>HV Capital dev deployment linked to stolen Storyblok space</td></tr>
       <tr><td>Address</td><td>202, 2/F Kam Sang Building, 257 Des Voeux Rd Central, HK</td><td><span class="badge badge-orange">MEDIUM</span></td><td>ARIN / company registry</td><td>CTG Server registered address; ICIJ Offshore Leaks shows prior shell company use at same floor</td></tr>
     </tbody>
@@ -677,12 +684,47 @@ li{margin-bottom:2px}
         <td>Victim notification: Their website (hvcapital.com) was HTTrack-cloned to create nanolite-foundationnlf.com. Their Storyblok account (Space 145121, token PpAz5O26OlepQn8sRcL2qgtt) is being exploited by the scam site. Recommend: rotate Storyblok token, report to BaFin.</td>
         <td>info@hvcapital.com</td>
       </tr>
+      <tr style="background:#1a0800">
+        <td><span class="badge badge-red">P1 CRITICAL</span></td>
+        <td><b>Contabo GmbH</b><br>Aschauer Str. 32a, 81549 Munich, Germany</td>
+        <td>Germany (mutual assistance / EU cooperation)</td>
+        <td>Server 194.60.201.83 (AZTEX operations hub): all tenant account identity, payment records, login IP history. Services running: Vaultwarden/Bitwarden (shared credentials vault for entire operation), Matrix (encrypted comms), Nextcloud (documents), RDP gateway, mail server. This one server is the back-office for all operations.</td>
+        <td>abuse@contabo.de<br>legal@contabo.com</td>
+      </tr>
+      <tr style="background:#1a0d00">
+        <td><span class="badge badge-red">P1 CRITICAL</span></td>
+        <td><b>TalkTalk Telecom Group plc</b></td>
+        <td>UK (RIPA production order — NCA or Action Fraud escalation)</td>
+        <td>Subscriber identity for residential IP 79.78.160.133 (Essex UK). This IP has an RDP certificate with CN=<b>AZTEX-BARRY</b>, directly identifying "Barry" as a named UK-based operator. TalkTalk must comply with RIPA production orders. This may be the most actionable UK-resident lead in the entire investigation.</td>
+        <td>lawenforcement@talktalk.co.uk<br>Action Fraud: actionfraud.police.uk</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">P2 HIGH</span></td>
+        <td><b>Salesmartly Ltd</b></td>
+        <td>Singapore / HK (MLAT)</td>
+        <td>Account records and all chat transcripts for license key <code>gl5ywf</code>, project IDs 251593 and 258295. Account created Feb 22 2025. All victim correspondence logged through the DUTT Exchange live chat — victim names, messages, IP addresses, financial discussion.</td>
+        <td>support@salesmartly.com</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">P2 HIGH</span></td>
+        <td><b>Google LLC (Play Store)</b></td>
+        <td>USA — California (18 USC §2703)</td>
+        <td>Developer account records for identifier <b>exolaryt</b> (com.exolaryt.dosediary — "Dose Diary" APK used to evade app review for the DUTT Exchange Android app). Account email, registration IP, payment method, associated developer accounts.</td>
+        <td>Google Law Enforcement: ler.google.com</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">P2 HIGH</span></td>
+        <td><b>Tawk.to Ltd</b></td>
+        <td>Ireland / USA (MLAT or 18 USC §2703)</td>
+        <td>Account records for property ID <code>67ffcfaa703938190f0ee5f5</code> (dacm-crypto.top Tawk.to account). Account holder identity, payment method, IP login history. All chat transcripts with victims who engaged the dacm-crypto.top live chat (victim acquisition funnel for Ivory Coast targets).</td>
+        <td>support@tawk.to<br>legal@tawk.to</td>
+      </tr>
     </tbody>
   </table>
 </div>
 
 <div style="border-top:1px solid #30363d;padding:20px 0;margin-top:30px;font-size:11px;color:#8b949e">
-  Investigation ongoing &mdash; <a href="index.html">Contents</a> | <a href="infrastructure.html">Page 4: Infrastructure</a> | <a href="law-enforcement.html">Page 6: LE Targets</a> | Last updated: 2026-03-26
+  Investigation ongoing &mdash; <a href="index.html">Contents</a> | <a href="infrastructure.html">Page 4: Infrastructure</a> | <a href="law-enforcement.html">Page 6: LE Targets</a> | Last updated: 2026-03-28
 </div>
 
 </div><!-- end main-content -->
