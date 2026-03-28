@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>deptoy.co Network Graph — Pig-Butchering Investigation</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#0d1117;color:#c9d1d9;font-size:13px;overflow:hidden}
+.header{background:#161b22;padding:14px 28px;border-bottom:2px solid #f39c12;display:flex;align-items:center;gap:20px;flex-shrink:0}
+.header h1{color:#f39c12;font-size:17px}
+.sub{color:#8b949e;font-size:11px;margin-top:2px}
+.nav-bar{background:#161b22;border-bottom:1px solid #30363d;padding:6px 28px;display:flex;gap:6px;flex-wrap:wrap;font-size:12px;flex-shrink:0}
+.nav-bar a{color:#8b949e;text-decoration:none;padding:3px 10px;border-radius:4px;border:1px solid transparent}
+.nav-bar a:hover,.nav-bar a.active{color:#f0f6fc;background:#21262d;border-color:#f39c12}
+#graph-container{position:relative;flex:1;overflow:hidden}
+svg{width:100%;height:100%;display:block}
+.wrapper{display:flex;flex-direction:column;height:100vh}
+
+/* Legend */
+#legend{position:absolute;top:12px;right:12px;background:#161b22cc;border:1px solid #30363d;border-radius:8px;padding:12px 14px;font-size:11px;min-width:160px;backdrop-filter:blur(4px)}
+#legend h3{color:#f0f6fc;font-size:11px;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+.leg-row{display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.leg-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.leg-label{color:#c9d1d9}
+
+/* Tooltip */
+#tooltip{position:absolute;pointer-events:none;background:#161b22;border:1px solid #30363d;border-radius:6px;padding:10px 14px;font-size:11px;max-width:260px;display:none;z-index:100;box-shadow:0 4px 16px #00000088}
+#tooltip .tt-title{font-weight:bold;color:#f0f6fc;font-size:12px;margin-bottom:4px}
+#tooltip .tt-sub{color:#8b949e;line-height:1.6}
+#tooltip .tt-badge{display:inline-block;padding:1px 7px;border-radius:10px;font-size:10px;font-weight:bold;margin-top:5px}
+
+/* Controls */
+#controls{position:absolute;bottom:12px;left:12px;display:flex;gap:6px}
+.ctrl-btn{background:#161b22;border:1px solid #30363d;color:#8b949e;padding:5px 12px;border-radius:4px;cursor:pointer;font-size:11px}
+.ctrl-btn:hover{color:#f0f6fc;border-color:#8b949e}
+
+/* Info panel */
+#info{position:absolute;bottom:12px;right:12px;background:#161b22cc;border:1px solid #30363d;border-radius:8px;padding:10px 14px;font-size:11px;color:#8b949e;backdrop-filter:blur(4px)}
+
+/* SVG elements */
+.node circle{cursor:pointer;stroke-width:2px}
+.node text{cursor:pointer;font-family:'Segoe UI',Arial,sans-serif;pointer-events:none;dominant-baseline:middle}
+.link line{stroke-opacity:0.55}
+.link-label{font-family:'Segoe UI',Arial,sans-serif;font-size:9px;fill:#636e7b;pointer-events:none}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+<div class="header">
+  <div>
+    <h1>deptoy.co / BIPPAX Network Graph</h1>
+    <div class="sub">Connections between scam platforms, shell companies, persons of interest, infrastructure, and crypto wallets &mdash; deptoy gang only</div>
+  </div>
+  <div style="margin-left:auto;font-size:11px;color:#8b949e;text-align:right">
+    Scroll to zoom &middot; Drag to pan<br>Click node to pin/unpin
+  </div>
+</div>
+
+<div class="nav-bar">
+  <a href="index.html">&larr; Contents</a>
+  <a href="the-two-scams.html">The Two Scams</a>
+  <a href="blockchain-trail.html">Blockchain</a>
+  <a href="corporate-network.html">Corporate</a>
+  <a href="infrastructure.html">Infrastructure</a>
+  <a href="law-enforcement.html">Law Enforcement</a>
+  <a class="active" href="deptoy-network.html">deptoy Network Graph</a>
+</div>
+
+<div id="graph-container">
+  <svg id="svg"></svg>
+
+  <div id="legend">
+    <h3>Node Types</h3>
+    <div class="leg-row"><div class="leg-dot" style="background:#e74c3c"></div><span class="leg-label">Scam platform (DEAD)</span></div>
+    <div class="leg-row"><div class="leg-dot" style="background:#ff6b35;border:2px solid #ff0000"></div><span class="leg-label">Scam platform (LIVE)</span></div>
+    <div class="leg-row"><div class="leg-dot" style="background:#f39c12"></div><span class="leg-label">Corporate (active)</span></div>
+    <div class="leg-row"><div class="leg-dot" style="background:#7d5a0a"></div><span class="leg-label">Corporate (dead/delinquent)</span></div>
+    <div class="leg-row"><div class="leg-dot" style="background:#f1c40f;border:2px solid #e74c3c"></div><span class="leg-label">Person (suspect)</span></div>
+    <div class="leg-row"><div class="leg-dot" style="background:#636e7b;border:2px dashed #e74c3c"></div><span class="leg-label">Person (likely fake name)</span></div>
+    <div class="leg-row"><div class="leg-dot" style="background:#1abc9c"></div><span class="leg-label">Identifier / source lead</span></div>
+    <div class="leg-row"><div class="leg-dot" style="background:#3498db"></div><span class="leg-label">Infrastructure / hosting</span></div>
+    <div class="leg-row"><div class="leg-dot" style="background:#9b59b6"></div><span class="leg-label">Crypto wallet</span></div>
+    <div class="leg-row"><div class="leg-dot" style="background:#e74c3c;border:3px solid #ff0000"></div><span class="leg-label">Master wallet (ACTIVE)</span></div>
+    <div class="leg-row"><div class="leg-dot" style="background:#2ecc71"></div><span class="leg-label">Exchange (KYC exists)</span></div>
+  </div>
+
+  <div id="tooltip">
+    <div class="tt-title" id="tt-title"></div>
+    <div class="tt-sub" id="tt-sub"></div>
+    <div id="tt-badge"></div>
+  </div>
+
+  <div id="controls">
+    <button class="ctrl-btn" onclick="resetZoom()">Reset Zoom</button>
+    <button class="ctrl-btn" onclick="reheat()">Reheat Layout</button>
+  </div>
+
+  <div id="info">Drag nodes &middot; Scroll to zoom &middot; Click to pin</div>
+</div>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script>
+const nodes = [
+  // ── SCAM PLATFORMS ──────────────────────────────────────────────────────
+  {
+    id: 'deptoy', label: 'deptoy.co', sublabel: 'White-label BIPPAX-185 deployment\nVictim scam platform · July 2024',
+    type: 'platform_dead', r: 28,
+    detail: 'The fake cryptocurrency exchange the victim used. A white-label deployment of the BIPPAX platform (instance BIPPAX-185). Domain expired/dropped March 2026. Source code contained WeChat handles (bmate601/bizzzan01) and a Shanghai ICP number.',
+    badge: 'DEAD — NXDOMAIN', badgeColor: '#636e7b'
+  },
+  {
+    id: 'bissnex_site', label: 'bissnex.com', sublabel: 'Same codebase as deptoy.co\nWayback Oct 2024: title "DacmCrypto"',
+    type: 'platform_dead', r: 22,
+    detail: 'Shared JavaScript codebase with deptoy.co — confirmed same BIPPAX operator. Wayback Machine Oct 2024 snapshot shows site title "DacmCrypto" and an active link to dacm-crypto.top. Now NXDOMAIN.',
+    badge: 'DEAD — NXDOMAIN', badgeColor: '#636e7b'
+  },
+  {
+    id: 'dacm', label: 'dacm-crypto.top', sublabel: '⚠ STILL LIVE\n94.26.255.20 · Selectel RU · nginx/PHP 8.2',
+    type: 'platform_live', r: 26,
+    detail: 'Linked from bissnex.com in Wayback Machine. Currently live on Russian Selectel hosting (St. Petersburg). Registered via Atak Domain (Turkey), fake Côte d\'Ivoire registrant country. May still be receiving victims. Abuse: abuse@selectel.ru',
+    badge: '⚠ LIVE — still operational', badgeColor: '#e74c3c'
+  },
+  {
+    id: 'bgf', label: 'Beta Global Finance', sublabel: '4tx9h.com (deleted)\nWhatsApp "Prof." persona · $862K victim loss',
+    type: 'platform_dead', r: 20,
+    detail: 'The "Beta Global Finance" platform operated by "Prof. Darryl Joel Dorfman" via WhatsApp groups. Platform domain 4tx9h.com has been deleted. One documented victim group lost $862,497.83 in retirement savings. Also linked to betaglobalmanagements.com.',
+    badge: 'DEAD — domain deleted', badgeColor: '#636e7b'
+  },
+
+  // ── CORPORATE ENTITIES ──────────────────────────────────────────────────
+  {
+    id: 'bissnex_corp', label: 'BISSNEX CRYPTO GROUP LTD', sublabel: 'Canada #1231288-3 · Dissolved 2025-07-25\nFINTRAC MSB M20852872',
+    type: 'corporate_dead', r: 26,
+    detail: 'Canadian federal corporation behind the BIPPAX platform. Previously named BIPPAX CRYPTO GROUP LIMITED (Dec 2022–May 2023) and ALPHA TECHNOLOGY HOLDING LIMITED (Sep 2020–Dec 2022). Director on file: "Jack Williams", 20 Leslie St Toronto ON M4M 3L4. FINTRAC registration lapsed Aug 2025. Three fraudulent GlobeNewswire press releases (Dec 2023) falsely claimed funding from Paradigm, NGC Ventures, Multicoin Capital, Pantera Capital — constitutes wire fraud (18 USC §1343).',
+    badge: 'DISSOLVED Jul 2025', badgeColor: '#636e7b'
+  },
+  {
+    id: 'byxg', label: 'BYXG Cryptocurrency Group Ltd', sublabel: 'CO #20231159680 · Delinquent Jul 2024\nDomains: byxgcoins.com · byxgexchange.com',
+    type: 'corporate_dead', r: 20,
+    detail: 'Colorado corporation linked to BIPPAX network domains (byxgcoins.com, byxgexchange.com — both listed on reportyourscam.com as BIPPAX scam platforms). Registered agent: DARRYL JOEL DORFMAN. Went delinquent July 2024. WHOIS "no match" for both domains — now dropped.',
+    badge: 'DELINQUENT', badgeColor: '#7d5a0a'
+  },
+  {
+    id: 'nanolite', label: 'Nanolite Foundation', sublabel: 'CO #20238080577 · GOOD STANDING\n⚠ BaFin consumer warning Aug 2025',
+    type: 'corporate_live', r: 22,
+    detail: 'Colorado nonprofit (Good Standing). Registered agent: DARRYL JOEL DORFMAN. Operates nanolite-foundationnlf.com which resolves to CTG Server HK (202.79.174.5). BaFin (German regulator) issued explicit consumer warning Aug 22, 2025: promotes "Strategic Trend Focus Plan" (550% return in 40 days) via WhatsApp using fake personas "Prof. Müller" and "Greta". As a nonprofit must file IRS Form 990 annually — exposing officers/directors/EIN.',
+    badge: 'ACTIVE — nonprofit, Good Standing', badgeColor: '#f39c12'
+  },
+  {
+    id: 'dutt', label: 'DUTT Cryptocurrency Exchange Ltd', sublabel: 'CO #20211357517 · GOOD STANDING\nSEC Form D CIK 0002093026 · mdutton.com LIVE',
+    type: 'corporate_live', r: 24,
+    detail: 'Colorado entity (Good Standing). SEC Form D lists DARRYL JOEL DORFMAN as director, EIN 394817522, 1800 Larimer St Denver CO 80202. FinCEN MSB registered. Website mdutton.com went live Jan 2026 on AWS hosting. Invite-only model = pig-butchering handler architecture. Registered at Gname.com — same registrar as SHARE-DNS and HK typosquat farm.',
+    badge: 'ACTIVE — FinCEN MSB registered', badgeColor: '#e74c3c'
+  },
+  {
+    id: 'cappo', label: 'Cappo FX', sublabel: 'CO #20231169570\ncappofx.com · GoDaddy · Elastic Email',
+    type: 'corporate', r: 18,
+    detail: 'Colorado entity. Registered agent: DARRYL JOEL DORFMAN. Domain cappofx.com registered at GoDaddy with Domains By Proxy privacy. SPF record shows Elastic Email — bulk commercial email provider used for mass victim outreach. No DMARC record.',
+    badge: 'STATUS UNKNOWN', badgeColor: '#636e7b'
+  },
+
+  // ── PERSONS ────────────────────────────────────────────────────────────
+  {
+    id: 'dorfman', label: '"Darryl Joel Dorfman"', sublabel: '90 Interlocken Crescent, Broomfield CO 80021\nb. June 1971 (UK CH) — possible alias',
+    type: 'person_suspect', r: 32,
+    detail: 'Appears as registered agent on 10+ Colorado shell companies and director on SEC Form D for DUTT Exchange. Home address per UK Companies House: 90 Interlocken Crescent, Broomfield CO 80021 (filed Feb 2025). Birth year conflict: UK CH says June 1971; blog says 1967. LinkedIn claims "Management Director – H-E-B" (Texas grocery chain — geographically inconsistent with CO). Blog: darryljoeldorfman.blogspot.com (Aug 2024). OTHER Dorfman family members in CO SOS (Barry Jeffrey Dorfman, Alexander William Dorfman, Colby Joseph Dorfman) suggest a real Dorfman family exists in Colorado — "Darryl Joel" may be a stolen identity from this family.',
+    badge: '⚠ POSSIBLE STOLEN/FAKE IDENTITY', badgeColor: '#e74c3c'
+  },
+  {
+    id: 'jackwilliams', label: '"Jack Williams"', sublabel: '20 Leslie St, Toronto ON M4M 3L4\nBISSNEX CRYPTO GROUP director on filing',
+    type: 'person_fake', r: 20,
+    detail: '"Jack Williams" is listed as sole director of BISSNEX CRYPTO GROUP LIMITED on the Canada federal corporate filing. 20 Leslie St, Toronto ON M4M 3L4. This is almost certainly a synthetic identity or stolen name — the combination of a generic Anglo name, a random Toronto address, and no verifiable online presence is a strong indicator of a fabricated filing identity. Corporations Canada will have the filing documents.',
+    badge: 'ALMOST CERTAINLY FAKE', badgeColor: '#e74c3c'
+  },
+
+  // ── IDENTIFIERS / SOURCE LEADS ──────────────────────────────────────────
+  {
+    id: 'wechat', label: 'WeChat: bmate601 / bizzzan01', sublabel: 'Hardcoded in BIPPAX source code\nCustomer service contacts',
+    type: 'identifier', r: 18,
+    detail: 'Two WeChat handles found hardcoded in the BIPPAX platform source code (extracted from deptoy.co). These are customer service contacts operated by the Chinese developer/operator team behind BIPPAX. WeChat accounts are KYC-verified in China (phone number + real-name). FBI legal attaché in Beijing or DOJ MLAT request to Ministry of Public Security could yield real-name registration data.',
+    badge: 'HIGH VALUE — Chinese KYC-verified', badgeColor: '#2ecc71'
+  },
+  {
+    id: 'icp', label: 'Shanghai ICP 沪ICP备13026899号-3', sublabel: 'Internet Content Provider license\nembedded in BIPPAX source code',
+    type: 'identifier', r: 18,
+    detail: 'A Shanghai ICP (Internet Content Provider) registration number found in the BIPPAX source code. ICP licenses are issued by MIIT (Ministry of Industry and Information Technology) and require a real entity to register — company name, legal representative, business license number. The 沪 prefix = Shanghai municipal license. MLAT request to Chinese MPS or MIIT query via FBI legal attaché could identify the registered company.',
+    badge: 'HIGH VALUE — Chinese regulatory record', badgeColor: '#2ecc71'
+  },
+
+  // ── INFRASTRUCTURE ──────────────────────────────────────────────────────
+  {
+    id: 'ctg', label: '202.79.174.5 · CTG Server HK', sublabel: '~50 fake finance domains\nMySQL 3306 EXPOSED · AS152194',
+    type: 'infra', r: 22,
+    detail: 'Hong Kong server (Tung Chung, Islands District) hosting ~50 fake finance domain typosquats (AllianceBernstein, BofA, Eaton Vance, PIMCO, Wellington, etc.) plus Nanolite Foundation. MySQL 3306 exposed to internet — Shodan historical banners may reveal database names/structure. Abuse: cs.mail@ctgserver.com. The customer who rents this server is unknown without a legal request to CTG Server Limited.',
+    badge: 'LIVE — key infrastructure', badgeColor: '#e74c3c'
+  },
+  {
+    id: 'selectel', label: '94.26.255.20 · Selectel RU', sublabel: 'St. Petersburg Russia · AS204720 JSC Selectel\ndacm-crypto.top + mail on same server',
+    type: 'infra', r: 20,
+    detail: 'Russian Selectel hosting (St. Petersburg) for dacm-crypto.top. The web server and mail server share the same IP. fastfox.pro is the DNS/SOA provider, also on Selectel (185.137.235.134). Abuse contact: abuse@selectel.ru. Europol Joint Cybercrime Action Taskforce (J-CAT) or FBI MLAT to Russia would be required.',
+    badge: 'LIVE — Russian jurisdiction', badgeColor: '#3498db'
+  },
+  {
+    id: 'aws_mdutton', label: 'mdutton.com · AWS', sublabel: 'DUTT Exchange website · LIVE since Jan 2026\n13.248.213.45 · 76.223.67.189',
+    type: 'infra', r: 20,
+    detail: 'mdutton.com went live January 24, 2026 on AWS (13.248.213.45 and 76.223.67.189). TLS cert issued Feb 23, 2026. AWS is a US company — a domestic US subpoena to AWS for account/payment records is possible without MLAT. This is one of the most accessible jurisdiction leads.',
+    badge: 'LIVE — US jurisdiction (AWS)', badgeColor: '#2ecc71'
+  },
+  {
+    id: 'share_dns', label: 'SHARE-DNS', sublabel: 'a1–a15.share-dns.com / b1–b15.share-dns.net\nGname.com · 3.7M domains total',
+    type: 'infra', r: 18,
+    detail: 'DNS provider used by all ~50 domains on CTG Server HK. Also flagged by Palo Alto Unit 42 in 2024 Olympic-themed gambling campaign. Registered and operated by Gname.com Pte. Ltd. (Singapore). Nameservers point to Cloudflare anycast (172.64.53.25/172.64.52.239). ICANN contractual compliance complaint to Gname.com could result in nameserver suspension.',
+    badge: 'LIVE — Gname.com (Singapore)', badgeColor: '#3498db'
+  },
+  {
+    id: 'gname', label: 'Gname.com Pte. Ltd.', sublabel: 'Singapore registrar · UEN 202013923E\nRegistrar for SHARE-DNS, mdutton.com, HK domains',
+    type: 'infra', r: 18,
+    detail: 'Singapore registrar (IANA ID 1923) that owns and operates SHARE-DNS. Also the registrar for mdutton.com and many HK typosquat domains. NetBeacon Institute (March 2025): Gname held 9% of malicious phishing domains while holding only 2% of all gTLD domains. Address: 8 Temasek Boulevard #21-01, Suntec Tower Three, Singapore 038988. ICANN compliance or Singapore Police Force request could compel registrant disclosure.',
+    badge: 'ACTIVE — Singapore, IANA 1923', badgeColor: '#3498db'
+  },
+
+  // ── CRYPTO WALLETS ──────────────────────────────────────────────────────
+  {
+    id: 'deposit', label: 'Victim deposit address', sublabel: '129z2g1vNMvVes3yiwbnVS8KtMSZFGm7Mc\nAssigned by deptoy.co',
+    type: 'wallet', r: 18,
+    detail: 'Bitcoin address assigned to the victim by the deptoy.co platform. Two transactions: 0.07622126 BTC (2024-07-25, tx e81ac508...) and 0.07348114 BTC (2024-07-26, tx ef504db1...). Total: ~0.149 BTC (~$10,000 USD). Funds were then collected into the BIPPAX aggregation wallet.',
+    badge: 'Victim funds received here', badgeColor: '#9b59b6'
+  },
+  {
+    id: 'agg', label: 'BIPPAX aggregation wallet', sublabel: '3JMjHDTJjKPnrvS7DycPAgYcA6HrHRk8UG\n64,255 BTC · 25,117 txns lifetime',
+    type: 'wallet', r: 24,
+    detail: 'The BIPPAX platform\'s main aggregation wallet — collects deposits from all victims across all BIPPAX white-label deployments (not just deptoy.co). 64,255 BTC lifetime across 25,117 transactions. Sent 140 BTC in 7 direct transactions to the master scammer wallet. This wallet is also linked to Scam 1 (2022) through the master wallet, confirming the same organization operated both scams.',
+    badge: '64,255 BTC lifetime — all BIPPAX victims', badgeColor: '#9b59b6'
+  },
+  {
+    id: 'master', label: 'Master scammer wallet', sublabel: '3GH4EhMi1MG8rxSiAWqfoiUCMLaWPTCxuy\n395,190 BTC · 5,170 txns · still active',
+    type: 'wallet_hot', r: 28,
+    detail: 'The master scammer wallet — the ultimate destination for funds from both Scam 1 (2022, 0.848 BTC via 2-hop relay) and Scam 2 (2024, 140 BTC from BIPPAX aggregation wallet). 395,190 BTC lifetime across 5,170 transactions. Still active as of 2026-01-21. The operator who controls the private key for this wallet is the top of the criminal hierarchy. Cashed out toward Binance.',
+    badge: '395,190 BTC LIFETIME — still active', badgeColor: '#e74c3c'
+  },
+
+  // ── EXCHANGE ─────────────────────────────────────────────────────────────
+  {
+    id: 'binance', label: 'Binance', sublabel: 'Cashout destination · KYC account records exist\n97.25 BTC (2022) + ongoing (2024+)',
+    type: 'exchange', r: 22,
+    detail: 'Binance is the confirmed cashout destination. From Scam 1 (2022): aggregator wallet 34HVDP9RFA9MpopGQ4TutLLVMFhhJFM9AX forwarded 97.25 BTC to Binance in 34 transactions. Italian investigators (Decripto.org) independently traced $27M+ toward Binance from the 2139 cluster. Binance is a legal entity subject to subpoena/SAR in multiple jurisdictions. The KYC account(s) that received these funds are the highest-value identity lead.',
+    badge: 'KYC RECORDS — FBI SAR / subpoena', badgeColor: '#2ecc71'
+  },
+];
+
+const links = [
+  // deptoy.co connections
+  { source: 'deptoy', target: 'bissnex_corp', label: 'white-label of', dashed: false },
+  { source: 'deptoy', target: 'deposit', label: 'victim deposits to', dashed: false },
+  { source: 'deptoy', target: 'wechat', label: 'hardcoded in source', dashed: false },
+  { source: 'deptoy', target: 'icp', label: 'hardcoded in source', dashed: false },
+
+  // bissnex.com
+  { source: 'bissnex_site', target: 'bissnex_corp', label: 'same brand', dashed: false },
+  { source: 'bissnex_site', target: 'dacm', label: 'Wayback: links to →', dashed: false },
+  { source: 'deptoy', target: 'bissnex_site', label: 'shared JS codebase', dashed: true },
+
+  // Corporate
+  { source: 'bissnex_corp', target: 'jackwilliams', label: 'director (filing)', dashed: false },
+  { source: 'bissnex_corp', target: 'byxg', label: 'BIPPAX domain network', dashed: true },
+
+  // dacm hosting
+  { source: 'dacm', target: 'selectel', label: 'hosted on', dashed: false },
+
+  // Crypto trail
+  { source: 'deposit', target: 'agg', label: 'collected into', dashed: false },
+  { source: 'agg', target: 'master', label: '140 BTC · 7 txns', dashed: false },
+  { source: 'master', target: 'binance', label: 'cashout → KYC', dashed: false },
+
+  // Dorfman connections
+  { source: 'byxg', target: 'dorfman', label: 'registered agent', dashed: false },
+  { source: 'dorfman', target: 'nanolite', label: 'registered agent', dashed: false },
+  { source: 'dorfman', target: 'dutt', label: 'director (SEC Form D)', dashed: false },
+  { source: 'dorfman', target: 'cappo', label: 'registered agent', dashed: false },
+  { source: 'dorfman', target: 'bgf', label: '"Prof." persona', dashed: false },
+
+  // Infrastructure
+  { source: 'nanolite', target: 'ctg', label: 'nanolite domain → 202.79.174.5', dashed: false },
+  { source: 'dutt', target: 'aws_mdutton', label: 'mdutton.com hosted on', dashed: false },
+  { source: 'dutt', target: 'gname', label: 'registered at', dashed: true },
+  { source: 'ctg', target: 'share_dns', label: 'all HK domains use', dashed: false },
+  { source: 'share_dns', target: 'gname', label: 'owned/operated by', dashed: false },
+];
+
+// ── Color map ─────────────────────────────────────────────────────────────
+const typeStyle = {
+  platform_dead:   { fill: '#2a1010', stroke: '#e74c3c', textFill: '#e74c3c' },
+  platform_live:   { fill: '#2a0a00', stroke: '#ff4500', textFill: '#ff6b35' },
+  corporate_dead:  { fill: '#1a1008', stroke: '#7d5a0a', textFill: '#a87a1a' },
+  corporate_live:  { fill: '#1a0d00', stroke: '#f39c12', textFill: '#f39c12' },
+  corporate:       { fill: '#1a1008', stroke: '#8b949e', textFill: '#8b949e' },
+  person_suspect:  { fill: '#1a1800', stroke: '#f1c40f', textFill: '#f1c40f' },
+  person_fake:     { fill: '#111111', stroke: '#e74c3c', textFill: '#8b949e' },
+  identifier:      { fill: '#001a18', stroke: '#1abc9c', textFill: '#1abc9c' },
+  infra:           { fill: '#001020', stroke: '#3498db', textFill: '#3498db' },
+  wallet:          { fill: '#100a1a', stroke: '#9b59b6', textFill: '#9b59b6' },
+  wallet_hot:      { fill: '#1a0010', stroke: '#e74c3c', textFill: '#e74c3c' },
+  exchange:        { fill: '#001a08', stroke: '#2ecc71', textFill: '#2ecc71' },
+};
+
+// ── D3 setup ──────────────────────────────────────────────────────────────
+const container = document.getElementById('graph-container');
+const svg = d3.select('#svg');
+const tooltip = document.getElementById('tooltip');
+
+let W = container.clientWidth;
+let H = container.clientHeight;
+
+const g = svg.append('g').attr('class', 'main-g');
+
+const zoom = d3.zoom()
+  .scaleExtent([0.15, 4])
+  .on('zoom', e => g.attr('transform', e.transform));
+
+svg.call(zoom);
+
+// Arrow markers
+const defs = svg.append('defs');
+['normal', 'dashed'].forEach(type => {
+  defs.append('marker')
+    .attr('id', 'arrow-' + type)
+    .attr('viewBox', '0 -4 8 8')
+    .attr('refX', 8).attr('refY', 0)
+    .attr('markerWidth', 6).attr('markerHeight', 6)
+    .attr('orient', 'auto')
+    .append('path')
+    .attr('d', 'M0,-4L8,0L0,4')
+    .attr('fill', type === 'dashed' ? '#30363d' : '#4a5568');
+});
+
+// ── Simulation ─────────────────────────────────────────────────────────────
+const simulation = d3.forceSimulation(nodes)
+  .force('link', d3.forceLink(links).id(d => d.id).distance(d => {
+    // longer distance for wallet chain and corporate connections
+    const longPairs = new Set(['deposit-agg', 'agg-master', 'master-binance']);
+    const key = [d.source.id || d.source, d.target.id || d.target].sort().join('-');
+    return longPairs.has(key) ? 200 : 160;
+  }).strength(0.4))
+  .force('charge', d3.forceManyBody().strength(-600))
+  .force('center', d3.forceCenter(W / 2, H / 2))
+  .force('collision', d3.forceCollide().radius(d => d.r + 30))
+  .force('x', d3.forceX(W / 2).strength(0.03))
+  .force('y', d3.forceY(H / 2).strength(0.03));
+
+// ── Links ──────────────────────────────────────────────────────────────────
+const linkG = g.append('g').attr('class', 'links');
+
+const linkEl = linkG.selectAll('g')
+  .data(links)
+  .join('g')
+  .attr('class', 'link');
+
+linkEl.append('line')
+  .attr('stroke', d => d.dashed ? '#2a3040' : '#374151')
+  .attr('stroke-width', 1.5)
+  .attr('stroke-dasharray', d => d.dashed ? '5,4' : null)
+  .attr('marker-end', d => `url(#arrow-${d.dashed ? 'dashed' : 'normal'})`);
+
+linkEl.append('text')
+  .attr('class', 'link-label')
+  .text(d => d.label);
+
+// ── Nodes ──────────────────────────────────────────────────────────────────
+const nodeG = g.append('g').attr('class', 'nodes');
+
+const nodeEl = nodeG.selectAll('g')
+  .data(nodes)
+  .join('g')
+  .attr('class', 'node')
+  .call(d3.drag()
+    .on('start', dragStart)
+    .on('drag', dragging)
+    .on('end', dragEnd))
+  .on('click', (e, d) => {
+    if (d.pinned) { d.pinned = false; d.fx = null; d.fy = null; }
+    else { d.pinned = true; d.fx = d.x; d.fy = d.y; }
+    simulation.alphaTarget(0.1).restart();
+    updatePinIndicators();
+  })
+  .on('mouseover', showTooltip)
+  .on('mousemove', moveTooltip)
+  .on('mouseout', hideTooltip);
+
+// Circle shadow/glow for hot nodes
+nodeEl.filter(d => d.type === 'wallet_hot' || d.type === 'platform_live' || d.type === 'dorfman')
+  .append('circle')
+  .attr('r', d => d.r + 6)
+  .attr('fill', 'none')
+  .attr('stroke', d => typeStyle[d.type]?.stroke || '#8b949e')
+  .attr('stroke-width', 1)
+  .attr('stroke-opacity', 0.25);
+
+nodeEl.append('circle')
+  .attr('r', d => d.r)
+  .attr('fill', d => typeStyle[d.type]?.fill || '#161b22')
+  .attr('stroke', d => typeStyle[d.type]?.stroke || '#8b949e')
+  .attr('stroke-dasharray', d => d.type === 'person_fake' ? '4,3' : null);
+
+// Pin indicator (dot in center when pinned)
+nodeEl.append('circle')
+  .attr('class', 'pin-dot')
+  .attr('r', 3)
+  .attr('fill', '#ffffff')
+  .attr('opacity', 0);
+
+// Node labels — main
+nodeEl.append('text')
+  .attr('text-anchor', 'middle')
+  .attr('dy', d => d.sublabel ? '-0.5em' : '0')
+  .attr('font-size', d => d.r > 22 ? '11px' : '10px')
+  .attr('font-weight', 'bold')
+  .attr('fill', d => typeStyle[d.type]?.textFill || '#c9d1d9')
+  .text(d => d.label);
+
+// Node sublabels — split on \n
+nodeEl.each(function(d) {
+  if (!d.sublabel) return;
+  const lines = d.sublabel.split('\n');
+  const el = d3.select(this);
+  lines.forEach((line, i) => {
+    el.append('text')
+      .attr('text-anchor', 'middle')
+      .attr('dy', `${0.7 + i * 1.1}em`)
+      .attr('font-size', '9px')
+      .attr('fill', '#8b949e')
+      .text(line);
+  });
+});
+
+// ── Simulation tick ────────────────────────────────────────────────────────
+simulation.on('tick', () => {
+  linkEl.select('line')
+    .attr('x1', d => getEdgePoint(d.source, d.target).x1)
+    .attr('y1', d => getEdgePoint(d.source, d.target).y1)
+    .attr('x2', d => getEdgePoint(d.source, d.target).x2)
+    .attr('y2', d => getEdgePoint(d.source, d.target).y2);
+
+  linkEl.select('text')
+    .attr('x', d => (d.source.x + d.target.x) / 2)
+    .attr('y', d => (d.source.y + d.target.y) / 2 - 4);
+
+  nodeEl.attr('transform', d => `translate(${d.x},${d.y})`);
+});
+
+function getEdgePoint(source, target) {
+  const dx = target.x - source.x;
+  const dy = target.y - source.y;
+  const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+  const sr = source.r + 2;
+  const tr = target.r + 10;
+  return {
+    x1: source.x + (dx / dist) * sr,
+    y1: source.y + (dy / dist) * sr,
+    x2: target.x - (dx / dist) * tr,
+    y2: target.y - (dy / dist) * tr,
+  };
+}
+
+// ── Drag ───────────────────────────────────────────────────────────────────
+function dragStart(e, d) {
+  if (!e.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x; d.fy = d.y;
+}
+function dragging(e, d) {
+  d.fx = e.x; d.fy = e.y;
+  if (d.pinned) { d.fx = e.x; d.fy = e.y; }
+}
+function dragEnd(e, d) {
+  if (!e.active) simulation.alphaTarget(0);
+  if (!d.pinned) { d.fx = null; d.fy = null; }
+}
+
+function updatePinIndicators() {
+  nodeEl.select('.pin-dot').attr('opacity', d => d.pinned ? 0.9 : 0);
+}
+
+// ── Tooltip ────────────────────────────────────────────────────────────────
+function showTooltip(e, d) {
+  tooltip.style.display = 'block';
+  document.getElementById('tt-title').textContent = d.label;
+  document.getElementById('tt-sub').textContent = d.detail || '';
+  const badgeEl = document.getElementById('tt-badge');
+  if (d.badge) {
+    badgeEl.textContent = d.badge;
+    badgeEl.style.background = (d.badgeColor || '#636e7b') + '33';
+    badgeEl.style.color = d.badgeColor || '#8b949e';
+    badgeEl.style.border = `1px solid ${d.badgeColor || '#636e7b'}`;
+    badgeEl.style.display = 'inline-block';
+    badgeEl.className = 'tt-badge';
+  } else { badgeEl.style.display = 'none'; }
+}
+function moveTooltip(e) {
+  const pad = 14;
+  let x = e.clientX + pad, y = e.clientY + pad;
+  const rect = tooltip.getBoundingClientRect();
+  if (x + rect.width > window.innerWidth) x = e.clientX - rect.width - pad;
+  if (y + rect.height > window.innerHeight) y = e.clientY - rect.height - pad;
+  tooltip.style.left = x + 'px';
+  tooltip.style.top = y + 'px';
+}
+function hideTooltip() { tooltip.style.display = 'none'; }
+
+// ── Controls ───────────────────────────────────────────────────────────────
+function resetZoom() {
+  svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(W/2, H/2).scale(0.8).translate(-W/2, -H/2));
+}
+function reheat() {
+  nodes.forEach(d => { d.pinned = false; d.fx = null; d.fy = null; });
+  updatePinIndicators();
+  simulation.alpha(0.8).restart();
+}
+
+// ── Resize ─────────────────────────────────────────────────────────────────
+window.addEventListener('resize', () => {
+  W = container.clientWidth;
+  H = container.clientHeight;
+  simulation.force('center', d3.forceCenter(W / 2, H / 2)).alpha(0.1).restart();
+});
+</script>
+</body>
+</html>

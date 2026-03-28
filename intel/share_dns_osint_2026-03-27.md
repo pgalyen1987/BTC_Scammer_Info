@@ -84,10 +84,13 @@ Gname.com Pte. Ltd. (registrar that owns share-dns.com/net) was named as a top-a
 - **UEN:** 202013923E
 - **Incorporated:** 2020-05-19 (Singapore)
 - **Type:** Exempt Private Company Limited by Shares
-- **Address:** 8 Temasek Boulevard #21-04 Suntec Tower Three, Singapore 038988
+- **Paid-up capital:** SGD 500,000
+- **Registered address:** 8 Temasek Boulevard #21-01, Suntec Tower Three, Singapore 038988
+- **Alt. address (opengovsg.com):** 6 Battery Road #29-02/03, Singapore 049909
 - **Phone:** +65-65189986
 - **Email:** service@gname.com / tech@gname.com / business@gname.com / complaint@gname.com
 - **Public "leadership":** "Ms. Mandy" (Business Leader), "Mr. Johnson" (Marketing Director) — pseudonyms, no surnames
+- **Officers/Directors/Shareholders:** 3 total (per ACRA records) — names not publicly visible; require paid ACRA database access or law enforcement ACRA subpoena
 - **ICANN IANA ID:** 1923
 
 ### Registrar Relationship
@@ -114,6 +117,18 @@ Discovered through crt.sh analysis — all share a Servikus cPanel server accoun
 
 All share SOA: `ns1.servikus.com. noc.servikus.com.`
 pipgainers.com first cert: 2025-04-22 (174 certs total through 2026-03)
+
+---
+
+## MALWAREURL.COM DATA — a.share-dns.com
+
+malwareurl.com tracks 50 recently reported malicious domains using `a.share-dns.com` as nameserver. Threat categories:
+- **Android malware:** 33 domains (qdwlj*.top, qdhph*.top, qdmail*.top, qdcdn*.top pattern)
+- **Trojan ConnectWise:** 5 domains (bc-support.icu, bc-support.top, bc-help.top, ticai20.com, qohelp.top)
+- **Malicious domains:** 8 domains (escybermonday.com, concavix.com, wellnessguru.net, frblackfriday.com, scouttrends.com, infoquests.com, gohubb.com + related.* subdomains)
+- **Scam:** 4 domains
+
+**Significance:** SHARE-DNS is used by multiple unrelated threat actor groups (not just this pig-butchering network) — Android malware operators, ConnectWise RAT operators, and various scammers all use SHARE-DNS nameservers. This further supports the assessment that SHARE-DNS is a commercial service, not a dedicated criminal infrastructure provider.
 
 ---
 
