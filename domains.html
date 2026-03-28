@@ -79,10 +79,10 @@ p{line-height:1.8;margin-bottom:10px}
     <div class="stat-card"><div class="stat-lbl">CTG Server HK</div><div class="stat-val" style="color:#e74c3c">39+</div><div class="stat-sub">Confirmed scam domains on 202.79.174.5</div></div>
     <div class="stat-card"><div class="stat-lbl">AZTEX / 2139 Network</div><div class="stat-val" style="color:#f39c12">~28</div><div class="stat-sub">AZTEX EU + 2139exchange subdomains</div></div>
     <div class="stat-card"><div class="stat-lbl">BIPPAX / Dorfman</div><div class="stat-val" style="color:#3498db">~14</div><div class="stat-sub">BIPPAX, BISSNEX, DUTT cluster</div></div>
-    <div class="stat-card"><div class="stat-lbl">SHARE-DNS Served</div><div class="stat-val" style="color:#2ecc71">800K+</div><div class="stat-sub">Estimated malicious domains across all operators</div></div>
+    <div class="stat-card"><div class="stat-lbl">SHARE-DNS Total Domains</div><div class="stat-val" style="color:#8b949e">3.7M+</div><div class="stat-sub">Total domains served — criminal proportion unknown</div></div>
   </div>
   <div class="box box-dark" style="font-size:12px;line-height:1.8">
-    <b>Total documented IOC domains in this investigation: ~110+.</b> The SHARE-DNS infrastructure (share-dns.com / share-dns.net) serves an estimated 800,000+ malicious domains across all operators globally — this investigation documents only those directly linked to this network. Compiled 2026-03-27.
+    <b>Total documented IOC domains in this investigation: ~110+.</b> SHARE-DNS.COM/NET is a DNS provider serving approximately 3.7 million domains in total. It is used by the criminal network documented here, and has been flagged for abuse by Palo Alto Unit 42 and malwareurl.com — but the proportion of its total domains that are criminal is unknown. Many may be ordinary users. This investigation documents only the domains directly linked to this network. Compiled 2026-03-27.
   </div>
 </div>
 
@@ -95,7 +95,7 @@ p{line-height:1.8;margin-bottom:10px}
       <tr class="conf-confirmed"><td><span class="badge badge-conf-confirmed">CONFIRMED</span></td><td>Same operator as deptoy.co — proven</td><td>Shared TLS certs on same server, shared JS codebase, identical DNS fingerprint (same registrar account)</td></tr>
       <tr class="conf-high"><td><span class="badge badge-conf-high">HIGH</span></td><td>Almost certainly same operator</td><td>Direct hyperlink from confirmed domain, or same named individual (Dorfman) as registered owner</td></tr>
       <tr class="conf-medium"><td><span class="badge badge-conf-medium">MEDIUM</span></td><td>Different operator, overlapping infrastructure</td><td>Co-hosted on same server or same DNS provider — may be a client of the same criminal hosting platform, not the deptoy.co operators themselves</td></tr>
-      <tr class="conf-low"><td><span class="badge badge-conf-low">INFRASTRUCTURE</span></td><td>Shared criminal DNS/hosting used by many groups</td><td>Uses SHARE-DNS nameservers or CTG Server hosting, but no direct link to deptoy.co operators established</td></tr>
+      <tr class="conf-low"><td><span class="badge badge-conf-low">INFRASTRUCTURE</span></td><td>Shared DNS provider or hosting used by criminals, among others</td><td>Uses SHARE-DNS nameservers or CTG Server hosting. SHARE-DNS serves 3.7M+ total domains — criminal proportion unknown. CTG Server is a commercial host whose customers include criminals.</td></tr>
     </tbody>
   </table>
 </div>
@@ -282,12 +282,12 @@ p{line-height:1.8;margin-bottom:10px}
 <!-- ── GROUP H: DNS Infrastructure ── -->
 <div class="section">
   <h2>Group H — DNS / Mail Infrastructure <span class="badge badge-conf-low">INFRASTRUCTURE</span></h2>
-  <p>Not victim-facing scam sites — the underlying criminal DNS and mail infrastructure shared across multiple criminal groups. SHARE-DNS itself is not operated by the deptoy.co criminals; it is a criminal DNS-as-a-service used by many groups including them.</p>
+  <p>Not victim-facing scam sites — DNS and mail infrastructure used by this criminal network. <b>SHARE-DNS is a commercial DNS provider</b>, not an exclusively criminal service. It serves approximately 3.7 million domains in total; many may be legitimate. It is used by criminals in this network, and has documented abuse reported by Palo Alto Unit 42 and malwareurl.com (Android malware, trojans, investment fraud). It is not operated by the deptoy.co criminals — they are customers of it.</p>
   <table>
     <thead><tr><th>Domain</th><th>Role</th><th>IP</th><th>Status</th><th>Notes</th></tr></thead>
     <tbody>
-      <tr style="background:#1a0800"><td><code>share-dns.com</code></td><td>Criminal DNS infrastructure (nameserver root)</td><td>Cloudflare proxy (172.64.53.25)</td><td><span class="live">Live</span></td><td>Registered 2022-06-30; Gname.com registrar; 15+ numbered A/B NS pairs; WHOIS updated 2026-03-25; expires 2027-06-30; ~800K+ malicious domains; NS: troy/ulla.ns.cloudflare.com</td></tr>
-      <tr style="background:#1a0800"><td><code>share-dns.net</code></td><td>Criminal DNS infrastructure (companion)</td><td>Cloudflare proxy</td><td><span class="live">Live</span></td><td>Registered same day (2022-06-30) as .com; NS: anita/brad.ns.cloudflare.com; MX: mail.share-dns.net; no SPF/DMARC — operator can spoof freely</td></tr>
+      <tr><td><code>share-dns.com</code></td><td>DNS provider — used by this criminal network</td><td>Cloudflare proxy (172.64.53.25)</td><td><span class="live">Live</span></td><td>Registered 2022-06-30; Gname.com registrar; 15+ numbered A/B NS pairs; WHOIS updated 2026-03-25; expires 2027-06-30; ~3.7M total domains served (criminal proportion unknown); flagged by Unit 42 and malwareurl.com; NS: troy/ulla.ns.cloudflare.com</td></tr>
+      <tr><td><code>share-dns.net</code></td><td>DNS provider — companion domain</td><td>Cloudflare proxy</td><td><span class="live">Live</span></td><td>Registered same day (2022-06-30) as .com; NS: anita/brad.ns.cloudflare.com; MX: mail.share-dns.net; no SPF/DMARC</td></tr>
       <tr><td><code>mail-ussl.com</code></td><td>Dedicated SMTP for fmtcapitaltc.com</td><td><code>67.216.195.233</code> — AS25820 IT7 Networks LA</td><td><span class="live">Live</span></td><td>MX origin: mx.mail-ussl.com; registered July 2023 via Hostinger; Cloudflare NS; Nginx+Postfix stack</td></tr>
       <tr><td><code>ctgserver.com</code></td><td>CTG Server Ltd — ISP marketing site</td><td>Cloudflare (172.67.73.150)</td><td><span class="live">Live</span></td><td>ISP's own domain; MX: larksuite.com (ByteDance Lark); abuse contact for HK server: cs.mail@ctgserver.com; Porkbun registrar</td></tr>
     </tbody>
@@ -309,7 +309,7 @@ p{line-height:1.8;margin-bottom:10px}
 <!-- ── SHARE-DNS NS PAIRS ── -->
 <div class="section">
   <h2>SHARE-DNS Nameserver Infrastructure</h2>
-  <p>SHARE-DNS operates 15+ numbered nameserver pairs (a1/b1 through a15/b15), each pair serving tens of thousands of malicious domains. All have no web presence (HTTP 000) — pure DNS infrastructure.</p>
+  <p>SHARE-DNS operates 15+ numbered nameserver pairs (a1/b1 through a15/b15), each pair serving tens of thousands of domains. All have no web presence (HTTP 000) — pure DNS infrastructure. Individual NS pairs documented serving 57K–284K domains each; total across both .com and .net is approximately 3.7M domains. The criminal domains in this investigation are a small subset of that total.</p>
   <div class="box box-dark" style="font-size:12px;line-height:1.9">
     <div class="label label-grey">Nameserver Format</div>
     <code>a1.share-dns.com</code> / <code>b1.share-dns.com</code> through <code>a15.share-dns.com</code> / <code>b15.share-dns.com</code> (30 nameservers total)<br><br>

@@ -79,7 +79,7 @@ li{margin-bottom:2px}
 <div class="critical-bar">
   <span style="font-size:11px;font-weight:bold;color:#e74c3c;margin-right:4px">⚠ KEY FINDINGS:</span>
   <a class="crit-btn" href="#sec-gname" style="background:#1a0800;color:#e74c3c;border:1px solid #e74c3c">🔑 Gname.com Root</a>
-  <a class="crit-btn" href="#sec-sharedns" style="background:#1a0d00;color:#f39c12;border:1px solid #f39c12">🌐 SHARE-DNS 800K+</a>
+  <a class="crit-btn" href="#sec-sharedns" style="background:#1a0d00;color:#f39c12;border:1px solid #f39c12">🌐 SHARE-DNS 3.7M total</a>
   <a class="crit-btn" href="#sec-ctg" style="background:#0a1520;color:#3498db;border:1px solid #3498db">🖥 CTG Server</a>
   <a class="crit-btn" href="#sec-webnic" style="background:#150a1a;color:#9b59b6;border:1px solid #9b59b6">🇯🇵 WebNIC JP Bypass</a>
   <a class="crit-btn" href="#sec-subpoenas" style="background:#0d1a10;color:#2ecc71;border:1px solid #2ecc71">📨 Subpoena Targets</a>
@@ -94,7 +94,7 @@ li{margin-bottom:2px}
   <a href="#sec-scale">Scale Assessment</a>
   <div class="nav-group">Infrastructure</div>
   <a href="#sec-gname">Gname.com Root Account</a>
-  <a href="#sec-sharedns">SHARE-DNS Empire</a>
+  <a href="#sec-sharedns">SHARE-DNS</a>
   <a href="#sec-ctg">CTG Server Limited</a>
   <a href="#sec-uwork">Penguin / UWORK Kit Supplier</a>
   <a href="#sec-webnic">WebNIC Japan Bypass</a>
@@ -144,9 +144,9 @@ li{margin-bottom:2px}
   <h2>Scale Assessment</h2>
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px">
     <div class="stat-card">
-      <div class="stat-lbl">Scam Domains (est.)</div>
-      <div class="stat-val" style="color:#e74c3c">800K+</div>
-      <div class="stat-sub">SHARE-DNS total (~57K per pair × 15+ pairs)</div>
+      <div class="stat-lbl">SHARE-DNS Total Domains</div>
+      <div class="stat-val" style="color:#8b949e">3.7M+</div>
+      <div class="stat-sub">Total domains served — criminal proportion unknown</div>
     </div>
     <div class="stat-card">
       <div class="stat-lbl">CTG Server IPs</div>
@@ -229,10 +229,10 @@ li{margin-bottom:2px}
 
 <!-- ── SHARE-DNS ── -->
 <div id="sec-sharedns" class="section">
-  <h2>🌐 SHARE-DNS — Industrial Scam DNS Infrastructure</h2>
+  <h2>🌐 SHARE-DNS — DNS Provider Used by This Network</h2>
 
-  <div class="box box-red" style="margin-bottom:14px">
-    <div class="label label-red">SHARE-DNS.COM and SHARE-DNS.NET: ~800,000+ malicious domains</div>
+  <div class="box box-orange" style="margin-bottom:14px">
+    <div class="label label-orange">SHARE-DNS.COM and SHARE-DNS.NET: ~3.7M total domains — criminal proportion unknown</div>
     <div class="grid3" style="margin-top:10px;font-size:12px">
       <div>
         <b>Registered:</b> Both June 30, 2022 via Gname.com<br>
@@ -244,7 +244,9 @@ li{margin-bottom:2px}
         <b>Scale (confirmed):</b><br>
         A4.SHARE-DNS.COM: <b>57,663 domains</b><br>
         A9.SHARE-DNS.COM: <b>57,617 domains</b><br>
-        Est. 15+ pairs: <b>~800,000–870,000 total</b><br><br>
+        B.SHARE-DNS.NET: <b>284,334 domains</b><br>
+        Total (domainstate.com): <b>~3.7M domains</b><br><br>
+        <b>Note:</b> Many domains appear to be ordinary Chinese-language businesses; criminal proportion is not established.<br><br>
         <b>Backend IPs:</b> All A-record queries return <code>172.64.53.25</code> (Cloudflare proxy) — actual backend IPs hidden
       </div>
       <div>
@@ -600,8 +602,8 @@ li{margin-bottom:2px}
     <thead><tr><th>Type</th><th>Indicator</th><th>Confidence</th><th>Source</th><th>Notes</th></tr></thead>
     <tbody>
       <tr style="background:#1a0800"><td>Email</td><td><code>zys@gname.com</code></td><td><span class="badge badge-red">HIGH</span></td><td>WHOIS (.my domains), AlienVault OTX, Whoisology</td><td>Probable Layer 1 operator account identifier at Gname.com</td></tr>
-      <tr style="background:#1a0800"><td>Registrar account</td><td>Gname.com Pte. Ltd. — IANA ID 1923</td><td><span class="badge badge-red">HIGH</span></td><td>WHOIS (35+ domains)</td><td>Single account registers all scam domains + SHARE-DNS infrastructure</td></tr>
-      <tr style="background:#1a0d00"><td>Nameserver infra</td><td><code>*.SHARE-DNS.COM / *.SHARE-DNS.NET</code></td><td><span class="badge badge-red">HIGH</span></td><td>DNS, WHOIS</td><td>Registered 2022-06-30 via Gname.com; serves 800K+ malicious domains</td></tr>
+      <tr style="background:#1a0800"><td>Registrar</td><td>Gname.com Pte. Ltd. — IANA ID 1923</td><td><span class="badge badge-red">HIGH</span></td><td>WHOIS (35+ domains)</td><td>Registrar for criminal domains in this network; whether all share one account requires subpoena to confirm</td></tr>
+      <tr><td>Nameserver infra</td><td><code>*.SHARE-DNS.COM / *.SHARE-DNS.NET</code></td><td><span class="badge badge-orange">MEDIUM</span></td><td>DNS, WHOIS</td><td>Registered 2022-06-30 via Gname.com; ~3.7M total domains served; criminal proportion unknown; flagged by Palo Alto Unit 42 and malwareurl.com for abuse</td></tr>
       <tr><td>IP address</td><td><code>202.79.174.5</code> (CTG Server AS152194)</td><td><span class="badge badge-red">HIGH</span></td><td>Shodan + urlscan.io (2026-03-23)</td><td>39 confirmed phishing domains; MySQL 3306 + 33060 exposed; last active 2026-03-23</td></tr>
       <tr><td>Scam kit supplier</td><td>UWORK / Penguin Account Store (Chinese PBaaS)</td><td><span class="badge badge-orange">MEDIUM</span></td><td>Infoblox Jan 2026 report; US federal case Feb 2025</td><td>fmtcapitaltc.com architecture matches UWORK kit; linked to $13M US fraud prosecution</td></tr>
       <tr><td>ASN</td><td><code>AS152194</code> (CTG Server Limited)</td><td><span class="badge badge-orange">MEDIUM</span></td><td>BGP data</td><td>22,212 IPs across HK/JP/SG/US — shared hosting, not all malicious</td></tr>

@@ -82,7 +82,7 @@ li{margin-bottom:2px}
 <div class="section">
   <h2>Infrastructure Cluster Overview</h2>
   <p style="line-height:1.8;margin-bottom:14px">
-    The criminal network spans six server clusters across four jurisdictions, a dedicated DNS infrastructure serving ~800K+ malicious domains, and residential broadband access points in the UK. This page covers IPs, ASN, nameservers, hosted domains, and operator fingerprints.
+    The criminal network spans six server clusters across four jurisdictions, a DNS provider (SHARE-DNS) used by this network among many others, and residential broadband access points in the UK. This page covers IPs, ASN, nameservers, hosted domains, and operator fingerprints.
   </p>
   <table>
     <thead><tr><th>Cluster</th><th>IP</th><th>Host / ASN</th><th>Role</th></tr></thead>
@@ -281,15 +281,15 @@ li{margin-bottom:2px}
 
 <!-- ── SHARE-DNS ── -->
 <div class="section">
-  <h2>SHARE-DNS &mdash; Industrial-Scale Scam DNS</h2>
+  <h2>SHARE-DNS &mdash; DNS Provider Used by This Network</h2>
   <p style="line-height:1.8;margin-bottom:14px">
-    All the domains observed on the Hong Kong server, the Japanese typosquats, and the Malaysian impersonation sites share one fingerprint: they use nameservers under <b>SHARE-DNS.COM</b> and <b>SHARE-DNS.NET</b>. Both SHARE-DNS domains and <b>mdutton.com</b> (DUTT Exchange) are registered at the same registrar, <b>Gname.com</b>. Whether they share the same Gname <em>account</em> is unconfirmed &mdash; registrant details are privacy-redacted in WHOIS. A subpoena to Gname is required to establish account-level linkage.
+    All the domains observed on the Hong Kong server, the Japanese typosquats, and the Malaysian impersonation sites share one fingerprint: they use nameservers under <b>SHARE-DNS.COM</b> and <b>SHARE-DNS.NET</b>. SHARE-DNS is a commercial DNS provider serving approximately 3.7 million domains in total — the criminal domains in this investigation are a small subset. It has been flagged for abuse by Palo Alto Unit 42 and malwareurl.com, but the proportion of its customers who are criminal vs. legitimate is unknown. Both SHARE-DNS domains and <b>mdutton.com</b> (DUTT Exchange) are registered at the same registrar, <b>Gname.com</b>. Whether they share the same Gname <em>account</em> is unconfirmed &mdash; registrant details are privacy-redacted in WHOIS. A subpoena to Gname is required to establish account-level linkage.
   </p>
 
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0">
-    <div class="stat-card"><div class="stat-lbl">Est. Malicious Domains</div><div class="stat-val" style="color:#e74c3c">800K+</div><div class="stat-sub">~57K per NS pair &times; 15+ pairs</div></div>
+    <div class="stat-card"><div class="stat-lbl">SHARE-DNS Total Domains</div><div class="stat-val" style="color:#8b949e">3.7M+</div><div class="stat-sub">Total domains served — criminal proportion unknown</div></div>
     <div class="stat-card"><div class="stat-lbl">Registered</div><div class="stat-val" style="color:#f39c12;font-size:20px">2022-06-30</div><div class="stat-sub">Both via Gname.com</div></div>
-    <div class="stat-card"><div class="stat-lbl">Operator Account</div><div class="stat-val" style="color:#3498db;font-size:16px">zys@gname.com</div><div class="stat-sub">Already on AlienVault OTX</div></div>
+    <div class="stat-card"><div class="stat-lbl">Abuse Contact (Gname)</div><div class="stat-val" style="color:#3498db;font-size:16px">zys@gname.com</div><div class="stat-sub">Appears on malicious domains in this network; not confirmed as SHARE-DNS operator</div></div>
     <div class="stat-card"><div class="stat-lbl">Backend</div><div class="stat-val" style="color:#2ecc71;font-size:16px">Cloudflare</div><div class="stat-sub">Real IPs hidden</div></div>
   </div>
 
