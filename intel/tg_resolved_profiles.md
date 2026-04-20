@@ -1,0 +1,234 @@
+# AZTEX Telegram ID — Resolved Profiles
+**Date:** 2026-04-20 01:47 UTC  
+**Total targets:** 215 | **Resolved:** 0 | **With username:** 0 | **With phone:** 0
+**Active operator IDs resolved:** 0
+
+---
+
+## Active Operator Profiles
+
+| ID | Name | Username | Phone | Bio | Status |
+|----|------|----------|-------|-----|--------|
+
+## All Resolved
+
+| ID | Name | Username | Phone | Active |
+|----|------|----------|-------|--------|
+
+## Not Resolved
+
+- `171289` — not_seen_in_any_group
+- `243446` — not_seen_in_any_group
+- `6043125` — not_seen_in_any_group
+- `31144206` — not_seen_in_any_group  **[ACTIVE]**
+- `65137327` — not_seen_in_any_group
+- `151775487` — not_seen_in_any_group  **[ACTIVE]**
+- `158227468` — not_seen_in_any_group
+- `185342318` — not_seen_in_any_group  **[ACTIVE]**
+- `188003855` — not_seen_in_any_group  **[ACTIVE]**
+- `196260543` — not_seen_in_any_group  **[ACTIVE]**
+- `200633828` — not_seen_in_any_group
+- `210971170` — not_seen_in_any_group  **[ACTIVE]**
+- `212658635` — not_seen_in_any_group
+- `218565302` — not_seen_in_any_group
+- `225806189` — not_seen_in_any_group
+- `260520998` — not_seen_in_any_group
+- `261889280` — not_seen_in_any_group
+- `263506396` — not_seen_in_any_group
+- `281254230` — not_seen_in_any_group
+- `282359997` — not_seen_in_any_group
+- `283942319` — not_seen_in_any_group
+- `287570079` — not_seen_in_any_group  **[ACTIVE]**
+- `290179320` — not_seen_in_any_group
+- `290701530` — not_seen_in_any_group
+- `301586057` — not_seen_in_any_group
+- `301933022` — not_seen_in_any_group
+- `317418214` — not_seen_in_any_group
+- `319972898` — not_seen_in_any_group  **[ACTIVE]**
+- `321219228` — not_seen_in_any_group
+- `330204014` — not_seen_in_any_group
+- `334937386` — not_seen_in_any_group
+- `348039805` — not_seen_in_any_group
+- `353770291` — not_seen_in_any_group
+- `365800320` — not_seen_in_any_group
+- `366762009` — not_seen_in_any_group
+- `377415673` — not_seen_in_any_group
+- `394532095` — not_seen_in_any_group
+- `396255434` — not_seen_in_any_group
+- `401073252` — not_seen_in_any_group  **[ACTIVE]**
+- `401860296` — not_seen_in_any_group
+- `408256521` — not_seen_in_any_group  **[ACTIVE]**
+- `430145026` — not_seen_in_any_group
+- `440178623` — not_seen_in_any_group
+- `449194538` — not_seen_in_any_group
+- `467710119` — not_seen_in_any_group
+- `471491349` — not_seen_in_any_group
+- `478906736` — not_seen_in_any_group
+- `484279740` — not_seen_in_any_group
+- `486041003` — not_seen_in_any_group
+- `489293818` — not_seen_in_any_group
+- `500598355` — not_seen_in_any_group
+- `500855780` — not_seen_in_any_group
+- `502918162` — not_seen_in_any_group
+- `505296777` — not_seen_in_any_group
+- `525256564` — not_seen_in_any_group
+- `539522739` — not_seen_in_any_group  **[ACTIVE]**
+- `539625693` — not_seen_in_any_group
+- `548951886` — not_seen_in_any_group
+- `551283177` — not_seen_in_any_group  **[ACTIVE]**
+- `561665893` — not_seen_in_any_group
+- `563110984` — not_seen_in_any_group
+- `564432339` — not_seen_in_any_group
+- `569147569` — not_seen_in_any_group  **[ACTIVE]**
+- `579462834` — not_seen_in_any_group
+- `597444299` — not_seen_in_any_group
+- `610305080` — not_seen_in_any_group
+- `628401965` — not_seen_in_any_group
+- `639164772` — not_seen_in_any_group
+- `643401279` — not_seen_in_any_group
+- `652197182` — not_seen_in_any_group
+- `669506577` — not_seen_in_any_group
+- `688087599` — not_seen_in_any_group
+- `692477955` — not_seen_in_any_group
+- `695525956` — not_seen_in_any_group
+- `698196622` — not_seen_in_any_group
+- `723641178` — not_seen_in_any_group  **[ACTIVE]**
+- `733594973` — not_seen_in_any_group
+- `735191591` — not_seen_in_any_group
+- `742987695` — not_seen_in_any_group
+- `753057366` — not_seen_in_any_group
+- `753361047` — not_seen_in_any_group
+- `756051602` — not_seen_in_any_group
+- `763720011` — not_seen_in_any_group
+- `764657077` — not_seen_in_any_group
+- `778462028` — not_seen_in_any_group
+- `790775272` — not_seen_in_any_group
+- `790890475` — not_seen_in_any_group
+- `794650449` — not_seen_in_any_group
+- `805894573` — not_seen_in_any_group
+- `822125467` — not_seen_in_any_group
+- `824396361` — not_seen_in_any_group
+- `825737877` — not_seen_in_any_group
+- `847059960` — not_seen_in_any_group
+- `847765795` — not_seen_in_any_group
+- `884953908` — not_seen_in_any_group
+- `885757634` — not_seen_in_any_group
+- `900560702` — not_seen_in_any_group
+- `907431266` — not_seen_in_any_group
+- `914495187` — not_seen_in_any_group  **[ACTIVE]**
+- `921113891` — not_seen_in_any_group
+- `921360983` — not_seen_in_any_group
+- `932238149` — not_seen_in_any_group
+- `933460609` — not_seen_in_any_group
+- `944259150` — not_seen_in_any_group
+- `961426955` — not_seen_in_any_group
+- `966382276` — not_seen_in_any_group
+- `967337991` — not_seen_in_any_group
+- `982743117` — not_seen_in_any_group
+- `987181606` — not_seen_in_any_group
+- `989383392` — not_seen_in_any_group
+- `993387470` — not_seen_in_any_group
+- `1001801681` — not_seen_in_any_group
+- `1025366946` — not_seen_in_any_group
+- `1030768058` — not_seen_in_any_group
+- `1043310840` — not_seen_in_any_group
+- `1061332674` — not_seen_in_any_group  **[ACTIVE]**
+- `1067557179` — not_seen_in_any_group
+- `1130708464` — not_seen_in_any_group  **[ACTIVE]**
+- `1143748106` — not_seen_in_any_group
+- `1144035286` — not_seen_in_any_group
+- `1176488209` — not_seen_in_any_group
+- `1202038153` — not_seen_in_any_group
+- `1236512957` — not_seen_in_any_group
+- `1260337803` — not_seen_in_any_group
+- `1264258399` — not_seen_in_any_group
+- `1287523135` — not_seen_in_any_group
+- `1292903791` — not_seen_in_any_group
+- `1342364248` — not_seen_in_any_group
+- `1347801790` — not_seen_in_any_group
+- `1362218434` — not_seen_in_any_group
+- `1386394376` — not_seen_in_any_group  **[ACTIVE]**
+- `1390455434` — not_seen_in_any_group
+- `1400338723` — not_seen_in_any_group
+- `1418520314` — not_seen_in_any_group
+- `1439845114` — not_seen_in_any_group
+- `1477837896` — not_seen_in_any_group
+- `1484631414` — not_seen_in_any_group
+- `1490604744` — not_seen_in_any_group
+- `1581189747` — not_seen_in_any_group
+- `1604722506` — not_seen_in_any_group
+- `1659777043` — not_seen_in_any_group
+- `1687225894` — not_seen_in_any_group
+- `1747849380` — not_seen_in_any_group
+- `1804979910` — not_seen_in_any_group
+- `1837787343` — not_seen_in_any_group
+- `1851382924` — not_seen_in_any_group
+- `1901713017` — not_seen_in_any_group
+- `1921591648` — not_seen_in_any_group  **[ACTIVE]**
+- `1926768099` — not_seen_in_any_group
+- `2115220181` — not_seen_in_any_group  **[ACTIVE]**
+- `2131238890` — not_seen_in_any_group
+- `5049264587` — not_seen_in_any_group
+- `5068894095` — not_seen_in_any_group
+- `5122389415` — not_seen_in_any_group
+- `5146784676` — not_seen_in_any_group
+- `5166392913` — not_seen_in_any_group
+- `5180634512` — not_seen_in_any_group
+- `5185047650` — not_seen_in_any_group
+- `5219342440` — not_seen_in_any_group
+- `5288256038` — not_seen_in_any_group
+- `5304297530` — not_seen_in_any_group  **[ACTIVE]**
+- `5465596992` — not_seen_in_any_group
+- `5472404492` — not_seen_in_any_group
+- `5622951042` — not_seen_in_any_group  **[ACTIVE]**
+- `5634268658` — not_seen_in_any_group
+- `5670381285` — not_seen_in_any_group
+- `5673942336` — not_seen_in_any_group  **[ACTIVE]**
+- `5697159086` — not_seen_in_any_group
+- `5717487416` — not_seen_in_any_group
+- `5729217912` — not_seen_in_any_group
+- `5734510631` — not_seen_in_any_group  **[ACTIVE]**
+- `5767977557` — not_seen_in_any_group
+- `5795916303` — not_seen_in_any_group
+- `5798978049` — not_seen_in_any_group  **[ACTIVE]**
+- `5950775501` — not_seen_in_any_group
+- `5988635222` — not_seen_in_any_group
+- `6045304927` — not_seen_in_any_group
+- `6104382245` — not_seen_in_any_group
+- `6131324087` — not_seen_in_any_group
+- `6141683244` — not_seen_in_any_group
+- `6145897919` — not_seen_in_any_group
+- `6157508687` — not_seen_in_any_group
+- `6205028284` — not_seen_in_any_group
+- `6217402486` — not_seen_in_any_group
+- `6229807488` — not_seen_in_any_group
+- `6232385385` — not_seen_in_any_group
+- `6329575498` — not_seen_in_any_group
+- `6403778679` — not_seen_in_any_group
+- `6411210483` — not_seen_in_any_group
+- `6429169957` — not_seen_in_any_group
+- `6443909728` — not_seen_in_any_group
+- `6526260857` — not_seen_in_any_group  **[ACTIVE]**
+- `6527743287` — not_seen_in_any_group
+- `6596700200` — not_seen_in_any_group
+- `6619897733` — not_seen_in_any_group
+- `6808275178` — not_seen_in_any_group
+- `6870517230` — not_seen_in_any_group
+- `7254357986` — not_seen_in_any_group
+- `7299877606` — not_seen_in_any_group
+- `7480935373` — not_seen_in_any_group
+- `7603769804` — not_seen_in_any_group
+- `7616062690` — not_seen_in_any_group
+- `7750541646` — not_seen_in_any_group
+- `7804522101` — not_seen_in_any_group
+- `7841326066` — not_seen_in_any_group
+- `7907823179` — not_seen_in_any_group  **[ACTIVE]**
+- `7972329603` — not_seen_in_any_group
+- `8098826203` — not_seen_in_any_group
+- `8210149844` — not_seen_in_any_group
+- `8382010191` — not_seen_in_any_group
+- `8426381032` — not_seen_in_any_group
+- `8519329494` — not_seen_in_any_group
+- `8572202952` — not_seen_in_any_group
+- `8637977627` — not_seen_in_any_group
+- `8720652571` — not_seen_in_any_group

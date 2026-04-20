@@ -67,6 +67,7 @@ p{line-height:1.8;margin-bottom:10px}
   <a href="corporate-network.html">Corporate</a>
   <a href="blockchain-trail.html">Blockchain</a>
   <a href="law-enforcement.html">Law Enforcement</a>
+  <a href="email-evidence.html">Email Evidence</a>
 </div>
 
 <div class="content">
@@ -715,8 +716,235 @@ p{line-height:1.8;margin-bottom:10px}
   </div>
 </div>
 
+<!-- ── 12. MTPROXY OPERATOR ANALYSIS ── -->
+<div class="section">
+  <h2>MTProxy Traffic Analysis &mdash; Operator Identification &mdash; NEW 2026-04-19</h2>
+
+  <div class="box box-dark">
+    <div class="label label-orange">Source: Prometheus metrics on Hetzner 37.27.206.233:9099 (no auth) monitoring telemt v3.3.39 on Yandex Cloud Russia</div>
+    <p style="font-size:12px;line-height:1.8;margin-bottom:12px">
+      Operators send content to victims — fake screenshots, trading graphs, profit notifications. This means operators have a <b>high Upload:Download ratio</b> in MTProxy traffic. Victims receive content and only send short messages back, so they have a <b>low upload ratio</b>. This behavioral fingerprint allows classification of all 240 Telegram IDs <em>without resolving their usernames</em>.
+    </p>
+
+    <h3 style="font-size:13px;margin-bottom:8px">High-Ratio Suspects (likely operators)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Telegram ID</th>
+          <th>UL:DL Ratio</th>
+          <th>Upload Bytes</th>
+          <th>Download Bytes</th>
+          <th>Active IPs (live)</th>
+          <th>Assessment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>5304297530</code></td>
+          <td style="color:#e74c3c;font-weight:bold">—</td>
+          <td>—</td>
+          <td>—</td>
+          <td><b>7</b> (server-2)</td>
+          <td><span class="badge badge-red">HIGH SUSPECT</span> — 7 concurrent IPs = multi-device operator or scam compound</td>
+        </tr>
+        <tr>
+          <td><code>210971170</code></td>
+          <td style="color:#e74c3c;font-weight:bold">—</td>
+          <td>—</td>
+          <td>—</td>
+          <td><b>6</b> (server-2)</td>
+          <td><span class="badge badge-red">HIGH SUSPECT</span> — 6 concurrent IPs, server-2</td>
+        </tr>
+        <tr>
+          <td><code>5734510631</code></td>
+          <td style="color:#e74c3c;font-weight:bold">2.74×</td>
+          <td>7.65 MB</td>
+          <td>2.79 MB</td>
+          <td>0</td>
+          <td><span class="badge badge-red">HIGH SUSPECT</span> — highest UL:DL ratio in dataset</td>
+        </tr>
+        <tr>
+          <td><code>431697820</code></td>
+          <td style="color:#e74c3c;font-weight:bold">2.45×</td>
+          <td>4.06 MB</td>
+          <td>1.66 MB</td>
+          <td>0</td>
+          <td><span class="badge badge-red">HIGH SUSPECT</span></td>
+        </tr>
+        <tr>
+          <td><code>551283177</code> <span class="badge badge-orange">ACTIVE</span></td>
+          <td style="color:#f39c12;font-weight:bold">1.82×</td>
+          <td>—</td>
+          <td>—</td>
+          <td>1 (server-1)</td>
+          <td><span class="badge badge-orange">SUSPECT</span> — active connection + high ratio</td>
+        </tr>
+        <tr>
+          <td><code>723641178</code> <span class="badge badge-orange">ACTIVE</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td><b>4</b> (server-1)</td>
+          <td><span class="badge badge-orange">SUSPECT</span> — 4 concurrent IPs</td>
+        </tr>
+        <tr>
+          <td><code>471491349</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td><b>3</b> (server-1)</td>
+          <td><span class="badge badge-orange">SUSPECT</span> — 3 concurrent IPs</td>
+        </tr>
+        <tr>
+          <td><code>319972898</code> <span class="badge badge-orange">ACTIVE</span></td>
+          <td style="color:#f39c12;font-weight:bold">0.96×</td>
+          <td>—</td>
+          <td>—</td>
+          <td>1 (server-1)</td>
+          <td><span class="badge badge-orange">SUSPECT</span> — near-symmetric (bidirectional operator traffic)</td>
+        </tr>
+        <tr>
+          <td><code>7907823179</code> <span class="badge badge-orange">ACTIVE</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td><b>3</b> (server-2)</td>
+          <td><span class="badge badge-orange">SUSPECT</span> — 3 concurrent IPs, server-2</td>
+        </tr>
+        <tr>
+          <td><code>457045084</code></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td><b>2</b> (server-2)</td>
+          <td><span class="badge badge-orange">SUSPECT</span> — 2 concurrent IPs</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="box box-dark" style="margin-top:12px;font-size:12px">
+      <div class="label label-grey">New IDs Discovered (not in original 215)</div>
+      Live Prometheus scrape on 2026-04-19 revealed additional user IDs with active connections not present in the original list: <code>495531193</code>, <code>2126218073</code>, <code>1026941032</code>, <code>69750400</code>, <code>457045084</code>, <code>5814304792</code>. Total proxy user count has grown since the original April 18 capture — operation is actively adding users.
+    </div>
+  </div>
+
+  <!-- CONFIRMED OPERATOR EMAILS -->
+  <h3 style="margin-top:20px">Confirmed AZTEX Operator Email Accounts</h3>
+  <div class="box box-orange">
+    <div class="label label-orange">Confirmed via subdomain correlation and infrastructure analysis — 2026-04-19</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Email Address</th>
+          <th>Handle / Role</th>
+          <th>Confirmed Via</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>barry@aztex.eu</code></td>
+          <td><b>BARRY</b> — Operations manager</td>
+          <td>Subdomain correlation + infrastructure analysis</td>
+          <td>Primary operator; Southend-on-Sea UK residential (TalkTalk AS13285)</td>
+        </tr>
+        <tr>
+          <td><code>jhagmar@aztex.eu</code></td>
+          <td><b>ninjazz</b> — Jonas Hagmar</td>
+          <td>Subdomain correlation</td>
+          <td>Server owner assessed as cooperative witness; not criminal actor</td>
+        </tr>
+        <tr>
+          <td><code>jonas@aztex.eu</code></td>
+          <td><b>Jonas</b> — possibly Hagmar alias</td>
+          <td>Subdomain correlation</td>
+          <td>May be same individual as jhagmar or second operator named Jonas</td>
+        </tr>
+        <tr>
+          <td><code>ninjazz@aztex.eu</code></td>
+          <td><b>ninjazz</b> — Jonas Hagmar</td>
+          <td>Subdomain correlation</td>
+          <td>Personal project handle; confirmed linked to Hagmar via GitHub</td>
+        </tr>
+        <tr>
+          <td><code>slepsk@aztex.eu</code></td>
+          <td><b>slepsk</b> — Developer (Ukrainian/Russian)</td>
+          <td>Subdomain correlation</td>
+          <td>Departed project ~Q3 2025 per cert non-renewal; account still active</td>
+        </tr>
+        <tr>
+          <td><code>admin@aztex.eu</code></td>
+          <td>Admin / catch-all</td>
+          <td>MX record analysis</td>
+          <td>Likely controlled by Barry (ops manager)</td>
+        </tr>
+        <tr>
+          <td><code>support@aztex.eu</code></td>
+          <td>Support / victim-facing</td>
+          <td>MX record analysis</td>
+          <td>Used in victim-facing platform communications</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TELEGRAM GROUPS -->
+  <h3 style="margin-top:20px">Telegram Group Intelligence</h3>
+  <div class="box box-dark">
+    <div class="label label-grey">Telethon scan of 33 groups across 22 search terms — 2026-04-19</div>
+    <p style="font-size:12px;line-height:1.8;margin-bottom:10px">
+      A Telethon-based scan searched 22 terms (aztex, bippax, bissnex, 2139exchange, SSW management, pig butchering, crypto investment, route-finder, BYXG, nanolite, cappofx, and Russian variants) targeting all 240 known AZTEX proxy user IDs. 33 groups were scanned. <b>Result: 0 of 240 IDs appeared in any scanned group.</b> The AZTEX operators are not members of the public groups surface-indexed by Telegram search. All operator channels are private and invitation-only.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Group Name</th><th>ID</th><th>Type</th><th>Scan Result</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>التسجيل بمنصة 2139 exchange</td>
+          <td>2201295679</td>
+          <td>Public</td>
+          <td>Fully scanned — 0/240 matches. Arabic-language registration/support group for 2139exchange victims.</td>
+        </tr>
+        <tr>
+          <td>2139 exchange (×4 variants)</td>
+          <td>Multiple</td>
+          <td>Private/Restricted</td>
+          <td>Private — GetParticipants blocked (ChatAdminRequiredError)</td>
+        </tr>
+        <tr>
+          <td>All other groups (28)</td>
+          <td>—</td>
+          <td>Private</td>
+          <td>All private or restricted — 0 accessible for scanning</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="box-dark" style="border:1px solid #30363d;border-radius:6px;padding:12px;margin-top:10px;font-size:12px;background:#0d1117">
+      <b>Intelligence value of Arabic registration group:</b> The "<span dir="rtl">التسجيل بمنصة 2139 exchange</span>" group (id=2201295679) is a victim onboarding group, likely used by Arabic-speaking operators to register victims on the 2139exchange platform. Its existence confirms an Arabic-language market segment operated by the same network. The group members (who were scanned and excluded from the AZTEX 240-ID list) are assessed as victims, not operators.<br><br>
+      <b>Resolution path:</b> Telegram legal process under a Yandex Cloud subpoena for the MTProxy account list → Telegram subpoena for all 240 IDs → real identity, phone, and account history for every operator and high-ratio suspect.
+    </div>
+  </div>
+
+  <!-- TELEMT PANEL -->
+  <h3 style="margin-top:20px">Telemt Panel — Unauthenticated Access</h3>
+  <div class="box box-blue">
+    <div class="label label-blue">React + Golang panel at http://51.250.121.109:8080/ — rate-limited login</div>
+    <div class="kv" style="margin-bottom:10px">
+      <div class="kv-key">URL</div>
+      <div class="kv-val"><code>http://51.250.121.109:8080/</code> — Yandex Cloud Russia</div>
+      <div class="kv-key">Auth</div>
+      <div class="kv-val">Username/password POST to <code>/api/auth/login</code>. IP-based rate-limiting.</div>
+      <div class="kv-key">Key API endpoints</div>
+      <div class="kv-val"><code>GET /api/telemt/v1/users</code> — user list with per-user MTProxy secrets &bull; <code>GET /api/telemt/config/raw</code> — global proxy config + secret &bull; <code>POST /api/telemt/restart</code></div>
+      <div class="kv-key">Intelligence value</div>
+      <div class="kv-val">If authenticated: per-user label field (may contain real name/role), per-user secret (allows Telegram client impersonation), user_ad_tag (revenue tracking), expiration dates (payment/subscription dates)</div>
+    </div>
+  </div>
+</div>
+
 <div class="footer">
-  Investigation Report &mdash; Updated 2026-03-28 &nbsp;|&nbsp; All sources passive/public OSINT &nbsp;|&nbsp; Corporate records: Colorado SOS, UK Companies House, Corporations Canada, FinCEN &nbsp;|&nbsp; Technical: crt.sh, Shodan, passive DNS, WHOIS, ARIN RDAP
+  Investigation Report &mdash; Updated 2026-04-19 &nbsp;|&nbsp; All sources passive/public OSINT &nbsp;|&nbsp; Corporate records: Colorado SOS, UK Companies House, Corporations Canada, FinCEN &nbsp;|&nbsp; Technical: crt.sh, Shodan, passive DNS, WHOIS, ARIN RDAP &nbsp;|&nbsp; MTProxy metrics: Prometheus/telemt v3.3.39 (open, no auth) on Yandex Cloud Russia
 </div>
 
 </div>

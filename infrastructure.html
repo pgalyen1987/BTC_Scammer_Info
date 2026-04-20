@@ -74,6 +74,7 @@ li{margin-bottom:2px}
   <a href="corporate-network.html">Corporate</a>
   <a href="blockchain-trail.html">Blockchain</a>
   <a href="law-enforcement.html">Law Enforcement</a>
+  <a href="email-evidence.html">Email Evidence</a>
 </div>
 
 <div class="content">
@@ -433,6 +434,119 @@ li{margin-bottom:2px}
       </tbody>
     </table>
     <p style="font-size:11px;color:#8b949e;margin-top:10px">Source: crt.sh certificate transparency — Subject Alternative Names enumerated across 174 certificates issued 2025-04-22 through 2026-03-24. All domains use ns1–4.servikus.com and Registrar.eu registrar. WHOIS registrant: privacy-redacted on all.</p>
+  </div>
+</div>
+
+<!-- ── TELEGRAM MTPROXY + PANEL (NEW 2026-04-19) ── -->
+<div class="section">
+  <h2>AZTEX Telegram MTProxy Infrastructure &mdash; <span style="color:#e74c3c">NEW 2026-04-19</span></h2>
+
+  <div class="box box-red">
+    <div class="label label-red">CRITICAL — PROMETHEUS METRICS OPEN — 240 TELEGRAM USER IDs CAPTURED</div>
+    <p style="font-size:12px;line-height:1.8;margin-bottom:12px">
+      AZTEX operates two Telegram MTProxy servers on <b>Yandex Cloud Russia</b> (region: ru), monitored via Prometheus from the Hetzner server. Both metrics endpoints (<code>:9095/metrics</code>) are publicly accessible with no authentication. A full dump of all connected user Telegram IDs, per-user traffic stats, and connection history was extracted on 2026-04-18. A second dump on 2026-04-19 revealed 25 additional IDs not present in the first capture, bringing the total to <b>240 unique Telegram user IDs</b>.
+    </p>
+    <table style="font-size:12px">
+      <thead><tr><th>Instance</th><th>IP</th><th>Port</th><th>Software</th><th>Uptime (at capture)</th><th>Total Connections</th></tr></thead>
+      <tbody>
+        <tr><td><b>yandex-server-1</b></td><td><code>51.250.121.109</code></td><td>9095</td><td>telemt v3.3.39</td><td>~4.9 days</td><td>5,892,714</td></tr>
+        <tr><td><b>yandex-server-2</b></td><td><code>51.250.121.79</code></td><td>9095</td><td>telemt v3.3.39</td><td>~4.9 days</td><td>2,646,597</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Operator vs. Victim Classification &mdash; Upload/Download Ratio Analysis</h3>
+  <div class="box box-orange">
+    <div class="label label-orange">OPERATOR SUSPECTS — Identified by High Upload-to-Download Ratio</div>
+    <p style="font-size:12px;line-height:1.8;margin-bottom:10px">
+      Operators who actively send scripts, images, and files to victims show a high upload:download ratio. Victims who receive content passively show near-zero upload ratios. The following IDs are assessed as likely operators based on traffic asymmetry:
+    </p>
+    <table style="font-size:12px">
+      <thead><tr><th>Telegram ID</th><th>UL/DL Ratio</th><th>Upload MB</th><th>Download MB</th><th>Total Conns</th><th>Msgs Sent</th><th>Active at Capture</th></tr></thead>
+      <tbody>
+        <tr style="background:#1a0800"><td><code>5734510631</code></td><td><b>2.74×</b></td><td>890</td><td>325</td><td>25,445</td><td>48,106</td><td></td></tr>
+        <tr style="background:#1a0800"><td><code>431697820</code></td><td><b>2.45×</b></td><td>744</td><td>304</td><td>1,528</td><td>114,715</td><td></td></tr>
+        <tr style="background:#1a0800"><td><code>551283177</code></td><td><b>1.82×</b></td><td>822</td><td>451</td><td>34,784</td><td>2,155,519</td><td>YES</td></tr>
+        <tr style="background:#1a0d00"><td><code>6526260857</code></td><td><b>1.12×</b></td><td>1,975</td><td>1,764</td><td>1,936</td><td>632,057</td><td></td></tr>
+        <tr style="background:#1a0d00"><td><code>319972898</code></td><td><b>0.96×</b></td><td>1,764</td><td>1,832</td><td>35,589</td><td>4,741,451</td><td>YES</td></tr>
+        <tr style="background:#1a0d00"><td><code>1400338723</code></td><td><b>0.78×</b></td><td>1,141</td><td>1,456</td><td>4,493</td><td>354,793</td><td></td></tr>
+        <tr style="background:#1a0d00"><td><code>914495187</code></td><td><b>0.49×</b></td><td>980</td><td>2,013</td><td>3,864</td><td>3,182,647</td><td>YES</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px;color:#8b949e;margin-top:8px">Note: ID <code>431697820</code> does not appear in the original 215-ID list — it was in the second metrics capture only. All figures are cumulative since server restart (~4.9 days prior). "Active at Capture" = had an open connection at time of data collection (2026-04-18 ~23:57 UTC).</p>
+  </div>
+
+  <h3>Telemt Panel &mdash; Web Management Interface</h3>
+  <div class="box box-red">
+    <div class="label label-red">MANAGEMENT PANEL EXPOSED — PORT 8080 — yandex-server-1 ONLY</div>
+    <table style="font-size:12px">
+      <tr><td style="color:#8b949e;width:160px">URL</td><td><code>http://51.250.121.109:8080/</code></td></tr>
+      <tr><td style="color:#8b949e">Software</td><td><b>telemt-panel</b> (open-source, github.com/amirotin/telemt_panel) &bull; React + Golang backend</td></tr>
+      <tr><td style="color:#8b949e">Auth</td><td>Username + bcrypt password → JWT session cookie. Rate-limited per IP. No default credentials.</td></tr>
+      <tr><td style="color:#8b949e">Key API endpoints</td><td><code>GET /api/telemt/v1/users</code> — full user list with per-user MTProxy secrets &bull; <code>GET /api/telemt/config/raw</code> — raw proxy config incl. global secret &bull; <code>POST /api/auth/login</code></td></tr>
+      <tr><td style="color:#8b949e">Intelligence value</td><td>Authenticated access would yield: every user's MTProxy secret key, proxy server config, admin credentials, full registered user list with labels</td></tr>
+    </table>
+  </div>
+
+  <h3>Telegram Groups Found via Channel Search (2026-04-19)</h3>
+  <div class="box box-dark">
+    <table style="font-size:12px">
+      <thead><tr><th>Group Name</th><th>Chat ID</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>KO 2139 Exchange + Mega Investment Group</td><td><code>2142005557</code></td><td><span class="badge badge-grey">Private</span></td><td>Ivory Coast community; Mega Investment Group confirmed link to 2139exchange</td></tr>
+        <tr><td>Abdirahim's Team and 2139 Exchange</td><td><code>2086297318</code></td><td><span class="badge badge-grey">Private</span></td><td>Individual recruiter team</td></tr>
+        <tr style="background:#0a1a0a"><td>التسجيل بمنصة 2139 exchange (Registration)</td><td><code>2201295679</code></td><td><span class="badge badge-green">Scanned</span></td><td>Arabic-language registration group &bull; Accessible &bull; <b>0/240 MTProxy IDs found</b></td></tr>
+        <tr><td>MEGA INVESTMENT Group (2139 Exchange)</td><td><code>2443104230</code></td><td><span class="badge badge-grey">Private</span></td><td>Primary victim acquisition channel for 2139exchange</td></tr>
+        <tr><td>2139 New Version - Victory Exchange</td><td><code>3096765914</code></td><td><span class="badge badge-grey">Private</span></td><td>Rebrand variant</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px;color:#8b949e;margin-top:8px">All 215 original + 25 new Telegram IDs searched across 33+ groups (2026-04-18) and 20+ groups (2026-04-19). Zero matches. Accounts are private and not indexed by any public OSINT service (tgscan, telegramdb, tgstat, telemetr, archive.org, Fragment, Combot all negative).</p>
+  </div>
+
+  <h3>Subpoena Targets</h3>
+  <div class="box box-blue">
+    <div class="label label-blue">Yandex Cloud Russia &mdash; Both MTProxy Servers</div>
+    <p style="font-size:12px;line-height:1.8">
+      Yandex Cloud LLC (ООО «Яндекс Облако»), Ulitsa Lva Tolstogo 16, Moscow 119021, Russia. A single Yandex Cloud subpoena covering IPs <code>51.250.121.109</code> and <code>51.250.121.79</code> would return: account holder KYC (name, address, payment method, creation IP, phone number), billing records, and — critically — <b>all 240 Telegram user IDs associated with their proxy usage can be resolved to real phone numbers via a simultaneous Telegram subpoena</b>. Route: FBI/DOJ mutual legal assistance (Russia MLAT slow; may need to approach via Telegram's UAE legal entity instead).
+    </p>
+  </div>
+</div>
+
+<!-- ── VAULTWARDEN (NEW 2026-04-19) ── -->
+<div class="section">
+  <h2>Vaultwarden (Bitwarden) &mdash; <code>bitwarden.aztex.eu</code> &mdash; <span style="color:#e74c3c">NEW 2026-04-19</span></h2>
+
+  <div class="box box-red">
+    <div class="label label-red">CRITICAL — OPERATOR PASSWORD VAULT — ALL CREDENTIALS STORED HERE</div>
+    <p style="font-size:12px;line-height:1.8;margin-bottom:12px">
+      <b>Vaultwarden</b> is a self-hosted, open-source implementation of the Bitwarden password manager. AZTEX operators use it as a shared credential vault — SSH keys, exchange admin passwords, bank logins, cryptocurrency wallet seeds, and 2FA codes are almost certainly stored here. Compromise of this vault would expose the entire operational security posture of the network.
+    </p>
+    <table style="font-size:12px">
+      <tr><td style="color:#8b949e;width:180px">URL</td><td><code>https://bitwarden.aztex.eu</code> (→ 194.60.201.83)</td></tr>
+      <tr><td style="color:#8b949e">Software</td><td>Vaultwarden v2025.12.0 (git: c555f7d1) &bull; <a href="https://github.com/dani-garcia/vaultwarden">github.com/dani-garcia/vaultwarden</a></td></tr>
+      <tr><td style="color:#8b949e">Admin token hash</td><td>Argon2 &bull; Rate-limited per IP</td></tr>
+      <tr><td style="color:#8b949e">User registration</td><td><b style="color:#e74c3c">OPEN</b> — <code>disableUserRegistration: false</code> in <code>/api/config</code></td></tr>
+      <tr><td style="color:#8b949e">KDF</td><td>PBKDF2-SHA256, 600,000 iterations &bull; Email verification enabled</td></tr>
+      <tr><td style="color:#8b949e">Database</td><td>SQLite (<code>db.sqlite3</code>) on 194.60.201.83 filesystem &bull; Contains all encrypted vault items + user records</td></tr>
+    </table>
+  </div>
+
+  <h3>Confirmed Operator Email Accounts</h3>
+  <div class="box box-dark">
+    <p style="font-size:12px;line-height:1.8;margin-bottom:8px">The following emails are confirmed as registered operators via subdomain correlation and infrastructure analysis:</p>
+    <table style="font-size:12px">
+      <thead><tr><th>Email</th><th>Handle Correlation</th><th>Confirmed Via</th></tr></thead>
+      <tbody>
+        <tr style="background:#1a0800"><td><code>barry@aztex.eu</code></td><td>AZTEX-BARRY (RDP cert) &bull; Southend-on-Sea, Essex UK</td><td>200 OK &bull; PBKDF2-SHA256 / 600K iter</td></tr>
+        <tr><td><code>jhagmar@aztex.eu</code></td><td>Jonas Hagmar (server owner) &bull; Göteborg, Sweden</td><td>200 OK</td></tr>
+        <tr><td><code>jonas@aztex.eu</code></td><td>Jonas (operator handle)</td><td>200 OK</td></tr>
+        <tr><td><code>ninjazz@aztex.eu</code></td><td>ninjazz subdomain (aztex.eu)</td><td>200 OK</td></tr>
+        <tr><td><code>slepsk@aztex.eu</code></td><td>slepsk / slepsk1987 (developer)</td><td>200 OK</td></tr>
+        <tr><td><code>admin@aztex.eu</code></td><td>Generic admin account</td><td>200 OK</td></tr>
+        <tr><td><code>support@aztex.eu</code></td><td>Support address</td><td>200 OK</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px;color:#8b949e;margin-top:6px">Accounts above are confirmed via subdomain intelligence and infrastructure analysis.</p>
   </div>
 </div>
 

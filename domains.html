@@ -69,6 +69,7 @@ p{line-height:1.8;margin-bottom:10px}
   <a href="corporate-network.html">Corporate</a>
   <a href="blockchain-trail.html">Blockchain</a>
   <a href="law-enforcement.html">Law Enforcement</a>
+  <a href="email-evidence.html">Email Evidence</a>
 </div>
 
 <div class="content">
@@ -342,6 +343,31 @@ p{line-height:1.8;margin-bottom:10px}
     </tbody>
   </table>
   <p style="font-size:11px;color:#8b949e;margin-top:10px">Note: These domains are connected to Group A (BIPPAX) through shared Servikus infrastructure. Attribution to Dorfman specifically is MEDIUM — infrastructure overlap confirmed, but multiple operators may share the same Servikus hosting reseller. Law enforcement subpoena to Registrar.eu and Servikus would reveal registrant identity.</p>
+</div>
+
+<!-- ── GROUP K: BRAVOEX ── -->
+<div class="section">
+  <h2>Group K — bravoex.info (M365 APAC Fake Exchange) <span class="badge badge-orange">NEW</span></h2>
+  <p>Discovered via email forensics: the victim <code>pgalyen87@gmail.com</code> (same victim from the July 2024 deptoy.co incident) received a scam deposit notification from <code>bravoex.info</code> on August 21, 2024. The domain operated a Microsoft 365 tenant in the Asia-Pacific region and used GoDaddy TLS certificates — the same CA used by bippaxcoins.com, byxgcoins.com, aztexchange.com, and cappofx.com. Full analysis: <a href="email-evidence.html">Email Evidence page</a>.</p>
+  <table>
+    <thead><tr><th>Domain</th><th>Role</th><th>Status</th><th>Infrastructure</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code>bravoex.info</code></td>
+        <td>Fake crypto exchange</td>
+        <td><span class="dead">Dead</span></td>
+        <td>M365 APAC (tenant: <code>6b723a26…</code>); GoDaddy TLS CA</td>
+        <td>Scam email sent to victim Aug 2024; claims 13,597 USDT deposit; domain active ~Mar 2024 – Mar 2025; now NXDOMAIN</td>
+      </tr>
+      <tr>
+        <td><code>www.bravoex.info</code></td>
+        <td>Web frontend</td>
+        <td><span class="dead">Dead</span></td>
+        <td>GoDaddy TLS CA (cert: 2024-06-18 to 2025-06-18)</td>
+        <td>WWW subdomain cert issued 3 months after apex — suggests site relaunch/redesign mid-2024</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <!-- ── SHARE-DNS NS PAIRS ── -->
