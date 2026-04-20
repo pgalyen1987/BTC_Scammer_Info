@@ -62,7 +62,7 @@ li{margin-bottom:2px}
 
 <div class="header">
   <h1>Technical Infrastructure</h1>
-  <div class="sub">Technical IOCs only &mdash; <a href="the-two-scams.html" style="color:#9b59b6">deptoy&rarr;CTG story is on Page 1</a> &nbsp;|&nbsp; <a href="layer1.html" style="color:#9b59b6">Layer 1 Deep Dive &rarr;</a></div>
+  <div class="sub">Technical IOCs only &mdash; <a href="the-two-scams.html" style="color:#9b59b6">deptoy&rarr;CTG story is on Page 1</a> &nbsp;|&nbsp; <a href="layer1.html" style="color:#9b59b6">Layer 1 Deep Dive &rarr;</a> &nbsp;|&nbsp; Last updated: 2026-04-20</div>
 </div>
 
 <div class="nav-bar">
@@ -96,6 +96,7 @@ li{margin-bottom:2px}
       <tr><td><b>BIPPAX Mail</b></td><td><code>67.216.195.233</code></td><td>IT7 Networks, Los Angeles — AS25820</td><td>mail-ussl.com SMTP for fmtcapitaltc.com</td></tr>
       <tr><td><b>BIPPAX Russian</b></td><td><code>94.26.255.20</code></td><td>Selectel JSC, Saint Petersburg — AS204720</td><td>dacm-crypto.top WordPress (victim acquisition funnel); UTC+4 timezone; Tawk.to 67ffcfaa703938190f0ee5f5; 200+ French SEO posts targeting Ivory Coast</td></tr>
       <tr style="background:#1a0d00"><td><b>TalkTalk UK (BARRY)</b></td><td><code>79.78.160.133</code></td><td>TalkTalk, Essex UK — AS13285</td><td>Residential; RDP cert CN=<b>AZTEX-BARRY</b></td></tr>
+      <tr style="background:#1a0800"><td><b>Yandex Cloud MTProxy x2</b></td><td><code>51.250.121.109</code><br><code>51.250.121.79</code></td><td>Yandex Cloud LLC, Russia — AS200350</td><td>Two Telegram MTProxy servers; 215 registered users; 23 active at 2026-04-18; discovered via open Prometheus on Hetzner</td></tr>
     </tbody>
   </table>
 </div>
@@ -168,9 +169,53 @@ li{margin-bottom:2px}
     <b>Open redirect:</b> <code>mail.aztex.eu?v=</code> parameter redirects to arbitrary URL — usable for phishing. <b>Open ports (2026-03-27):</b> 22 (OpenSSH 9.6p1), 143/465/587/993 (full mail stack), 3389 (RDP active). <b>Server:</b> Caddy web server, Ubuntu Linux. <b>IPv6:</b> <code>2a02:c207:2298:2627::1/64</code>. <b>API:</b> /v1, /v2, /v3, /rest, /api endpoints. <b>SPF:</b> <code>v=spf1 ip4:194.60.201.83 ip6:2a02:c207:2298:2627::1/64 include:_spf.porkbun.com -all</code>
   </div>
 
-  <h3>Dev/Staging Server &mdash; 37.27.206.233 (Finland)</h3>
-  <div class="box box-dark" style="font-size:12px;line-height:1.8">
-    Provider: Hetzner Online (AS24940), Helsinki &bull; TLS cert: t-contest.aztex.digital &bull; Services: Pure-FTPd (21), Redis (6379), MinIO S3 Console (9000/9001), port 887 (unknown) &bull; Purpose: development, testing, and file storage
+  <h3>Dev/Staging Server &mdash; 37.27.206.233 (Finland) &mdash; updated 2026-04-18</h3>
+  <div class="box box-red">
+    <div class="label label-red">CRITICAL — PROMETHEUS OPEN + TELEGRAM MTPROXY EXPOSED — 2026-04-18</div>
+    <table style="font-size:12px">
+      <tr><td style="color:#8b949e;width:160px">IP</td><td><code>37.27.206.233</code></td></tr>
+      <tr><td style="color:#8b949e">Provider</td><td>Hetzner Online (AS24940), Helsinki</td></tr>
+      <tr><td style="color:#8b949e">Services confirmed</td><td>Pure-FTPd/TLS (21), SSH (22), Caddy/HTTPS (80/443, CapVerified CAPTCHA), SMTP (587), Redis/auth (6379), MinIO S3 API (9000), MinIO Console (9001, 401), Prometheus (9099)</td></tr>
+      <tr><td style="color:#8b949e">Subdomains</td><td>nextcloud.aztex.eu, matrix.aztex.eu, route-finder.aztex.eu, route-lister.aztex.eu &mdash; all behind CapVerified CAPTCHA gateway</td></tr>
+      <tr style="background:#1a0800"><td style="color:#e74c3c"><b>OPEN PORT 9099</b></td><td><b>Prometheus metrics endpoint — NO AUTHENTICATION — publicly accessible.</b> Exposes full monitoring data including service names, uptime, and external probe targets.</td></tr>
+    </table>
+  </div>
+
+  <h3>Telegram MTProxy Servers &mdash; Yandex Cloud Russia &mdash; discovered via Prometheus</h3>
+  <div class="box box-red">
+    <div class="label label-red">CRITICAL — 215 REGISTERED USERS — 23 ACTIVE AT TIME OF COLLECTION — DIRECT SUBPOENA PATH</div>
+    <p style="font-size:12px;line-height:1.8;margin-bottom:10px">
+      The exposed Prometheus endpoint on 37.27.206.233 monitors two Telegram MTProxy servers hosted on <b>Yandex Cloud Russia</b>. MTProxy allows operators to route Telegram traffic through these servers, masking their real IPs and bypassing ISP blocks. The proxy user IDs are real Telegram account IDs — each is a subpoena target for identity and phone number.
+    </p>
+    <table style="font-size:12px">
+      <thead><tr><th>Server</th><th>IP</th><th>Port</th><th>Status</th><th>Software</th></tr></thead>
+      <tbody>
+        <tr style="background:#1a0800"><td>yandex-server-1</td><td><code>51.250.121.109</code></td><td>9095</td><td><span style="color:#2ecc71">UP</span></td><td>telemt v3.3.39</td></tr>
+        <tr style="background:#1a0800"><td>yandex-server-2</td><td><code>51.250.121.79</code></td><td>9095</td><td><span style="color:#2ecc71">UP</span></td><td>telemt v3.3.39</td></tr>
+      </tbody>
+    </table>
+    <table style="font-size:12px;margin-top:10px">
+      <tr><td style="color:#8b949e;width:200px">Total registered proxy users</td><td><b>215</b></td></tr>
+      <tr><td style="color:#8b949e">Active users at 2026-04-18 ~23:57 UTC</td><td><b>23</b></td></tr>
+      <tr><td style="color:#8b949e">Server-1 uptime at collection</td><td>~4.3 days (recently restarted)</td></tr>
+    </table>
+    <div style="margin-top:12px">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#e74c3c;margin-bottom:6px">Active Telegram IDs — Server 1 (51.250.121.109)</div>
+      <div style="font-family:monospace;font-size:11px;line-height:1.9;color:#c9d1d9">
+        31144206 (2 IPs) &bull; 185342318 &bull; 188003855 &bull; 196260543 &bull; 287570079 &bull; 319972898 &bull; 401073252 &bull; 408256521 &bull; 539522739 &bull; 551283177 &bull; 569147569 (2 IPs) &bull; 723641178 &bull; 914495187 &bull; 1061332674 &bull; 1921591648 (2 IPs) &bull; 2115220181 (2 IPs) &bull; 5622951042
+      </div>
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#e74c3c;margin-top:8px;margin-bottom:6px">Active Telegram IDs — Server 2 (51.250.121.79)</div>
+      <div style="font-family:monospace;font-size:11px;line-height:1.9;color:#c9d1d9">
+        151775487 &bull; 1130708464 &bull; 1386394376 &bull; 5673942336 &bull; 5798978049 &bull; 7907823179 (2 IPs)
+      </div>
+      <div style="font-size:11px;color:#8b949e;margin-top:8px">Full list of all 215 registered proxy user IDs: <code>intel/aztex_telegram_ids.txt</code></div>
+    </div>
+    <div class="box box-dark" style="margin-top:12px;font-size:12px;line-height:1.8">
+      <div class="label label-red">Subpoena Value</div>
+      <b>Yandex Cloud subpoena</b> (via MLAT Russia or secondary US nexus if Yandex Cloud US services involved): account holder KYC, payment method, creation IP for both 51.250.121.109 and 51.250.121.79.<br>
+      <b>Telegram subpoena</b> for all 215 user IDs: real identity linked to phone number, registration IP, account history, group memberships.<br>
+      <b>Note:</b> 23 of these accounts were actively using the proxy at time of collection — confirmed live operators.
+    </div>
   </div>
 
   <h3>UK Operator "BARRY" &mdash; 79.78.160.133 (England)</h3>
